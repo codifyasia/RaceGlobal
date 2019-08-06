@@ -14,6 +14,7 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         print("rhino shit")
         // Do any additional setup after loading the view.
+        //IM GAY!!!!!!!!
     }
     
 
