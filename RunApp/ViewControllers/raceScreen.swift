@@ -16,7 +16,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     //TODO: LocationServices
     let locationManager = CLLocationManager()
     var startLocation:CLLocation!
-    var lastLocation:CLLocation
+    var lastLocation:CLLocation!
     var traveledDistance:Double = 0
     
     //TODO: Timer
