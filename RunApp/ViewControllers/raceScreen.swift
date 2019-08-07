@@ -26,6 +26,10 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     //TODO: ProgressBar
     @IBOutlet weak var progressBar1: GTProgressBar!
     @IBOutlet weak var progressBar2: GTProgressBar!
+    //TODO: Labels
+    var spd: Float = 0.0
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var speedLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -38,10 +42,9 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         progressBar2.isHidden = true
         //TODO: Location Services
         locationManager.delegate = self
-        if NSString(string:UIDevice.current.systemVersion).doubleValue > 8 {
-            locationManager.requestAlwaysAuthorization()
-        }
+        locationManager.requestAlwaysAuthorization()
         locationManager.desiredAccuracy=kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
     }
     //TODO: Timer
     @objc func timerCounter() {
@@ -58,18 +61,24 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         if (location.horizontalAccuracy > 0) {
             var speed: CLLocationSpeed = CLLocationSpeed()
             speed = locationManager.location!.speed
-        }
-        if startLocation == nil {
-            startLocation = locations.first
-        } else {
-            let lastLocation = locations.last as! CLLocation
-            if (startLocation.distance(from: lastLocation) > 4) {
-                updateAllProgress()
-                let distance = startLocation.distance(from: lastLocation)
-                startLocation = lastLocation
-                traveledDistance += distance
+            spd = Float(speed)
+            if startLocation == nil {
+                startLocation = locations.first
+            } else {
+                let lastLocation = locations.last as! CLLocation
+                if (startLocation.distance(from: lastLocation) > 4) {
+                    updateAllProgress()
+                    let distance = startLocation.distance(from: lastLocation)
+                    startLocation = lastLocation
+                    traveledDistance += distance
+                }
             }
-            //progressBar.progress = CGFloat(traveledDistance / desiredDist).jkml;kweal;kfaw;lfkaw;a;skdf;lsadkfla;skfldskfl;dskfl;sdkf
         }
+    }
+    //TODO: Labels
+    func updateAllProgress() {
+        progressBar1.progress = CGFloat(traveledDistance / 100)
+        speedLabel.text = String(spd)
+        distanceLabel.text = String(traveledDistance)
     }
 }
