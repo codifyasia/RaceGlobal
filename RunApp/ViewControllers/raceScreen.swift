@@ -20,7 +20,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     var traveledDistance:Double = 0
     
     //TODO: Timer
-    var seconds:Int = 30
+    var seconds:Int = 5
     var timer = Timer()
     @IBOutlet weak var timerLabel: UILabel!
     //TODO: ProgressBar
