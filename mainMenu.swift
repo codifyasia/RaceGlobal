@@ -1,20 +1,14 @@
 //
-//  LoginViewController.swift
-//  RunApp
+//  mainMenu.swift
+//  
 //
-//  Created by Michael Peng on 8/6/19.
-//  Copyright © 2019 Michael Peng. All rights reserved.
+//  Created by Ricky Wang on 8/7/19.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
-//well shit.
-    
-    
-    
-    
-//well fuck.
+class mainMenu: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
