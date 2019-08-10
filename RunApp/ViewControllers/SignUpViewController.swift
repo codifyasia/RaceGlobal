@@ -7,16 +7,27 @@
 //
 
 import UIKit
+import Firebase
+import TextFieldEffects
 
 class SignUpViewController: UIViewController {
 
+    @IBOutlet weak var emailField: AkiraTextField!
+    @IBOutlet weak var passwordField: AkiraTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("rhino shit")
         // Do any additional setup after loading the view.
     }
-    
-
+    @IBAction func registerPressed(_ sender: Any) {
+        Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
+            if (error == nil) {
+                self.performSegue(withIdentifier: "goToMainMenu", sender: self)
+                print("registrationerror")
+            } else {
+                print("registrationsuccess")
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 
@@ -26,5 +37,4 @@ class SignUpViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
