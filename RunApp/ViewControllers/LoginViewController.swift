@@ -7,17 +7,30 @@
 //
 
 import UIKit
+import TextFieldEffects
+import Firebase
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var emailTextField: AkiraTextField!
+    @IBOutlet weak var passwordTextField: AkiraTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("hi")
-        // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func loginPressed(_ sender: Any) {
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+            if (error == nil) {
+                self.performSegue(withIdentifier: "loginToMain", sender: self)
+                print("Login successful")
+            } else {
+                print("error with logging in: ", error!)
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

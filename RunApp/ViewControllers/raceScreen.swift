@@ -51,6 +51,9 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         seconds = seconds - 1
         if (seconds == 0) {
             timer.invalidate()
+            timerLabel.isHidden = true
+            progressBar1.isHidden = false
+            progressBar2.isHidden = false
             //do other stuff
         }
         timerLabel.text = String(seconds)
