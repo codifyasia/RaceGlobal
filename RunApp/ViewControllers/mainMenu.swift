@@ -15,11 +15,20 @@ class mainMenu: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    
+    //in progress, dont edit
     @IBAction func getInQ(_ sender: Any) {
-        var queuedReference = Database.database().reference().child("queuedPlayers")
-        let queuedPlayer = ["playerEmail" : Auth.auth().currentUser?.email]
-        queuedReference.childByAutoId().setValue(queuedPlayer)
+        let lobbyReference = Database.database().reference().child("Lobbies")
+        lobbyReference.child("Lobby").observeSingleEvent(of: .value) { snapshot in
+            for snap in snapshot.children.allObjects as! [DataSnapshot] {
+                guard let lobby = snap.value as? NSDictionary else {
+                    print("No Data!!!")
+                    return
+                }
+                if (lobby["numPlayers"] as! Int == 1) {
+                    
+                }
+            }
+        }
     }
     /*
     // MARK: - Navigation
