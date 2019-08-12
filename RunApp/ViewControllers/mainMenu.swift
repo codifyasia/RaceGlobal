@@ -30,6 +30,9 @@ class mainMenu: UIViewController {
             }
         }
     }
+    @IBAction func signOutButton(_ sender: Any) {
+        performSegue(withIdentifier: "goBackToSignUp", sender: self)
+    }
     /*
     // MARK: - Navigation
 

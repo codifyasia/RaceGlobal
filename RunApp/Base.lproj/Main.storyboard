@@ -85,7 +85,6 @@
         <!--Login View Controller-->
         <scene sceneID="yJq-ta-FLb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SQf-dA-FEP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Vda-ce-Hw4" customClass="LoginViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BqN-8T-ona">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -123,6 +122,7 @@
                         <segue destination="gF5-aO-G6X" kind="show" identifier="loginToMain" id="yaX-Od-R7J"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SQf-dA-FEP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="311" y="-582"/>
         </scene>
@@ -135,21 +135,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trg-io-bZE">
-                                <rect key="frame" x="153" y="81" width="68" height="30"/>
+                                <rect key="frame" x="137" y="81" width="101" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Get into q"/>
+                                <state key="normal" title="Get into queue"/>
                                 <connections>
                                     <action selector="getInQ:" destination="9TJ-4A-s6H" eventType="touchUpInside" id="hcC-yL-96P"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dS-D8-uYx">
+                                <rect key="frame" x="157" y="502" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign Out"/>
+                                <connections>
+                                    <action selector="signOutButton:" destination="9TJ-4A-s6H" eventType="touchUpInside" id="pTX-JW-fKs"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xjI-gW-Ztv"/>
                     </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goBackToSignUp" id="GJM-oE-zbi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQc-2c-sef" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1137" y="-523"/>
+            <point key="canvasLocation" x="1580" y="-674"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -209,6 +220,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yaX-Od-R7J"/>
+        <segue reference="orA-Gy-gi2"/>
     </inferredMetricsTieBreakers>
 </document>
