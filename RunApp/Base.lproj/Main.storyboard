@@ -57,14 +57,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1W-1Q-JHa">
-                                <rect key="frame" x="140" y="533" width="105" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Gotomainmenu"/>
-                                <connections>
-                                    <segue destination="JkO-2w-oGt" kind="show" id="BCQ-pX-oA3"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="683-Bd-ho7"/>
@@ -80,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nua-f9-Zqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="972" y="191.1544227886057"/>
+            <point key="canvasLocation" x="1572" y="435"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="yJq-ta-FLb">
@@ -119,7 +111,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="ACz-HZ-WDC" id="CTh-QJ-fxX"/>
                         <outlet property="passwordTextField" destination="czt-hF-S8D" id="Gza-if-dPr"/>
-                        <segue destination="gF5-aO-G6X" kind="show" identifier="loginToMain" id="yaX-Od-R7J"/>
+                        <segue destination="JkO-2w-oGt" kind="show" identifier="loginToMain" id="E6W-93-XSO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQf-dA-FEP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -189,6 +181,9 @@
                                 <rect key="frame" x="155" y="318" width="64" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="rhino shit"/>
+                                <connections>
+                                    <segue destination="gF5-aO-G6X" kind="show" id="czJ-Qa-P30"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -400,7 +395,7 @@
                     <connections>
                         <outlet property="emailField" destination="oYf-P6-Awo" id="hDa-IR-uCk"/>
                         <outlet property="passwordField" destination="xy1-pp-OlU" id="utu-Ix-Cpv"/>
-                        <segue destination="gF5-aO-G6X" kind="show" identifier="goToMainMenu" id="orA-Gy-gi2"/>
+                        <segue destination="JkO-2w-oGt" kind="show" identifier="goToMainMenu" id="YKZ-7s-hvI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -415,6 +410,6 @@
         <image name="shopping-cart (1)" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="orA-Gy-gi2"/>
+        <segue reference="YKZ-7s-hvI"/>
     </inferredMetricsTieBreakers>
 </document>
