@@ -121,7 +121,6 @@
         <!--Reveal View Controller-->
         <scene sceneID="BL8-aY-ybo">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1VK-WN-AxW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="JkO-2w-oGt" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P04-B7-Gcb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -134,6 +133,7 @@
                         <segue destination="hXi-Hc-jtp" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="8ga-wE-u1O"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1VK-WN-AxW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1863" y="-534"/>
         </scene>
