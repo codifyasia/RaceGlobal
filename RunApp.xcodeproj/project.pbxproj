@@ -15,6 +15,11 @@
 		890F3A9822F8DD4200D14044 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 890F3A9722F8DD4200D14044 /* Assets.xcassets */; };
 		890F3A9B22F8DD4200D14044 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 890F3A9922F8DD4200D14044 /* LaunchScreen.storyboard */; };
 		890F3AA522F8E2D800D14044 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 890F3AA422F8E2D800D14044 /* GoogleService-Info.plist */; };
+		9C23712323021BAE00A5662B /* sideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C23712223021BAE00A5662B /* sideBarViewController.swift */; };
+		9C23712623021EB800A5662B /* customCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C23712423021EB800A5662B /* customCell.swift */; };
+		9C23712723021EB800A5662B /* customCellxib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C23712523021EB800A5662B /* customCellxib.xib */; };
+		9C23712B23022B5000A5662B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C23712923022B5000A5662B /* SWRevealViewController.m */; };
+		9C23712E230230AE00A5662B /* SideBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C23712D230230AE00A5662B /* SideBarVC.swift */; };
 		9C327DC622FF40EC00D04ACA /* mainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C327DC522FF40EC00D04ACA /* mainMenu.swift */; };
 		9C90E68422F8E6FF00376DDA /* raceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C90E68322F8E6FF00376DDA /* raceScreen.swift */; };
 		CC7FC6A63A98319046DC8F48 /* Pods_RunApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B305F65C8608FFE7E168E376 /* Pods_RunApp.framework */; };
@@ -32,6 +37,13 @@
 		890F3A9A22F8DD4200D14044 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		890F3A9C22F8DD4200D14044 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		890F3AA422F8E2D800D14044 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9C23712223021BAE00A5662B /* sideBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sideBarViewController.swift; sourceTree = "<group>"; };
+		9C23712423021EB800A5662B /* customCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customCell.swift; sourceTree = "<group>"; };
+		9C23712523021EB800A5662B /* customCellxib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = customCellxib.xib; sourceTree = "<group>"; };
+		9C23712823022B4F00A5662B /* RunApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RunApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		9C23712923022B5000A5662B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		9C23712A23022B5000A5662B /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		9C23712D230230AE00A5662B /* SideBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarVC.swift; sourceTree = "<group>"; };
 		9C327DC522FF40EC00D04ACA /* mainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainMenu.swift; sourceTree = "<group>"; };
 		9C90E68322F8E6FF00376DDA /* raceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = raceScreen.swift; sourceTree = "<group>"; };
 		B305F65C8608FFE7E168E376 /* Pods_RunApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,24 +91,39 @@
 		890F3A8F22F8DD4100D14044 /* RunApp */ = {
 			isa = PBXGroup;
 			children = (
+				9C23712123021A7100A5662B /* sideMenuCell */,
 				9C90E68522F8E71800376DDA /* ViewControllers */,
 				890F3A9022F8DD4100D14044 /* AppDelegate.swift */,
 				890F3A9222F8DD4100D14044 /* ViewController.swift */,
 				890F3A9422F8DD4100D14044 /* Main.storyboard */,
 				890F3A9722F8DD4200D14044 /* Assets.xcassets */,
 				890F3A9922F8DD4200D14044 /* LaunchScreen.storyboard */,
+				9C23712923022B5000A5662B /* SWRevealViewController.m */,
+				9C23712A23022B5000A5662B /* SWRevealViewController.h */,
+				9C23712823022B4F00A5662B /* RunApp-Bridging-Header.h */,
 				890F3A9C22F8DD4200D14044 /* Info.plist */,
 				890F3AA422F8E2D800D14044 /* GoogleService-Info.plist */,
 			);
 			path = RunApp;
 			sourceTree = "<group>";
 		};
+		9C23712123021A7100A5662B /* sideMenuCell */ = {
+			isa = PBXGroup;
+			children = (
+				9C23712423021EB800A5662B /* customCell.swift */,
+				9C23712523021EB800A5662B /* customCellxib.xib */,
+			);
+			path = sideMenuCell;
+			sourceTree = "<group>";
+		};
 		9C90E68522F8E71800376DDA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9C23712223021BAE00A5662B /* sideBarViewController.swift */,
 				8904203022FA359F0044EEBD /* LoginViewController.swift */,
 				8904202E22FA33F50044EEBD /* SignUpViewController.swift */,
 				9C90E68322F8E6FF00376DDA /* raceScreen.swift */,
+				9C23712D230230AE00A5662B /* SideBarVC.swift */,
 				9C327DC522FF40EC00D04ACA /* mainMenu.swift */,
 			);
 			path = ViewControllers;
@@ -145,6 +172,7 @@
 				TargetAttributes = {
 					890F3A8C22F8DD4100D14044 = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -174,6 +202,7 @@
 				890F3A9B22F8DD4200D14044 /* LaunchScreen.storyboard in Resources */,
 				890F3AA522F8E2D800D14044 /* GoogleService-Info.plist in Resources */,
 				890F3A9822F8DD4200D14044 /* Assets.xcassets in Resources */,
+				9C23712723021EB800A5662B /* customCellxib.xib in Resources */,
 				890F3A9622F8DD4100D14044 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,7 +261,11 @@
 				8904202F22FA33F50044EEBD /* SignUpViewController.swift in Sources */,
 				9C327DC622FF40EC00D04ACA /* mainMenu.swift in Sources */,
 				8904203122FA359F0044EEBD /* LoginViewController.swift in Sources */,
+				9C23712E230230AE00A5662B /* SideBarVC.swift in Sources */,
+				9C23712B23022B5000A5662B /* SWRevealViewController.m in Sources */,
 				9C90E68422F8E6FF00376DDA /* raceScreen.swift in Sources */,
+				9C23712623021EB800A5662B /* customCell.swift in Sources */,
+				9C23712323021BAE00A5662B /* sideBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +412,7 @@
 			baseConfigurationReference = 082861AF11D40A55A7DA9473 /* Pods-RunApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HRQF7L3R8P;
 				INFOPLIST_FILE = RunApp/Info.plist;
@@ -389,6 +423,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mpeng202.RunApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RunApp/RunApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -399,6 +435,7 @@
 			baseConfigurationReference = B775B0A46C7C933075009024 /* Pods-RunApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HRQF7L3R8P;
 				INFOPLIST_FILE = RunApp/Info.plist;
@@ -409,6 +446,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mpeng202.RunApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RunApp/RunApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

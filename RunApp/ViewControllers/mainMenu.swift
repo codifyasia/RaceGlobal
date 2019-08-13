@@ -11,8 +11,12 @@ import Firebase
 
 class mainMenu: UIViewController {
 
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
+        menuButton.target = self.revealViewController()
+        menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+        
         // Do any additional setup after loading the view.
     }
     //in progress, dont edit
@@ -32,6 +36,7 @@ class mainMenu: UIViewController {
     }
     @IBAction func signOutButton(_ sender: Any) {
         performSegue(withIdentifier: "goBackToSignUp", sender: self)
+        
     }
     /*
     // MARK: - Navigation
