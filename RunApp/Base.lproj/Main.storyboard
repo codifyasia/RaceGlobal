@@ -191,7 +191,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="swr-et-RBp">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="tBd-up-OL5"/>
-                        <barButtonItem key="rightBarButtonItem" title="Sign Out" id="6OR-HP-fqa"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="G4Q-zR-iuv">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1Zf-nK-3xv">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign Out"/>
+                                <connections>
+                                    <action selector="signOutPressed:" destination="9TJ-4A-s6H" eventType="touchUpInside" id="vBX-GS-PH1"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="tBd-up-OL5" id="FbI-rB-EFq"/>

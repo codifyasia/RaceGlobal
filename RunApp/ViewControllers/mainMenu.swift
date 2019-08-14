@@ -34,9 +34,15 @@ class mainMenu: UIViewController {
             }
         }
     }
-    @IBAction func signOutButton(_ sender: Any) {
+
+    @IBAction func signOutPressed(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            print("log out success")
+        } catch {
+            print(error)
+        }
         performSegue(withIdentifier: "goBackToSignUp", sender: self)
-        
     }
     /*
     // MARK: - Navigation
