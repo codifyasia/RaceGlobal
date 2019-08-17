@@ -72,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nua-f9-Zqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1572" y="435"/>
+            <point key="canvasLocation" x="3391" y="-287"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="yJq-ta-FLb">
@@ -116,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQf-dA-FEP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="311" y="-582"/>
+            <point key="canvasLocation" x="113" y="-586"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="BL8-aY-ybo">
@@ -135,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1VK-WN-AxW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1863" y="-534"/>
+            <point key="canvasLocation" x="889" y="-586"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="94X-dc-FUx">
@@ -151,7 +151,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wq4-Fd-biK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2886" y="-159"/>
+            <point key="canvasLocation" x="1798" y="-286"/>
         </scene>
         <!--Main Menu-->
         <scene sceneID="Qdy-IB-Ptj">
@@ -182,7 +182,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="rhino shit"/>
                                 <connections>
-                                    <segue destination="gF5-aO-G6X" kind="show" id="czJ-Qa-P30"/>
+                                    <segue destination="gF5-aO-G6X" kind="presentation" id="qIg-pi-Dq5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -209,7 +209,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQc-2c-sef" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3736.8000000000002" y="-158.77061469265368"/>
+            <point key="canvasLocation" x="2604" y="-287"/>
         </scene>
         <!--Side BarVC-->
         <scene sceneID="8i0-3v-u7i">
@@ -325,7 +325,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W7y-9K-xRV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2920.8000000000002" y="-887.40629685157433"/>
+            <point key="canvasLocation" x="1799" y="-1010"/>
         </scene>
         <!--Side Bar View Controller-->
         <scene sceneID="iNf-59-fjv">
@@ -417,7 +417,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="112.8" y="175.86206896551727"/>
+            <point key="canvasLocation" x="-681" y="-586"/>
         </scene>
     </scenes>
     <resources>
