@@ -15,8 +15,12 @@ class SignUpViewController: UIViewController {
 
     @IBOutlet weak var emailField: AkiraTextField!
     @IBOutlet weak var passwordField: AkiraTextField!
+    
+    var ref: DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference()
         // Do any additional setup after loading the view.
     }
     
@@ -29,10 +33,22 @@ class SignUpViewController: UIViewController {
         SVProgressHUD.show()
         Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
             if (error == nil) {
+                self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).setValue(["Money": 0, "Lobby" : 0])
                 SVProgressHUD.dismiss()
                 self.performSegue(withIdentifier: "goToMainMenu", sender: self)
             } else {
                 SVProgressHUD.dismiss()
+                
+                let alert = UIAlertController(title: "Registration Error", message: "Please check to make sure you have met all the registration guidelines", preferredStyle: .alert)
+                
+                let OK = UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
+                    self.passwordField.text = ""
+                })
+                
+                alert.addAction(OK)
+                self.present(alert, animated: true, completion: nil)
+                
+                print("Error: \(error)")
             }
         }
     }
