@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import TextFieldEffects
+import SVProgressHUD
 
 class SignUpViewController: UIViewController {
 
@@ -18,13 +19,20 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    //TODO:Touch out
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     @IBAction func registerPressed(_ sender: Any) {
+        SVProgressHUD.show()
         Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
             if (error == nil) {
+                SVProgressHUD.dismiss()
                 self.performSegue(withIdentifier: "goToMainMenu", sender: self)
-                print("registrationerror")
             } else {
-                print("registrationsuccess")
+                SVProgressHUD.dismiss()
             }
         }
     }
