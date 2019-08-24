@@ -27,11 +27,30 @@ class mainMenu: UIViewController {
     }
     @IBAction func QueueUp(_ sender: Any) {
         ref.child("QueueLine").child(Auth.auth().currentUser!.uid).setValue(Auth.auth().currentUser!.uid)
-        self.ref.child("QueueLine").child(Auth.auth().currentUser!.uid).setValue(["Position": 1, "Lobby" : 0])
-        ref.child("QueueLine").updateChildValues(["PlayersAvailible" : 2])
-//        lobbyReference.child(nextAvailibleLobby).child(Auth.auth().currentUser!.uid) //nextAvailibleLobby is an int that you convert into a string in which you pass it into the lobbies reference.
-        //the name of the child has to only be the number so that later when you are on the players mobile device you just call the current lobby the player is in which is a integer. That way when there are like a lot of lobbies firebase doesn't have to loop through every single one and multipel games can go smoothly at once.
+        
+        
+        ref.child("QueueLine").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            guard let value = snapshot.value as? NSDictionary else {
+                print("No Data!!!")
+                return
+            }
+            let amount = value["PlayersAvailible"] as! Int
+            
+            self.ref.child("QueueLine").updateChildValues(["PlayersAvailible" : amount+1])
+            self.ref.child("QueueLine").child(Auth.auth().currentUser!.uid).setValue(["Position": amount+1, "Lobby" : 0])
+            print("gay")
+            
+            
+        }) { (error) in
+            print("error:\(error.localizedDescription)")
+        }
     }
+    
+//    func removePlayers() -> void  {
+//
+//
+//    }
     
     
     //in progress, dont edit
