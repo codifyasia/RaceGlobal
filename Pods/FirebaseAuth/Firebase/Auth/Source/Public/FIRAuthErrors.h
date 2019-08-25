@@ -335,10 +335,6 @@ typedef NS_ENUM(NSInteger, FIRAuthErrorCode) {
      */
     FIRAuthErrorCodeGameKitNotLinked = 17076,
 
-    /** Indicates an error for when the client identifier is missing.
-     */
-    FIRAuthErrorCodeMissingClientIdentifier = 17993,
-
     /** Indicates an error occurred while attempting to access the keychain.
      */
     FIRAuthErrorCodeKeychainError = 17995,

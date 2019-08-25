@@ -17,7 +17,7 @@
 #include <asl.h>
 
 #import <GoogleUtilities/GULAppEnvironmentUtil.h>
-#import <GoogleUtilities/GULLoggerLevel.h>
+#import "Public/GULLoggerLevel.h"
 
 /// ASL client facility name used by GULLogger.
 const char *kGULLoggerASLClientFacilityName = "com.google.utilities.logger";

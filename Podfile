@@ -9,10 +9,10 @@ target 'RunApp' do
     pod 'TextFieldEffects'
     pod 'Firebase'
     pod 'Firebase/Auth'
-    pod 'Firebase/Core'
     pod 'Firebase/Database'
     pod 'SVProgressHUD'
     pod 'PKRevealController'
+    pod 'lottie-ios'
 
   # Pods for RunApp
 

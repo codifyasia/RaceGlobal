@@ -332,7 +332,7 @@ static void callInMainThreadWithAuthDataResultAndError(
   FIRUserMetadata *metadata =
       [aDecoder decodeObjectOfClass:[FIRUserMetadata class] forKey:kMetadataCodingKey];
   NSString *APIKey =
-      [aDecoder decodeObjectOfClass:[NSString class] forKey:kAPIKeyCodingKey];
+      [aDecoder decodeObjectOfClass:[FIRUserMetadata class] forKey:kAPIKeyCodingKey];
   if (!userID || !tokenService) {
     return nil;
   }
