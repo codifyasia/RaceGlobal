@@ -37,6 +37,24 @@ class QueueScreenViewController: UIViewController {
     
     
     
+    //TODO: Checking Function
+    func check() {
+        ref.child("QueueLine").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            guard let value = snapshot.value as? NSDictionary else {
+                print("No Data!!!")
+                return
+            }
+            let num = value["PlayersAvailible"] as! Int
+            if num >= 4 {
+                self.ref.child("QueueLine").updateChildValues(["Deleting" : true])
+            }
+        }) { (error) in
+            print("error:\(error.localizedDescription)")
+        }
+    }
+    
+    
     
     
     
@@ -81,6 +99,7 @@ class QueueScreenViewController: UIViewController {
     //TODO:Timer Intervals
     @objc func change() {
         if dotCounter == 3 {
+            check()
             dotCounter = 0
             searchingLabel.text = "Searching for Players"
         }
