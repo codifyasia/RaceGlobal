@@ -13,8 +13,9 @@ import SVProgressHUD
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var emailTextField: AkiraTextField!
-    @IBOutlet weak var passwordTextField: AkiraTextField!
+    @IBOutlet weak var emailTextField: KaedeTextField!
+    @IBOutlet weak var passwordTextField: KaedeTextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
