@@ -18,6 +18,7 @@
 		895BBB392311F117006F06FE /* world.json in Resources */ = {isa = PBXBuildFile; fileRef = 895BBB382311F117006F06FE /* world.json */; };
 		895BBB3B2311F1B1006F06FE /* QueueScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895BBB3A2311F1B1006F06FE /* QueueScreenViewController.swift */; };
 		895BBB3D2311F7F6006F06FE /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 895BBB3C2311F7F6006F06FE /* loading.json */; };
+		9C08960A23188B6000F15BDE /* 8803-simple-countdown.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C08960923188B6000F15BDE /* 8803-simple-countdown.json */; };
 		9C23712323021BAE00A5662B /* sideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C23712223021BAE00A5662B /* sideBarViewController.swift */; };
 		9C23712623021EB800A5662B /* customCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C23712423021EB800A5662B /* customCell.swift */; };
 		9C23712723021EB800A5662B /* customCellxib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C23712523021EB800A5662B /* customCellxib.xib */; };
@@ -43,6 +44,7 @@
 		895BBB382311F117006F06FE /* world.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = world.json; sourceTree = "<group>"; };
 		895BBB3A2311F1B1006F06FE /* QueueScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueScreenViewController.swift; sourceTree = "<group>"; };
 		895BBB3C2311F7F6006F06FE /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		9C08960923188B6000F15BDE /* 8803-simple-countdown.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "8803-simple-countdown.json"; sourceTree = "<group>"; };
 		9C23712223021BAE00A5662B /* sideBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sideBarViewController.swift; sourceTree = "<group>"; };
 		9C23712423021EB800A5662B /* customCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customCell.swift; sourceTree = "<group>"; };
 		9C23712523021EB800A5662B /* customCellxib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = customCellxib.xib; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				890F3A9422F8DD4100D14044 /* Main.storyboard */,
 				895BBB382311F117006F06FE /* world.json */,
 				895BBB3C2311F7F6006F06FE /* loading.json */,
+				9C08960923188B6000F15BDE /* 8803-simple-countdown.json */,
 				890F3A9722F8DD4200D14044 /* Assets.xcassets */,
 				890F3A9922F8DD4200D14044 /* LaunchScreen.storyboard */,
 				9C23712923022B5000A5662B /* SWRevealViewController.m */,
@@ -210,6 +213,7 @@
 			files = (
 				895BBB3D2311F7F6006F06FE /* loading.json in Resources */,
 				890F3A9B22F8DD4200D14044 /* LaunchScreen.storyboard in Resources */,
+				9C08960A23188B6000F15BDE /* 8803-simple-countdown.json in Resources */,
 				890F3AA522F8E2D800D14044 /* GoogleService-Info.plist in Resources */,
 				890F3A9822F8DD4200D14044 /* Assets.xcassets in Resources */,
 				9C23712723021EB800A5662B /* customCellxib.xib in Resources */,

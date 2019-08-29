@@ -11,6 +11,7 @@ import Firebase
 import CoreLocation
 import TextFieldEffects
 import GTProgressBar
+import Lottie
 
 class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     //TODO: LocationServices
@@ -20,9 +21,9 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     var traveledDistance:Double = 0
     
     //TODO: Timer
-    var seconds:Int = 5
+    var seconds:Int = 3
     var timer = Timer()
-    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var countdownAnimation: AnimationView!
     //TODO: ProgressBar
     @IBOutlet weak var progressBar1: GTProgressBar!
     @IBOutlet weak var progressBar2: GTProgressBar!
@@ -35,8 +36,8 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         //TODO: Timer
+        startAnimation()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(raceScreen.timerCounter), userInfo: nil, repeats: true)
-        timerLabel.text = String(seconds)
         //TODO: ProgressBar
         progressBar1.isHidden = true
         progressBar2.isHidden = true
@@ -51,12 +52,10 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         seconds = seconds - 1
         if (seconds == 0) {
             timer.invalidate()
-            timerLabel.isHidden = true
             progressBar1.isHidden = false
             progressBar2.isHidden = false
             //do other stuff
         }
-        timerLabel.text = String(seconds)
     }
     //TODO: LocationServices
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -83,5 +82,9 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         progressBar1.progress = CGFloat(traveledDistance / 100)
         speedLabel.text = String(spd)
         distanceLabel.text = String(traveledDistance)
+    }
+    func startAnimation() {
+        countdownAnimation.animation = Animation.named("8803-simple-countdown")
+        countdownAnimation.play()
     }
 }
