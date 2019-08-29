@@ -16,8 +16,10 @@ class mainMenu: UIViewController {
     var ref: DatabaseReference!
     
     
+    @IBOutlet weak var queueButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        buttonAdjustments()
         self.navigationController!.navigationBar.barStyle = .black
         menuButton.target = self.revealViewController()
         menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
@@ -107,5 +109,8 @@ class mainMenu: UIViewController {
     */
     @IBAction func test(_ sender: Any) {
         removePlayers()
+    }
+    func buttonAdjustments() {
+        queueButton.layer.cornerRadius = 10
     }
 }

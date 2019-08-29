@@ -286,9 +286,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nD-eZ-glN">
-                                <rect key="frame" x="155" y="204" width="46" height="30"/>
+                                <rect key="frame" x="108" y="203" width="119" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Queue"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <state key="normal" title="Enter Queue">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="QueueUp:" destination="9TJ-4A-s6H" eventType="touchUpInside" id="tIw-5C-QJL"/>
                                     <segue destination="aVs-zb-F40" kind="presentation" customClass="SWRevealViewControllerSeguePushController" id="pd4-yf-Rod"/>
@@ -321,6 +326,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="tBd-up-OL5" id="FbI-rB-EFq"/>
+                        <outlet property="queueButton" destination="7nD-eZ-glN" id="IJo-xm-J9o"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="goBackToSignUp" animates="NO" id="Izk-bw-Qhg"/>
                     </connections>
                 </viewController>
@@ -568,7 +574,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-682.39999999999998" y="-586.05697151424295"/>
+            <point key="canvasLocation" x="-865" y="-586"/>
         </scene>
     </scenes>
     <resources>
@@ -580,6 +586,6 @@
         <image name="woman-running-stairs-6b439ca32d8843189e080b71aed4644a (1)" width="1885" height="1414"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NnZ-0Z-rXH"/>
+        <segue reference="YKZ-7s-hvI"/>
     </inferredMetricsTieBreakers>
 </document>
