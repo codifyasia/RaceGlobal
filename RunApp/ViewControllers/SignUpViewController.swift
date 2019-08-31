@@ -11,7 +11,7 @@ import Firebase
 import TextFieldEffects
 import SVProgressHUD
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailField: AkiraTextField!
     @IBOutlet weak var passwordField: AkiraTextField!
@@ -21,6 +21,8 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
+        self.emailField.delegate = self
+        self.passwordField.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -51,6 +53,10 @@ class SignUpViewController: UIViewController {
                 print("Error: \(error)")
             }
         }
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     /*
     // MARK: - Navigation
