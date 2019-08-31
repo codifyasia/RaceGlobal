@@ -45,9 +45,34 @@ class QueueScreenViewController: UIViewController {
                 print("No Data!!!")
                 return
             }
-            let num = value["PlayersAvailible"] as! Int
-            if num >= 4 {
-                self.ref.child("QueueLine").updateChildValues(["Deleting" : true])
+            let deleting =  value["Deleting"] as! Bool
+            let numPlayers = value["PlayersAvailible"] as! Int
+            if (!deleting) {
+                if numPlayers >= 4 {
+                    self.ref.child("QueueLine").updateChildValues(["Deleting" : true])
+                    self.ref.child("QueueLine").updateChildValues(["Index" : 1])
+                }
+            }
+            else {
+                let index = value["Index"] as! Int
+                self.ref.child("QueueLine").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snap) in
+                    // Get user value
+                    guard let dict = snap.value as? NSDictionary else {
+                        print("No Data!!!")
+                        return
+                    }
+                    let position = dict["Position"] as! Int
+                    if (position == index && index == 4) {
+                        self.ref.child("QueueLine").child(Auth.auth().currentUser!.uid).removeValue()
+                        self.ref.child("QueueLine").updateChildValues(["Deleting" : false])
+                        self.removePlayers(num : numPlayers)
+                    }
+                    else if (position == index) {
+                        self.ref.child("QueueLine").child(Auth.auth().currentUser!.uid).removeValue()
+                    }
+                }) { (error) in
+                    print("error:\(error.localizedDescription)")
+                }
             }
         }) { (error) in
             print("error:\(error.localizedDescription)")
@@ -59,25 +84,21 @@ class QueueScreenViewController: UIViewController {
     
     
     //TODO: If more than 4 players are ready
-    func removePlayers() {
-        ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            guard let value = snapshot.value as? NSDictionary else {
-                print("No Data!!!")
-                return
-            }
-            let currPosition = value["Position"] as! Int
-            
-            if currPosition <= 4 {
-                //move into lobby
-                self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
-                self.ref.child("QueueLine").updateChildValues(["PlayersAvailible" : 0])
-            }
-            else {        self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues(["Position" : currPosition-4])
+    func removePlayers(num : Int) -> Void {
+        ref.child("QueueLine").child("Players").observeSingleEvent(of: .value) { snapshot in
+            print(snapshot.childrenCount)
+            for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                guard let value = rest.value as? NSDictionary else {
+                    print("No Data!!!")
+                    return
+                }
+                
+                let lobbyNum = value["Lobby"] as! Int
+                let isReady = value["Ready"] as! Bool
+                
             }
             
-        }) { (error) in
-            print("error:\(error.localizedDescription)")
+            
         }
     }
     
