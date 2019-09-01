@@ -53,6 +53,7 @@ class mainMenu: UIViewController {
     //Removing Thing
     func removePlayers() {
         self.ref.child("QueueLine").updateChildValues(["PlayersAvailible" : 0])
+        self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
     }
     
     
@@ -91,6 +92,7 @@ class mainMenu: UIViewController {
     }
     */
     @IBAction func test(_ sender: Any) {
+        self.ref.child("QueueLine").updateChildValues(["Deleting" : false])
         removePlayers()
     }
     func buttonAdjustments() {

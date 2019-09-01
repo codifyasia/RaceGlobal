@@ -51,11 +51,12 @@ class QueueScreenViewController: UIViewController {
                 if numPlayers >= 4 {
                     self.ref.child("QueueLine").updateChildValues(["Deleting" : true])
                     self.ref.child("QueueLine").updateChildValues(["Index" : 1])
+                    print("Im homo")
                 }
             }
             else {
                 let index = value["Index"] as! Int
-                self.ref.child("QueueLine").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snap) in
+                self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snap) in
                     // Get user value
                     guard let dict = snap.value as? NSDictionary else {
                         print("No Dataaa!!!")
@@ -63,12 +64,13 @@ class QueueScreenViewController: UIViewController {
                     }
                     let position = dict["Position"] as! Int
                     if (position == index && index == 4) {
-                        self.ref.child("QueueLine").child(Auth.auth().currentUser!.uid).removeValue()
+                        self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
                         self.ref.child("QueueLine").updateChildValues(["Deleting" : false])
                         self.removePlayers(num : numPlayers)
                     }
                     else if (position == index) {
-                        self.ref.child("QueueLine").child(Auth.auth().currentUser!.uid).removeValue()
+                        self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
+                        self.ref.child("QueueLine").updateChildValues(["Index" : index+1])
                     }
                 }) { (error) in
                     print("error:\(error.localizedDescription)")
@@ -95,9 +97,9 @@ class QueueScreenViewController: UIViewController {
                 let uid = value["id"] as! String
                 let position = value["Position"] as! Int
                 self.ref.child("QueueLine").child("Players").child(uid).updateChildValues(["Position" : position-4])
-                self.ref.child("QueueLine").updateChildValues(["PlayersAvailible" : num-4])
             }
         }
+        ref.child("QueueLine").updateChildValues(["PlayersAvailible" : num-4])
     }
     
     
