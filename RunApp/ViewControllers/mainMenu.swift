@@ -37,9 +37,10 @@ class mainMenu: UIViewController {
                 return
             }
             let amount = value["PlayersAvailible"] as! Int
+            print(amount)
             
             self.ref.child("QueueLine").updateChildValues(["PlayersAvailible" : amount+1])
-            self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).setValue(["Position": amount+1, "Lobby" : 0])
+            self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).setValue(["Position": amount+1, "Lobby" : 0, "id" : Auth.auth().currentUser!.uid])
             print("gay")
             
             
@@ -51,25 +52,7 @@ class mainMenu: UIViewController {
     
     //Removing Thing
     func removePlayers() {
-        ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            guard let value = snapshot.value as? NSDictionary else {
-                print("No Data!!!")
-                return
-            }
-            let currPosition = value["Position"] as! Int
-            
-            if currPosition <= 4 {
-                //move into lobby
-                self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
-                self.ref.child("QueueLine").updateChildValues(["PlayersAvailible" : 0])
-            }
-            else {        self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues(["Position" : currPosition-4])
-            }
-            
-        }) { (error) in
-            print("error:\(error.localizedDescription)")
-        }
+        self.ref.child("QueueLine").updateChildValues(["PlayersAvailible" : 0])
     }
     
     

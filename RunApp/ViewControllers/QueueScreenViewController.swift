@@ -42,7 +42,7 @@ class QueueScreenViewController: UIViewController {
         ref.child("QueueLine").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             guard let value = snapshot.value as? NSDictionary else {
-                print("No Data!!!")
+                print("No Data!!!!!!")
                 return
             }
             let deleting =  value["Deleting"] as! Bool
@@ -58,7 +58,7 @@ class QueueScreenViewController: UIViewController {
                 self.ref.child("QueueLine").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snap) in
                     // Get user value
                     guard let dict = snap.value as? NSDictionary else {
-                        print("No Data!!!")
+                        print("No Dataaa!!!")
                         return
                     }
                     let position = dict["Position"] as! Int
@@ -92,13 +92,11 @@ class QueueScreenViewController: UIViewController {
                     print("No Data!!!")
                     return
                 }
-                
-                let lobbyNum = value["Lobby"] as! Int
-                let isReady = value["Ready"] as! Bool
-                
+                let uid = value["id"] as! String
+                let position = value["Position"] as! Int
+                self.ref.child("QueueLine").child("Players").child(uid).updateChildValues(["Position" : position-4])
+                self.ref.child("QueueLine").updateChildValues(["PlayersAvailible" : num-4])
             }
-            
-            
         }
     }
     
