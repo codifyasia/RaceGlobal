@@ -8,7 +8,6 @@
 
 import UIKit
 
-//gang shitfwejfw[epifwefipjefp
 class SideBarVC: UITableViewController {
 
     override func viewDidLoad() {

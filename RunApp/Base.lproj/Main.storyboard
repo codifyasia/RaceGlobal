@@ -37,6 +37,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
+                                            <action selector="cancelPressed:" destination="aVs-zb-F40" eventType="touchUpInside" id="X96-4S-vPZ"/>
                                             <segue destination="JkO-2w-oGt" kind="presentation" id="NnZ-0Z-rXH"/>
                                         </connections>
                                     </button>

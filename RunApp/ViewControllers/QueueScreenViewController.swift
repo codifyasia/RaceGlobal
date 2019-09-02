@@ -102,6 +102,21 @@ class QueueScreenViewController: UIViewController {
         ref.child("QueueLine").updateChildValues(["PlayersAvailible" : num-4])
     }
     
+    @IBAction func cancelPressed(_ sender: Any) {
+        self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
+        ref.child("QueueLine").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            guard let value = snapshot.value as? NSDictionary else {
+                print("No Data!!!!!!")
+                return
+            }
+            let numPlayers = value["PlayersAvailible"] as! Int
+            self.ref.child("QueueLine").updateChildValues(["PlayersAvailible" : numPlayers - 1])
+            
+        }) { (error) in
+            print("error:\(error.localizedDescription)")
+        }
+    }
     
     
     
