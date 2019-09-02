@@ -37,6 +37,7 @@ class QueueScreenViewController: UIViewController {
     
     
     
+    
     //TODO: Checking Function
     func check() {
         ref.child("QueueLine").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -102,9 +103,53 @@ class QueueScreenViewController: UIViewController {
         ref.child("QueueLine").updateChildValues(["PlayersAvailible" : num-4])
     }
     
+    @IBAction func cancelPressed(_ sender: Any) {
+        ref.child("QueueLine").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            guard let value = snapshot.value as? NSDictionary else {
+                print("No Data!!!!!!")
+                return
+            }
+            let numPlayers = value["PlayersAvailible"] as! Int
+            self.ref.child("QueueLine").updateChildValues(["PlayersAvailible" : numPlayers - 1])
+            
+            self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot1) in
+                guard let value1 = snapshot1.value as? NSDictionary else {
+                    print("No Datttta!!!!!!")
+                    return
+                }
+                self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
+                let position = value1["Position"] as! Int
+                
+                self.fixLine(pos: position)
+                
+            })
+            
+        }) { (error) in
+            print("error:\(error.localizedDescription)")
+        }
+        
+        
+    }
     
     
-    
+    func fixLine(pos : Int) {
+        ref.child("QueueLine").child("Players").observeSingleEvent(of: .value) { snapshot in
+            print(snapshot.childrenCount)
+            for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                guard let value = rest.value as? NSDictionary else {
+                    print("No Data!!!")
+                    return
+                }
+                let uid = value["id"] as! String
+                let position = value["Position"] as! Int
+                print("\(pos) \(position)")
+                if position > pos {
+                    self.ref.child("QueueLine").child("Players").child(uid).updateChildValues(["Position" : position-1])
+                }
+            }
+        }
+    }
     
     
     
