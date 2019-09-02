@@ -10,6 +10,7 @@ import UIKit
 import TextFieldEffects
 import Firebase
 import SVProgressHUD
+import Lottie
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
