@@ -50,11 +50,12 @@
                     <connections>
                         <outlet property="animationView" destination="ElE-5b-foT" id="zKR-cC-9ja"/>
                         <outlet property="searchingLabel" destination="0Or-RB-lJv" id="bD7-fo-ege"/>
+                        <segue destination="gF5-aO-G6X" kind="presentation" identifier="toRaceScreen" id="Jo3-pn-RC8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVB-oe-gKX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2677.5999999999999" y="-1011.544227886057"/>
+            <point key="canvasLocation" x="2623" y="-1011"/>
         </scene>
         <!--Race Screen-->
         <scene sceneID="pfM-cc-t1k">
@@ -665,6 +666,8 @@
         <image name="woman-running-stairs-6b439ca32d8843189e080b71aed4644a (1)" width="1885" height="1414"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="E6W-93-XSO"/>
+        <segue reference="urr-cf-OH1"/>
+        <segue reference="NnZ-0Z-rXH"/>
+        <segue reference="Jo3-pn-RC8"/>
     </inferredMetricsTieBreakers>
 </document>

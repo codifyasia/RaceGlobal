@@ -29,7 +29,7 @@ class QueueScreenViewController: UIViewController {
         searchingLabel.text = "Searching for Players"
         super.viewDidLoad()
         startAnimation()
-        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(QueueScreenViewController.change), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(QueueScreenViewController.change), userInfo: nil, repeats: true)
 
         // Do any additional setup after loading the view.
     }
@@ -48,6 +48,14 @@ class QueueScreenViewController: UIViewController {
             }
             let deleting =  value["Deleting"] as! Bool
             let numPlayers = value["PlayersAvailible"] as! Int
+            let numSegued = value["numSegued"] as! Int
+            if (numSegued != 0) {
+                self.ref.child("QueueLine").updateChildValues(["numSegued" : numSegued + 1])
+                self.performSegue(withIdentifier: "toRaceScreen", sender: self)
+                if (numSegued == 4) {
+                    self.ref.child("QueueLine").updateChildValues(["numSegued" : 0])
+                }
+            }
             if (!deleting) {
                 if numPlayers >= 4 {
                     self.ref.child("QueueLine").updateChildValues(["Deleting" : true])
@@ -68,6 +76,8 @@ class QueueScreenViewController: UIViewController {
                         self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
                         self.ref.child("QueueLine").updateChildValues(["Deleting" : false])
                         self.removePlayers(num : numPlayers)
+                        self.ref.child("QueueLine").updateChildValues(["numSegued" : 1])
+                        self.performSegue(withIdentifier: "toRaceScreen", sender: self)
                     }
                     else if (position == index) {
                         self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
