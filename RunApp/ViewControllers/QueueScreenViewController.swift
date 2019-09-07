@@ -49,11 +49,14 @@ class QueueScreenViewController: UIViewController {
             let deleting =  value["Deleting"] as! Bool
             let numPlayers = value["PlayersAvailible"] as! Int
             let numSegued = value["numSegued"] as! Int
+            let lowestLobby = value["lowestLobby"] as! Int
             if (numSegued != 0) {
                 self.ref.child("QueueLine").updateChildValues(["numSegued" : numSegued + 1])
+                self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid])
                 self.performSegue(withIdentifier: "toRaceScreen", sender: self)
                 if (numSegued == 4) {
                     self.ref.child("QueueLine").updateChildValues(["numSegued" : 0])
+                    self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby+1])
                 }
             }
             if (!deleting) {
@@ -77,6 +80,8 @@ class QueueScreenViewController: UIViewController {
                         self.ref.child("QueueLine").updateChildValues(["Deleting" : false])
                         self.removePlayers(num : numPlayers)
                         self.ref.child("QueueLine").updateChildValues(["numSegued" : 1])
+                        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid])
+                        self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby])
                         self.performSegue(withIdentifier: "toRaceScreen", sender: self)
                     }
                     else if (position == index) {

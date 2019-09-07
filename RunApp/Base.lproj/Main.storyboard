@@ -666,7 +666,6 @@
         <image name="woman-running-stairs-6b439ca32d8843189e080b71aed4644a (1)" width="1885" height="1414"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="urr-cf-OH1"/>
         <segue reference="NnZ-0Z-rXH"/>
         <segue reference="Jo3-pn-RC8"/>
     </inferredMetricsTieBreakers>

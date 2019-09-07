@@ -31,10 +31,13 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     var spd: Float = 0.0
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
+    var ref: DatabaseReference!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Set everything up and start everything
+        ref = Database.database().reference()
         //TODO: Timer
         startAnimation()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(raceScreen.timerCounter), userInfo: nil, repeats: true)
