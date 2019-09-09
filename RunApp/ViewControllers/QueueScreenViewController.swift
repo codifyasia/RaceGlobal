@@ -50,11 +50,12 @@ class QueueScreenViewController: UIViewController {
             let numPlayers = value["PlayersAvailible"] as! Int
             let numSegued = value["numSegued"] as! Int
             let lowestLobby = value["lowestLobby"] as! Int
+            let index = value["Index"] as! Int
             if (numSegued != 0) {
                 self.ref.child("QueueLine").updateChildValues(["numSegued" : numSegued + 1])
-                self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid])
+                self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : index])
                 self.performSegue(withIdentifier: "toRaceScreen", sender: self)
-                if (numSegued == 4) {
+                if (numSegued == 3) {
                     self.ref.child("QueueLine").updateChildValues(["numSegued" : 0])
                     self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby+1])
                 }
@@ -67,7 +68,6 @@ class QueueScreenViewController: UIViewController {
                 }
             }
             else {
-                let index = value["Index"] as! Int
                 self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snap) in
                     // Get user value
                     guard let dict = snap.value as? NSDictionary else {
@@ -80,7 +80,7 @@ class QueueScreenViewController: UIViewController {
                         self.ref.child("QueueLine").updateChildValues(["Deleting" : false])
                         self.removePlayers(num : numPlayers)
                         self.ref.child("QueueLine").updateChildValues(["numSegued" : 1])
-                        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid])
+                        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : index])
                         self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby])
                         self.performSegue(withIdentifier: "toRaceScreen", sender: self)
                     }

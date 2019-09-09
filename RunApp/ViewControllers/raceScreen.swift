@@ -27,6 +27,8 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     //TODO: ProgressBar
     @IBOutlet weak var progressBar1: GTProgressBar!
     @IBOutlet weak var progressBar2: GTProgressBar!
+    @IBOutlet weak var progressBar3: GTProgressBar!
+    @IBOutlet weak var progressBar4: GTProgressBar!
     //TODO: Labels
     var spd: Float = 0.0
     @IBOutlet weak var distanceLabel: UILabel!
@@ -72,7 +74,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
             } else {
                 let lastLocation = locations.last as! CLLocation
                 if (startLocation.distance(from: lastLocation) > 4) {
-                    updateAllProgress()
+                    updateAllProgress(travelledDist: Int(traveledDistance))
                     let distance = startLocation.distance(from: lastLocation)
                     startLocation = lastLocation
                     traveledDistance += distance
@@ -81,13 +83,30 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         }
     }
     //TODO: Labels
-    func updateAllProgress() {
+    func updateAllProgress(travelledDist: Int) {
         progressBar1.progress = CGFloat(traveledDistance / 100)
         speedLabel.text = String(spd)
         distanceLabel.text = String(traveledDistance)
+        updateRivalProgressBars(travelledD: travelledDist)
     }
     func startAnimation() {
         countdownAnimation.animation = Animation.named("8803-simple-countdown")
         countdownAnimation.play()
+    }
+    
+    // basically right now the firebase RacingPlayers section has "id" "Distance" "Lobby" "PlayerIndex". PlayerIndex is to figure out which progress bar to update. Lobby is for checking if the player's lobby is the same one as the player who's currently signed in.
+    func updateRivalProgressBars(travelledD : Int) {
+        ref.child("racingPlayers").observeSingleEvent(of: .value) { snapshot in
+            print(snapshot.childrenCount)
+            for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                guard let value = rest.value as? NSDictionary else {
+                    print("No Data!!!")
+                    return
+                }
+                let lobbyNum = value["lobby"] as! Int
+                let uid = value["id"] as! String
+                let index = value[""] as! Int
+            }
+        }
     }
 }
