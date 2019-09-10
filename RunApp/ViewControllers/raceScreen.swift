@@ -14,6 +14,7 @@ import GTProgressBar
 import Lottie
 
 class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
+    
     //TODO: LocationServices
     let locationManager = CLLocationManager()
     var startLocation:CLLocation!
@@ -33,7 +34,10 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     var spd: Float = 0.0
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
+    var playerIndex : Int = 0
+    var playerLobby : Int = 0
     var ref: DatabaseReference!
+    
     
     
     override func viewDidLoad() {
@@ -42,6 +46,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         ref = Database.database().reference()
         //TODO: Timer
         startAnimation()
+        retrieveData()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(raceScreen.timerCounter), userInfo: nil, repeats: true)
         //TODO: ProgressBar
         progressBar1.isHidden = true
@@ -96,7 +101,8 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     
     // basically right now the firebase RacingPlayers section has "id" "Distance" "Lobby" "PlayerIndex". PlayerIndex is to figure out which progress bar to update. Lobby is for checking if the player's lobby is the same one as the player who's currently signed in.
     func updateRivalProgressBars(travelledD : Int) {
-        ref.child("racingPlayers").observeSingleEvent(of: .value) { snapshot in
+        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "Distance" : travelledD])
+        ref.child("RacingPlayers").observeSingleEvent(of: .value) { snapshot in
             print(snapshot.childrenCount)
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
                 guard let value = rest.value as? NSDictionary else {
@@ -106,7 +112,20 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                 let lobbyNum = value["lobby"] as! Int
                 let uid = value["id"] as! String
                 let index = value[""] as! Int
+                let distanceRan = value["Distance"] as! Int
             }
+        }
+    }
+    
+    func retrieveData() {
+        ref.child("RacingPlayers").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { snapshot in
+            print(snapshot.childrenCount)
+            guard let value = snapshot.value as? NSDictionary else {
+                print("No Data!!!!!!")
+                return
+            }
+            playerIndex = value["PlayerIndex"] as! Int
+            playerLobby = value["Lobby"] as! Int
         }
     }
 }
