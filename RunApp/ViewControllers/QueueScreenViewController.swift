@@ -64,7 +64,6 @@ class QueueScreenViewController: UIViewController {
                 if numPlayers >= 4 {
                     self.ref.child("QueueLine").updateChildValues(["Deleting" : true])
                     self.ref.child("QueueLine").updateChildValues(["Index" : 1])
-                    print("Im homo")
                 }
             }
             else {
@@ -87,6 +86,7 @@ class QueueScreenViewController: UIViewController {
                     else if (position == index) {
                         self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
                         self.ref.child("QueueLine").updateChildValues(["Index" : index+1])
+                        self.performSegue(withIdentifier: "toRaceScreen", sender: self)
                     }
                 }) { (error) in
                     print("error:\(error.localizedDescription)")

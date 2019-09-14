@@ -109,7 +109,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                     print("No Data!!!")
                     return
                 }
-                let lobbyNum = value["lobby"] as! Int
+                let lobbyNum = value["Lobby"] as! Int
                 let uid = value["id"] as! String
                 let index = value[""] as! Int
                 let distanceRan = value["Distance"] as! Int
