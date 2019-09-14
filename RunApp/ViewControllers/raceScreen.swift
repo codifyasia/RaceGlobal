@@ -111,7 +111,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                 }
                 let lobbyNum = value["Lobby"] as! Int
                 let uid = value["id"] as! String
-                let index = value[""] as! Int
+                let index = value["PlayerIndex"] as! Int
                 let distanceRan = value["Distance"] as! Int
             }
         }

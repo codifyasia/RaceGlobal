@@ -53,7 +53,7 @@ class QueueScreenViewController: UIViewController {
             let index = value["Index"] as! Int
             if (numSegued != 0) {
                 self.ref.child("QueueLine").updateChildValues(["numSegued" : numSegued + 1])
-                self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : index])
+                self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : numSegued])
                 self.performSegue(withIdentifier: "toRaceScreen", sender: self)
                 if (numSegued == 3) {
                     self.ref.child("QueueLine").updateChildValues(["numSegued" : 0])
@@ -86,6 +86,9 @@ class QueueScreenViewController: UIViewController {
                     else if (position == index) {
                         self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
                         self.ref.child("QueueLine").updateChildValues(["Index" : index+1])
+                        self.ref.child("QueueLine").updateChildValues(["numSegued" : 1])
+                        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : index])
+                        self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby])
                         self.performSegue(withIdentifier: "toRaceScreen", sender: self)
                     }
                 }) { (error) in
