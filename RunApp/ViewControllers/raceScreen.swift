@@ -124,8 +124,8 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                 print("No Data!!!!!!")
                 return
             }
-            playerIndex = value["PlayerIndex"] as! Int
-            playerLobby = value["Lobby"] as! Int
+            self.playerIndex = value["PlayerIndex"] as! Int
+            self.playerLobby = value["Lobby"] as! Int
         }
     }
 }
