@@ -29,7 +29,7 @@ class QueueScreenViewController: UIViewController {
         searchingLabel.text = "Searching for Players"
         super.viewDidLoad()
         startAnimation()
-        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(QueueScreenViewController.change), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(QueueScreenViewController.change), userInfo: nil, repeats: true)
 
         // Do any additional setup after loading the view.
     }
@@ -48,15 +48,25 @@ class QueueScreenViewController: UIViewController {
             }
             let deleting =  value["Deleting"] as! Bool
             let numPlayers = value["PlayersAvailible"] as! Int
+            let numSegued = value["numSegued"] as! Int
+            let lowestLobby = value["lowestLobby"] as! Int
+            let index = value["Index"] as! Int
+            if (numSegued != 0) {
+                self.ref.child("QueueLine").updateChildValues(["numSegued" : numSegued + 1])
+                self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : index])
+                self.performSegue(withIdentifier: "toRaceScreen", sender: self)
+                if (numSegued == 3) {
+                    self.ref.child("QueueLine").updateChildValues(["numSegued" : 0])
+                    self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby+1])
+                }
+            }
             if (!deleting) {
                 if numPlayers >= 4 {
                     self.ref.child("QueueLine").updateChildValues(["Deleting" : true])
                     self.ref.child("QueueLine").updateChildValues(["Index" : 1])
-                    print("Im homo")
                 }
             }
             else {
-                let index = value["Index"] as! Int
                 self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snap) in
                     // Get user value
                     guard let dict = snap.value as? NSDictionary else {
@@ -68,10 +78,15 @@ class QueueScreenViewController: UIViewController {
                         self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
                         self.ref.child("QueueLine").updateChildValues(["Deleting" : false])
                         self.removePlayers(num : numPlayers)
+                        self.ref.child("QueueLine").updateChildValues(["numSegued" : 1])
+                        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : index])
+                        self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby])
+                        self.performSegue(withIdentifier: "toRaceScreen", sender: self)
                     }
                     else if (position == index) {
                         self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
                         self.ref.child("QueueLine").updateChildValues(["Index" : index+1])
+                        self.performSegue(withIdentifier: "toRaceScreen", sender: self)
                     }
                 }) { (error) in
                     print("error:\(error.localizedDescription)")

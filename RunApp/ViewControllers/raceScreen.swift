@@ -14,6 +14,7 @@ import GTProgressBar
 import Lottie
 
 class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
+    
     //TODO: LocationServices
     let locationManager = CLLocationManager()
     var startLocation:CLLocation!
@@ -27,16 +28,25 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     //TODO: ProgressBar
     @IBOutlet weak var progressBar1: GTProgressBar!
     @IBOutlet weak var progressBar2: GTProgressBar!
+    @IBOutlet weak var progressBar3: GTProgressBar!
+    @IBOutlet weak var progressBar4: GTProgressBar!
     //TODO: Labels
     var spd: Float = 0.0
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
+    var playerIndex : Int = 0
+    var playerLobby : Int = 0
+    var ref: DatabaseReference!
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Set everything up and start everything
+        ref = Database.database().reference()
         //TODO: Timer
         startAnimation()
+        retrieveData()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(raceScreen.timerCounter), userInfo: nil, repeats: true)
         //TODO: ProgressBar
         progressBar1.isHidden = true
@@ -69,7 +79,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
             } else {
                 let lastLocation = locations.last as! CLLocation
                 if (startLocation.distance(from: lastLocation) > 4) {
-                    updateAllProgress()
+                    updateAllProgress(travelledDist: Int(traveledDistance))
                     let distance = startLocation.distance(from: lastLocation)
                     startLocation = lastLocation
                     traveledDistance += distance
@@ -78,13 +88,44 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         }
     }
     //TODO: Labels
-    func updateAllProgress() {
+    func updateAllProgress(travelledDist: Int) {
         progressBar1.progress = CGFloat(traveledDistance / 100)
         speedLabel.text = String(spd)
         distanceLabel.text = String(traveledDistance)
+        updateRivalProgressBars(travelledD: travelledDist)
     }
     func startAnimation() {
         countdownAnimation.animation = Animation.named("8803-simple-countdown")
         countdownAnimation.play()
+    }
+    
+    // basically right now the firebase RacingPlayers section has "id" "Distance" "Lobby" "PlayerIndex". PlayerIndex is to figure out which progress bar to update. Lobby is for checking if the player's lobby is the same one as the player who's currently signed in.
+    func updateRivalProgressBars(travelledD : Int) {
+        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "Distance" : travelledD])
+        ref.child("RacingPlayers").observeSingleEvent(of: .value) { snapshot in
+            print(snapshot.childrenCount)
+            for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                guard let value = rest.value as? NSDictionary else {
+                    print("No Data!!!")
+                    return
+                }
+                let lobbyNum = value["Lobby"] as! Int
+                let uid = value["id"] as! String
+                let index = value[""] as! Int
+                let distanceRan = value["Distance"] as! Int
+            }
+        }
+    }
+    
+    func retrieveData() {
+        ref.child("RacingPlayers").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { snapshot in
+            print(snapshot.childrenCount)
+            guard let value = snapshot.value as? NSDictionary else {
+                print("No Data!!!!!!")
+                return
+            }
+            self.playerIndex = value["PlayerIndex"] as! Int
+            self.playerLobby = value["Lobby"] as! Int
+        }
     }
 }
