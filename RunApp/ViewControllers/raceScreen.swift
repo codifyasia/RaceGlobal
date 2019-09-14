@@ -102,7 +102,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     // basically right now the firebase RacingPlayers section has "id" "Distance" "Lobby" "PlayerIndex". PlayerIndex is to figure out which progress bar to update. Lobby is for checking if the player's lobby is the same one as the player who's currently signed in.
     func updateRivalProgressBars(travelledD : Int) {
         self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "Distance" : travelledD])
-        ref.child("RacingPlayers").observeSingleEvent(of: .value) { snapshot in
+        ref.child("RacingPlayers").child("Players").observeSingleEvent(of: .value) { snapshot in
             print(snapshot.childrenCount)
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
                 guard let value = rest.value as? NSDictionary else {

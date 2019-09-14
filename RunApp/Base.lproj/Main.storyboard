@@ -243,7 +243,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="457"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woman-running-stairs-6b439ca32d8843189e080b71aed4644a (1)" translatesAutoresizingMaskIntoConstraints="NO" id="k4A-sT-EtH">
-                                        <rect key="frame" x="0.0" y="0.0" width="375.00000000000045" height="457"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="457"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
