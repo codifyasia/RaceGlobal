@@ -52,6 +52,7 @@ class QueueScreenViewController: UIViewController {
             let lowestLobby = value["lowestLobby"] as! Int
             let index = value["Index"] as! Int
             if (numSegued != 0) {
+                //
                 self.ref.child("QueueLine").updateChildValues(["numSegued" : numSegued + 1])
                 self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : numSegued])
                 self.performSegue(withIdentifier: "toRaceScreen", sender: self)
