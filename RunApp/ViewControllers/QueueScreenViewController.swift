@@ -77,12 +77,20 @@ class QueueScreenViewController: UIViewController {
                         self.performSegue(withIdentifier: "toRaceScreen", sender: self)
                     }
                     else if (position == index) {
+                        
                         self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
+                        //removes the player from the queue
                         self.ref.child("QueueLine").updateChildValues(["Index" : index+1])
+                        //increments the index so that the next person can be deleted from the queue (so that they entire this if statement or the one above)
                         self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : numSegued])
+                        //adds a player to the players node in racingplayers and sets its values
                                                 self.ref.child("QueueLine").updateChildValues(["numSegued" : numSegued + 1])
+                        //makes numSegued one more than it was previously, so that equal player has a unique index for PlayerIndex.
                         self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby])
+                        //this shit is pretty much useless.
                         self.performSegue(withIdentifier: "toRaceScreen", sender: self)
+                        //performs a segue.
+                        
                     }
                 }) { (error) in
                     print("error:\(error.localizedDescription)")
