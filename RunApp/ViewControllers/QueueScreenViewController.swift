@@ -51,18 +51,9 @@ class QueueScreenViewController: UIViewController {
             let numSegued = value["numSegued"] as! Int
             let lowestLobby = value["lowestLobby"] as! Int
             let index = value["Index"] as! Int
-            if (numSegued != 0) {
-                //
-                self.ref.child("QueueLine").updateChildValues(["numSegued" : numSegued + 1])
-                self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : numSegued])
-                self.performSegue(withIdentifier: "toRaceScreen", sender: self)
-                if (numSegued == 3) {
-                    self.ref.child("QueueLine").updateChildValues(["numSegued" : 0])
-                    self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby+1])
-                }
-            }
             if (!deleting) {
                 if numPlayers >= 4 {
+                    //if theres more than 4 players, ready, start the deletion process
                     self.ref.child("QueueLine").updateChildValues(["Deleting" : true])
                     self.ref.child("QueueLine").updateChildValues(["Index" : 1])
                 }
@@ -76,19 +67,20 @@ class QueueScreenViewController: UIViewController {
                     }
                     let position = dict["Position"] as! Int
                     if (position == index && index == 4) {
+                        //the end of the queue, it will stop deleting after 4 ppl have been deleted
                         self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
                         self.ref.child("QueueLine").updateChildValues(["Deleting" : false])
                         self.removePlayers(num : numPlayers)
-                        self.ref.child("QueueLine").updateChildValues(["numSegued" : 1])
                         self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : numSegued])
+                        self.ref.child("QueueLine").updateChildValues(["numSegued" : 1])
                         self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby])
                         self.performSegue(withIdentifier: "toRaceScreen", sender: self)
                     }
                     else if (position == index) {
                         self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
                         self.ref.child("QueueLine").updateChildValues(["Index" : index+1])
-                        //self.ref.child("QueueLine").updateChildValues(["numSegued" : 1])
                         self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : numSegued])
+                                                self.ref.child("QueueLine").updateChildValues(["numSegued" : numSegued + 1])
                         self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby])
                         self.performSegue(withIdentifier: "toRaceScreen", sender: self)
                     }
