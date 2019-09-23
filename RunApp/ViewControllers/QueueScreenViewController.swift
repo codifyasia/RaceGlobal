@@ -79,15 +79,15 @@ class QueueScreenViewController: UIViewController {
                         self.ref.child("QueueLine").updateChildValues(["Deleting" : false])
                         self.removePlayers(num : numPlayers)
                         self.ref.child("QueueLine").updateChildValues(["numSegued" : 1])
-                        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : index])
+                        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : numSegued])
                         self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby])
                         self.performSegue(withIdentifier: "toRaceScreen", sender: self)
                     }
                     else if (position == index) {
                         self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
                         self.ref.child("QueueLine").updateChildValues(["Index" : index+1])
-                        self.ref.child("QueueLine").updateChildValues(["numSegued" : 1])
-                        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : index])
+                        //self.ref.child("QueueLine").updateChildValues(["numSegued" : 1])
+                        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : numSegued])
                         self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby])
                         self.performSegue(withIdentifier: "toRaceScreen", sender: self)
                     }
