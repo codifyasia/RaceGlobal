@@ -74,6 +74,7 @@ class QueueScreenViewController: UIViewController {
                         self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : numSegued])
                         self.ref.child("QueueLine").updateChildValues(["numSegued" : 1])
                         self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby])
+                        print("segue player 4")
                         self.performSegue(withIdentifier: "toRaceScreen", sender: self)
                     }
                     else if (position == index) {
@@ -88,6 +89,7 @@ class QueueScreenViewController: UIViewController {
                         //makes numSegued one more than it was previously, so that equal player has a unique index for PlayerIndex.
                         self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby])
                         //this shit is pretty much useless.
+                        print("segue not player")
                         self.performSegue(withIdentifier: "toRaceScreen", sender: self)
                         //performs a segue.
                         
