@@ -29,6 +29,7 @@ class SideBarVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        print("This shit is fuckingggg gaaayaya")
         return 4
     }
 
