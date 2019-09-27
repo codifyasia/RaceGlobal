@@ -22,6 +22,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     var traveledDistance:Double = 0
     var goalDistance : Double = 100
     
+    @IBOutlet weak var PlayerIndex: UILabel!
     //TODO: Timer
     var seconds:Int = 3
     var timer = Timer()
@@ -135,6 +136,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                 return
             }
             self.playerIndex = value["PlayerIndex"] as! Int
+            self.PlayerIndex.text = String(self.playerIndex)
             self.playerLobby = value["Lobby"] as! Int
         }
     }
