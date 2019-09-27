@@ -114,11 +114,11 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                 let uid = value["id"] as! String
                 let index = value["PlayerIndex"] as! Int
                 let distanceRan = value["Distance"] as! Double
-                if (index == 1) {
+                if (index == 0) {
                     self.progressBar1.progress = CGFloat(distanceRan / self.goalDistance)
-                } else if (index == 2) {
+                } else if (index == 1) {
                     self.progressBar2.progress = CGFloat(distanceRan / self.goalDistance)
-                } else if (index == 3) {
+                } else if (index == 2) {
                     self.progressBar3.progress = CGFloat(distanceRan / self.goalDistance)
                 } else {
                     self.progressBar4.progress = CGFloat(distanceRan / self.goalDistance)
