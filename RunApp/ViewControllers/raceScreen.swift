@@ -20,6 +20,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     var startLocation:CLLocation!
     var lastLocation:CLLocation!
     var traveledDistance:Double = 0
+    var goalDistance : Double = 100
     
     //TODO: Timer
     var seconds:Int = 3
@@ -89,7 +90,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     }
     //TODO: Labels
     func updateAllProgress(travelledDist: Int) {
-        progressBar1.progress = CGFloat(traveledDistance / 100)
+        progressBar1.progress = CGFloat(traveledDistance / goalDistance)
         speedLabel.text = String(spd)
         distanceLabel.text = String(traveledDistance)
         updateRivalProgressBars(travelledD: travelledDist)
@@ -112,7 +113,16 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                 let lobbyNum = value["Lobby"] as! Int
                 let uid = value["id"] as! String
                 let index = value["PlayerIndex"] as! Int
-                let distanceRan = value["Distance"] as! Int
+                let distanceRan = value["Distance"] as! Double
+                if (index == 1) {
+                    self.progressBar1.progress = CGFloat(distanceRan / self.goalDistance)
+                } else if (index == 2) {
+                    self.progressBar2.progress = CGFloat(distanceRan / self.goalDistance)
+                } else if (index == 3) {
+                    self.progressBar3.progress = CGFloat(distanceRan / self.goalDistance)
+                } else {
+                    self.progressBar4.progress = CGFloat(distanceRan / self.goalDistance)
+                }
             }
         }
     }
