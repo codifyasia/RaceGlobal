@@ -76,8 +76,8 @@ class QueueScreenViewController: UIViewController {
                         self.ref.child("QueueLine").updateChildValues(["Deleting" : false])
                         self.removePlayers(num : numPlayers)
                         self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : numSegued])
-                        self.ref.child("QueueLine").updateChildValues(["numSegued" : 1])
-                        self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby])
+                        self.ref.child("QueueLine").updateChildValues(["numSegued" : 0])
+                        self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby+1])
                         print("segue player 4")
                         self.performSegue(withIdentifier: "toRaceScreen", sender: self)
                     }
