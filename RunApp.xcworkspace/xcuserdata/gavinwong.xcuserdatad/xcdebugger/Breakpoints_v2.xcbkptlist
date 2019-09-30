@@ -24,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "5A095645-C708-4837-8FF2-8126474E36AF"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunApp/ViewControllers/raceScreen.swift"
@@ -37,7 +37,7 @@
             <Locations>
                <Location
                   uuid = "5A095645-C708-4837-8FF2-8126474E36AF - 63260a1c9f5c604a"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "RunApp.raceScreen.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; RunApp.raceScreen"
@@ -52,7 +52,7 @@
                </Location>
                <Location
                   uuid = "5A095645-C708-4837-8FF2-8126474E36AF - 64b22e118e711559"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "RunApp.raceScreen.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; RunApp.raceScreen"
@@ -67,7 +67,7 @@
                </Location>
                <Location
                   uuid = "5A095645-C708-4837-8FF2-8126474E36AF - 6bf110b4e700b9e8"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "RunApp.raceScreen.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;RunApp.raceScreen&gt;"
@@ -82,7 +82,7 @@
                </Location>
                <Location
                   uuid = "5A095645-C708-4837-8FF2-8126474E36AF - 17c91a9f0b0a4230"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "RunApp.raceScreen.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;RunApp.raceScreen&gt;"
@@ -97,7 +97,7 @@
                </Location>
                <Location
                   uuid = "5A095645-C708-4837-8FF2-8126474E36AF - a6c10eeb520b88af"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "RunApp.raceScreen.__deallocating_deinit"
@@ -175,6 +175,69 @@
             endingLineNumber = "32"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0846EF1F-43E2-4B01-96A0-2480E767154F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RunApp/ViewControllers/raceScreen.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "raceScreen"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "0846EF1F-43E2-4B01-96A0-2480E767154F - 6457bc0988de92b6"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RunApp.raceScreen.locationManager.getter : __C.CLLocationManager"
+                  moduleName = "RunApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gavinwong/Desktop/raceApp/RunApp/ViewControllers/raceScreen.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "59">
+               </Location>
+               <Location
+                  uuid = "0846EF1F-43E2-4B01-96A0-2480E767154F - 64b22e118e711559"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RunApp.raceScreen.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; RunApp.raceScreen"
+                  moduleName = "RunApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gavinwong/Desktop/raceApp/RunApp/ViewControllers/raceScreen.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "189">
+               </Location>
+               <Location
+                  uuid = "0846EF1F-43E2-4B01-96A0-2480E767154F - 17c91a9f0b0a4230"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RunApp.raceScreen.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;RunApp.raceScreen&gt;"
+                  moduleName = "RunApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gavinwong/Desktop/raceApp/RunApp/ViewControllers/raceScreen.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "126">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
