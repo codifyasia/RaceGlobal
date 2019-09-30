@@ -66,7 +66,7 @@ class QueueScreenViewController: UIViewController {
                         return
                     }
                     let position = dict["Position"] as! Int
-                    if (position == index && index == 4) {
+                    if (position == 4) {
                         //the end of the queue, it will stop deleting after 4 ppl have been deleted
                         self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
                         self.ref.child("QueueLine").updateChildValues(["Deleting" : false])
