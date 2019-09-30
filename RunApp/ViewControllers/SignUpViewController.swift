@@ -13,6 +13,9 @@ import SVProgressHUD
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var LastName: AkiraTextField!
+    @IBOutlet weak var FirstName: AkiraTextField!
+    @IBOutlet weak var Username: AkiraTextField!
     @IBOutlet weak var emailField: AkiraTextField!
     @IBOutlet weak var passwordField: AkiraTextField!
     
@@ -35,7 +38,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         SVProgressHUD.show()
         Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
             if (error == nil) {
-                self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).setValue(["Money": 0, "Lobby" : 0])
+                self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).setValue(["FirstName" : self.FirstName.text, "LastName" : self.LastName.text, "Username" : self.Username.text, "Points" : 0, "Lobby" : 0])
                 SVProgressHUD.dismiss()
                 self.performSegue(withIdentifier: "goToMainMenu", sender: self)
             } else {

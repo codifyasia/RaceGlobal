@@ -243,7 +243,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lca-Tb-h6r">
-                                <rect key="frame" x="148" y="372" width="211" height="40"/>
+                                <rect key="frame" x="82" y="20" width="211" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                 <state key="normal" title="Don't have an account?">
@@ -343,13 +343,20 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMa-2L-Zj1">
-                                <rect key="frame" x="42" y="112" width="46" height="30"/>
+                                <rect key="frame" x="35" y="144" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="PA to 0"/>
                                 <connections>
                                     <action selector="test:" destination="9TJ-4A-s6H" eventType="touchUpInside" id="jQx-lv-nff"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bm8-PN-ele">
+                                <rect key="frame" x="73" y="59" width="189" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="xjI-gW-Ztv"/>
@@ -368,6 +375,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="HelloLabel" destination="Bm8-PN-ele" id="927-fF-50n"/>
                         <outlet property="menuButton" destination="tBd-up-OL5" id="FbI-rB-EFq"/>
                         <outlet property="queueButton" destination="7nD-eZ-glN" id="IJo-xm-J9o"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="goBackToSignUp" animates="NO" id="Izk-bw-Qhg"/>
@@ -625,6 +633,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="itx-MS-IKw"/>
                     <connections>
+                        <outlet property="FirstName" destination="JCv-yW-GTW" id="y27-Sa-SN4"/>
+                        <outlet property="LastNAme" destination="JCv-yW-GTW" id="Ba1-cm-rYs"/>
+                        <outlet property="LastName" destination="JCv-yW-GTW" id="Zvg-az-EqX"/>
+                        <outlet property="Username" destination="2ek-NI-n5G" id="eia-ci-kpo"/>
                         <outlet property="emailField" destination="oYf-P6-Awo" id="hDa-IR-uCk"/>
                         <outlet property="passwordField" destination="xy1-pp-OlU" id="utu-Ix-Cpv"/>
                         <segue destination="JkO-2w-oGt" kind="presentation" identifier="goToMainMenu" id="YKZ-7s-hvI"/>
@@ -643,7 +655,7 @@
         <image name="sunset" width="476" height="770"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="E6W-93-XSO"/>
-        <segue reference="Jo3-pn-RC8"/>
+        <segue reference="YKZ-7s-hvI"/>
+        <segue reference="qIg-pi-Dq5"/>
     </inferredMetricsTieBreakers>
 </document>
