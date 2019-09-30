@@ -47,10 +47,14 @@ class QueueScreenViewController: UIViewController {
                 return
             }
             let deleting =  value["Deleting"] as! Bool
+            //If deleting is true, then queue will need to delete players from queue
             let numPlayers = value["PlayersAvailible"] as! Int
+            //Number of players that is in the queue
             let numSegued = value["numSegued"] as! Int
+            //
             let lowestLobby = value["lowestLobby"] as! Int
-            let index = value["Index"] as! Int
+            //the lowest lobby number
+            let index = value["Index"] as! Int  
             if (!deleting) {
                 if numPlayers >= 4 {
                     //if theres more than 4 players, ready, start the deletion process
