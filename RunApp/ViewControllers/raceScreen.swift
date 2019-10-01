@@ -40,6 +40,10 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     var playerLobby : Int = 0
     var ref: DatabaseReference!
     
+    @IBOutlet weak var Label1: UILabel!
+    @IBOutlet weak var Label2: UILabel!
+    @IBOutlet weak var Label3: UILabel!
+    @IBOutlet weak var Label4: UILabel!
     
     
     override func viewDidLoad() {
@@ -92,7 +96,6 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     }
     //TODO: Labels
     func updateAllProgress(travelledDist: Int) {
-        progressBar1.progress = CGFloat(traveledDistance / goalDistance)
         speedLabel.text = String(spd)
         distanceLabel.text = String(traveledDistance)
         updateRivalProgressBars(travelledD: travelledDist)
@@ -118,12 +121,16 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                 let distanceRan = value["Distance"] as! Double
                 if (index == 0) {
                     self.progressBar1.progress = CGFloat(distanceRan / self.goalDistance)
+                    self.Label1.text = uid;
                 } else if (index == 1) {
                     self.progressBar2.progress = CGFloat(distanceRan / self.goalDistance)
+                    self.Label2.text = uid;
                 } else if (index == 2) {
                     self.progressBar3.progress = CGFloat(distanceRan / self.goalDistance)
+                    self.Label3.text = uid;
                 } else {
                     self.progressBar4.progress = CGFloat(distanceRan / self.goalDistance)
+                    self.Label4.text = uid;
                 }
             }
         }
