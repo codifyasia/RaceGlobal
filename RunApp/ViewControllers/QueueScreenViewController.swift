@@ -70,7 +70,7 @@ class QueueScreenViewController: UIViewController {
                         return
                     }
                     let position = dict["Position"] as! Int
-                    if (position == index && index == 4) {
+                    if (position == 4 && index == 4) {
                         //the end of the queue, it will stop deleting after 4 ppl have been deleted
                         self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
                         self.ref.child("QueueLine").updateChildValues(["Deleting" : false])
@@ -78,6 +78,7 @@ class QueueScreenViewController: UIViewController {
                         self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : numSegued])
                         self.ref.child("QueueLine").updateChildValues(["numSegued" : 0])
                         self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby+1])
+                        self.ref.child("QueueLine").updateChildValues(["Index" : 1])
                         print("segue player 4")
                         self.performSegue(withIdentifier: "toRaceScreen", sender: self)
                     }
