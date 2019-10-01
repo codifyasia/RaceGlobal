@@ -13,8 +13,8 @@ import SVProgressHUD
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var LastName: AkiraTextField!
     @IBOutlet weak var FirstName: AkiraTextField!
+    @IBOutlet weak var LastName: AkiraTextField!
     @IBOutlet weak var Username: AkiraTextField!
     @IBOutlet weak var emailField: AkiraTextField!
     @IBOutlet weak var passwordField: AkiraTextField!

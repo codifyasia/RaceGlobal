@@ -44,6 +44,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("entered race screen")
         //Set everything up and start everything
         ref = Database.database().reference()
         //TODO: Timer

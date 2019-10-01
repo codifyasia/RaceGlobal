@@ -41,7 +41,7 @@ class mainMenu: UIViewController {
             
             self.ref.child("QueueLine").updateChildValues(["PlayersAvailible" : amount+1])
             self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).setValue(["Position": amount+1, "Lobby" : 0, "id" : Auth.auth().currentUser!.uid])
-            print("gay")
+            print("joined Queue")
             
             
         }) { (error) in

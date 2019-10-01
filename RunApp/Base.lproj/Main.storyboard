@@ -633,8 +633,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="itx-MS-IKw"/>
                     <connections>
-                        <outlet property="FirstName" destination="JCv-yW-GTW" id="y27-Sa-SN4"/>
-                        <outlet property="LastNAme" destination="JCv-yW-GTW" id="Ba1-cm-rYs"/>
+                        <outlet property="FirstName" destination="whs-77-mLW" id="f9L-ci-cR9"/>
                         <outlet property="LastName" destination="JCv-yW-GTW" id="Zvg-az-EqX"/>
                         <outlet property="Username" destination="2ek-NI-n5G" id="eia-ci-kpo"/>
                         <outlet property="emailField" destination="oYf-P6-Awo" id="hDa-IR-uCk"/>
@@ -656,6 +655,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="YKZ-7s-hvI"/>
-        <segue reference="qIg-pi-Dq5"/>
+        <segue reference="Jo3-pn-RC8"/>
     </inferredMetricsTieBreakers>
 </document>
