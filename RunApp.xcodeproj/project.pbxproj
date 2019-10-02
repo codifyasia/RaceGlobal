@@ -26,6 +26,7 @@
 		9C23712E230230AE00A5662B /* SideBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C23712D230230AE00A5662B /* SideBarVC.swift */; };
 		9C327DC622FF40EC00D04ACA /* mainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C327DC522FF40EC00D04ACA /* mainMenu.swift */; };
 		9C90E68422F8E6FF00376DDA /* raceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C90E68322F8E6FF00376DDA /* raceScreen.swift */; };
+		9CA8D42823442BD000B2AEC2 /* WinScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA8D42723442BD000B2AEC2 /* WinScreen.swift */; };
 		CC7FC6A63A98319046DC8F48 /* Pods_RunApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B305F65C8608FFE7E168E376 /* Pods_RunApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		9C23712D230230AE00A5662B /* SideBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarVC.swift; sourceTree = "<group>"; };
 		9C327DC522FF40EC00D04ACA /* mainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainMenu.swift; sourceTree = "<group>"; };
 		9C90E68322F8E6FF00376DDA /* raceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = raceScreen.swift; sourceTree = "<group>"; };
+		9CA8D42723442BD000B2AEC2 /* WinScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinScreen.swift; sourceTree = "<group>"; };
 		B305F65C8608FFE7E168E376 /* Pods_RunApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B775B0A46C7C933075009024 /* Pods-RunApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunApp.release.xcconfig"; path = "Target Support Files/Pods-RunApp/Pods-RunApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +139,7 @@
 				9C90E68322F8E6FF00376DDA /* raceScreen.swift */,
 				9C23712D230230AE00A5662B /* SideBarVC.swift */,
 				9C327DC522FF40EC00D04ACA /* mainMenu.swift */,
+				9CA8D42723442BD000B2AEC2 /* WinScreen.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				890F3A9122F8DD4100D14044 /* AppDelegate.swift in Sources */,
 				8904202F22FA33F50044EEBD /* SignUpViewController.swift in Sources */,
 				9C327DC622FF40EC00D04ACA /* mainMenu.swift in Sources */,
+				9CA8D42823442BD000B2AEC2 /* WinScreen.swift in Sources */,
 				895BBB3B2311F1B1006F06FE /* QueueScreenViewController.swift in Sources */,
 				8904203122FA359F0044EEBD /* LoginViewController.swift in Sources */,
 				9C23712E230230AE00A5662B /* SideBarVC.swift in Sources */,

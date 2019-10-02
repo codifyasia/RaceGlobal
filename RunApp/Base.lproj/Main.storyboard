@@ -56,16 +56,36 @@
             </objects>
             <point key="canvasLocation" x="3058" y="-1128"/>
         </scene>
-        <!--View Controller-->
+        <!--Win Screen-->
         <scene sceneID="mEV-a2-DqX">
             <objects>
-                <viewController id="gGL-cb-sXM" sceneMemberID="viewController">
+                <viewController id="gGL-cb-sXM" customClass="WinScreen" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CT9-bo-UFT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You've won!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPK-PI-iBo">
+                                <rect key="frame" x="141" y="178" width="92" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPU-RC-Lcb">
+                                <rect key="frame" x="127" y="283" width="121" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="BackToMainMenu"/>
+                                <connections>
+                                    <segue destination="9TJ-4A-s6H" kind="presentation" id="Up0-eM-F4f"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="D9P-1o-Pnd"/>
                     </view>
+                    <connections>
+                        <outlet property="WonLabel" destination="JPK-PI-iBo" id="dza-Dm-YeC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tNV-c4-2bZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -222,6 +242,7 @@
                         <outlet property="progressBar3" destination="fPY-A1-fFh" id="UF7-KM-sv4"/>
                         <outlet property="progressBar4" destination="fPY-A1-fFh" id="wf6-Ua-jtL"/>
                         <outlet property="speedLabel" destination="oRU-XT-6Ll" id="rzE-L2-cd7"/>
+                        <segue destination="gGL-cb-sXM" kind="presentation" identifier="toWinScreen" id="1OZ-Zl-3QL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nua-f9-Zqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -702,6 +723,7 @@
         <image name="sunset" width="476" height="770"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Up0-eM-F4f"/>
         <segue reference="NnZ-0Z-rXH"/>
         <segue reference="Jo3-pn-RC8"/>
     </inferredMetricsTieBreakers>
