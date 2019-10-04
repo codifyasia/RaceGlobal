@@ -418,6 +418,18 @@
                                     <action selector="test:" destination="9TJ-4A-s6H" eventType="touchUpInside" id="jQx-lv-nff"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZx-I3-haQ">
+                                <rect key="frame" x="88" y="69" width="198" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZN-cN-FW4">
+                                <rect key="frame" x="24" y="456" width="117" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="join custom lobbi"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="xjI-gW-Ztv"/>
@@ -436,6 +448,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="helloLabel" destination="HZx-I3-haQ" id="paN-v3-m9r"/>
                         <outlet property="menuButton" destination="tBd-up-OL5" id="FbI-rB-EFq"/>
                         <outlet property="queueButton" destination="7nD-eZ-glN" id="IJo-xm-J9o"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="goBackToSignUp" animates="NO" id="Izk-bw-Qhg"/>

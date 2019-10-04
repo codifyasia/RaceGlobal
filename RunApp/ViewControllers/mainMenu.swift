@@ -12,6 +12,7 @@ import Firebase
 class mainMenu: UIViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var helloLabel: UILabel!
     
     var ref: DatabaseReference!
     
@@ -25,6 +26,24 @@ class mainMenu: UIViewController {
         menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
         
         ref = Database.database().reference()
+        
+        ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+        // Get user value
+        guard let value = snapshot.value as? NSDictionary else {
+            print("No Data!!!!!!")
+            return
+            }
+            
+            var name: String = value["FirstName"] as! String
+            
+            self.helloLabel.text = "Hello \(name)"
+            
+            
+            
+        }) { (error) in
+            print("error:\(error.localizedDescription)")
+        }
+        
         
         // Do any additional setup after loading the view.
     }
