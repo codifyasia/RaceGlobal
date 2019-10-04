@@ -418,13 +418,6 @@
                                     <action selector="test:" destination="9TJ-4A-s6H" eventType="touchUpInside" id="jQx-lv-nff"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bm8-PN-ele">
-                                <rect key="frame" x="73" y="59" width="189" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="xjI-gW-Ztv"/>
@@ -443,7 +436,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="HelloLabel" destination="Bm8-PN-ele" id="927-fF-50n"/>
                         <outlet property="menuButton" destination="tBd-up-OL5" id="FbI-rB-EFq"/>
                         <outlet property="queueButton" destination="7nD-eZ-glN" id="IJo-xm-J9o"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="goBackToSignUp" animates="NO" id="Izk-bw-Qhg"/>
@@ -722,8 +714,9 @@
         <image name="sunset" width="476" height="770"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="pd4-yf-Rod"/>
         <segue reference="vUf-Qz-Ias"/>
         <segue reference="NnZ-0Z-rXH"/>
-        <segue reference="Jo3-pn-RC8"/>
+        <segue reference="qIg-pi-Dq5"/>
     </inferredMetricsTieBreakers>
 </document>
