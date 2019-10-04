@@ -83,6 +83,7 @@ class QueueScreenViewController: UIViewController {
                         self.performSegue(withIdentifier: "toRaceScreen", sender: self)
                     }
                     else if (position == index) {
+                        print("fetch")
                         
                         self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
                         //removes the player from the queue

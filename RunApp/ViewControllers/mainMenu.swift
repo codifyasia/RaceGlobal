@@ -74,23 +74,6 @@ class mainMenu: UIViewController {
         self.ref.child("QueueLine").updateChildValues(["PlayersAvailible" : 0])
         self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
     }
-    
-    
-    //in progress, dont edit
-//        func getInQ(_ sender: Any) {
-//        let lobbyReference = Database.database().reference().child("Lobbies")
-//        lobbyReference.child("Lobby").observeSingleEvent(of: .value) { snapshot in
-//            for snap in snapshot.children.allObjects as! [DataSnapshot] {
-//                guard let lobby = snap.value as? NSDictionary else {
-//                    print("No Data!!!")
-//                    return
-//                }
-//                if (lobby["numPlayers"] as! Int == 1) {
-//
-//                }
-//            }
-//        }
-//    }
 
     @IBAction func signOutPressed(_ sender: Any) {
         do {
