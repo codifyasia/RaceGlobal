@@ -74,6 +74,23 @@ class mainMenu: UIViewController {
         self.ref.child("QueueLine").updateChildValues(["PlayersAvailible" : 0])
         self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
     }
+    
+    
+    //in progress, dont edit
+//        func getInQ(_ sender: Any) {
+//        let lobbyReference = Database.database().reference().child("Lobbies")
+//        lobbyReference.child("Lobby").observeSingleEvent(of: .value) { snapshot in
+//            for snap in snapshot.children.allObjects as! [DataSnapshot] {
+//                guard let lobby = snap.value as? NSDictionary else {
+//                    print("No Data!!!")
+//                    return
+//                }
+//                if (lobby["numPlayers"] as! Int == 1) {
+//
+//                }
+//            }
+//        }
+//    }
 
     @IBAction func signOutPressed(_ sender: Any) {
         do {
@@ -100,4 +117,37 @@ class mainMenu: UIViewController {
     func buttonAdjustments() {
         queueButton.layer.cornerRadius = 10
     }
+    @IBAction func customLobbyPressed(_ sender: UIButton) {
+        var textField = UITextField()
+        
+        let alert = UIAlertController(title: "Custom Lobby", message: "", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Create new custom lobby", style: .default) { (action) in
+            let newAlert = UIAlertController(title: "Creating new custom lobby", message: "", preferredStyle: .alert)
+            let doneButton = UIAlertAction(title: "Done", style: .default) { (action) in
+                if textField != nil {
+                    print(textField)
+                }
+                
+            }
+            newAlert.addTextField { (alertTextField) in
+                alertTextField.placeholder = "Lobby Code"
+                textField = alertTextField
+            }
+            
+            
+            //self.ref.child("CustomLobbies").child("randomLobycode").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : 1])
+        }
+        
+        let action2 = UIAlertAction(title: "Join custom lobby", style: .default) { (action) in
+            let newAlert2 = UIAlertController(title: "Joining custom lobby", message: "", preferredStyle: .alert)
+            
+        }
+        
+        
+        alert.addAction(action)
+        alert.addAction(action2)
+        present(alert, animated: true, completion: nil)
+    }
 }
+

@@ -47,7 +47,7 @@
 		<key>FirebaseCoreDiagnosticsInterop.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>20</integer>
+			<integer>19</integer>
 		</dict>
 		<key>FirebaseDatabase.xcscheme</key>
 		<dict>
@@ -87,12 +87,12 @@
 		<key>GoogleDataTransport.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>21</integer>
+			<integer>20</integer>
 		</dict>
 		<key>GoogleDataTransportCCTSupport.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>22</integer>
+			<integer>21</integer>
 		</dict>
 		<key>GoogleUtilities.xcscheme</key>
 		<dict>
