@@ -154,8 +154,27 @@ class mainMenu: UIViewController {
                 //if textField != nil {
                     print(textField.text)
                 
-                
+                self.ref.child("CustomLobbies").observeSingleEvent(of: .value) { (snapshot) in
+                    guard let value = snapshot.value as? NSDictionary else {
+                        print("No Data!!!")
+                        return
+                    }
+                    let numPlayers = value["numPlayers"] as! Int
+                    if (snapshot.hasChild(textField.text!)) {
+                        self.ref.child("CustomLobbies").child(textField.text!).child("")
+                    } else {
+                        let newAlert3 = UIAlertController(title: "Error", message: "The code you entered is invalid", preferredStyle: .alert)
+                        
+                        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                            //do nothing
+                        }
+                        
+                        newAlert3.addAction(okAction)
+                        self.present(newAlert3, animated: true, completion: nil)
+                        
+                    }
                     
+                }
                     
                     
                 //}
@@ -173,9 +192,6 @@ class mainMenu: UIViewController {
         let action3 = UIAlertAction(title: "Cancel", style: .default) { (action) in
             //do nothing
         }
-        
-        
-        
         
         alert.addAction(action)
         alert.addAction(action2)
