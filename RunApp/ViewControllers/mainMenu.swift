@@ -161,7 +161,7 @@ class mainMenu: UIViewController {
                     }
                     let numPlayers = value["numPlayers"] as! Int
                     if (snapshot.hasChild(textField.text!)) {
-                        self.ref.child("CustomLobbies").child(textField.text!).child("")
+                        self.ref.child("CustomLobbies").child(textField.text!).child()
                     } else {
                         let newAlert3 = UIAlertController(title: "Error", message: "The code you entered is invalid", preferredStyle: .alert)
                         
