@@ -159,9 +159,12 @@ class mainMenu: UIViewController {
                         print("No Data!!!")
                         return
                     }
-                    let numPlayers = value["numPlayers"] as! Int
+                    
                     if (snapshot.hasChild(textField.text!)) {
-                        self.ref.child("CustomLobbies").child(textField.text!).child()
+                        let numPlayers = ["numPlayers"] as! Int
+                        print(numPlayers)
+//                        self.ref.child("CustomLobbies").child(textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : 1 + numPlayers!])
+//                        self.ref.child("CustomLobbies").child(textField.text!).updateChildValues(["numPlayers" : numPlayers! + 1])
                     } else {
                         let newAlert3 = UIAlertController(title: "Error", message: "The code you entered is invalid", preferredStyle: .alert)
                         
