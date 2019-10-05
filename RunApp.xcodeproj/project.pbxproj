@@ -18,6 +18,8 @@
 		895BBB392311F117006F06FE /* world.json in Resources */ = {isa = PBXBuildFile; fileRef = 895BBB382311F117006F06FE /* world.json */; };
 		895BBB3B2311F1B1006F06FE /* QueueScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895BBB3A2311F1B1006F06FE /* QueueScreenViewController.swift */; };
 		895BBB3D2311F7F6006F06FE /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 895BBB3C2311F7F6006F06FE /* loading.json */; };
+		89FA1A3C23493BAD004F412B /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FA1A3B23493BAD004F412B /* constants.swift */; };
+		89FA1A3F23493C0B004F412B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FA1A3E23493C0B004F412B /* UIView+Extension.swift */; };
 		9C08960A23188B6000F15BDE /* 8803-simple-countdown.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C08960923188B6000F15BDE /* 8803-simple-countdown.json */; };
 		9C23712323021BAE00A5662B /* sideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C23712223021BAE00A5662B /* sideBarViewController.swift */; };
 		9C23712623021EB800A5662B /* customCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C23712423021EB800A5662B /* customCell.swift */; };
@@ -45,6 +47,8 @@
 		895BBB382311F117006F06FE /* world.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = world.json; sourceTree = "<group>"; };
 		895BBB3A2311F1B1006F06FE /* QueueScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueScreenViewController.swift; sourceTree = "<group>"; };
 		895BBB3C2311F7F6006F06FE /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		89FA1A3B23493BAD004F412B /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
+		89FA1A3E23493C0B004F412B /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		9C08960923188B6000F15BDE /* 8803-simple-countdown.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "8803-simple-countdown.json"; sourceTree = "<group>"; };
 		9C23712223021BAE00A5662B /* sideBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sideBarViewController.swift; sourceTree = "<group>"; };
 		9C23712423021EB800A5662B /* customCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customCell.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 			children = (
 				9C23712123021A7100A5662B /* sideMenuCell */,
 				9C90E68522F8E71800376DDA /* ViewControllers */,
+				89FA1A3D23493BD7004F412B /* Color Extensions */,
 				890F3A9022F8DD4100D14044 /* AppDelegate.swift */,
 				890F3A9222F8DD4100D14044 /* ViewController.swift */,
 				890F3A9422F8DD4100D14044 /* Main.storyboard */,
@@ -118,6 +123,15 @@
 				890F3AA422F8E2D800D14044 /* GoogleService-Info.plist */,
 			);
 			path = RunApp;
+			sourceTree = "<group>";
+		};
+		89FA1A3D23493BD7004F412B /* Color Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				89FA1A3B23493BAD004F412B /* constants.swift */,
+				89FA1A3E23493C0B004F412B /* UIView+Extension.swift */,
+			);
+			path = "Color Extensions";
 			sourceTree = "<group>";
 		};
 		9C23712123021A7100A5662B /* sideMenuCell */ = {
@@ -282,10 +296,12 @@
 				895BBB3B2311F1B1006F06FE /* QueueScreenViewController.swift in Sources */,
 				8904203122FA359F0044EEBD /* LoginViewController.swift in Sources */,
 				9C23712E230230AE00A5662B /* SideBarVC.swift in Sources */,
+				89FA1A3F23493C0B004F412B /* UIView+Extension.swift in Sources */,
 				9C23712B23022B5000A5662B /* SWRevealViewController.m in Sources */,
 				9C90E68422F8E6FF00376DDA /* raceScreen.swift in Sources */,
 				9C23712623021EB800A5662B /* customCell.swift in Sources */,
 				9C23712323021BAE00A5662B /* sideBarViewController.swift in Sources */,
+				89FA1A3C23493BAD004F412B /* constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

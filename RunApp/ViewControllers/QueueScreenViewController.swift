@@ -24,7 +24,9 @@ class QueueScreenViewController: UIViewController {
     var ref: DatabaseReference!
     
     override func viewDidLoad() {
+        view.setGradientBackground(colorOne: UIColor, colorTwo: UIColor)
         //Set everything up and start everything
+        
         ref = Database.database().reference()
         searchingLabel.text = "Searching for Players"
         super.viewDidLoad()
