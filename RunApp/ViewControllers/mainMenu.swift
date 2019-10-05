@@ -129,6 +129,9 @@ class mainMenu: UIViewController {
             let doneButton = UIAlertAction(title: "Done", style: .default) { (action) in
                 if textField != nil {
                     print(textField.text)
+                    
+                self.ref.child("CustomLobbies").child(textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : 1])
+                    self.performSegue(withIdentifier: "goToQueueScreen", sender: self)
                 }
                 
             }
@@ -149,8 +152,7 @@ class mainMenu: UIViewController {
             let doneButton = UIAlertAction(title: "Done", style: .default) { (action) in
                 //if textField != nil {
                     print(textField.text)
-                    self.ref.child("CustomLobbies").child(textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : 1])
-                    self.performSegue(withIdentifier: "goToQueueScreen", sender: self)
+                    
                     
                 //}
                 
@@ -162,12 +164,18 @@ class mainMenu: UIViewController {
              newAlert2.addAction(doneButton)
             self.present(newAlert2, animated: true, completion: nil)
 
-            
         }
+        
+        let action3 = UIAlertAction(title: "Cancel", style: .default) { (action) in
+            //do nothing
+        }
+        
+        
         
         
         alert.addAction(action)
         alert.addAction(action2)
+        alert.addAction(action3)
         present(alert, animated: true, completion: nil)
     }
 }
