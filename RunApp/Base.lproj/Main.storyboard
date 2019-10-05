@@ -734,8 +734,9 @@
         <image name="sunset" width="476" height="770"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="pd4-yf-Rod"/>
         <segue reference="vUf-Qz-Ias"/>
         <segue reference="NnZ-0Z-rXH"/>
-        <segue reference="Jo3-pn-RC8"/>
+        <segue reference="qIg-pi-Dq5"/>
     </inferredMetricsTieBreakers>
 </document>
