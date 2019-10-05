@@ -33,6 +33,8 @@ class QueueScreenViewController: UIViewController {
         startAnimation()
         timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(QueueScreenViewController.change), userInfo: nil, repeats: true)
 
+        
+        definesPresentationContext = true
         // Do any additional setup after loading the view.
     }
     
