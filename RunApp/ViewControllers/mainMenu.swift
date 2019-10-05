@@ -147,10 +147,12 @@ class mainMenu: UIViewController {
             
             //self.ref.child("CustomLobbies").child("randomLobycode").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : 1])
             let doneButton = UIAlertAction(title: "Done", style: .default) { (action) in
-                if textField != nil {
+                //if textField != nil {
                     print(textField.text)
-                    self.ref.child("CustomLobbies").child(textField).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : 1])
-                }
+                    self.ref.child("CustomLobbies").child(textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : 1])
+                    self.performSegue(withIdentifier: "goToQueueScreen", sender: self)
+                    
+                //}
                 
             }
             newAlert2.addTextField { (alertTextField) in
