@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47CD8DFF23493AE0007F8D20 /* CustomLobbyQueueScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CD8DFE23493AE0007F8D20 /* CustomLobbyQueueScreenViewController.swift */; };
 		8904202F22FA33F50044EEBD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8904202E22FA33F50044EEBD /* SignUpViewController.swift */; };
 		8904203122FA359F0044EEBD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8904203022FA359F0044EEBD /* LoginViewController.swift */; };
 		890F3A9122F8DD4100D14044 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890F3A9022F8DD4100D14044 /* AppDelegate.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		082861AF11D40A55A7DA9473 /* Pods-RunApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunApp.debug.xcconfig"; path = "Target Support Files/Pods-RunApp/Pods-RunApp.debug.xcconfig"; sourceTree = "<group>"; };
+		47CD8DFE23493AE0007F8D20 /* CustomLobbyQueueScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLobbyQueueScreenViewController.swift; sourceTree = "<group>"; };
 		8904202E22FA33F50044EEBD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8904203022FA359F0044EEBD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		890F3A8D22F8DD4100D14044 /* RunApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				895BBB3A2311F1B1006F06FE /* QueueScreenViewController.swift */,
+				47CD8DFE23493AE0007F8D20 /* CustomLobbyQueueScreenViewController.swift */,
 				9C23712223021BAE00A5662B /* sideBarViewController.swift */,
 				8904203022FA359F0044EEBD /* LoginViewController.swift */,
 				8904202E22FA33F50044EEBD /* SignUpViewController.swift */,
@@ -284,6 +287,7 @@
 				9C23712E230230AE00A5662B /* SideBarVC.swift in Sources */,
 				9C23712B23022B5000A5662B /* SWRevealViewController.m in Sources */,
 				9C90E68422F8E6FF00376DDA /* raceScreen.swift in Sources */,
+				47CD8DFF23493AE0007F8D20 /* CustomLobbyQueueScreenViewController.swift in Sources */,
 				9C23712623021EB800A5662B /* customCell.swift in Sources */,
 				9C23712323021BAE00A5662B /* sideBarViewController.swift in Sources */,
 			);

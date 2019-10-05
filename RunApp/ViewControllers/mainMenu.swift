@@ -131,7 +131,8 @@ class mainMenu: UIViewController {
                     print(textField.text)
                     
                 self.ref.child("CustomLobbies").child(textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : 1])
-                    self.performSegue(withIdentifier: "goToQueueScreen", sender: self)
+                    self.ref.child("CustomLobbies").child(textField.text!).updateChildValues(["numPlayers" : 1])
+                    //self.performSegue(withIdentifier: "goToQueueScreen", sender: self)
                 }
                 
             }
@@ -152,6 +153,9 @@ class mainMenu: UIViewController {
             let doneButton = UIAlertAction(title: "Done", style: .default) { (action) in
                 //if textField != nil {
                     print(textField.text)
+                
+                
+                    
                     
                     
                 //}
