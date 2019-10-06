@@ -28,8 +28,8 @@ class mainMenu: UIViewController {
         buttonAdjustments()
         RunningAnimation.layer.cornerRadius = 20
         RunningAnimation.layer.shadowColor = UIColor.black.cgColor
-        RunningAnimation.layer.shadowRadius = 3;
-        RunningAnimation.layer.shadowOpacity = 0.5;
+        RunningAnimation.layer.shadowRadius = 40
+        RunningAnimation.layer.shadowOpacity = 0.5
         RunningAnimation.layer.shadowOffset = CGSize(width: 0, height: 0)
         self.navigationController!.navigationBar.barStyle = .blackOpaque
         menuButton.target = self.revealViewController()
