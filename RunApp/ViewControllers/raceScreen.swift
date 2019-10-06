@@ -70,7 +70,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         progressBar2.isHidden = true
         progressBar3.isHidden = true
         progressBar4.isHidden = true
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(raceScreen.timerCounter), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(raceScreen.timerCounter), userInfo: nil, repeats: true)
         //TODO: ProgressBar
         
         //TODO: Location Services
