@@ -80,6 +80,7 @@ class QueueScreenViewController: UIViewController {
                         self.ref.child("QueueLine").updateChildValues(["Deleting" : false])
                         self.removePlayers(num : numPlayers)
                         self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : numSegued])
+                        self.ref.child("RacingPlayers").updateChildValues(["EveryoneIn" : false])
                         self.ref.child("QueueLine").updateChildValues(["numSegued" : 0])
                         self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby+1])
                         self.ref.child("QueueLine").updateChildValues(["Index" : 1])
@@ -94,6 +95,7 @@ class QueueScreenViewController: UIViewController {
                         //increments the index so that the next person can be deleted from the queue (so that they entire this if statement or the one above)
                         self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : numSegued])
                         //adds a player to the players node in racingplayers and sets its values
+                        self.ref.child("RacingPlayers").updateChildValues(["EveryoneIn" : false])
                                                 self.ref.child("QueueLine").updateChildValues(["numSegued" : numSegued + 1])
                         //makes numSegued one more than it was previously, so that equal player has a unique index for PlayerIndex.
                         self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby])

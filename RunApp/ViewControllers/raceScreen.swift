@@ -49,9 +49,18 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         print("entered race screen")
+        locationManager.requestAlwaysAuthorization()
         //Set everything up and start everything
         ref = Database.database().reference()
         //TODO: Timer
+       
+            
+        
+        
+        
+    }
+    
+    func startEverything()  {
         startAnimation()
         retrieveData()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(raceScreen.timerCounter), userInfo: nil, repeats: true)
@@ -60,10 +69,30 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         progressBar2.isHidden = true
         //TODO: Location Services
         locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
         locationManager.desiredAccuracy=kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
     }
+    
+    
+    func checkIn() {
+         ref.child("RacingPlayers").observeSingleEvent(of: .value, with: { (snapshot) in
+               // Get user value
+               guard let value = snapshot.value as? NSDictionary else {
+                   print("No Data!!!")
+                   return
+               }
+               let allIn = value["EveryoneIn"] as! Bool
+                   
+                if allIn {
+                       
+                }
+               
+               }) { (error) in
+                       print("error:\(error.localizedDescription)")
+                   }
+    }
+    
+    
     //TODO: Timer
     @objc func timerCounter() {
         seconds = seconds - 1
