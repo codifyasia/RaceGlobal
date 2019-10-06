@@ -161,8 +161,18 @@ class mainMenu: UIViewController {
                     }
                     
                     if (snapshot.hasChild(textField.text!)) {
-                        let numPlayers = ["numPlayers"] as! Int
-                        print(numPlayers)
+                        self.ref.child("CustomLobbies").child(textField.text!).observeSingleEvent(of: .value) { (snapshot2) in
+                            guard let value2 = snapshot2.value as? NSDictionary else {
+                            print("No Data!!!")
+                            return
+                            }
+                            let numPlayers = value2["numPlayers"] as! Int
+                            print(numPlayers)
+                            self.ref.child("CustomLobbies").child(textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : numPlayers + 1])
+                            self.ref.child("CustomLobbies").child(textField.text!).updateChildValues(["numPlayers" : numPlayers + 1])
+                            
+                        }
+                            
 //                        self.ref.child("CustomLobbies").child(textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : 1 + numPlayers!])
 //                        self.ref.child("CustomLobbies").child(textField.text!).updateChildValues(["numPlayers" : numPlayers! + 1])
                     } else {
