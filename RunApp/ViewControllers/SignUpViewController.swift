@@ -28,7 +28,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         self.emailField.delegate = self
         self.passwordField.delegate = self
         registerButton.layer.cornerRadius = 20
-        view.setGradientBackground(colorOne: Colors.darkGrey, colorTwo: Colors.lightGrey)        // Do any additional setup after loading the view.
+        view.setGradientBackground(colorOne: Colors.darkGrey, colorTwo: Colors.lightGrey, property: "none")        // Do any additional setup after loading the view.
     }
     
     //TODO:Touch out

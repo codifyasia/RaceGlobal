@@ -24,7 +24,7 @@ class QueueScreenViewController: UIViewController {
     var ref: DatabaseReference!
     
     override func viewDidLoad() {
-        view.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.blue)
+        view.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.black, property: "none")
         //Set everything up and start everything
         
         ref = Database.database().reference()

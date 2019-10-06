@@ -46,7 +46,7 @@ class mainMenu: UIViewController {
             
             var name: String = value["FirstName"] as! String
             
-            self.helloLabel.text = "Hello \(name)"
+            self.helloLabel.text = "Hello \(name)!"
             
             
             
@@ -128,25 +128,26 @@ class mainMenu: UIViewController {
         
         statisticsButton.layer.cornerRadius = statisticsButton.frame.height / 2
         customLobbyButton.layer.cornerRadius = customLobbyButton.frame.height / 2
+        queueButton.layer.cornerRadius = queueButton.frame.height / 2
         
         queueButton.layer.shadowColor = UIColor.black.cgColor
         queueButton.layer.shadowRadius = 3;
         queueButton.layer.shadowOpacity = 0.5;
         queueButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-        queueButton.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.darkGrey)
-        queueButton.layer.cornerRadius = queueButton.frame.height / 2
+        queueButton.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.darkGrey, property: "corner")
+        
         
         customLobbyButton.layer.shadowColor = UIColor.black.cgColor
         customLobbyButton.layer.shadowRadius = 3;
         customLobbyButton.layer.shadowOpacity = 0.5;
         customLobbyButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-//        queueButton.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.darkGrey)
+        customLobbyButton.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.darkGrey, property: "corner")
         
         statisticsButton.layer.shadowColor = UIColor.black.cgColor
         statisticsButton.layer.shadowRadius = 3;
         statisticsButton.layer.shadowOpacity = 0.5;
         statisticsButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-//        queueButton.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.darkGrey)
+        statisticsButton.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.darkGrey, property: "corner")
     }
     
     
