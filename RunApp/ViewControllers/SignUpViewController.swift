@@ -18,6 +18,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var Username: AkiraTextField!
     @IBOutlet weak var emailField: AkiraTextField!
     @IBOutlet weak var passwordField: AkiraTextField!
+    @IBOutlet weak var registerButton: UIButton!
     
     var ref: DatabaseReference!
     
@@ -26,7 +27,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         ref = Database.database().reference()
         self.emailField.delegate = self
         self.passwordField.delegate = self
-        // Do any additional setup after loading the view.
+        registerButton.layer.cornerRadius = 20
+        view.setGradientBackground(colorOne: Colors.darkGrey, colorTwo: Colors.lightGrey)        // Do any additional setup after loading the view.
     }
     
     //TODO:Touch out

@@ -16,10 +16,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailTextField: KaedeTextField!
     @IBOutlet weak var passwordTextField: KaedeTextField!
+    @IBOutlet weak var loginButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginButton.layer.cornerRadius = 20
+        view.setGradientBackground(colorOne: Colors.darkGrey, colorTwo: Colors.lightGrey)
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
     }
