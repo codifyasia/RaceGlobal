@@ -31,7 +31,7 @@ class mainMenu: UIViewController {
         RunningAnimation.layer.shadowRadius = 40
         RunningAnimation.layer.shadowOpacity = 0.5
         RunningAnimation.layer.shadowOffset = CGSize(width: 0, height: 0)
-        self.navigationController!.navigationBar.barStyle = .blackOpaque
+        self.navigationController!.navigationBar.barStyle = .blackTranslucent
         menuButton.target = self.revealViewController()
         menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
         
