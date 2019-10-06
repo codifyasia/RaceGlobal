@@ -26,6 +26,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     //TODO: Timer
     var seconds:Int = 3
     var timer = Timer()
+    var checkerTimer = Timer()
     @IBOutlet weak var countdownAnimation: AnimationView!
     //TODO: ProgressBar
     @IBOutlet weak var progressBar1: GTProgressBar!
@@ -53,6 +54,8 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         //Set everything up and start everything
         ref = Database.database().reference()
         //TODO: Timer
+        
+        checkerTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(raceScreen.checkIn), userInfo: nil, repeats: true)
        
             
         
@@ -63,18 +66,18 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     func startEverything()  {
         startAnimation()
         retrieveData()
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(raceScreen.timerCounter), userInfo: nil, repeats: true)
-        //TODO: ProgressBar
         progressBar1.isHidden = true
         progressBar2.isHidden = true
+        progressBar3.isHidden = true
+        progressBar4.isHidden = true
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(raceScreen.timerCounter), userInfo: nil, repeats: true)
+        //TODO: ProgressBar
+        
         //TODO: Location Services
-        locationManager.delegate = self
-        locationManager.desiredAccuracy=kCLLocationAccuracyBest
-        locationManager.startUpdatingLocation()
     }
     
     
-    func checkIn() {
+    @objc func checkIn() {
          ref.child("RacingPlayers").observeSingleEvent(of: .value, with: { (snapshot) in
                // Get user value
                guard let value = snapshot.value as? NSDictionary else {
@@ -84,12 +87,13 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                let allIn = value["EveryoneIn"] as! Bool
                    
                 if allIn {
-                       
+                    self.checkerTimer.invalidate()
+                    self.startEverything()
                 }
                
                }) { (error) in
                        print("error:\(error.localizedDescription)")
-                   }
+                }
     }
     
     
@@ -100,6 +104,12 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
             timer.invalidate()
             progressBar1.isHidden = false
             progressBar2.isHidden = false
+            progressBar3.isHidden = false
+            progressBar4.isHidden = false
+            
+            locationManager.delegate = self
+            locationManager.desiredAccuracy=kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
             //do other stuff
         }
     }
