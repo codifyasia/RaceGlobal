@@ -55,7 +55,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         ref = Database.database().reference()
         //TODO: Timer
         
-        checkerTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(raceScreen.checkIn), userInfo: nil, repeats: true)
+        checkerTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(raceScreen.checkIn), userInfo: nil, repeats: true)
        
             
         
