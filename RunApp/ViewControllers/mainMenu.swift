@@ -18,10 +18,11 @@ class mainMenu: UIViewController {
     
     
     @IBOutlet weak var queueButton: UIButton!
+    @IBOutlet weak var customLobbyButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonAdjustments()
-        self.navigationController!.navigationBar.barStyle = .black
+        self.navigationController!.navigationBar.barStyle = .blackTranslucent
         menuButton.target = self.revealViewController()
         menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
         
@@ -115,7 +116,17 @@ class mainMenu: UIViewController {
         removePlayers()
     }
     func buttonAdjustments() {
-        queueButton.layer.cornerRadius = 10
+        queueButton.layer.cornerRadius = queueButton.frame.height / 2
+        
+        customLobbyButton.layer.cornerRadius = customLobbyButton.frame.height / 2
+        queueButton.layer.shadowColor = UIColor.black.cgColor
+        queueButton.layer.shadowRadius = 3;
+        queueButton.layer.shadowOpacity = 0.5;
+        queueButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+        customLobbyButton.layer.shadowColor = UIColor.black.cgColor
+        customLobbyButton.layer.shadowRadius = 3;
+        customLobbyButton.layer.shadowOpacity = 0.5;
+        customLobbyButton.layer.shadowOffset = CGSize(width: 0, height: 0)
     }
     
     

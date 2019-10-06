@@ -377,7 +377,7 @@
             <objects>
                 <viewController id="9TJ-4A-s6H" customClass="mainMenu" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UpA-Jl-3ot">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dS-D8-uYx">
@@ -456,6 +456,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="customLobbyButton" destination="mNZ-se-1ew" id="JO3-VK-2Ov"/>
                         <outlet property="helloLabel" destination="HZx-I3-haQ" id="paN-v3-m9r"/>
                         <outlet property="menuButton" destination="tBd-up-OL5" id="FbI-rB-EFq"/>
                         <outlet property="queueButton" destination="7nD-eZ-glN" id="IJo-xm-J9o"/>
@@ -735,8 +736,8 @@
         <image name="sunset" width="476" height="770"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Up0-eM-F4f"/>
-        <segue reference="E6W-93-XSO"/>
+        <segue reference="vUf-Qz-Ias"/>
+        <segue reference="NnZ-0Z-rXH"/>
         <segue reference="qIg-pi-Dq5"/>
     </inferredMetricsTieBreakers>
 </document>
