@@ -18,12 +18,24 @@ class mainMenu: UIViewController {
     var ref: DatabaseReference!
     
     
+    @IBOutlet weak var signOutButton: UIBarButtonItem!
+    @IBOutlet weak var sideBarButton: UIBarButtonItem!
     @IBOutlet weak var RunningAnimation: AnimationView!
     @IBOutlet weak var queueButton: UIButton!
     @IBOutlet weak var customLobbyButton: UIButton!
     @IBOutlet weak var statisticsButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        signOutButton.tintColor = .white
+        sideBarButton.tintColor = .white
+        signOutButton.setTitleTextAttributes([
+            NSAttributedString.Key.font: UIFont(name: "Avenir Next", size: 18.0)!,
+            NSAttributedString.Key.foregroundColor: UIColor.white],
+                                          for: .normal)
+        sideBarButton.setTitleTextAttributes([
+            NSAttributedString.Key.font: UIFont(name: "Avenir Next", size: 18.0)!,
+            NSAttributedString.Key.foregroundColor: UIColor.white],
+                                             for: .normal)
         startAnimation()
         buttonAdjustments()
         RunningAnimation.layer.cornerRadius = 20
@@ -134,20 +146,20 @@ class mainMenu: UIViewController {
         queueButton.layer.shadowRadius = 3;
         queueButton.layer.shadowOpacity = 0.5;
         queueButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-        queueButton.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.darkGrey, property: "corner")
+        //queueButton.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.darkGrey, property: "corner")
         
         
         customLobbyButton.layer.shadowColor = UIColor.black.cgColor
         customLobbyButton.layer.shadowRadius = 3;
         customLobbyButton.layer.shadowOpacity = 0.5;
         customLobbyButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-        customLobbyButton.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.darkGrey, property: "corner")
+        //customLobbyButton.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.darkGrey, property: "corner")
         
         statisticsButton.layer.shadowColor = UIColor.black.cgColor
         statisticsButton.layer.shadowRadius = 3;
         statisticsButton.layer.shadowOpacity = 0.5;
         statisticsButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-        statisticsButton.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.darkGrey, property: "corner")
+        //statisticsButton.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.darkGrey, property: "corner")
     }
     
     

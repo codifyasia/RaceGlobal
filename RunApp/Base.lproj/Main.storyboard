@@ -449,15 +449,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="swr-et-RBp" colorLabel="IBBuiltInLabel-Yellow">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="tBd-up-OL5"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="G4Q-zR-iuv">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1Zf-nK-3xv">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign Out"/>
-                                <connections>
-                                    <action selector="signOutPressed:" destination="9TJ-4A-s6H" eventType="touchUpInside" id="vBX-GS-PH1"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Sign Out" style="plain" id="G4Q-zR-iuv">
+                            <connections>
+                                <action selector="signOutPressed:" destination="9TJ-4A-s6H" id="hUR-zK-5Bw"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -466,6 +461,8 @@
                         <outlet property="helloLabel" destination="HZx-I3-haQ" id="paN-v3-m9r"/>
                         <outlet property="menuButton" destination="tBd-up-OL5" id="FbI-rB-EFq"/>
                         <outlet property="queueButton" destination="7nD-eZ-glN" id="IJo-xm-J9o"/>
+                        <outlet property="sideBarButton" destination="tBd-up-OL5" id="kgd-IL-Skg"/>
+                        <outlet property="signOutButton" destination="G4Q-zR-iuv" id="Wx6-6n-1Hv"/>
                         <outlet property="statisticsButton" destination="ir6-T5-AlH" id="J7p-CR-p0r"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="goBackToSignUp" animates="NO" id="Izk-bw-Qhg"/>
                     </connections>
