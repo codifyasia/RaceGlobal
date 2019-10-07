@@ -62,5 +62,47 @@ class CustomLobbyQueueViewController : UIViewController {
         }
     }
     
+    func check() {
+        ref.child("CustomLobbies").child(lobbyCode).observeSingleEvent(of: .value) { (snapshot) in
+            guard let data = snapshot.value as? NSDictionary else {
+                    print("NO DATTAA!!!")
+                    return
+            }
+            let numPlayers = data["numPlayers"] as! Int
+            let deleting = data["Deleting"] as! Bool
+            if (!deleting) {
+                //MIGHT HAVE TO CHANGE NEXT LINE IF MORE THAN 4 PLAYERS
+                if numPlayers == 4 {
+                    self.ref.child("CustomLobbies").child(self.lobbyCode).updateChildValues(["Deleting" : true])
+                }
+            }
+            else {
+                self.ref.child("CustomLobbies").child(self.lobbyCode).child("Players").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { (snap) in
+                    guard let value = snap.value as? NSDictionary else {
+                            print("No DATA")
+                            return
+                    }
+                
+                let currentPIndex = value["PlayerIndex"] as! Int
+                self.removePlayer(num : numPlayers)
+                    self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : self.lobbyCode, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : currentPIndex])
+                    self.performSegue(withIdentifier: "goToRaceScreen", sender: self)
+                }
+            }
+            
+            
+        }
+    }
+    
+    func removePlayer(num : Int) {
+        if num > 1 {
+        ref.child("CustomLobbies").child(lobbyCode).child("Players").child(Auth.auth().currentUser!.uid).removeValue()
+        ref.child("CustomLobbies").child(lobbyCode).updateChildValues(["numPlayers" : num - 1])
+        }
+        else {
+            ref.child("CustomLobbies").child(lobbyCode).removeValue()
+        }
+    }
+    
     
 }
