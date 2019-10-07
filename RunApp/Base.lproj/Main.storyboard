@@ -53,7 +53,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVB-oe-gKX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3058" y="-1128"/>
+            <point key="canvasLocation" x="2758" y="-1208"/>
+        </scene>
+        <!--Custom Lobby Queue View Controller-->
+        <scene sceneID="l38-71-ZOX">
+            <objects>
+                <viewController id="cfW-kX-xiS" customClass="CustomLobbyQueueViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="smF-Rf-d6m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Custom Queue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Zl-fo-ShZ">
+                                <rect key="frame" x="20" y="306" width="339" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="53"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQd-8s-taH">
+                                <rect key="frame" x="164" y="438" width="147" height="93"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="43"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelPressed:" destination="cfW-kX-xiS" eventType="touchUpInside" id="ggK-zw-WNF"/>
+                                    <segue destination="9TJ-4A-s6H" kind="show" identifier="goToMainMenu" id="ftM-dz-gFH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="DKD-wb-bu4"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kzE-ll-5gM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sc0-S7-d8k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3766" y="-1196"/>
         </scene>
         <!--Win Screen-->
         <scene sceneID="mEV-a2-DqX">
@@ -88,7 +123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tNV-c4-2bZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4116" y="-704"/>
+            <point key="canvasLocation" x="4460" y="-657"/>
         </scene>
         <!--Race Screen-->
         <scene sceneID="pfM-cc-t1k">
@@ -375,7 +410,7 @@
             <objects>
                 <viewController id="9TJ-4A-s6H" customClass="mainMenu" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UpA-Jl-3ot">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dS-D8-uYx">
@@ -464,6 +499,7 @@
                         <outlet property="signOutButton" destination="G4Q-zR-iuv" id="Wx6-6n-1Hv"/>
                         <outlet property="statisticsButton" destination="ir6-T5-AlH" id="J7p-CR-p0r"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="goBackToSignUp" animates="NO" id="Izk-bw-Qhg"/>
+                        <segue destination="cfW-kX-xiS" kind="show" identifier="goToCustomQueue" id="1f6-9i-ew7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQc-2c-sef" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -742,7 +778,7 @@
         <image name="1024-3" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vUf-Qz-Ias"/>
+        <segue reference="ftM-dz-gFH"/>
         <segue reference="NnZ-0Z-rXH"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -14,6 +14,7 @@ class mainMenu: UIViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var helloLabel: UILabel!
+    var textField = UITextField()
     
     var ref: DatabaseReference!
     
@@ -164,25 +165,26 @@ class mainMenu: UIViewController {
     
     
     @IBAction func customLobbyPressed(_ sender: UIButton) {
-        var textField = UITextField()
         
+        //Popup alert
         let alert = UIAlertController(title: "Custom Lobby", message: "", preferredStyle: .alert)
         
+        //Three Options - Option 3: Create a custom lobby code
         let action = UIAlertAction(title: "Create new custom lobby", style: .default) { (action) in
             let newAlert = UIAlertController(title: "Creating new custom lobby", message: "Enter your own lobby code", preferredStyle: .alert)
             let doneButton = UIAlertAction(title: "Done", style: .default) { (action) in
-                if textField != nil {
-                    print(textField.text)
+                if self.textField != nil {
+                    //print(textField.text)
                     
-                self.ref.child("CustomLobbies").child(textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : 1])
-                    self.ref.child("CustomLobbies").child(textField.text!).updateChildValues(["numPlayers" : 1])
-                    //self.performSegue(withIdentifier: "goToQueueScreen", sender: self)
+                    self.ref.child("CustomLobbies").child(self.textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : 1])
+                    self.ref.child("CustomLobbies").child(self.textField.text!).updateChildValues(["numPlayers" : 1])
+                    self.performSegue(withIdentifier: "goToCustomQueue", sender: self)
                 }
                 
             }
                 newAlert.addTextField { (alertTextField) in
                 alertTextField.placeholder = "Lobby Code"
-                textField = alertTextField
+                    self.textField = alertTextField
             }
             
             newAlert.addAction(doneButton)
@@ -190,35 +192,38 @@ class mainMenu: UIViewController {
             
         }
         
+        
+        
+        
+        //Three Options - Option 2: Joining a custom lobby code
         let action2 = UIAlertAction(title: "Join custom lobby", style: .default) { (action) in
             let newAlert2 = UIAlertController(title: "Joining custom lobby", message: "Enter a code to join a custom lobby", preferredStyle: .alert)
             
-            //self.ref.child("CustomLobbies").child("randomLobycode").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : 1])
             let doneButton = UIAlertAction(title: "Done", style: .default) { (action) in
-                //if textField != nil {
-                    print(textField.text)
+                if self.textField != nil {
+                    //print(textField.text)
                 
-                self.ref.child("CustomLobbies").observeSingleEvent(of: .value) { (snapshot) in
+                    self.ref.child("CustomLobbies").observeSingleEvent(of: .value) { (snapshot) in
                     guard let value = snapshot.value as? NSDictionary else {
                         print("No Data!!!")
                         return
                     }
                     
-                    if (snapshot.hasChild(textField.text!)) {
-                        self.ref.child("CustomLobbies").child(textField.text!).observeSingleEvent(of: .value) { (snapshot2) in
+                        //If the code the user typed is in the data base, then proceed here
+                        if (snapshot.hasChild(self.textField.text!)) {
+                        self.ref.child("CustomLobbies").child(self.textField.text!).observeSingleEvent(of: .value) { (snapshot2) in
                             guard let value2 = snapshot2.value as? NSDictionary else {
-                            print("No Data!!!")
-                            return
+                                print("No Data!!!")
+                                return
                             }
                             let numPlayers = value2["numPlayers"] as! Int
                             print(numPlayers)
-                            self.ref.child("CustomLobbies").child(textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : numPlayers + 1])
-                            self.ref.child("CustomLobbies").child(textField.text!).updateChildValues(["numPlayers" : numPlayers + 1])
+                            self.ref.child("CustomLobbies").child(self.textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : numPlayers + 1])
+                            self.ref.child("CustomLobbies").child(self.textField.text!).updateChildValues(["numPlayers" : numPlayers + 1])
+                            self.performSegue(withIdentifier: "goToCustomQueue", sender: self)
                             
                         }
                             
-//                        self.ref.child("CustomLobbies").child(textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : 1 + numPlayers!])
-//                        self.ref.child("CustomLobbies").child(textField.text!).updateChildValues(["numPlayers" : numPlayers! + 1])
                     } else {
                         let newAlert3 = UIAlertController(title: "Error", message: "The code you entered is invalid", preferredStyle: .alert)
                         
@@ -232,20 +237,19 @@ class mainMenu: UIViewController {
                     }
                     
                 }
-                    
-                    
-                //}
+            }
                 
             }
             newAlert2.addTextField { (alertTextField) in
                 alertTextField.placeholder = "Lobby Code"
-                textField = alertTextField
+                self.textField = alertTextField
             }
              newAlert2.addAction(doneButton)
             self.present(newAlert2, animated: true, completion: nil)
 
         }
         
+        //Three Options - Option 3: Cancel button (does nothing, alert should dismiss)
         let action3 = UIAlertAction(title: "Cancel", style: .default) { (action) in
             //do nothing
         }
@@ -255,6 +259,16 @@ class mainMenu: UIViewController {
         alert.addAction(action3)
         present(alert, animated: true, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //sending Info about lobby code to CustomQueueScreenViewController
+        if segue.identifier == "goToCustomQueue" {
+            let customVC = segue.destination as! CustomLobbyQueueViewController
+            customVC.lobbyCode = textField.text!
+
+        }
+    }
+
     func startAnimation() {
         RunningAnimation.animation = Animation.named("runninganimation")
         RunningAnimation.loopMode = .loop

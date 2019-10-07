@@ -184,8 +184,6 @@ class QueueScreenViewController: UIViewController {
     }
     
     
-    
-    
     //TODO: Animations
     func startAnimation() {
         animationView.animation = Animation.named("world")
