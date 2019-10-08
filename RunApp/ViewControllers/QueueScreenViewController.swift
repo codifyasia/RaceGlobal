@@ -24,7 +24,7 @@ class QueueScreenViewController: UIViewController {
     var ref: DatabaseReference!
     
     override func viewDidLoad() {
-        view.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.black, property: "none")
+        //view.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.black, property: "none")
         //Set everything up and start everything
         
         ref = Database.database().reference()
@@ -60,7 +60,7 @@ class QueueScreenViewController: UIViewController {
             //the lowest lobby number
             let index = value["Index"] as! Int  
             if (!deleting) {
-                if numPlayers >= 4 {
+                if numPlayers >= 2 {
                     //if theres more than 4 players, ready, start the deletion process
                     self.ref.child("QueueLine").updateChildValues(["Deleting" : true])
                     self.ref.child("QueueLine").updateChildValues(["Index" : 1])
@@ -74,7 +74,7 @@ class QueueScreenViewController: UIViewController {
                         return
                     }
                     let position = dict["Position"] as! Int
-                    if (position == 4 && index == 4) {
+                    if (position == 2 && index == 2) {
                         //the end of the queue, it will stop deleting after 4 ppl have been deleted
                         self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
                         self.ref.child("QueueLine").updateChildValues(["Deleting" : false])
@@ -129,10 +129,10 @@ class QueueScreenViewController: UIViewController {
                 }
                 let uid = value["id"] as! String
                 let position = value["Position"] as! Int
-                self.ref.child("QueueLine").child("Players").child(uid).updateChildValues(["Position" : position-4])
+                self.ref.child("QueueLine").child("Players").child(uid).updateChildValues(["Position" : position-2])
             }
         }
-        ref.child("QueueLine").updateChildValues(["PlayersAvailible" : num-4])
+        ref.child("QueueLine").updateChildValues(["PlayersAvailible" : num-2])
     }
     
     @IBAction func cancelPressed(_ sender: Any) {
