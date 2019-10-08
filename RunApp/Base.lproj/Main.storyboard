@@ -782,7 +782,6 @@
         <image name="1024-3" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1f6-9i-ew7"/>
         <segue reference="ftM-dz-gFH"/>
         <segue reference="NnZ-0Z-rXH"/>
         <segue reference="Jo3-pn-RC8"/>
