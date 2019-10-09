@@ -57,7 +57,8 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         view.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.lightGrey, property: "none")
         
         checkerTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(raceScreen.checkIn), userInfo: nil, repeats: true)
-       
+        locationManager.desiredAccuracy=kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
             
         
         
@@ -109,8 +110,6 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
             progressBar4.isHidden = false
             
             locationManager.delegate = self
-            locationManager.desiredAccuracy=kCLLocationAccuracyBest
-            locationManager.startUpdatingLocation()
             //do other stuff
         }
     }
