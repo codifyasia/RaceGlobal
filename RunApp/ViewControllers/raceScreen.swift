@@ -1,4 +1,3 @@
-//
 //  raceScreen.swift
 //  RunApp
 //
@@ -121,14 +120,16 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
             if startLocation == nil {
                 startLocation = locations.first
             } else {
+                updateRivalProgressBars()
                 if (traveledDistance >= goalDistance) {
-                    updateAllProgress(travelledDist: goalDistance)
+                    updateSelfProgress()
+                    updateRivalProgressBars()
                     locationManager.stopUpdatingLocation()
                     performSegue(withIdentifier: "toWinScreen", sender: self)
                 }
                 let lastLocation = locations.last as! CLLocation
                 if (startLocation.distance(from: lastLocation) > 4) {
-                    updateAllProgress(travelledDist: traveledDistance)
+                    updateSelfProgress()
                     let distance = startLocation.distance(from: lastLocation)
                     startLocation = lastLocation
                     traveledDistance += distance
@@ -137,13 +138,12 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         }
     }
     //TODO: Labels
-    func updateSelfProgress(travelledDist: Double) {
+    func updateSelfProgress() {
         speedLabel.text = String(spd)
         distanceLabel.text = String(traveledDistance)
-        updateSelfProgress(travelledD: travelledDist)
+        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "Distance" : traveledDistance])
     }
-    func updateSelfProgress(travelledD: Double) {
-        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "Distance" : travelledD])
+    func updateRivalProgressBars() {
         ref.child("RacingPlayers").child("Players").observeSingleEvent(of: .value) { snapshot in
             print(snapshot.childrenCount)
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
@@ -185,28 +185,12 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
             }
         }
     }
-    func updateAllProgress(travelledDist: Double) {
-        updateRivalProgressBars(travelledD: travelledDist)
-    }
     func startAnimation() {
         countdownAnimation.animation = Animation.named("8803-simple-countdown")
         countdownAnimation.play()
     }
     
     // basically right now the firebase RacingPlayers section has "id" "Distance" "Lobby" "PlayerIndex". PlayerIndex is to figure out which progress bar to update. Lobby is for checking if the player's lobby is the same one as the player who's currently signed in.
-    func updateRivalProgressBars(travelledD : Double) {
-        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "Distance" : travelledD])
-        if (playerIndex == 0) {
-            
-        } else if (playerIndex == 1) {
-            
-        } else if (playerIndex == 2) {
-            
-        } else {
-            
-        }
-       
-    }
     
     func retrieveData() {
         ref.child("RacingPlayers").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { snapshot in
