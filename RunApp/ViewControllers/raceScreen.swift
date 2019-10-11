@@ -58,7 +58,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         checkerTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(raceScreen.checkIn), userInfo: nil, repeats: true)
         locationManager.desiredAccuracy=kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
-            
+        
         
         
         
@@ -79,22 +79,22 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     
     
     @objc func checkIn() {
-         ref.child("RacingPlayers").observeSingleEvent(of: .value, with: { (snapshot) in
-               // Get user value
-               guard let value = snapshot.value as? NSDictionary else {
-                   print("No Data!!!")
-                   return
-               }
-               let allIn = value["EveryoneIn"] as! Bool
-                   
-                if allIn {
-                    self.checkerTimer.invalidate()
-                    self.startEverything()
-                }
-               
-               }) { (error) in
-                       print("error:\(error.localizedDescription)")
-                }
+        ref.child("RacingPlayers").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            guard let value = snapshot.value as? NSDictionary else {
+                print("No Data!!!")
+                return
+            }
+            let allIn = value["EveryoneIn"] as! Bool
+            
+            if allIn {
+                self.checkerTimer.invalidate()
+                self.startEverything()
+            }
+            
+        }) { (error) in
+            print("error:\(error.localizedDescription)")
+        }
     }
     
     
