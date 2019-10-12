@@ -19,6 +19,8 @@ class CustomLobbyQueueViewController : UIViewController {
         super.viewDidLoad()
         ref = Database.database().reference()
         timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(CustomLobbyQueueViewController.change), userInfo: nil, repeats: true)
+        
+        definesPresentationContext = true
     }
     
     @IBAction func cancelPressed(_ sender: UIButton) {
@@ -75,7 +77,7 @@ class CustomLobbyQueueViewController : UIViewController {
             let deleting = data["Deleting"] as! Bool
             if (!deleting) {
                 //MIGHT HAVE TO CHANGE NEXT LINE IF MORE THAN 4 PLAYERS
-                if numPlayers == 4 {
+                if numPlayers == 2 {
                     self.ref.child("CustomLobbies").child(self.lobbyCode).updateChildValues(["Deleting" : true])
                 }
             }
