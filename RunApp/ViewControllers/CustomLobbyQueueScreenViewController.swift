@@ -15,9 +15,10 @@ class CustomLobbyQueueViewController : UIViewController {
     var ref : DatabaseReference!
     var timer = Timer()
     var counter  = 1
-    @IBOutlet weak var stuff: UILabel!
+    @IBOutlet var stuff: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        stuff.text = "1"
         ref = Database.database().reference()
         timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(CustomLobbyQueueViewController.change), userInfo: nil, repeats: true)
         
@@ -95,7 +96,7 @@ class CustomLobbyQueueViewController : UIViewController {
                 self.removePlayer(num : numPlayers)
                     self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : self.lobbyCode, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : currentPIndex])
                     self.performSegue(withIdentifier: "goToRaceScreen", sender: self)
-                    if (numPlayers == 1) {
+                    if (numPlayers == 0) {
                         self.ref.child("CustomLobbies").child(self.lobbyCode).removeValue()
                     }
                     self.timer.invalidate()
@@ -119,11 +120,14 @@ class CustomLobbyQueueViewController : UIViewController {
     
     @objc func change() {
         
-        if (stuff.text == "1") {
+        if (counter == 1) {
             stuff.text = "2"
-        } else if (stuff.text == "2") {
+            counter = 2
+        } else if (counter == 2) {
             stuff.text = "3"
-        } else if (stuff.text == "3") {
+            counter = 3
+        } else if (counter == 3) {
+            counter = 1
             stuff.text = "1"
             check()
         }
