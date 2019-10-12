@@ -206,6 +206,15 @@ class mainMenu: UIViewController {
                 
                     self.ref.child("CustomLobbies").observeSingleEvent(of: .value) { (snapshot) in
                     guard let value = snapshot.value as? NSDictionary else {
+                        
+                        let newAlert3 = UIAlertController(title: "Error", message: "The code you entered is invalid", preferredStyle: .alert)
+                        
+                        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                            //do nothing
+                        }
+                        
+                        newAlert3.addAction(okAction)
+                        self.present(newAlert3, animated: true, completion: nil)
                         print("No Data!!!")
                         return
                     }
@@ -277,4 +286,5 @@ class mainMenu: UIViewController {
         // Finished code
     }
 }
+
 
