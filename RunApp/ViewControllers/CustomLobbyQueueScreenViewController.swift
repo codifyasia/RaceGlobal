@@ -14,7 +14,8 @@ class CustomLobbyQueueViewController : UIViewController {
     var lobbyCode = ""
     var ref : DatabaseReference!
     var timer = Timer()
-    @IBOutlet weak var stuff: UILabel!
+//    @IBOutlet weak var stuff: UILabel!
+    var counter  = 1
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
@@ -68,6 +69,7 @@ class CustomLobbyQueueViewController : UIViewController {
     }
     
     func check() {
+        print("gay")
         ref.child("CustomLobbies").child(lobbyCode).observeSingleEvent(of: .value) { (snapshot) in
             guard let data = snapshot.value as? NSDictionary else {
                     print("NO DATTAA!!!")
@@ -77,7 +79,7 @@ class CustomLobbyQueueViewController : UIViewController {
             let deleting = data["Deleting"] as! Bool
             if (!deleting) {
                 //MIGHT HAVE TO CHANGE NEXT LINE IF MORE THAN 4 PLAYERS
-                if numPlayers == 2 {
+                if numPlayers == 4 {
                     self.ref.child("CustomLobbies").child(self.lobbyCode).updateChildValues(["Deleting" : true])
                 }
             }
@@ -92,6 +94,7 @@ class CustomLobbyQueueViewController : UIViewController {
                 self.removePlayer(num : numPlayers)
                     self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : self.lobbyCode, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : currentPIndex])
                     self.performSegue(withIdentifier: "goToRaceScreen", sender: self)
+                    self.timer.invalidate()
                 }
             }
             
@@ -110,15 +113,23 @@ class CustomLobbyQueueViewController : UIViewController {
     }
     
     @objc func change() {
-        if (stuff.text == "1") {
-            stuff.text = "2"
-        } else if (stuff.text == "2") {
-            stuff.text = "3"
-        } else if (stuff.text == "3") {
-            stuff.text = "1"
+        
+//        if (stuff.text == "1") {
+//            stuff.text = "2"
+//        } else if (stuff.text == "2") {
+//            stuff.text = "3"
+//        } else if (stuff.text == "3") {
+//            stuff.text = "1"
+//            check()
+//        }
+        if (counter == 3) {
             check()
+            counter = 1
+        } else {
+            counter += 1
         }
     }
     
     
 }
+
