@@ -65,6 +65,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     }
     
     func startEverything()  {
+        retrieveLabels()
         startAnimation()
         retrieveData()
         progressBar1.isHidden = true
