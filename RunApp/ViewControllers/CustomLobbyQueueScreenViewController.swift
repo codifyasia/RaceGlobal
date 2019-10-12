@@ -13,9 +13,12 @@ import Lottie
 class CustomLobbyQueueViewController : UIViewController {
     var lobbyCode = ""
     var ref : DatabaseReference!
+    var timer = Timer()
+    @IBOutlet weak var stuff: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
+        timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(CustomLobbyQueueViewController.change), userInfo: nil, repeats: true)
     }
     
     @IBAction func cancelPressed(_ sender: UIButton) {
@@ -101,6 +104,17 @@ class CustomLobbyQueueViewController : UIViewController {
         }
         else {
             ref.child("CustomLobbies").child(lobbyCode).removeValue()
+        }
+    }
+    
+    @objc func change() {
+        if (stuff.text == "1") {
+            stuff.text = "2"
+        } else if (stuff.text == "2") {
+            stuff.text = "3"
+        } else if (stuff.text == "3") {
+            stuff.text = "1"
+            check()
         }
     }
     

@@ -1,4 +1,3 @@
-//
 //  raceScreen.swift
 //  RunApp
 //
@@ -59,7 +58,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         checkerTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(raceScreen.checkIn), userInfo: nil, repeats: true)
         locationManager.desiredAccuracy=kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
-            
+        
         
         
         
@@ -80,22 +79,22 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     
     
     @objc func checkIn() {
-         ref.child("RacingPlayers").observeSingleEvent(of: .value, with: { (snapshot) in
-               // Get user value
-               guard let value = snapshot.value as? NSDictionary else {
-                   print("No Data!!!")
-                   return
-               }
-               let allIn = value["EveryoneIn"] as! Bool
-                   
-                if allIn {
-                    self.checkerTimer.invalidate()
-                    self.startEverything()
-                }
-               
-               }) { (error) in
-                       print("error:\(error.localizedDescription)")
-                }
+        ref.child("RacingPlayers").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            guard let value = snapshot.value as? NSDictionary else {
+                print("No Data!!!")
+                return
+            }
+            let allIn = value["EveryoneIn"] as! Bool
+            
+            if allIn {
+                self.checkerTimer.invalidate()
+                self.startEverything()
+            }
+            
+        }) { (error) in
+            print("error:\(error.localizedDescription)")
+        }
     }
     
     
@@ -121,14 +120,16 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
             if startLocation == nil {
                 startLocation = locations.first
             } else {
+                updateRivalProgressBars()
                 if (traveledDistance >= goalDistance) {
-                    updateAllProgress(travelledDist: goalDistance)
+                    updateSelfProgress()
+                    updateRivalProgressBars()
                     locationManager.stopUpdatingLocation()
                     performSegue(withIdentifier: "toWinScreen", sender: self)
                 }
                 let lastLocation = locations.last as! CLLocation
                 if (startLocation.distance(from: lastLocation) > 4) {
-                    updateAllProgress(travelledDist: traveledDistance)
+                    updateSelfProgress()
                     let distance = startLocation.distance(from: lastLocation)
                     startLocation = lastLocation
                     traveledDistance += distance
@@ -137,19 +138,12 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         }
     }
     //TODO: Labels
-    func updateAllProgress(travelledDist: Double) {
+    func updateSelfProgress() {
         speedLabel.text = String(spd)
         distanceLabel.text = String(traveledDistance)
-        updateRivalProgressBars(travelledD: travelledDist)
+        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "Distance" : traveledDistance])
     }
-    func startAnimation() {
-        countdownAnimation.animation = Animation.named("8803-simple-countdown")
-        countdownAnimation.play()
-    }
-    
-    // basically right now the firebase RacingPlayers section has "id" "Distance" "Lobby" "PlayerIndex". PlayerIndex is to figure out which progress bar to update. Lobby is for checking if the player's lobby is the same one as the player who's currently signed in.
-    func updateRivalProgressBars(travelledD : Double) {
-        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "Distance" : travelledD])
+    func updateRivalProgressBars() {
         ref.child("RacingPlayers").child("Players").observeSingleEvent(of: .value) { snapshot in
             print(snapshot.childrenCount)
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
@@ -161,19 +155,20 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                 let uid = value["id"] as! String
                 let index = value["PlayerIndex"] as! Int
                 let distanceRan = value["Distance"] as! Double
-
+                
                 if (index == 0) {
                     if (distanceRan > self.goalDistance) {
                         self.progressBar1.isHidden = true;
                     }
                     self.progressBar1.progress = CGFloat(distanceRan / self.goalDistance)
-                    self.Label1.text = uid;
+                    self.Label1.text = "person1"
+                    
                 } else if (index == 1) {
                     if (distanceRan > self.goalDistance) {
                         self.progressBar2.isHidden = true;
                     }
                     self.progressBar2.progress = CGFloat(distanceRan / self.goalDistance)
-                    self.Label2.text = uid;
+                    self.Label2.text = "person2"
                 } else if (index == 2) {
                     if (distanceRan > self.goalDistance) {
                         self.progressBar3.isHidden = true;
@@ -190,6 +185,12 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
             }
         }
     }
+    func startAnimation() {
+        countdownAnimation.animation = Animation.named("8803-simple-countdown")
+        countdownAnimation.play()
+    }
+    
+    // basically right now the firebase RacingPlayers section has "id" "Distance" "Lobby" "PlayerIndex". PlayerIndex is to figure out which progress bar to update. Lobby is for checking if the player's lobby is the same one as the player who's currently signed in.
     
     func retrieveData() {
         ref.child("RacingPlayers").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { snapshot in
