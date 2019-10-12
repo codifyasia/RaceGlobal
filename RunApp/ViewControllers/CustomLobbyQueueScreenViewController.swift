@@ -47,6 +47,7 @@ class CustomLobbyQueueViewController : UIViewController {
                 }
                 self.fixLine(pos : index)
             }
+            self.timer.invalidate()
         }
     }
     
@@ -93,8 +94,11 @@ class CustomLobbyQueueViewController : UIViewController {
                 let currentPIndex = value["PlayerIndex"] as! Int
                 self.removePlayer(num : numPlayers)
                     self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : self.lobbyCode, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : currentPIndex])
+                    if (currentPIndex == 4) {
+                        self.ref.child("CustomLobbies").child(self.lobbyCode).removeValue()
+                    }
                     self.performSegue(withIdentifier: "goToRaceScreen", sender: self)
-                    self.timer.invalidate()
+                    
                 }
             }
             
