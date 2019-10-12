@@ -204,5 +204,28 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
             self.playerLobby = value["Lobby"] as! Int
         }
     }
+    func retrieveLabels() {
+        ref.child("RacingPlayers").child("Players").observeSingleEvent(of: .value) { snapshot in
+            print(snapshot.childrenCount)
+            for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                guard let value = rest.value as? NSDictionary else {
+                    print("No Data!!!")
+                    return
+                }
+                let uid = value["id"] as! String
+                let index = value["PlayerIndex"] as! Int
+                
+                if (index == 0) {
+                    self.Label1.text = uid
+                } else if (index == 1) {
+                    self.Label2.text = uid
+                } else if (index == 2) {
+                    self.Label3.text = uid
+                } else {
+                    self.Label4.text = uid
+                }
+            }
+        }
+    }
 }
 //bruvv
