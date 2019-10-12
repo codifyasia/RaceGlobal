@@ -162,14 +162,12 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                         self.progressBar1.isHidden = true;
                     }
                     self.progressBar1.progress = CGFloat(distanceRan / self.goalDistance)
-                    self.Label1.text = "person1"
                     
                 } else if (index == 1) {
                     if (distanceRan > self.goalDistance) {
                         self.progressBar2.isHidden = true;
                     }
                     self.progressBar2.progress = CGFloat(distanceRan / self.goalDistance)
-                    self.Label2.text = "person2"
                 } else if (index == 2) {
                     if (distanceRan > self.goalDistance) {
                         self.progressBar3.isHidden = true;
