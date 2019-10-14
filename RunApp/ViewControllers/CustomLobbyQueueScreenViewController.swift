@@ -92,9 +92,20 @@ class CustomLobbyQueueViewController : UIViewController {
                             return
                     }
                 
-                let currentPIndex = value["PlayerIndex"] as! Int
-                self.removePlayer(num : numPlayers)
-                    self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : self.lobbyCode, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : currentPIndex])
+                    let currentPIndex = value["PlayerIndex"] as! Int
+                    self.ref.child("QueueLine").observeSingleEvent(of: .value) { (snapshot) in
+                        guard let val = snapshot.value as? NSDictionary else {
+                            print("Nothing in QueueLine")
+                            return
+                        }
+                        let lowestLobby = val["lowestLobby"] as! Int
+                        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "LobbyCode" : self.lobbyCode, "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : currentPIndex])
+                        self.removePlayer(num : numPlayers, lowestLob: lowestLobby)
+//                        if (currentPIndex == 2) {
+//                            self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby + 1])
+//                        }
+                    }
+                    
                     self.performSegue(withIdentifier: "goToRaceScreen", sender: self)
                     if (numPlayers == 0) {
                         self.ref.child("CustomLobbies").child(self.lobbyCode).removeValue()
@@ -108,12 +119,13 @@ class CustomLobbyQueueViewController : UIViewController {
         }
     }
     
-    func removePlayer(num : Int) {
+    func removePlayer(num : Int, lowestLob : Int) {
         if num > 1 {
         ref.child("CustomLobbies").child(lobbyCode).child("Players").child(Auth.auth().currentUser!.uid).removeValue()
         ref.child("CustomLobbies").child(lobbyCode).updateChildValues(["numPlayers" : num - 1])
         }
         else {
+            ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLob + 1])
             ref.child("CustomLobbies").child(lobbyCode).removeValue()
         }
     }
