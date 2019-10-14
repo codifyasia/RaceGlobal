@@ -36,7 +36,7 @@
                                         </state>
                                         <connections>
                                             <action selector="cancelPressed:" destination="aVs-zb-F40" eventType="touchUpInside" id="X96-4S-vPZ"/>
-                                            <segue destination="9TJ-4A-s6H" kind="show" id="S3s-ER-SyC"/>
+                                            <segue destination="Tto-1j-1eD" kind="show" id="vlS-Fz-L6C"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -137,7 +137,7 @@
             </objects>
             <point key="canvasLocation" x="4886" y="-718"/>
         </scene>
-        <!--Statistics View Controller-->
+        <!--Statistics-->
         <scene sceneID="pBA-bt-Rdy">
             <objects>
                 <viewController id="nKt-Gf-VjN" customClass="StatisticsViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -198,6 +198,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="UmL-yj-pKc"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Statistics" image="rectangle.stack" catalog="system" id="UQU-I3-T1H"/>
                     <navigationItem key="navigationItem" id="i3z-It-2wE"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
@@ -211,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Aj-Ev-OWf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3362" y="829"/>
+            <point key="canvasLocation" x="2354" y="-308"/>
         </scene>
         <!--Race Screen-->
         <scene sceneID="pfM-cc-t1k">
@@ -478,6 +479,15 @@
                     <view key="view" contentMode="scaleToFill" id="SiZ-cy-Ag5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="rhino shit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ov-lg-B7W">
+                                <rect key="frame" x="135" y="226" width="71" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="4Jj-dr-FAN"/>
                     </view>
@@ -486,22 +496,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Bf-9Z-b84" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1585" y="-407"/>
-        </scene>
-        <!--Maps-->
-        <scene sceneID="jUo-Mj-xM1">
-            <objects>
-                <viewController id="CIB-sP-8Kk" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wnM-Cz-OZ8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="Stf-Ac-KLe"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Maps" image="map" catalog="system" id="8dy-0n-I6C"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oIg-X2-9Ta" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2390" y="-489"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Nll-W0-y7B">
@@ -514,9 +508,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="CIB-sP-8Kk" kind="relationship" relationship="viewControllers" id="IxW-Vj-iPe"/>
                         <segue destination="hj3-Nx-gLJ" kind="relationship" relationship="viewControllers" id="o7M-BP-2Yv"/>
                         <segue destination="9TJ-4A-s6H" kind="relationship" relationship="viewControllers" id="6q0-jF-oIn"/>
+                        <segue destination="nKt-Gf-VjN" kind="relationship" relationship="viewControllers" id="sL9-Fq-PDZ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQ9-uB-6uf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -598,7 +592,7 @@
             </objects>
             <point key="canvasLocation" x="2500" y="1975"/>
         </scene>
-        <!--Item-->
+        <!--Start-->
         <scene sceneID="Qdy-IB-Ptj">
             <objects>
                 <viewController id="9TJ-4A-s6H" customClass="mainMenu" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -615,7 +609,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nD-eZ-glN">
-                                <rect key="frame" x="88" y="416" width="198" height="57"/>
+                                <rect key="frame" x="88" y="378" width="198" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="KohinoorTelugu-Regular" family="Kohinoor Telugu" pointSize="18"/>
@@ -635,8 +629,19 @@
                                     <action selector="test:" destination="9TJ-4A-s6H" eventType="touchUpInside" id="jQx-lv-nff"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2t8-Nh-xJJ" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="67" y="113" width="240" height="257"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZx-I3-haQ">
+                                <rect key="frame" x="16" y="58" width="343" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="30"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNZ-se-1ew">
-                                <rect key="frame" x="88" y="490" width="198" height="57"/>
+                                <rect key="frame" x="88" y="443" width="198" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="KohinoorTelugu-Regular" family="Kohinoor Telugu" pointSize="18"/>
@@ -648,35 +653,11 @@
                                     <action selector="customLobbyPressed:" destination="9TJ-4A-s6H" eventType="touchUpInside" id="Vlx-mH-uw0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ir6-T5-AlH">
-                                <rect key="frame" x="88" y="563" width="198" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="KohinoorTelugu-Regular" family="Kohinoor Telugu" pointSize="18"/>
-                                <state key="normal" title="Statistics">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="nKt-Gf-VjN" kind="show" id="OYu-RF-Slc"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2t8-Nh-xJJ" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="67" y="142" width="240" height="257"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZx-I3-haQ">
-                                <rect key="frame" x="16" y="87" width="343" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="30"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xjI-gW-Ztv"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="person.crop.square" catalog="system" id="hUA-I2-8a9"/>
+                    <tabBarItem key="tabBarItem" title="Start" image="person.crop.square" catalog="system" id="hUA-I2-8a9"/>
                     <navigationItem key="navigationItem" id="swr-et-RBp" colorLabel="IBBuiltInLabel-Yellow">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="tBd-up-OL5"/>
                         <barButtonItem key="rightBarButtonItem" title="Sign Out" style="plain" id="G4Q-zR-iuv">
@@ -693,7 +674,6 @@
                         <outlet property="queueButton" destination="7nD-eZ-glN" id="IJo-xm-J9o"/>
                         <outlet property="sideBarButton" destination="tBd-up-OL5" id="kgd-IL-Skg"/>
                         <outlet property="signOutButton" destination="G4Q-zR-iuv" id="Wx6-6n-1Hv"/>
-                        <outlet property="statisticsButton" destination="ir6-T5-AlH" id="J7p-CR-p0r"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="goBackToSignUp" animates="NO" id="Izk-bw-Qhg"/>
                         <segue destination="cfW-kX-xiS" kind="show" identifier="goToCustomQueue" id="1f6-9i-ew7"/>
                         <segue destination="aVs-zb-F40" kind="show" identifier="goToQueue" id="qHj-ox-ScC"/>
@@ -863,12 +843,12 @@
     </scenes>
     <resources>
         <image name="bookmark" catalog="system" width="54" height="64"/>
-        <image name="map" catalog="system" width="64" height="58"/>
         <image name="person.crop.square" catalog="system" width="64" height="56"/>
+        <image name="rectangle.stack" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6q0-jF-oIn"/>
-        <segue reference="nB9-1E-bh5"/>
+        <segue reference="vlS-Fz-L6C"/>
         <segue reference="Jo3-pn-RC8"/>
     </inferredMetricsTieBreakers>
 </document>
