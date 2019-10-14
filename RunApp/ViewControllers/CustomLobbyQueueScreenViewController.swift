@@ -103,12 +103,12 @@ class CustomLobbyQueueViewController : UIViewController {
                         self.removePlayer(num : numPlayers, lowestLob: lowestLobby)
 
                     }
-                    
-                    self.performSegue(withIdentifier: "goToRaceScreen", sender: self)
                     if (numPlayers == 0) {
                         self.ref.child("CustomLobbies").child(self.lobbyCode).removeValue()
                     }
                     self.timer.invalidate()
+                    self.performSegue(withIdentifier: "goToRaceScreen", sender: self)
+                    
                     
                 }
             }
@@ -130,6 +130,7 @@ class CustomLobbyQueueViewController : UIViewController {
         }
         else {
             print("This should work")
+            print(num)
             ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLob + 1])
             ref.child("CustomLobbies").child(lobbyCode).removeValue()
             ref.child("RacingPlayers").updateChildValues(["EveryoneIn" : true])
