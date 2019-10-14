@@ -225,7 +225,7 @@ class mainMenu: UIViewController {
                             }
                             let numPlayers = value2["numPlayers"] as! Int
                             print(numPlayers)
-                            self.ref.child("CustomLobbies").child(self.textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : numPlayers - 1])
+                            self.ref.child("CustomLobbies").child(self.textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : numPlayers])
                             self.ref.child("CustomLobbies").child(self.textField.text!).updateChildValues(["numPlayers" : numPlayers + 1])
                             self.performSegue(withIdentifier: "goToCustomQueue", sender: self)
                             
