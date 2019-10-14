@@ -101,9 +101,7 @@ class CustomLobbyQueueViewController : UIViewController {
                         let lowestLobby = val["lowestLobby"] as! Int
                         self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "LobbyCode" : self.lobbyCode, "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : currentPIndex])
                         self.removePlayer(num : numPlayers, lowestLob: lowestLobby)
-//                        if (currentPIndex == 2) {
-//                            self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby + 1])
-//                        }
+
                     }
                     
                     self.performSegue(withIdentifier: "goToRaceScreen", sender: self)
@@ -123,10 +121,14 @@ class CustomLobbyQueueViewController : UIViewController {
         if num > 1 {
         ref.child("CustomLobbies").child(lobbyCode).child("Players").child(Auth.auth().currentUser!.uid).removeValue()
         ref.child("CustomLobbies").child(lobbyCode).updateChildValues(["numPlayers" : num - 1])
+            if (num == 2) {
+                ref.child("RacingPlayers").updateChildValues(["EveryoneIn" : false])
+            }
         }
         else {
             ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLob + 1])
             ref.child("CustomLobbies").child(lobbyCode).removeValue()
+            ref.child("RacingPlayers").updateChildValues(["EveryoneIn" : true])
         }
     }
     
