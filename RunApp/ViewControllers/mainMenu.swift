@@ -45,7 +45,6 @@ class mainMenu: UIViewController {
         RunningAnimation.layer.shadowRadius = 40
         RunningAnimation.layer.shadowOpacity = 0.5
         RunningAnimation.layer.shadowOffset = CGSize(width: 0, height: 0)
-        self.navigationController!.navigationBar.barStyle = .blackTranslucent
         menuButton.target = self.revealViewController()
         menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
         
@@ -58,7 +57,7 @@ class mainMenu: UIViewController {
             return
             }
             
-            self.name = value["FirstName"] as! String
+            self.name = value["Username"] as! String
             
             self.helloLabel.text = "Hello \(self.name)!"
             
