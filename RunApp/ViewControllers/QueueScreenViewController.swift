@@ -31,6 +31,7 @@ class QueueScreenViewController: UIViewController {
         searchingLabel.text = "Searching for Players"
         super.viewDidLoad()
         startAnimation()
+        retrieveData()
         timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(QueueScreenViewController.change), userInfo: nil, repeats: true)
 
         
@@ -79,7 +80,7 @@ class QueueScreenViewController: UIViewController {
                         self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
                         self.ref.child("QueueLine").updateChildValues(["Deleting" : false])
                         self.removePlayers(num : numPlayers)
-                        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : numSegued])
+                        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : numSegued, "Username" : self.name])
                         self.ref.child("RacingPlayers").updateChildValues(["EveryoneIn" : true])
                         self.ref.child("QueueLine").updateChildValues(["numSegued" : 0])
                         self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby+1])
@@ -93,7 +94,7 @@ class QueueScreenViewController: UIViewController {
                         //removes the player from the queue
                         self.ref.child("QueueLine").updateChildValues(["Index" : index+1])
                         //increments the index so that the next person can be deleted from the queue (so that they entire this if statement or the one above)
-                        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : numSegued])
+                        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : numSegued, "Username" : self.name])
                         //adds a player to the players node in racingplayers and sets its values
                         self.ref.child("RacingPlayers").updateChildValues(["EveryoneIn" : false])
                                                 self.ref.child("QueueLine").updateChildValues(["numSegued" : numSegued + 1])

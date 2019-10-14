@@ -154,6 +154,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                 }
                 let lobbyNum = value["Lobby"] as! Int
                 let uid = value["id"] as! String
+                let username = value["Username"] as! String
                 let index = value["PlayerIndex"] as! Int
                 let distanceRan = value["Distance"] as! Double
                 
@@ -173,13 +174,11 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                         self.progressBar3.isHidden = true;
                     }
                     self.progressBar3.progress = CGFloat(distanceRan / self.goalDistance)
-                    self.Label3.text = uid;
                 } else {
                     if (distanceRan > self.goalDistance) {
                         self.progressBar3.isHidden = true;
                     }
                     self.progressBar4.progress = CGFloat(distanceRan / self.goalDistance)
-                    self.Label4.text = uid;
                 }
             }
         }
@@ -212,17 +211,18 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                     return
                 }
                 let uid = value["id"] as! String
+                let username = value["Username"] as! String
                 let index = value["PlayerIndex"] as! Int
                 
                 if (index == 0) {
                     print(uid)
-                    self.Label1.text = uid
+                    self.Label1.text = username
                 } else if (index == 1) {
-                    self.Label2.text = uid
+                    self.Label2.text = username
                 } else if (index == 2) {
-                    self.Label3.text = uid
+                    self.Label3.text = username
                 } else {
-                    self.Label4.text = uid
+                    self.Label4.text = username
                 }
             }
         }
