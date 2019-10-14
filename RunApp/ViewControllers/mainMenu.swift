@@ -177,7 +177,7 @@ class mainMenu: UIViewController {
                 if self.textField != nil {
                     //print(textField.text)
                     
-                    self.ref.child("CustomLobbies").child(self.textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : 1])
+                    self.ref.child("CustomLobbies").child(self.textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : 0 ])
                     self.ref.child("CustomLobbies").child(self.textField.text!).updateChildValues(["numPlayers" : 1])
                     self.ref.child("CustomLobbies").child(self.textField.text!).updateChildValues(["Deleting" : false])
                     self.ref.child("CustomLobbies").child(self.textField.text!).updateChildValues(["Username" : self.name])
@@ -230,7 +230,7 @@ class mainMenu: UIViewController {
                             }
                             let numPlayers = value2["numPlayers"] as! Int
                             print(numPlayers)
-                            self.ref.child("CustomLobbies").child(self.textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : numPlayers + 1])
+                            self.ref.child("CustomLobbies").child(self.textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : numPlayers - 1])
                             self.ref.child("CustomLobbies").child(self.textField.text!).updateChildValues(["numPlayers" : numPlayers + 1])
                             self.performSegue(withIdentifier: "goToCustomQueue", sender: self)
                             
