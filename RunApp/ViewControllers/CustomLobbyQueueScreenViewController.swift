@@ -119,13 +119,17 @@ class CustomLobbyQueueViewController : UIViewController {
     
     func removePlayer(num : Int, lowestLob : Int) {
         if num > 1 {
-        ref.child("CustomLobbies").child(lobbyCode).child("Players").child(Auth.auth().currentUser!.uid).removeValue()
-        ref.child("CustomLobbies").child(lobbyCode).updateChildValues(["numPlayers" : num - 1])
+            print("The number of players before next removal is")
+            print(num)
             if (num == 2) {
                 ref.child("RacingPlayers").updateChildValues(["EveryoneIn" : false])
             }
+            ref.child("CustomLobbies").child(lobbyCode).child("Players").child(Auth.auth().currentUser!.uid).removeValue()
+            ref.child("CustomLobbies").child(lobbyCode).updateChildValues(["numPlayers" : num - 1])
+            
         }
         else {
+            print("This should work")
             ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLob + 1])
             ref.child("CustomLobbies").child(lobbyCode).removeValue()
             ref.child("RacingPlayers").updateChildValues(["EveryoneIn" : true])
@@ -149,4 +153,6 @@ class CustomLobbyQueueViewController : UIViewController {
     
     
 }
+
+        
 
