@@ -22,7 +22,7 @@ class QueueScreenViewController: UIViewController {
     @IBOutlet weak var searchingLabel: UILabel!
     //Database Reference
     var ref: DatabaseReference!
-    
+    var name:String = ""
     override func viewDidLoad() {
         //view.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.black, property: "none")
         //Set everything up and start everything
@@ -206,7 +206,18 @@ class QueueScreenViewController: UIViewController {
         
     }
     
-
+    func retrieveData() {
+        ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            guard let value = snapshot.value as? NSDictionary else {
+                print("No Data!!!!!!")
+                return
+            }
+            self.name = value["Username"] as! String
+        }) { (error) in
+            print("error:\(error.localizedDescription)")
+        }
+    }
     /*
     // MARK: - Navigation
 
