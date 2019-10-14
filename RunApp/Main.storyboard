@@ -483,7 +483,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Bf-9Z-b84" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-130" y="1025"/>
+            <point key="canvasLocation" x="1476" y="997"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="jUo-Mj-xM1">
@@ -495,11 +495,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Stf-Ac-KLe"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="8dy-0n-I6C"/>
+                    <tabBarItem key="tabBarItem" title="Item 1" selectedImage="1024" id="8dy-0n-I6C"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIg-X2-9Ta" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-130" y="366"/>
+            <point key="canvasLocation" x="1338" y="320"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Nll-W0-y7B">
@@ -664,7 +664,7 @@
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZx-I3-haQ">
-                                <rect key="frame" x="88" y="87" width="198" height="47"/>
+                                <rect key="frame" x="16" y="87" width="343" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="30"/>
                                 <nil key="highlightedColor"/>
@@ -696,7 +696,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQc-2c-sef" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2354" y="-269"/>
+            <point key="canvasLocation" x="2352.8000000000002" y="-269.41529235382313"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -856,6 +856,9 @@
             <point key="canvasLocation" x="-866.39999999999998" y="-586.05697151424295"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="1024" width="1024" height="1024"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="O2w-fN-Zfs"/>
         <segue reference="DeS-8y-BpL"/>
