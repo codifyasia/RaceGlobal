@@ -130,6 +130,7 @@ class CustomLobbyQueueViewController : UIViewController {
         }
         else {
             print("This should work")
+            print(num)
             ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLob + 1])
             ref.child("CustomLobbies").child(lobbyCode).removeValue()
             ref.child("RacingPlayers").updateChildValues(["EveryoneIn" : true])
