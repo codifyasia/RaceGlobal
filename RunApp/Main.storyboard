@@ -211,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Aj-Ev-OWf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3344.8000000000002" y="202.84857571214394"/>
+            <point key="canvasLocation" x="3362" y="829"/>
         </scene>
         <!--Race Screen-->
         <scene sceneID="pfM-cc-t1k">
@@ -464,49 +464,50 @@
                         <outlet property="emailTextField" destination="eNk-3G-bto" id="V2S-Eh-dUo"/>
                         <outlet property="loginButton" destination="Rn4-Rv-eZB" id="zBh-mn-NFe"/>
                         <outlet property="passwordTextField" destination="dVx-Lx-HGs" id="00J-Fu-qt1"/>
-                        <segue destination="9TJ-4A-s6H" kind="presentation" identifier="goToMainMenu" id="O2w-fN-Zfs"/>
+                        <segue destination="Tto-1j-1eD" kind="show" identifier="goToMainMenu" id="nB9-1E-bh5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQf-dA-FEP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="529" y="-568"/>
+            <point key="canvasLocation" x="44" y="-586"/>
         </scene>
-        <!--Item 2-->
+        <!--Bookmark-->
         <scene sceneID="vGj-nn-QXG">
             <objects>
                 <viewController id="hj3-Nx-gLJ" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SiZ-cy-Ag5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="4Jj-dr-FAN"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="pdP-6K-Vlv"/>
+                    <tabBarItem key="tabBarItem" title="Bookmark" image="bookmark" catalog="system" id="pdP-6K-Vlv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Bf-9Z-b84" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1476" y="997"/>
+            <point key="canvasLocation" x="1585" y="-407"/>
         </scene>
-        <!--Item 1-->
+        <!--Maps-->
         <scene sceneID="jUo-Mj-xM1">
             <objects>
                 <viewController id="CIB-sP-8Kk" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wnM-Cz-OZ8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Stf-Ac-KLe"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="8dy-0n-I6C"/>
+                    <tabBarItem key="tabBarItem" title="Maps" image="map" catalog="system" id="8dy-0n-I6C"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIg-X2-9Ta" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1338" y="320"/>
+            <point key="canvasLocation" x="2390" y="-489"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Nll-W0-y7B">
             <objects>
                 <tabBarController id="Tto-1j-1eD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="jgJ-so-8sQ"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YyO-BY-e8B">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -515,11 +516,12 @@
                     <connections>
                         <segue destination="CIB-sP-8Kk" kind="relationship" relationship="viewControllers" id="IxW-Vj-iPe"/>
                         <segue destination="hj3-Nx-gLJ" kind="relationship" relationship="viewControllers" id="o7M-BP-2Yv"/>
+                        <segue destination="9TJ-4A-s6H" kind="relationship" relationship="viewControllers" id="6q0-jF-oIn"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQ9-uB-6uf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="593" y="641"/>
+            <point key="canvasLocation" x="806" y="-562"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="pZl-S6-SXk">
@@ -594,9 +596,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6e-Zh-2uw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1516" y="1577.3613193403301"/>
+            <point key="canvasLocation" x="2500" y="1975"/>
         </scene>
-        <!--Main Menu-->
+        <!--Item-->
         <scene sceneID="Qdy-IB-Ptj">
             <objects>
                 <viewController id="9TJ-4A-s6H" customClass="mainMenu" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -674,6 +676,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xjI-gW-Ztv"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="person.crop.square" catalog="system" id="hUA-I2-8a9"/>
                     <navigationItem key="navigationItem" id="swr-et-RBp" colorLabel="IBBuiltInLabel-Yellow">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="tBd-up-OL5"/>
                         <barButtonItem key="rightBarButtonItem" title="Sign Out" style="plain" id="G4Q-zR-iuv">
@@ -698,7 +701,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQc-2c-sef" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2352.8000000000002" y="-269.41529235382313"/>
+            <point key="canvasLocation" x="3034" y="-489"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -850,7 +853,7 @@
                         <outlet property="emailField" destination="oYf-P6-Awo" id="hDa-IR-uCk"/>
                         <outlet property="passwordField" destination="xy1-pp-OlU" id="utu-Ix-Cpv"/>
                         <outlet property="registerButton" destination="yDS-yT-IjP" id="FLj-en-6hU"/>
-                        <segue destination="9TJ-4A-s6H" kind="presentation" identifier="goToMainMenu" id="CGr-is-KrR"/>
+                        <segue destination="Tto-1j-1eD" kind="show" identifier="goToMainMenu" id="cst-aM-I2y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -858,9 +861,14 @@
             <point key="canvasLocation" x="-866.39999999999998" y="-586.05697151424295"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bookmark" catalog="system" width="54" height="64"/>
+        <image name="map" catalog="system" width="64" height="58"/>
+        <image name="person.crop.square" catalog="system" width="64" height="56"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qHj-ox-ScC"/>
-        <segue reference="S3s-ER-SyC"/>
+        <segue reference="6q0-jF-oIn"/>
+        <segue reference="nB9-1E-bh5"/>
         <segue reference="Jo3-pn-RC8"/>
     </inferredMetricsTieBreakers>
 </document>
