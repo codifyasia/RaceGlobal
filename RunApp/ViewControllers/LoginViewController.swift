@@ -32,7 +32,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if (error == nil) {
                 SVProgressHUD.dismiss()
-                self.performSegue(withIdentifier: "loginToMain", sender: self)
+                self.performSegue(withIdentifier: "goToMainMenu", sender: self)
             } else {
                 
                 SVProgressHUD.dismiss()
