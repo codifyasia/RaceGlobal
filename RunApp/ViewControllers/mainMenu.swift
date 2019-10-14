@@ -17,7 +17,7 @@ class mainMenu: UIViewController {
     var textField = UITextField()
     
     var ref: DatabaseReference!
-    
+    var name:String = ""
     
     @IBOutlet weak var signOutButton: UIBarButtonItem!
     @IBOutlet weak var sideBarButton: UIBarButtonItem!
@@ -25,6 +25,7 @@ class mainMenu: UIViewController {
     @IBOutlet weak var queueButton: UIButton!
     @IBOutlet weak var customLobbyButton: UIButton!
     @IBOutlet weak var statisticsButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         signOutButton.tintColor = .white
@@ -57,9 +58,9 @@ class mainMenu: UIViewController {
             return
             }
             
-            var name: String = value["FirstName"] as! String
+            self.name = value["FirstName"] as! String
             
-            self.helloLabel.text = "Hello \(name)!"
+            self.helloLabel.text = "Hello \(self.name)!"
             
             
             
@@ -82,7 +83,7 @@ class mainMenu: UIViewController {
             print(amount)
             
             self.ref.child("QueueLine").updateChildValues(["PlayersAvailible" : amount+1])
-            self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).setValue(["Position": amount+1, "Lobby" : 0, "id" : Auth.auth().currentUser!.uid])
+            self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).setValue(["Position": amount+1, "Lobby" : 0, "id" : Auth.auth().currentUser!.uid, "Username" : self.name])
             print("joined Queue")
             
             
@@ -179,6 +180,7 @@ class mainMenu: UIViewController {
                     self.ref.child("CustomLobbies").child(self.textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : 1])
                     self.ref.child("CustomLobbies").child(self.textField.text!).updateChildValues(["numPlayers" : 1])
                     self.ref.child("CustomLobbies").child(self.textField.text!).updateChildValues(["Deleting" : false])
+                    self.ref.child("CustomLobbies").child(self.textField.text!).updateChildValues(["Username" : self.name])
                     self.performSegue(withIdentifier: "goToCustomQueue", sender: self)
                 }
                 
