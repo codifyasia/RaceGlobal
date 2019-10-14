@@ -36,6 +36,7 @@
                                         </state>
                                         <connections>
                                             <action selector="cancelPressed:" destination="aVs-zb-F40" eventType="touchUpInside" id="X96-4S-vPZ"/>
+                                            <segue destination="9TJ-4A-s6H" kind="show" id="S3s-ER-SyC"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -44,6 +45,7 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xh0-kx-4HE"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Orv-VL-01v"/>
                     <connections>
                         <outlet property="animationView" destination="ElE-5b-foT" id="zKR-cC-9ja"/>
                         <outlet property="searchingLabel" destination="0Or-RB-lJv" id="bD7-fo-ege"/>
@@ -495,7 +497,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Stf-Ac-KLe"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" selectedImage="1024" id="8dy-0n-I6C"/>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="8dy-0n-I6C"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIg-X2-9Ta" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -621,7 +623,6 @@
                                 </state>
                                 <connections>
                                     <action selector="QueueUp:" destination="9TJ-4A-s6H" eventType="touchUpInside" id="tIw-5C-QJL"/>
-                                    <segue destination="aVs-zb-F40" kind="presentation" identifier="goToQueueScreen" customClass="SWRevealViewControllerSeguePushController" id="pd4-yf-Rod"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMa-2L-Zj1">
@@ -692,6 +693,7 @@
                         <outlet property="statisticsButton" destination="ir6-T5-AlH" id="J7p-CR-p0r"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="goBackToSignUp" animates="NO" id="Izk-bw-Qhg"/>
                         <segue destination="cfW-kX-xiS" kind="show" identifier="goToCustomQueue" id="1f6-9i-ew7"/>
+                        <segue destination="aVs-zb-F40" kind="show" identifier="goToQueue" id="qHj-ox-ScC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQc-2c-sef" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -856,11 +858,9 @@
             <point key="canvasLocation" x="-866.39999999999998" y="-586.05697151424295"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="1024" width="1024" height="1024"/>
-    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="O2w-fN-Zfs"/>
-        <segue reference="DeS-8y-BpL"/>
+        <segue reference="qHj-ox-ScC"/>
+        <segue reference="S3s-ER-SyC"/>
+        <segue reference="Jo3-pn-RC8"/>
     </inferredMetricsTieBreakers>
 </document>
