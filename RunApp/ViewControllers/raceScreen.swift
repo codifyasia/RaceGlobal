@@ -203,6 +203,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         }
     }
     func retrieveLabels() {
+        
         ref.child("RacingPlayers").child("Players").observeSingleEvent(of: .value) { snapshot in
             print(snapshot.childrenCount)
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
@@ -211,7 +212,8 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                     return
                 }
                 let uid = value["id"] as! String
-                let username = value["Username"] as! String
+//                let username = value["Username"] as! String
+                let username = "disregard for now"
                 let index = value["PlayerIndex"] as! Int
                 
                 if (index == 0) {
