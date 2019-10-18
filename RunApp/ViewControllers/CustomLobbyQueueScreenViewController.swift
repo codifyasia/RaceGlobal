@@ -71,7 +71,6 @@ class CustomLobbyQueueViewController : UIViewController {
     }
     
     func check() {
-        print("gay")
         ref.child("CustomLobbies").child(lobbyCode).observeSingleEvent(of: .value) { (snapshot) in
             guard let data = snapshot.value as? NSDictionary else {
                     print("NO DATTAA!!!")
@@ -86,6 +85,13 @@ class CustomLobbyQueueViewController : UIViewController {
                 }
             }
             else {
+                
+                self.ref.child("QueueLine").observeSingleEvent(of: .value) { (snapshot) in
+                guard let val = snapshot.value as? NSDictionary else {
+                    print("Nothing in QueueLine")
+                    return
+                }
+                let lowestLobby = val["lowestLobby"] as! Int
                 self.ref.child("CustomLobbies").child(self.lobbyCode).child("Players").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { (snap) in
                     guard let value = snap.value as? NSDictionary else {
                             print("No DATA")
@@ -93,18 +99,17 @@ class CustomLobbyQueueViewController : UIViewController {
                     }
                 
                     let currentPIndex = value["PlayerIndex"] as! Int
-                    self.ref.child("QueueLine").observeSingleEvent(of: .value) { (snapshot) in
-                        guard let val = snapshot.value as? NSDictionary else {
-                            print("Nothing in QueueLine")
-                            return
-                        }
-                        let lowestLobby = val["lowestLobby"] as! Int
                         self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "LobbyCode" : self.lobbyCode, "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : currentPIndex])
-                        self.removePlayer(num : numPlayers, lowestLob: lowestLobby)
+                        var b : Bool = self.removePlayer(num : numPlayers, lowestLob: lowestLobby, playerIndex: currentPIndex)
+                        while(!b) {
+                            b = self.removePlayer(num: numPlayers, lowestLob: lowestLobby, playerIndex: currentPIndex)
+                        }
 
                     }
-                    if (numPlayers == 0) {
+                    if (numPlayers == 1) {
                         self.ref.child("CustomLobbies").child(self.lobbyCode).removeValue()
+                        self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby + 1])
+                        self.ref.child("RacingPlayers").updateChildValues(["EveryoneIn" : true])
                     }
                     self.timer.invalidate()
                     self.performSegue(withIdentifier: "goToRaceScreen", sender: self)
@@ -117,24 +122,36 @@ class CustomLobbyQueueViewController : UIViewController {
         }
     }
     
-    func removePlayer(num : Int, lowestLob : Int) {
-        if num > 1 {
-            print("The number of players before next removal is")
-            print(num)
-            if (num == 2) {
-                ref.child("RacingPlayers").updateChildValues(["EveryoneIn" : false])
-            }
+    func removePlayer(num : Int, lowestLob : Int, playerIndex : Int) -> Bool {
+        if (playerIndex == 0 && num == 2) {
+            print("remove playerIndex : 0")
+            ref.child("RacingPlayers").updateChildValues(["EveryoneIn" : false])
             ref.child("CustomLobbies").child(lobbyCode).child("Players").child(Auth.auth().currentUser!.uid).removeValue()
-            ref.child("CustomLobbies").child(lobbyCode).updateChildValues(["numPlayers" : num - 1])
+            ref.child("CustomLobbies").child(lobbyCode).updateChildValues(["numPlayers" : 1])
+            return true
             
+        } else if (playerIndex == 1 && num == 1) {
+            print("remove playerIndex : 1")
+            ref.child("CustomLobbies").child(lobbyCode).child("Players").child(Auth.auth().currentUser!.uid).removeValue()
+            ref.child("CustomLobbies").child(lobbyCode).updateChildValues(["numPlayers" : 0])
+            return true
         }
-        else {
-            print("This should work")
-            print(num)
-            ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLob + 1])
-            ref.child("CustomLobbies").child(lobbyCode).removeValue()
-            ref.child("RacingPlayers").updateChildValues(["EveryoneIn" : true])
-        }
+        return false
+//        if num > 1 {
+//            print("The number of players before next removal is")
+//            print(num)
+//            if (num == 2) {
+//                ref.child("RacingPlayers").updateChildValues(["EveryoneIn" : false])
+//            }
+//            ref.child("CustomLobbies").child(lobbyCode).child("Players").child(Auth.auth().currentUser!.uid).removeValue()
+//            ref.child("CustomLobbies").child(lobbyCode).updateChildValues(["numPlayers" : num - 1])
+//
+//        }
+//        else {
+//            ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLob + 1])
+//            ref.child("CustomLobbies").child(lobbyCode).removeValue()
+//            ref.child("RacingPlayers").updateChildValues(["EveryoneIn" : true])
+//        }
     }
     
     @objc func change() {
@@ -156,4 +173,5 @@ class CustomLobbyQueueViewController : UIViewController {
 }
 
         
+
 
