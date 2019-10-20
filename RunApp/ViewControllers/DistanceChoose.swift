@@ -18,6 +18,15 @@ class DistanceChoose: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    @IBAction func mi1Pressed(_ sender: Any) {
+        
+    }
+    @IBAction func mi2Pressed(_ sender: Any) {
+        
+    }
+    @IBAction func mi3Pressed(_ sender: Any) {
+        
+    }
     
 
     /*
