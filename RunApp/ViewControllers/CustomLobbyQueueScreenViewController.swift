@@ -11,6 +11,9 @@ import Firebase
 import Lottie
 
 class CustomLobbyQueueViewController : UIViewController {
+    
+    @IBOutlet weak var animationView: AnimationView!
+    
     var lobbyCode = ""
     var ref : DatabaseReference!
     var timer = Timer()
@@ -21,8 +24,15 @@ class CustomLobbyQueueViewController : UIViewController {
         stuff.text = "1"
         ref = Database.database().reference()
         timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(CustomLobbyQueueViewController.change), userInfo: nil, repeats: true)
-        
+        startAnimation()
         definesPresentationContext = true
+    }
+    
+    
+    func startAnimation() {
+        animationView.animation = Animation.named("map")
+        animationView.loopMode = .loop
+        animationView.play()
     }
     
     @IBAction func cancelPressed(_ sender: UIButton) {
@@ -161,14 +171,14 @@ class CustomLobbyQueueViewController : UIViewController {
     @objc func change() {
         
         if (counter == 1) {
-            stuff.text = "2"
+            stuff.text = "Waiting for Players ."
             counter = 2
         } else if (counter == 2) {
-            stuff.text = "3"
+            stuff.text = "Waiting for Players . ."
             counter = 3
         } else if (counter == 3) {
+            stuff.text = "Waiting for Players . . ."
             counter = 1
-            stuff.text = "1"
             check()
         }
     }

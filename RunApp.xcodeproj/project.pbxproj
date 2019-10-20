@@ -19,6 +19,7 @@
 		895BBB3B2311F1B1006F06FE /* QueueScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895BBB3A2311F1B1006F06FE /* QueueScreenViewController.swift */; };
 		895BBB3D2311F7F6006F06FE /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 895BBB3C2311F7F6006F06FE /* loading.json */; };
 		896400CD2352429C00D9DD8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 896400CC2352429C00D9DD8F /* Main.storyboard */; };
+		89AACCF2235BE0C700844203 /* map.json in Resources */ = {isa = PBXBuildFile; fileRef = 89AACCF1235BE0C700844203 /* map.json */; };
 		89FA1A3C23493BAD004F412B /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FA1A3B23493BAD004F412B /* constants.swift */; };
 		89FA1A3F23493C0B004F412B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FA1A3E23493C0B004F412B /* UIView+Extension.swift */; };
 		89FA1A41234EDFB0004F412B /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FA1A40234EDFB0004F412B /* StatisticsViewController.swift */; };
@@ -50,6 +51,7 @@
 		895BBB3A2311F1B1006F06FE /* QueueScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueScreenViewController.swift; sourceTree = "<group>"; };
 		895BBB3C2311F7F6006F06FE /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		896400CC2352429C00D9DD8F /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		89AACCF1235BE0C700844203 /* map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = map.json; sourceTree = "<group>"; };
 		89FA1A3B23493BAD004F412B /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		89FA1A3E23493C0B004F412B /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		89FA1A40234EDFB0004F412B /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
@@ -115,10 +117,7 @@
 				890F3A9022F8DD4100D14044 /* AppDelegate.swift */,
 				896400CC2352429C00D9DD8F /* Main.storyboard */,
 				890F3A9222F8DD4100D14044 /* ViewController.swift */,
-				895BBB382311F117006F06FE /* world.json */,
-				895BBB3C2311F7F6006F06FE /* loading.json */,
-				9CC1E7542349782600A4632A /* runninganimation.json */,
-				9C08960923188B6000F15BDE /* 8803-simple-countdown.json */,
+				89AACCF3235BE1EB00844203 /* Lottie Files */,
 				890F3A9722F8DD4200D14044 /* Assets.xcassets */,
 				890F3A9922F8DD4200D14044 /* LaunchScreen.storyboard */,
 				9C23712923022B5000A5662B /* SWRevealViewController.m */,
@@ -128,6 +127,18 @@
 				890F3AA422F8E2D800D14044 /* GoogleService-Info.plist */,
 			);
 			path = RunApp;
+			sourceTree = "<group>";
+		};
+		89AACCF3235BE1EB00844203 /* Lottie Files */ = {
+			isa = PBXGroup;
+			children = (
+				895BBB3C2311F7F6006F06FE /* loading.json */,
+				895BBB382311F117006F06FE /* world.json */,
+				9CC1E7542349782600A4632A /* runninganimation.json */,
+				89AACCF1235BE0C700844203 /* map.json */,
+				9C08960923188B6000F15BDE /* 8803-simple-countdown.json */,
+			);
+			path = "Lottie Files";
 			sourceTree = "<group>";
 		};
 		89FA1A3D23493BD7004F412B /* Color Extensions */ = {
@@ -236,6 +247,7 @@
 			files = (
 				895BBB3D2311F7F6006F06FE /* loading.json in Resources */,
 				890F3A9B22F8DD4200D14044 /* LaunchScreen.storyboard in Resources */,
+				89AACCF2235BE0C700844203 /* map.json in Resources */,
 				9C08960A23188B6000F15BDE /* 8803-simple-countdown.json in Resources */,
 				9CC1E7552349782600A4632A /* runninganimation.json in Resources */,
 				890F3AA522F8E2D800D14044 /* GoogleService-Info.plist in Resources */,

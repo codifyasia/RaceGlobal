@@ -22,7 +22,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         loginButton.layer.cornerRadius = 20
-        view.setGradientBackground(colorOne: Colors.darkGrey, colorTwo: Colors.lightGrey, property: "none")
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
     }
