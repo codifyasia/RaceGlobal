@@ -142,6 +142,7 @@
                         <outlet property="mile1" destination="sw7-lc-8Fh" id="p5f-Zy-ZTE"/>
                         <outlet property="mile2" destination="WpN-Ce-7nk" id="uM9-i8-dfF"/>
                         <outlet property="mile3" destination="bRH-u8-e9H" id="jv7-fg-Wzv"/>
+                        <segue destination="gF5-aO-G6X" kind="presentation" identifier="goRaceScreen" id="5UX-tR-BUB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CrV-ct-hBf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -962,8 +963,8 @@
         <image name="rectangle.stack" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6q0-jF-oIn"/>
-        <segue reference="cst-aM-I2y"/>
-        <segue reference="DeS-8y-BpL"/>
+        <segue reference="Up0-eM-F4f"/>
+        <segue reference="vlS-Fz-L6C"/>
+        <segue reference="5UX-tR-BUB"/>
     </inferredMetricsTieBreakers>
 </document>

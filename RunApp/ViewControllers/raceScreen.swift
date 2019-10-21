@@ -49,7 +49,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         print("entered race screen")
-        locationManager.requestAlwaysAuthorization()
+        //locationManager.requestAlwaysAuthorization()
         //Set everything up and start everything
         ref = Database.database().reference()
         //TODO: Timer
@@ -197,6 +197,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                 print("No Data!!!!!!")
                 return
             }
+            self.goalDistance = value["SelectedDist"] as! Double
             self.playerIndex = value["PlayerIndex"] as! Int
             self.PlayerIndex.text = String(self.playerIndex)
             self.playerLobby = value["Lobby"] as! Int
