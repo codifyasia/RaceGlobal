@@ -29,6 +29,7 @@
 		9C23712723021EB800A5662B /* customCellxib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C23712523021EB800A5662B /* customCellxib.xib */; };
 		9C23712B23022B5000A5662B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C23712923022B5000A5662B /* SWRevealViewController.m */; };
 		9C327DC622FF40EC00D04ACA /* mainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C327DC522FF40EC00D04ACA /* mainMenu.swift */; };
+		9C8EEF44235D2955002AF9BC /* DistanceChoose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8EEF43235D2955002AF9BC /* DistanceChoose.swift */; };
 		9C90E68422F8E6FF00376DDA /* raceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C90E68322F8E6FF00376DDA /* raceScreen.swift */; };
 		9CA8D42823442BD000B2AEC2 /* WinScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA8D42723442BD000B2AEC2 /* WinScreen.swift */; };
 		9CC1E7552349782600A4632A /* runninganimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CC1E7542349782600A4632A /* runninganimation.json */; };
@@ -63,6 +64,7 @@
 		9C23712923022B5000A5662B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		9C23712A23022B5000A5662B /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		9C327DC522FF40EC00D04ACA /* mainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainMenu.swift; sourceTree = "<group>"; };
+		9C8EEF43235D2955002AF9BC /* DistanceChoose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceChoose.swift; sourceTree = "<group>"; };
 		9C90E68322F8E6FF00376DDA /* raceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = raceScreen.swift; sourceTree = "<group>"; };
 		9CA8D42723442BD000B2AEC2 /* WinScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinScreen.swift; sourceTree = "<group>"; };
 		9CC1E7542349782600A4632A /* runninganimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = runninganimation.json; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				47CD8DFE23493AE0007F8D20 /* CustomLobbyQueueScreenViewController.swift */,
 				9C23712223021BAE00A5662B /* sideBarViewController.swift */,
 				8904203022FA359F0044EEBD /* LoginViewController.swift */,
+				9C8EEF43235D2955002AF9BC /* DistanceChoose.swift */,
 				8904202E22FA33F50044EEBD /* SignUpViewController.swift */,
 				9C90E68322F8E6FF00376DDA /* raceScreen.swift */,
 				9C327DC522FF40EC00D04ACA /* mainMenu.swift */,
@@ -318,6 +321,7 @@
 				89FA1A3F23493C0B004F412B /* UIView+Extension.swift in Sources */,
 				9C23712B23022B5000A5662B /* SWRevealViewController.m in Sources */,
 				9C90E68422F8E6FF00376DDA /* raceScreen.swift in Sources */,
+				9C8EEF44235D2955002AF9BC /* DistanceChoose.swift in Sources */,
 				47CD8DFF23493AE0007F8D20 /* CustomLobbyQueueScreenViewController.swift in Sources */,
 				9C23712623021EB800A5662B /* customCell.swift in Sources */,
 				9C23712323021BAE00A5662B /* sideBarViewController.swift in Sources */,
