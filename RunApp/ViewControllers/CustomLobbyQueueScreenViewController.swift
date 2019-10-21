@@ -54,7 +54,6 @@ class CustomLobbyQueueViewController : UIViewController {
                 self.ref.child("CustomLobbies").child(self.lobbyCode).child("Players").child(Auth.auth().currentUser!.uid).removeValue()
                 let index = value1["PlayerIndex"] as! Int
                 if numPlayers == 1 {
-                    print("bobby: \(self.lobbyCode)")
                     self.ref.child("CustomLobbies").child(self.lobbyCode).removeValue()
                 }
                 self.fixLine(pos : index)
@@ -111,7 +110,8 @@ class CustomLobbyQueueViewController : UIViewController {
                     }
                 
                     let currentPIndex = value["PlayerIndex"] as! Int
-                        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "LobbyCode" : self.lobbyCode, "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : currentPIndex])
+                    let userName = value["Username"]
+                    self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "LobbyCode" : self.lobbyCode, "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : currentPIndex, "Username" : userName])
                         self.removePlayer(num : numPlayers, lowestLob: lowestLobby, playerIndex: currentPIndex)
 //                        while(!b) {
 //                            b = self.removePlayer(num: numPlayers, lowestLob: lowestLobby, playerIndex: currentPIndex)
