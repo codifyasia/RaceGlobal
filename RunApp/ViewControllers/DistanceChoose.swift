@@ -7,25 +7,27 @@
 //
 
 import UIKit
+import Firebase
 
 class DistanceChoose: UIViewController {
 
     @IBOutlet weak var mile1: UIButton!
     @IBOutlet weak var mile2: UIButton!
     @IBOutlet weak var mile3: UIButton!
+    var ref: DatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        ref = Database.database().reference()
+        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 0])
         // Do any additional setup after loading the view.
     }
-    @IBAction func mi1Pressed(_ sender: Any) {
-        
+    @IBAction func mi1Pressed(_ sender: Any) { self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 1000])
     }
     @IBAction func mi2Pressed(_ sender: Any) {
-        
+        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 2000])
     }
     @IBAction func mi3Pressed(_ sender: Any) {
-        
+        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 3000])
     }
     
 

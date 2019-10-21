@@ -244,7 +244,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="UmL-yj-pKc"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Statistics" image="rectangle.stack" id="UQU-I3-T1H"/>
+                    <tabBarItem key="tabBarItem" title="Statistics" image="info.png" id="UQU-I3-T1H"/>
                     <navigationItem key="navigationItem" id="i3z-It-2wE"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
@@ -540,7 +540,7 @@
             </objects>
             <point key="canvasLocation" x="44" y="-586.05697151424295"/>
         </scene>
-        <!--Bookmark-->
+        <!--Nothing-->
         <scene sceneID="vGj-nn-QXG">
             <objects>
                 <viewController id="hj3-Nx-gLJ" sceneMemberID="viewController">
@@ -559,7 +559,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4Jj-dr-FAN"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Bookmark" image="bookmark" id="pdP-6K-Vlv"/>
+                    <tabBarItem key="tabBarItem" title="Nothing" image="error.png" id="pdP-6K-Vlv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Bf-9Z-b84" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -725,7 +725,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xjI-gW-Ztv"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Start" image="person.crop.square" id="hUA-I2-8a9"/>
+                    <tabBarItem key="tabBarItem" title="Start" image="rectangle.stack" id="hUA-I2-8a9"/>
                     <navigationItem key="navigationItem" id="swr-et-RBp" colorLabel="IBBuiltInLabel-Yellow">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="tBd-up-OL5"/>
                         <barButtonItem key="rightBarButtonItem" title="Sign Out" style="plain" id="G4Q-zR-iuv">
@@ -957,12 +957,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bookmark" width="54" height="64"/>
-        <image name="person.crop.square" width="64" height="56"/>
+        <image name="error.png" width="28" height="28"/>
+        <image name="info.png" width="28" height="28"/>
         <image name="rectangle.stack" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Up0-eM-F4f"/>
+        <segue reference="6q0-jF-oIn"/>
         <segue reference="cst-aM-I2y"/>
         <segue reference="DeS-8y-BpL"/>
     </inferredMetricsTieBreakers>
