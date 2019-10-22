@@ -159,24 +159,60 @@ class mainMenu: UIViewController {
         //statisticsButton.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.darkGrey, property: "corner")
     }
     
+    func addFirstCustomPlayer() {
+        self.ref.child("CustomLobbies").child(self.textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : 0, "Username" : self.name])
+        self.ref.child("CustomLobbies").child(self.textField.text!).updateChildValues(["numPlayers" : 1])
+        self.ref.child("CustomLobbies").child(self.textField.text!).updateChildValues(["Deleting" : false])
+        self.performSegue(withIdentifier: "goToCustomQueue", sender: self)
+    }
     
     @IBAction func customLobbyPressed(_ sender: UIButton) {
         
         //Popup alert
         let alert = UIAlertController(title: "Custom Lobby", message: "", preferredStyle: .alert)
         
-        //Three Options - Option 3: Create a custom lobby code
+        //Three Options - Option 1: Create a custom lobby code
         let action = UIAlertAction(title: "Create new custom lobby", style: .default) { (action) in
             let newAlert = UIAlertController(title: "Creating new custom lobby", message: "Enter your own lobby code", preferredStyle: .alert)
             let doneButton = UIAlertAction(title: "Done", style: .default) { (action) in
-                if self.textField != nil {
-                    //print(textField.text)
+                if self.textField.text?.isEmpty ?? true {
+                    let failAlert = UIAlertController(title: "Error", message: "Please enter in a valid code", preferredStyle: .alert)
                     
-                    self.ref.child("CustomLobbies").child(self.textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : 0, "Username" : self.name])
-                    self.ref.child("CustomLobbies").child(self.textField.text!).updateChildValues(["numPlayers" : 1])
-                    self.ref.child("CustomLobbies").child(self.textField.text!).updateChildValues(["Deleting" : false])
-                    self.ref.child("CustomLobbies").child(self.textField.text!).updateChildValues(["Username" : self.name])
-                    self.performSegue(withIdentifier: "goToCustomQueue", sender: self)
+                    let okButton = UIAlertAction(title: "OK", style: .cancel) { (action) in
+                        
+                    }
+                    failAlert.addAction(okButton)
+                    self.present(failAlert, animated : true, completion: nil)
+                    return
+                }
+                if let text = self.textField.text {
+                    //print(textField.text)
+                    self.ref.observeSingleEvent(of: .value) { (snapshot) in
+                        if snapshot.hasChild("CustomLobbies") {
+                            print("CustomLobbies exist")
+                            self.ref.child("CustomLobbies").observeSingleEvent(of: .value) { (snap) in
+                                if snap.hasChild(self.textField.text!) {
+                                    //
+                                    //Code already in use
+                                    let anotherAlert = UIAlertController(title: "Error", message: "Someone has already used this code", preferredStyle: .alert);
+                                    let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                                        return
+                                    }
+                                    
+                                    anotherAlert.addAction(okAction)
+                                    self.present(anotherAlert, animated: true, completion: nil)
+                                    print("return")
+                                    return
+                                } else {
+                                    self.addFirstCustomPlayer()
+                                }
+                            }
+                        } else {
+                            print("CustomLobbies does not exist")
+                            self.addFirstCustomPlayer()
+                        }
+                    }
+                    
                 }
                 
             }
@@ -212,7 +248,6 @@ class mainMenu: UIViewController {
                         
                         newAlert3.addAction(okAction)
                         self.present(newAlert3, animated: true, completion: nil)
-                        print("No Data!!!")
                         return
                     }
                     

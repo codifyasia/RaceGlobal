@@ -49,7 +49,7 @@
                     <connections>
                         <outlet property="animationView" destination="ElE-5b-foT" id="zKR-cC-9ja"/>
                         <outlet property="searchingLabel" destination="0Or-RB-lJv" id="bD7-fo-ege"/>
-                        <segue destination="gF5-aO-G6X" kind="presentation" identifier="toRaceScreen" id="Jo3-pn-RC8"/>
+                        <segue destination="mnj-Dk-Yhs" kind="presentation" identifier="toRaceScreen" id="tc7-xb-7gJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVB-oe-gKX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -93,8 +93,8 @@
                     <connections>
                         <outlet property="animationView" destination="pDv-Yc-4LI" id="jjv-TO-MtG"/>
                         <outlet property="stuff" destination="ciw-84-vWz" id="D7y-Sz-yrB"/>
-                        <segue destination="gF5-aO-G6X" kind="show" identifier="goToRaceScreen" id="DeS-8y-BpL"/>
                         <segue destination="Tto-1j-1eD" kind="presentation" identifier="customToMain" id="E8s-5j-gj4"/>
+                        <segue destination="mnj-Dk-Yhs" kind="presentation" identifier="goToRaceScreen" id="djm-DF-YzH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sc0-S7-d8k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -141,11 +141,12 @@
                         <outlet property="mile1" destination="sw7-lc-8Fh" id="p5f-Zy-ZTE"/>
                         <outlet property="mile2" destination="WpN-Ce-7nk" id="uM9-i8-dfF"/>
                         <outlet property="mile3" destination="bRH-u8-e9H" id="jv7-fg-Wzv"/>
+                        <segue destination="gF5-aO-G6X" kind="presentation" identifier="goRaceScreen" id="5UX-tR-BUB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CrV-ct-hBf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5799" y="-490"/>
+            <point key="canvasLocation" x="5559" y="-175"/>
         </scene>
         <!--Win Screen-->
         <scene sceneID="mEV-a2-DqX">
@@ -961,8 +962,8 @@
         <image name="rectangle.stack" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6q0-jF-oIn"/>
-        <segue reference="cst-aM-I2y"/>
-        <segue reference="DeS-8y-BpL"/>
+        <segue reference="Up0-eM-F4f"/>
+        <segue reference="E8s-5j-gj4"/>
+        <segue reference="djm-DF-YzH"/>
     </inferredMetricsTieBreakers>
 </document>

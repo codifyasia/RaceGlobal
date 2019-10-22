@@ -14,10 +14,12 @@ class DistanceChoose: UIViewController {
     @IBOutlet weak var mile1: UIButton!
     @IBOutlet weak var mile2: UIButton!
     @IBOutlet weak var mile3: UIButton!
+    var canSegue:Bool = false
     var ref: DatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
+        let timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
         self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 0])
         // Do any additional setup after loading the view.
     }
@@ -29,7 +31,31 @@ class DistanceChoose: UIViewController {
     @IBAction func mi3Pressed(_ sender: Any) {
         self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 3000])
     }
-    
+    @objc func fireTimer() {
+        var numSelectedDist = 0
+        var newDistance = 0
+        ref.child("QueueLine").child("RacingPlayers").observeSingleEvent(of: .value) { snapshot in
+            print(snapshot.childrenCount) // might have not gone deep enough here, test tmrw
+            for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                guard let value = rest.value as? NSDictionary else {
+                    print("No Data!!!")
+                    return
+                }
+                let dist = value["SelectedDist"] as! Int
+                if (dist != 0) {
+                    newDistance += dist
+                    numSelectedDist += 1;
+                }
+            }
+        }
+        if (numSelectedDist >= 2) {
+            self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : newDistance])
+            //timer.invalidate()
+            performSegue(withIdentifier: "goRaceScreen", sender: self)
+            
+            
+        }
+    }
 
     /*
     // MARK: - Navigation
