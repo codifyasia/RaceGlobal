@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4702C4B3235EAA1F0016805C /* LoseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4702C4B2235EAA1F0016805C /* LoseScreen.swift */; };
 		47CD8DFF23493AE0007F8D20 /* CustomLobbyQueueScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CD8DFE23493AE0007F8D20 /* CustomLobbyQueueScreenViewController.swift */; };
 		8904202F22FA33F50044EEBD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8904202E22FA33F50044EEBD /* SignUpViewController.swift */; };
 		8904203122FA359F0044EEBD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8904203022FA359F0044EEBD /* LoginViewController.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		082861AF11D40A55A7DA9473 /* Pods-RunApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunApp.debug.xcconfig"; path = "Target Support Files/Pods-RunApp/Pods-RunApp.debug.xcconfig"; sourceTree = "<group>"; };
+		4702C4B2235EAA1F0016805C /* LoseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseScreen.swift; sourceTree = "<group>"; };
 		47CD8DFE23493AE0007F8D20 /* CustomLobbyQueueScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLobbyQueueScreenViewController.swift; sourceTree = "<group>"; };
 		8904202E22FA33F50044EEBD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8904203022FA359F0044EEBD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				9C327DC522FF40EC00D04ACA /* mainMenu.swift */,
 				9CA8D42723442BD000B2AEC2 /* WinScreen.swift */,
 				89FA1A40234EDFB0004F412B /* StatisticsViewController.swift */,
+				4702C4B2235EAA1F0016805C /* LoseScreen.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				47CD8DFF23493AE0007F8D20 /* CustomLobbyQueueScreenViewController.swift in Sources */,
 				9C23712623021EB800A5662B /* customCell.swift in Sources */,
 				9C23712323021BAE00A5662B /* sideBarViewController.swift in Sources */,
+				4702C4B3235EAA1F0016805C /* LoseScreen.swift in Sources */,
 				89FA1A3C23493BAD004F412B /* constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

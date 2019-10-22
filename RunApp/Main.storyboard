@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -106,7 +106,7 @@
             <objects>
                 <viewController id="mnj-Dk-Yhs" customClass="DistanceChoose" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ghh-jy-hFa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WpN-Ce-7nk">
@@ -146,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CrV-ct-hBf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5559" y="-175"/>
+            <point key="canvasLocation" x="5580" y="261"/>
         </scene>
         <!--Win Screen-->
         <scene sceneID="mEV-a2-DqX">
@@ -181,7 +181,39 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tNV-c4-2bZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4886" y="-718"/>
+            <point key="canvasLocation" x="4849" y="-1224"/>
+        </scene>
+        <!--Lose Screen-->
+        <scene sceneID="M89-Pm-B6H">
+            <objects>
+                <viewController id="4M4-wt-BiP" customClass="LoseScreen" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iau-ro-JCR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibj-9N-aN9">
+                                <rect key="frame" x="110" y="318" width="121" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="BackToMainMenu"/>
+                                <connections>
+                                    <segue destination="9TJ-4A-s6H" kind="presentation" id="tgZ-Yd-6wl"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You Lost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ga-9L-0S2">
+                                <rect key="frame" x="124" y="196" width="66" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="W9J-hV-Zl9"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fod-sK-q5t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6023" y="-586"/>
         </scene>
         <!--Statistics-->
         <scene sceneID="pBA-bt-Rdy">
@@ -426,11 +458,12 @@
                         <outlet property="progressBar4" destination="fPY-A1-fFh" id="wf6-Ua-jtL"/>
                         <outlet property="speedLabel" destination="oRU-XT-6Ll" id="rzE-L2-cd7"/>
                         <segue destination="gGL-cb-sXM" kind="presentation" identifier="toWinScreen" id="1OZ-Zl-3QL"/>
+                        <segue destination="4M4-wt-BiP" kind="presentation" identifier="goToLoseScreen" id="l4k-c0-FDY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nua-f9-Zqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4020" y="-13.043478260869566"/>
+            <point key="canvasLocation" x="3924" y="295"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="yJq-ta-FLb">
@@ -962,7 +995,7 @@
         <image name="rectangle.stack" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Up0-eM-F4f"/>
+        <segue reference="tgZ-Yd-6wl"/>
         <segue reference="E8s-5j-gj4"/>
         <segue reference="djm-DF-YzH"/>
     </inferredMetricsTieBreakers>
