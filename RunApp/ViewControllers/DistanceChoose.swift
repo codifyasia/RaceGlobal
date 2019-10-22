@@ -34,29 +34,31 @@ class DistanceChoose: UIViewController {
     @objc func fireTimer() {
         var numSelectedDist = 0
         var newDistance = 0
-        ref.child("QueueLine").child("RacingPlayers").observeSingleEvent(of: .value) { snapshot in
-            print(snapshot.childrenCount) // might have not gone deep enough here, test tmrw
+        ref.child("RacingPlayers").child("Players").observeSingleEvent(of: .value) { snapshot in // might have not gone deep enough here, test tmrw
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
                 guard let value = rest.value as? NSDictionary else {
                     print("No Data!!!")
                     return
                 }
                 let dist = value["SelectedDist"] as! Int
+                print("dist:" + String(dist))
                 if (dist != 0) {
                     newDistance += dist
                     numSelectedDist += 1;
+                    if (numSelectedDist >= 2) {
+                        self.ready(newDistance1: newDistance)
+                    }
                 }
             }
         }
-        if (numSelectedDist >= 2) {
-            self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : newDistance])
-            //timer.invalidate()
-            performSegue(withIdentifier: "goRaceScreen", sender: self)
-            
-            
-        }
+        //print("numSelectedDist: " + String(numSelectedDist))
     }
 
+    func ready(newDistance1: Int) {
+        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : newDistance1])
+        //timer.invalidate()
+        performSegue(withIdentifier: "goRaceScreen", sender: self)
+    }
     /*
     // MARK: - Navigation
 

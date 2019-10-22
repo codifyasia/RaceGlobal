@@ -222,13 +222,6 @@ class QueueScreenViewController: UIViewController {
             print("error:\(error.localizedDescription)")
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toRaceScreen" {
-            let destinationVC = segue.destination as! raceScreen
-            destinationVC.currentLobby = currentLobby
-        }
-    }
     /*
     // MARK: - Navigation
 
