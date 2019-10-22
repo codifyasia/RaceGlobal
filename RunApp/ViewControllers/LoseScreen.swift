@@ -15,6 +15,7 @@ class LoseScreen: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    @IBOutlet var loseLabel: UILabel!
     
 
     /*

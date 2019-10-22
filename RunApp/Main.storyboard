@@ -210,6 +210,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="W9J-hV-Zl9"/>
                     </view>
+                    <connections>
+                        <outlet property="loseLabel" destination="9ga-9L-0S2" id="Hl6-fK-H3r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fod-sK-q5t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -995,6 +998,7 @@
         <image name="rectangle.stack" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="l4k-c0-FDY"/>
         <segue reference="tgZ-Yd-6wl"/>
         <segue reference="E8s-5j-gj4"/>
         <segue reference="djm-DF-YzH"/>

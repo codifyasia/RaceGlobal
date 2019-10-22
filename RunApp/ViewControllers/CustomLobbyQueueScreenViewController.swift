@@ -18,6 +18,7 @@ class CustomLobbyQueueViewController : UIViewController {
     var ref : DatabaseReference!
     var timer = Timer()
     var counter  = 1
+    var currentLobby : Int!
     @IBOutlet var stuff: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,15 +95,16 @@ class CustomLobbyQueueViewController : UIViewController {
                 if numPlayers == 2 {
                     self.ref.child("CustomLobbies").child(self.lobbyCode).updateChildValues(["Deleting" : true])
                 }
-            }
+       }
             else {
-                
+                print("deleting")
                 self.ref.child("QueueLine").observeSingleEvent(of: .value) { (snapshot) in
                 guard let val = snapshot.value as? NSDictionary else {
                     print("Nothing in QueueLine")
                     return
                 }
                 let lowestLobby = val["lowestLobby"] as! Int
+                    self.currentLobby = lowestLobby
                 self.ref.child("CustomLobbies").child(self.lobbyCode).child("Players").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { (snap) in
                     guard let value = snap.value as? NSDictionary else {
                             print("No DATA")
@@ -111,7 +113,7 @@ class CustomLobbyQueueViewController : UIViewController {
                 
                     let currentPIndex = value["PlayerIndex"] as! Int
                     let userName = value["Username"]
-                    self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "LobbyCode" : self.lobbyCode, "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : currentPIndex, "Username" : userName])
+                    self.ref.child("RacingPlayers").child("Players").child("\(lowestLobby)").child(Auth.auth().currentUser!.uid).setValue([ "LobbyCode" : self.lobbyCode, "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : currentPIndex, "Username" : userName])
                         self.removePlayer(num : numPlayers, lowestLob: lowestLobby, playerIndex: currentPIndex)
 //                        while(!b) {
 //                            b = self.removePlayer(num: numPlayers, lowestLob: lowestLobby, playerIndex: currentPIndex)
@@ -180,6 +182,12 @@ class CustomLobbyQueueViewController : UIViewController {
             stuff.text = "Waiting for Players . . ."
             counter = 1
             check()
+        }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToRaceScreen" {
+            let destinationVC = segue.destination as! raceScreen
+            destinationVC.currentLobby = currentLobby
         }
     }
     

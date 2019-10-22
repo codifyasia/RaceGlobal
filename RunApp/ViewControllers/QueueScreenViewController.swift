@@ -23,6 +23,7 @@ class QueueScreenViewController: UIViewController {
     //Database Reference
     var ref: DatabaseReference!
     var name:String = ""
+    var currentLobby : Int!
     override func viewDidLoad() {
         //view.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.black, property: "none")
         //Set everything up and start everything
@@ -80,9 +81,10 @@ class QueueScreenViewController: UIViewController {
                         self.ref.child("QueueLine").child("Players").child(Auth.auth().currentUser!.uid).removeValue()
                         self.ref.child("QueueLine").updateChildValues(["Deleting" : false])
                         self.removePlayers(num : numPlayers)
-                        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : numSegued, "Username" : self.name])
+                        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).child("\(lowestLobby)").setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : numSegued, "Username" : self.name])
                         self.ref.child("RacingPlayers").updateChildValues(["EveryoneIn" : true])
                         self.ref.child("QueueLine").updateChildValues(["numSegued" : 0])
+                        self.currentLobby = lowestLobby
                         self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby+1])
                         self.ref.child("QueueLine").updateChildValues(["Index" : 1])
                         print("segue player 4")
@@ -94,7 +96,8 @@ class QueueScreenViewController: UIViewController {
                         //removes the player from the queue
                         self.ref.child("QueueLine").updateChildValues(["Index" : index+1])
                         //increments the index so that the next person can be deleted from the queue (so that they entire this if statement or the one above)
-                        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : numSegued, "Username" : self.name])
+                        self.currentLobby = lowestLobby
+                        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).child(" \(lowestLobby)").setValue([ "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : numSegued, "Username" : self.name])
                         //adds a player to the players node in racingplayers and sets its values
                         self.ref.child("RacingPlayers").updateChildValues(["EveryoneIn" : false])
                                                 self.ref.child("QueueLine").updateChildValues(["numSegued" : numSegued + 1])
@@ -217,6 +220,13 @@ class QueueScreenViewController: UIViewController {
             self.name = value["Username"] as! String
         }) { (error) in
             print("error:\(error.localizedDescription)")
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toRaceScreen" {
+            let destinationVC = segue.destination as! raceScreen
+            destinationVC.currentLobby = currentLobby
         }
     }
     /*

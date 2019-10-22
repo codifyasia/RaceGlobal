@@ -20,6 +20,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     var lastLocation:CLLocation!
     var traveledDistance:Double = 0
     var goalDistance : Double = 100
+    var currentLobby : Int!
     
     @IBOutlet weak var PlayerIndex: UILabel!
     //TODO: Timer
@@ -58,8 +59,6 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         checkerTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(raceScreen.checkIn), userInfo: nil, repeats: true)
         locationManager.desiredAccuracy=kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
-        
-        
         
         
     }
@@ -140,12 +139,13 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     }
     //TODO: Labels
     func updateSelfProgress() {
+        
         speedLabel.text = String(spd)
         distanceLabel.text = String(traveledDistance)
-        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "Distance" : traveledDistance])
+        ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "Distance" : traveledDistance])
     }
     func updateRivalProgressBars() {
-        ref.child("RacingPlayers").child("Players").observeSingleEvent(of: .value) { snapshot in
+        ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { snapshot in
             print(snapshot.childrenCount)
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
                 guard let value = rest.value as? NSDictionary else {
@@ -191,7 +191,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     // basically right now the firebase RacingPlayers section has "id" "Distance" "Lobby" "PlayerIndex". PlayerIndex is to figure out which progress bar to update. Lobby is for checking if the player's lobby is the same one as the player who's currently signed in.
     
     func retrieveData() {
-        ref.child("RacingPlayers").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { snapshot in
+        ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { snapshot in
             print(snapshot.childrenCount)
             guard let value = snapshot.value as? NSDictionary else {
                 print("No Data!!!!!!")
@@ -204,7 +204,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         }
     }
     func retrieveLabels() {
-        ref.child("RacingPlayers").child("Players").observeSingleEvent(of: .value) { snapshot in
+        ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { snapshot in
             print(snapshot.childrenCount)
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
                 guard let value = rest.value as? NSDictionary else {
