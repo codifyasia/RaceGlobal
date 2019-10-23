@@ -30,12 +30,12 @@ class DistanceChoose: UIViewController {
         self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 2000])
     }
     @IBAction func mi3Pressed(_ sender: Any) {
-        self.ref.child("RacingPlayers").child("Players").child("\(currentLobby)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 3000])
+        self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 3000])
     }
     @objc func fireTimer() {
         var numSelectedDist = 0
         var newDistance = 0
-        ref.child("RacingPlayers").child("Players").child("\(currentLobby)").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { snapshot in // might have not gone deep enough here, test tmrw
+        ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { snapshot in // might have not gone deep enough here, test tmrw
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
                 guard let value = rest.value as? NSDictionary else {
                     print("No Data!!!")
