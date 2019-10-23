@@ -20,8 +20,8 @@ class DistanceChoose: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
-        let timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
         self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 0])
+        let timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view.
     }
     @IBAction func mi1Pressed(_ sender: Any) { self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 1000])
@@ -35,14 +35,15 @@ class DistanceChoose: UIViewController {
     @objc func fireTimer() {
         var numSelectedDist = 0
         var newDistance = 0
-        ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { snapshot in // might have not gone deep enough here, test tmrw
+        ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { snapshot in // might have not gone deep enough here, test tmrw
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
                 guard let value = rest.value as? NSDictionary else {
                     print("No Data!!!")
                     return
                 }
-                let dist = value["SelectedDist"] as! Int
-                print("dist:" + String(dist))
+                print("value:" + (value["Username"] as! String))
+                let dist = value["SelectedDist"] as! Int // this line is being run b4 everyone else segues, so it is null
+                //print("dist:" + String(dist))
                 if (dist != 0) {
                     newDistance += dist
                     numSelectedDist += 1;
