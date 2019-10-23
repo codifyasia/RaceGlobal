@@ -998,7 +998,6 @@
         <image name="rectangle.stack" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5UX-tR-BUB"/>
         <segue reference="Up0-eM-F4f"/>
         <segue reference="vlS-Fz-L6C"/>
         <segue reference="tc7-xb-7gJ"/>
