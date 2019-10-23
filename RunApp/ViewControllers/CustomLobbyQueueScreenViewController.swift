@@ -113,14 +113,10 @@ class CustomLobbyQueueViewController : UIViewController {
                 
                     let currentPIndex = value["PlayerIndex"] as! Int
                     let userName = value["Username"]
-                    self.ref.child("RacingPlayers").child("Players").child("\(lowestLobby)").child(Auth.auth().currentUser!.uid).setValue([ "LobbyCode" : self.lobbyCode, "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : currentPIndex, "Username" : userName])
+                    self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").child(Auth.auth().currentUser!.uid).setValue([ "LobbyCode" : self.lobbyCode, "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : currentPIndex, "Username" : userName])
                         self.removePlayer(num : numPlayers, lowestLob: lowestLobby, playerIndex: currentPIndex)
-//                        while(!b) {
-//                            b = self.removePlayer(num: numPlayers, lowestLob: lowestLobby, playerIndex: currentPIndex)
-//                        }
 
                     }
-                   
                     
                     
                 }
@@ -186,8 +182,8 @@ class CustomLobbyQueueViewController : UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToRaceScreen" {
-            let destinationVC = segue.destination as! raceScreen
-            destinationVC.currentLobby = currentLobby
+            let destinationVC = segue.destination as! DistanceChoose
+            destinationVC.currentLobby = self.currentLobby
         }
     }
     

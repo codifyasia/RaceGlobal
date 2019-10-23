@@ -16,25 +16,26 @@ class DistanceChoose: UIViewController {
     @IBOutlet weak var mile3: UIButton!
     var canSegue:Bool = false
     var ref: DatabaseReference!
+    var currentLobby : Int!
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
         let timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
-        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 0])
+        self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 0])
         // Do any additional setup after loading the view.
     }
-    @IBAction func mi1Pressed(_ sender: Any) { self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 1000])
+    @IBAction func mi1Pressed(_ sender: Any) { self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 1000])
     }
     @IBAction func mi2Pressed(_ sender: Any) {
-        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 2000])
+        self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 2000])
     }
     @IBAction func mi3Pressed(_ sender: Any) {
-        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 3000])
+        self.ref.child("RacingPlayers").child("Players").child("\(currentLobby)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 3000])
     }
     @objc func fireTimer() {
         var numSelectedDist = 0
         var newDistance = 0
-        ref.child("RacingPlayers").child("Players").observeSingleEvent(of: .value) { snapshot in // might have not gone deep enough here, test tmrw
+        ref.child("RacingPlayers").child("Players").child("\(currentLobby)").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { snapshot in // might have not gone deep enough here, test tmrw
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
                 guard let value = rest.value as? NSDictionary else {
                     print("No Data!!!")
@@ -55,9 +56,16 @@ class DistanceChoose: UIViewController {
     }
 
     func ready(newDistance1: Int) {
-        self.ref.child("RacingPlayers").child("Players").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : newDistance1])
+        self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : newDistance1])
         //timer.invalidate()
         performSegue(withIdentifier: "goRaceScreen", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goRaceScreen" {
+            let destinationVC = segue.destination as! raceScreen
+            destinationVC.currentLobby = currentLobby
+        }
     }
     /*
     // MARK: - Navigation
