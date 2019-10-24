@@ -35,20 +35,22 @@ class DistanceChoose: UIViewController {
     @objc func fireTimer() {
         var numSelectedDist = 0
         var newDistance = 0
-        ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { snapshot in // might have not gone deep enough here, test tmrw
-            for rest in snapshot.children.allObjects as! [DataSnapshot] {
-                guard let value = rest.value as? NSDictionary else {
-                    print("No Data!!!")
-                    return
-                }
-                print("value:" + (value["Username"] as! String))
-                let dist = value["SelectedDist"] as! Int // this line is being run b4 everyone else segues, so it is null
-                //print("dist:" + String(dist))
-                if (dist != 0) {
-                    newDistance += dist
-                    numSelectedDist += 1;
-                    if (numSelectedDist >= 2) {
-                        self.ready(newDistance1: newDistance)
+        ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { snapshot in
+            if (snapshot.childrenCount >= 2) {// might have not gone deep enough here, test tmrw
+                for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                    guard let value = rest.value as? NSDictionary else {
+                        print("No Data!!!")
+                        return
+                    }
+                    print("value:" + (value["Username"] as! String))
+                    let dist = value["SelectedDist"] as! Int // this line is being run b4 everyone else segues, so it is null
+                    //print("dist:" + String(dist))
+                    if (dist != 0) {
+                        newDistance += dist
+                        numSelectedDist += 1;
+                        if (numSelectedDist >= 2) {
+                            self.ready(newDistance1: newDistance)
+                        }
                     }
                 }
             }
