@@ -14,6 +14,7 @@ class DistanceChoose: UIViewController {
     @IBOutlet weak var mile1: UIButton!
     @IBOutlet weak var mile2: UIButton!
     @IBOutlet weak var mile3: UIButton!
+    let timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
     var canSegue:Bool = false
     var ref: DatabaseReference!
     var currentLobby : Int!
@@ -21,7 +22,6 @@ class DistanceChoose: UIViewController {
         super.viewDidLoad()
         ref = Database.database().reference()
         self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 0])
-        let timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view.
     }
     @IBAction func mi1Pressed(_ sender: Any) { self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 1000])
@@ -60,8 +60,9 @@ class DistanceChoose: UIViewController {
 
     func ready(newDistance1: Int) {
         self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : newDistance1])
-        //timer.invalidate()
+        timer.invalidate()
         performSegue(withIdentifier: "goRaceScreen", sender: self)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
