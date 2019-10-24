@@ -14,14 +14,14 @@ class DistanceChoose: UIViewController {
     @IBOutlet weak var mile1: UIButton!
     @IBOutlet weak var mile2: UIButton!
     @IBOutlet weak var mile3: UIButton!
-    let timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+    var timer = Timer()
     var canSegue:Bool = false
     var ref: DatabaseReference!
     var currentLobby : Int!
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
-        self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 0])
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true); self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 0])
         // Do any additional setup after loading the view.
     }
     @IBAction func mi1Pressed(_ sender: Any) { self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 1000])
