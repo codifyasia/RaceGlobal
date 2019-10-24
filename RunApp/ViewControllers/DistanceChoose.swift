@@ -59,7 +59,7 @@ class DistanceChoose: UIViewController {
     }
 
     func ready(newDistance1: Int) {
-        self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : newDistance1])
+        self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : newDistance1 / 2])
         timer.invalidate()
         performSegue(withIdentifier: "goRaceScreen", sender: self)
         
