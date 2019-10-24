@@ -599,7 +599,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4Jj-dr-FAN"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Nothing" image="square.and.pencil" catalog="system" id="pdP-6K-Vlv"/>
+                    <tabBarItem key="tabBarItem" title="Nothing" image="error.png" id="pdP-6K-Vlv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Bf-9Z-b84" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -765,7 +765,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xjI-gW-Ztv"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Start" image="square.and.arrow.up" catalog="system" id="hUA-I2-8a9"/>
+                    <tabBarItem key="tabBarItem" title="Start" image="rectangle.stack" id="hUA-I2-8a9"/>
                     <navigationItem key="navigationItem" id="swr-et-RBp" colorLabel="IBBuiltInLabel-Yellow">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="tBd-up-OL5"/>
                         <barButtonItem key="rightBarButtonItem" title="Sign Out" style="plain" id="G4Q-zR-iuv">
@@ -997,25 +997,14 @@
         </scene>
     </scenes>
     <resources>
-<<<<<<< HEAD
-        <image name="keyboard" catalog="system" width="64" height="34"/>
-        <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
-        <image name="square.and.pencil" catalog="system" width="64" height="58"/>
-    </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="6q0-jF-oIn"/>
-        <segue reference="nB9-1E-bh5"/>
-        <segue reference="tc7-xb-7gJ"/>
-=======
         <image name="dark-forest" width="1242.5" height="828"/>
         <image name="error.png" width="28" height="28"/>
-        <image name="info.png" width="28" height="28"/>
+        <image name="keyboard" catalog="system" width="64" height="34"/>
         <image name="rectangle.stack" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tgZ-Yd-6wl"/>
         <segue reference="cst-aM-I2y"/>
         <segue reference="djm-DF-YzH"/>
->>>>>>> 7954edd854a797b515bb9a4e65ee7438332339e3
     </inferredMetricsTieBreakers>
 </document>
