@@ -51,8 +51,6 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         //Set everything up and start everything
         ref = Database.database().reference()
         //TODO: Timer
-        view.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.lightGrey, property: "none")
-        
         checkerTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(raceScreen.checkIn), userInfo: nil, repeats: true)
         locationManager.desiredAccuracy=kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
