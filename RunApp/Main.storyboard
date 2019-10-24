@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -279,7 +279,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="UmL-yj-pKc"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Statistics" image="info.png" id="UQU-I3-T1H"/>
+                    <tabBarItem key="tabBarItem" title="Statistics" image="keyboard" catalog="system" id="UQU-I3-T1H"/>
                     <navigationItem key="navigationItem" id="i3z-It-2wE"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
@@ -293,7 +293,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Aj-Ev-OWf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2354" y="-308"/>
+            <point key="canvasLocation" x="2127" y="-139"/>
         </scene>
         <!--Race Screen-->
         <scene sceneID="pfM-cc-t1k">
@@ -595,7 +595,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4Jj-dr-FAN"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Nothing" image="error.png" id="pdP-6K-Vlv"/>
+                    <tabBarItem key="tabBarItem" title="Nothing" image="square.and.pencil" catalog="system" id="pdP-6K-Vlv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Bf-9Z-b84" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -761,7 +761,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xjI-gW-Ztv"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Start" image="rectangle.stack" id="hUA-I2-8a9"/>
+                    <tabBarItem key="tabBarItem" title="Start" image="square.and.arrow.up" catalog="system" id="hUA-I2-8a9"/>
                     <navigationItem key="navigationItem" id="swr-et-RBp" colorLabel="IBBuiltInLabel-Yellow">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="tBd-up-OL5"/>
                         <barButtonItem key="rightBarButtonItem" title="Sign Out" style="plain" id="G4Q-zR-iuv">
@@ -993,13 +993,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="error.png" width="28" height="28"/>
-        <image name="info.png" width="28" height="28"/>
-        <image name="rectangle.stack" width="64" height="60"/>
+        <image name="keyboard" catalog="system" width="64" height="34"/>
+        <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
+        <image name="square.and.pencil" catalog="system" width="64" height="58"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Up0-eM-F4f"/>
-        <segue reference="vlS-Fz-L6C"/>
+        <segue reference="6q0-jF-oIn"/>
+        <segue reference="nB9-1E-bh5"/>
         <segue reference="tc7-xb-7gJ"/>
     </inferredMetricsTieBreakers>
 </document>
