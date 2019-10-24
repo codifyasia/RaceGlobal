@@ -111,25 +111,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WpN-Ce-7nk">
-                                <rect key="frame" x="172" y="318" width="30" height="30"/>
+                                <rect key="frame" x="169" y="318" width="36" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="2 mi"/>
+                                <state key="normal" title="2 KM"/>
                                 <connections>
                                     <action selector="mi2Pressed:" destination="mnj-Dk-Yhs" eventType="touchUpInside" id="BCp-Nv-hed"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRH-u8-e9H">
-                                <rect key="frame" x="172" y="356" width="30" height="30"/>
+                                <rect key="frame" x="169" y="356" width="36" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="3 mi"/>
+                                <state key="normal" title="3 KM"/>
                                 <connections>
                                     <action selector="mi3Pressed:" destination="mnj-Dk-Yhs" eventType="touchUpInside" id="c08-O6-Bx1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sw7-lc-8Fh">
-                                <rect key="frame" x="172" y="280" width="30" height="30"/>
+                                <rect key="frame" x="170" y="280" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="1 mi"/>
+                                <state key="normal" title="1 KM"/>
                                 <connections>
                                     <action selector="mi1Pressed:" destination="mnj-Dk-Yhs" eventType="touchUpInside" id="11s-Mc-N1t"/>
                                 </connections>
@@ -315,30 +315,9 @@
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRU-XT-6Ll">
-                                <rect key="frame" x="165" y="428" width="50" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9WK-IS-PZU" customClass="AnimationView" customModule="Lottie">
                                 <rect key="frame" x="0.0" y="269" width="375" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZ0-7s-o4Q">
-                                        <rect key="frame" x="26" y="68" width="85" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="1 Mile"/>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vote for a Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BzT-4S-sbo">
-                                        <rect key="frame" x="114" y="8" width="146" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Htc-fT-ZoE" customClass="GTProgressBar" customModule="GTProgressBar">
                                 <rect key="frame" x="25" y="124" width="322" height="23"/>
@@ -358,42 +337,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rTT-ly-pdh" customClass="GTProgressBar" customModule="GTProgressBar">
-                                <rect key="frame" x="25" y="184" width="322" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="labelTextColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="barFillColor">
-                                        <color key="value" red="0.85882352939999995" green="0.84705882349999995" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="barBackgroundColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="barBorderColor">
-                                        <color key="value" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fPY-A1-fFh" customClass="GTProgressBar" customModule="GTProgressBar">
-                                <rect key="frame" x="25" y="238" width="322" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="labelTextColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="barFillColor">
-                                        <color key="value" red="0.85882352939999995" green="0.84705882349999995" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="barBackgroundColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="barBorderColor">
-                                        <color key="value" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0l-AB-SSE">
                                 <rect key="frame" x="165" y="498" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -405,7 +348,7 @@
                                 <rect key="frame" x="28" y="36" width="319" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="0.78823529411764703" green="0.22745098039215686" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FDs-Bd-lDU" customClass="GTProgressBar" customModule="GTProgressBar">
@@ -426,45 +369,34 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqQ-Vb-ypP">
-                                <rect key="frame" x="25" y="155" width="322" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zV7-fJ-Dyk">
-                                <rect key="frame" x="25" y="209" width="322" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dao-aJ-AK3">
                                 <rect key="frame" x="28" y="95" width="319" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="0.78823529411764703" green="0.22745098039215686" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4BD-1H-dTB">
+                                <rect key="frame" x="176" y="437" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="OptOut:" destination="gF5-aO-G6X" eventType="touchUpInside" id="KgM-1P-ZzU"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.22745098039215686" green="0.22745098039215686" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="683-Bd-ho7"/>
                     </view>
                     <navigationItem key="navigationItem" id="rah-0y-II5"/>
                     <connections>
                         <outlet property="Label1" destination="wTM-6V-BRG" id="Agh-qX-IAN"/>
                         <outlet property="Label2" destination="Dao-aJ-AK3" id="gQb-bl-gSN"/>
-                        <outlet property="Label3" destination="jqQ-Vb-ypP" id="cfd-FY-Mvq"/>
-                        <outlet property="Label4" destination="zV7-fJ-Dyk" id="LhJ-7c-RvU"/>
                         <outlet property="PlayerIndex" destination="c0l-AB-SSE" id="KQa-B2-tNP"/>
                         <outlet property="countdownAnimation" destination="9WK-IS-PZU" id="iF1-Wg-BNZ"/>
                         <outlet property="distanceLabel" destination="HMj-E1-UG8" id="4RO-JJ-An5"/>
                         <outlet property="progressBar1" destination="FDs-Bd-lDU" id="vXw-ok-MxE"/>
                         <outlet property="progressBar2" destination="Htc-fT-ZoE" id="yZ9-ZI-o6c"/>
-                        <outlet property="progressBar3" destination="fPY-A1-fFh" id="UF7-KM-sv4"/>
-                        <outlet property="progressBar4" destination="fPY-A1-fFh" id="wf6-Ua-jtL"/>
-                        <outlet property="speedLabel" destination="oRU-XT-6Ll" id="rzE-L2-cd7"/>
                         <segue destination="gGL-cb-sXM" kind="presentation" identifier="toWinScreen" id="1OZ-Zl-3QL"/>
                         <segue destination="4M4-wt-BiP" kind="presentation" identifier="goToLoseScreen" id="l4k-c0-FDY"/>
                     </connections>
@@ -562,7 +494,7 @@
                                 <rect key="frame" x="126" y="35" width="124" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
-                                <color key="textColor" red="0.78713911800000003" green="0.22844523289999999" blue="0.17893076629999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.78823529411764703" green="0.22745098039215686" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -978,7 +910,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.22697890228426398" green="0.22697890228426398" blue="0.22697890228426398" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.22745098039215686" green="0.22745098039215686" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="itx-MS-IKw"/>
@@ -1006,7 +938,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="l4k-c0-FDY"/>
         <segue reference="tgZ-Yd-6wl"/>
-        <segue reference="cst-aM-I2y"/>
+        <segue reference="nB9-1E-bh5"/>
         <segue reference="djm-DF-YzH"/>
     </inferredMetricsTieBreakers>
 </document>

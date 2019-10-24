@@ -33,20 +33,15 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     //TODO: ProgressBar
     @IBOutlet weak var progressBar1: GTProgressBar!
     @IBOutlet weak var progressBar2: GTProgressBar!
-    @IBOutlet weak var progressBar3: GTProgressBar!
-    @IBOutlet weak var progressBar4: GTProgressBar!
     //TODO: Labels
     var spd: Float = 0.0
     @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var speedLabel: UILabel!
     var playerIndex : Int = 0
     var playerLobby : Int = 0
     var ref: DatabaseReference!
     
     @IBOutlet weak var Label1: UILabel!
     @IBOutlet weak var Label2: UILabel!
-    @IBOutlet weak var Label3: UILabel!
-    @IBOutlet weak var Label4: UILabel!
     
     
     override func viewDidLoad() {
@@ -79,8 +74,6 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         retrieveData()
         progressBar1.isHidden = true
         progressBar2.isHidden = true
-        progressBar3.isHidden = true
-        progressBar4.isHidden = true
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(raceScreen.timerCounter), userInfo: nil, repeats: true)
         //TODO: ProgressBar
         
@@ -115,9 +108,6 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
             timer.invalidate()
             progressBar1.isHidden = false
             progressBar2.isHidden = false
-            progressBar3.isHidden = false
-            progressBar4.isHidden = false
-            
             locationManager.delegate = self
             //do other stuff
         }
@@ -158,8 +148,6 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     }
     //TODO: Labels
     func updateSelfProgress() {
-        
-        speedLabel.text = String(spd)
         distanceLabel.text = String(traveledDistance)
         ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "Distance" : traveledDistance])
     }
@@ -188,16 +176,6 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                         self.progressBar2.isHidden = true;
                     }
                     self.progressBar2.progress = CGFloat(distanceRan / self.goalDistance)
-                } else if (index == 2) {
-                    if (distanceRan > self.goalDistance) {
-                        self.progressBar3.isHidden = true;
-                    }
-                    self.progressBar3.progress = CGFloat(distanceRan / self.goalDistance)
-                } else {
-                    if (distanceRan > self.goalDistance) {
-                        self.progressBar3.isHidden = true;
-                    }
-                    self.progressBar4.progress = CGFloat(distanceRan / self.goalDistance)
                 }
             }
         }
@@ -222,6 +200,10 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
             self.playerLobby = value["Lobby"] as! Int
         }
     }
+    
+    @IBAction func OptOut(_ sender: Any) {
+        
+    }
     func retrieveLabels() {
         ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { snapshot in
             print(snapshot.childrenCount)
@@ -239,10 +221,6 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                     self.Label1.text = username
                 } else if (index == 1) {
                     self.Label2.text = username
-                } else if (index == 2) {
-                    self.Label3.text = username
-                } else {
-                    self.Label4.text = username
                 }
             }
         }
