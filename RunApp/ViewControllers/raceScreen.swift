@@ -20,6 +20,8 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     var lastLocation:CLLocation!
     var traveledDistance:Double = 0
     var goalDistance : Double = 100
+    
+    var name : String!
     var currentLobby : Int!
     
     @IBOutlet weak var PlayerIndex: UILabel!
@@ -59,6 +61,14 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         checkerTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(raceScreen.checkIn), userInfo: nil, repeats: true)
         locationManager.desiredAccuracy=kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
+        
+        ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { (snap) in
+            guard let data = snap.value as? NSDictionary else {
+                print("NO DATTAA!!!")
+                return
+            }
+            self.name = data["Username"] as? String
+        }
         
         
     }
@@ -125,7 +135,16 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                     updateSelfProgress()
                     updateRivalProgressBars()
                     locationManager.stopUpdatingLocation()
-                    performSegue(withIdentifier: "toWinScreen", sender: self)
+                    ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { (snapshot) in
+                        if !snapshot.hasChild("Winner") {
+                        self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").updateChildValues(["Winner" : self.name!])  
+                            self.performSegue(withIdentifier: "toWinScreen", sender: self)
+                        } else {
+                            self.performSegue(withIdentifier: "goToLoseScreen", sender: self)
+                        }
+                }
+                    
+                    
                 }
                 let lastLocation = locations.last as! CLLocation
                 if (startLocation.distance(from: lastLocation) > 4) {

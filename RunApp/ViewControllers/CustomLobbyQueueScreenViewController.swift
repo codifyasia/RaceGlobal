@@ -113,7 +113,7 @@ class CustomLobbyQueueViewController : UIViewController {
                 
                     let currentPIndex = value["PlayerIndex"] as! Int
                     let userName = value["Username"]
-                    self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").child(Auth.auth().currentUser!.uid).setValue([ "LobbyCode" : self.lobbyCode, "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : currentPIndex, "Username" : userName])
+                    self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").child(Auth.auth().currentUser!.uid).setValue([ "LobbyCode" : self.lobbyCode, "Lobby" : lowestLobby, "id" : Auth.auth().currentUser!.uid, "Distance" : 0, "PlayerIndex" : currentPIndex, "Username" : userName, "SelectedDist" : 0])
                         self.removePlayer(num : numPlayers, lowestLob: lowestLobby, playerIndex: currentPIndex)
 
                     }
