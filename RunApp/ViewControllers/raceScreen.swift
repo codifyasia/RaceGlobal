@@ -137,7 +137,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                     locationManager.stopUpdatingLocation()
                     ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { (snapshot) in
                         if !snapshot.hasChild("Winner") {
-                            self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").updateChildValues(["Winner" : self.name!])
+                        self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").updateChildValues(["Winner" : self.name!])  
                             self.performSegue(withIdentifier: "toWinScreen", sender: self)
                         } else {
                             self.performSegue(withIdentifier: "goToLoseScreen", sender: self)
