@@ -7,16 +7,25 @@
 //
 
 import UIKit
+import Lottie
+import Firebase
 
 class LoseScreen: UIViewController {
 
+    @IBOutlet weak var SadFace: AnimationView!
+    @IBOutlet var loseLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        startAnimation()
         // Do any additional setup after loading the view.
     }
-    @IBOutlet var loseLabel: UILabel!
     
+    
+    func startAnimation() {
+        SadFace.animation = Animation.named("Sad")
+        SadFace.loopMode = .loop
+        SadFace.play()
+    }
 
     /*
     // MARK: - Navigation
