@@ -47,7 +47,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         print("entered race screen")
-        //locationManager.requestAlwaysAuthorization()
+        locationManager.requestAlwaysAuthorization()
         //Set everything up and start everything
         ref = Database.database().reference()
         //TODO: Timer
@@ -116,7 +116,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[locations.count - 1]
         if (location.horizontalAccuracy > 0) {
-            var speed: CLLocationSpeed = CLLocationSpeed()
+//            var speed: CLLocationSpeed = CLLocationSpeed()
             if startLocation == nil {
                 startLocation = locations.first
             } else {

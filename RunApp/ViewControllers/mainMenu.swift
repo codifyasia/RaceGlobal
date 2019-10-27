@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import Lottie
+import CoreLocation
 
 class mainMenu: UIViewController {
 
@@ -28,6 +29,11 @@ class mainMenu: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //location request
+        let locationManager = CLLocationManager()
+        locationManager.requestAlwaysAuthorization()
+        
         signOutButton.tintColor = .white
         sideBarButton.tintColor = .white
         signOutButton.setTitleTextAttributes([

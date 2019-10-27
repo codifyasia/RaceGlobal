@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -262,7 +262,7 @@
             <objects>
                 <viewController id="nKt-Gf-VjN" customClass="StatisticsViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c8J-QU-LvV" customClass="Stat">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Statistics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Up9-iK-0Eo">
@@ -552,7 +552,7 @@
             <objects>
                 <viewController id="hj3-Nx-gLJ" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SiZ-cy-Ag5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="rhino shit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ov-lg-B7W">
@@ -583,9 +583,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="hj3-Nx-gLJ" kind="relationship" relationship="viewControllers" id="o7M-BP-2Yv"/>
                         <segue destination="9TJ-4A-s6H" kind="relationship" relationship="viewControllers" id="6q0-jF-oIn"/>
                         <segue destination="nKt-Gf-VjN" kind="relationship" relationship="viewControllers" id="sL9-Fq-PDZ"/>
+                        <segue destination="hj3-Nx-gLJ" kind="relationship" relationship="viewControllers" id="iA0-ZN-D0D"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQ9-uB-6uf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -672,7 +672,7 @@
             <objects>
                 <viewController id="9TJ-4A-s6H" customClass="mainMenu" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UpA-Jl-3ot">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dS-D8-uYx">
@@ -964,13 +964,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="folder" catalog="system" width="64" height="46"/>
+        <image name="folder" catalog="system" width="64" height="48"/>
         <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
         <image name="trash" catalog="system" width="60" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1f6-9i-ew7"/>
-        <segue reference="tgZ-Yd-6wl"/>
+        <segue reference="6q0-jF-oIn"/>
         <segue reference="E8s-5j-gj4"/>
         <segue reference="djm-DF-YzH"/>
     </inferredMetricsTieBreakers>
