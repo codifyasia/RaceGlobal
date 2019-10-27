@@ -12,7 +12,7 @@ import TextFieldEffects
 import SVProgressHUD
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var FirstName: AkiraTextField!
     @IBOutlet weak var LastName: AkiraTextField!
     @IBOutlet weak var Username: AkiraTextField!
@@ -65,12 +65,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
 }

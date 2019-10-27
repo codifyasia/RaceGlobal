@@ -24,16 +24,15 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     
     var name : String!
     var currentLobby : Int!
-
+    
     //TODO: Timer
     var seconds:Int = 3
     var timer = Timer()
     var checkerTimer = Timer()
     @IBOutlet weak var countdownAnimation: AnimationView!
     //TODO: ProgressBar
+    @IBOutlet weak var newProgressBar2: MBCircularProgressBarView!
     @IBOutlet weak var newProgressBar1: MBCircularProgressBarView!
-    @IBOutlet weak var progressBar1: GTProgressBar!
-    @IBOutlet weak var progressBar2: GTProgressBar!
     //TODO: Labels
     var spd: Float = 0.0
     @IBOutlet weak var distanceLabel: UILabel!
@@ -47,7 +46,10 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //reset progress bars
+        newProgressBar1.value = 0
+        newProgressBar2.value = 0
         
         locationManager.requestAlwaysAuthorization()
         //Set everything up and start everything
@@ -75,8 +77,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         retrieveData()
         print("goal : \(goalDistance) playerIndex : \(playerIndex) ")
         newProgressBar1.isHidden = true
-        progressBar1.isHidden = true
-        progressBar2.isHidden = true
+        newProgressBar2.isHidden = true
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(raceScreen.timerCounter), userInfo: nil, repeats: true)
         //TODO: ProgressBar
         
@@ -110,8 +111,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         if (seconds == 0) {
             timer.invalidate()
             newProgressBar1.isHidden = false
-            progressBar1.isHidden = false
-            progressBar2.isHidden = false
+            newProgressBar2.isHidden = false
             locationManager.delegate = self
             //do other stuff
         }
@@ -120,7 +120,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[locations.count - 1]
         if (location.horizontalAccuracy > 0) {
-//            var speed: CLLocationSpeed = CLLocationSpeed()
+            //            var speed: CLLocationSpeed = CLLocationSpeed()
             if startLocation == nil {
                 startLocation = locations.first
             } else {
@@ -131,12 +131,12 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                     locationManager.stopUpdatingLocation()
                     ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { (snapshot) in
                         if !snapshot.hasChild("Winner") {
-                        self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").updateChildValues(["Winner" : self.name!])  
+                            self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").updateChildValues(["Winner" : self.name!])
                             self.performSegue(withIdentifier: "toWinScreen", sender: self)
                         } else {
                             self.performSegue(withIdentifier: "goToLoseScreen", sender: self)
                         }
-                }
+                    }
                     
                     
                 }
@@ -169,21 +169,22 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                 let index = value["PlayerIndex"] as! Int
                 let distanceRan = value["Distance"] as! Double
                 
-                if (index == 0) {
+                if (uid == Auth.auth().currentUser!.uid) {
                     if (distanceRan > self.goalDistance) {
-                        self.progressBar1.isHidden = true
                         self.newProgressBar1.isHidden = true
                     }
-//                    UIView.animate(withDuration: 0.5) {
-                    self.newProgressBar1.value = CGFloat(distanceRan / self.goalDistance) * 100
-//                }
-                    self.progressBar1.progress = CGFloat(distanceRan / self.goalDistance)
-                    
-                } else if (index == 1) {
-                    if (distanceRan > self.goalDistance) {
-                        self.progressBar2.isHidden = true;
+                    UIView.animate(withDuration: 0.5) {
+                        self.newProgressBar1.value = CGFloat(distanceRan / self.goalDistance) * 100
                     }
-                    self.progressBar2.progress = CGFloat(distanceRan / self.goalDistance)
+                    
+                } else {
+                    if (distanceRan > self.goalDistance) {
+                        self.newProgressBar2.isHidden = true
+                    }
+                    UIView.animate(withDuration: 0.5) {
+                        self.newProgressBar2.value = CGFloat(distanceRan / self.goalDistance) * 100
+                    }
+            
                 }
             }
         }
@@ -208,7 +209,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
             self.setData(dist: distance)
             print(self.goalDistance)
             
-//            self.goalDistance = value["SelectedDist"] as! Double
+            //            self.goalDistance = value["SelectedDist"] as! Double
             self.playerIndex = value["PlayerIndex"] as! Int
             self.playerLobby = value["Lobby"] as! Int
         }

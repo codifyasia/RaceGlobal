@@ -13,7 +13,7 @@ import SVProgressHUD
 import Lottie
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var emailTextField: KaedeTextField!
     @IBOutlet weak var passwordTextField: KaedeTextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -60,7 +60,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-     @IBAction func backToRegister(_ sender: Any) {
+    @IBAction func backToRegister(_ sender: Any) {
         dismiss(animated: false, completion: nil)
-     }
+    }
 }

@@ -10,7 +10,7 @@ import Firebase
 import UIKit
 
 class StatisticsViewController: UIViewController {
-
+    
     
     @IBOutlet weak var distance: UILabel!
     @IBOutlet weak var racesCompleted: UILabel!
@@ -26,11 +26,11 @@ class StatisticsViewController: UIViewController {
         
         
         ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-        // Get user value
-        guard let value = snapshot.value as? NSDictionary else {
-            print("No Data!!!")
-            return
-        }
+            // Get user value
+            guard let value = snapshot.value as? NSDictionary else {
+                print("No Data!!!")
+                return
+            }
             
             
             self.distance.text = "Total Distance Ran: \(value["TotalDistance"] as! Int)"
@@ -40,14 +40,14 @@ class StatisticsViewController: UIViewController {
             self.bestEightHundred.text = "Best Half-Mile Split: \(value["Best800"] as! Int)"
             self.BestFiveKilometer.text = "Best 5k Time: \(value["Best5k"] as! Int)"
             
-        
-        
-        
-        
-        
+            
+            
+            
+            
+            
         }) { (error) in
-                print("error:\(error.localizedDescription)")
-         }
+            print("error:\(error.localizedDescription)")
+        }
         
         
         
@@ -56,15 +56,15 @@ class StatisticsViewController: UIViewController {
         
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

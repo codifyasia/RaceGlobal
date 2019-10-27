@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class DistanceChoose: UIViewController {
-
+    
     @IBOutlet weak var mile1: UIButton!
     @IBOutlet weak var mile2: UIButton!
     @IBOutlet weak var mile3: UIButton!
@@ -57,7 +57,7 @@ class DistanceChoose: UIViewController {
         }
         //print("numSelectedDist: " + String(numSelectedDist))
     }
-
+    
     func ready(newDistance1: Int) {
         self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : newDistance1 / 2])
         timer.invalidate()
@@ -72,13 +72,13 @@ class DistanceChoose: UIViewController {
         }
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

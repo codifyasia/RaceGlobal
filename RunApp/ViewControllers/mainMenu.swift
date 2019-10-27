@@ -12,7 +12,7 @@ import Lottie
 import CoreLocation
 
 class mainMenu: UIViewController {
-
+    
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var helloLabel: UILabel!
     var textField = UITextField()
@@ -25,7 +25,7 @@ class mainMenu: UIViewController {
     @IBOutlet weak var RunningAnimation: AnimationView!
     @IBOutlet weak var queueButton: UIButton!
     @IBOutlet weak var customLobbyButton: UIButton!
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ class mainMenu: UIViewController {
         signOutButton.setTitleTextAttributes([
             NSAttributedString.Key.font: UIFont(name: "Avenir Next", size: 18.0)!,
             NSAttributedString.Key.foregroundColor: UIColor.white],
-                                          for: .normal)
+                                             for: .normal)
         sideBarButton.setTitleTextAttributes([
             NSAttributedString.Key.font: UIFont(name: "Avenir Next", size: 18.0)!,
             NSAttributedString.Key.foregroundColor: UIColor.white],
@@ -57,10 +57,10 @@ class mainMenu: UIViewController {
         ref = Database.database().reference()
         
         ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-        // Get user value
-        guard let value = snapshot.value as? NSDictionary else {
-            print("No Data!!!!!!")
-            return
+            // Get user value
+            guard let value = snapshot.value as? NSDictionary else {
+                print("No Data!!!!!!")
+                return
             }
             
             self.name = value["Username"] as! String
@@ -77,7 +77,7 @@ class mainMenu: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func QueueUp(_ sender: Any) {
-//        ref.child("QueueLine").child(Auth.auth().currentUser!.uid).setValue(Auth.auth().currentUser!.uid)
+        //        ref.child("QueueLine").child(Auth.auth().currentUser!.uid).setValue(Auth.auth().currentUser!.uid)
         ref.child("QueueLine").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             guard let value = snapshot.value as? NSDictionary else {
@@ -107,21 +107,21 @@ class mainMenu: UIViewController {
     
     
     //in progress, dont edit
-//        func getInQ(_ sender: Any) {
-//        let lobbyReference = Database.database().reference().child("Lobbies")
-//        lobbyReference.child("Lobby").observeSingleEvent(of: .value) { snapshot in
-//            for snap in snapshot.children.allObjects as! [DataSnapshot] {
-//                guard let lobby = snap.value as? NSDictionary else {
-//                    print("No Data!!!")
-//                    return
-//                }
-//                if (lobby["numPlayers"] as! Int == 1) {
-//
-//                }
-//            }
-//        }
-//    }
-
+    //        func getInQ(_ sender: Any) {
+    //        let lobbyReference = Database.database().reference().child("Lobbies")
+    //        lobbyReference.child("Lobby").observeSingleEvent(of: .value) { snapshot in
+    //            for snap in snapshot.children.allObjects as! [DataSnapshot] {
+    //                guard let lobby = snap.value as? NSDictionary else {
+    //                    print("No Data!!!")
+    //                    return
+    //                }
+    //                if (lobby["numPlayers"] as! Int == 1) {
+    //
+    //                }
+    //            }
+    //        }
+    //    }
+    
     @IBAction func signOutPressed(_ sender: Any) {
         do {
             try Auth.auth().signOut()
@@ -132,14 +132,14 @@ class mainMenu: UIViewController {
         performSegue(withIdentifier: "goBackToSignUp", sender: self)
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
     @IBAction func test(_ sender: Any) {
         self.ref.child("QueueLine").updateChildValues(["Deleting" : false])
         removePlayers()
@@ -161,7 +161,7 @@ class mainMenu: UIViewController {
         customLobbyButton.layer.shadowOffset = CGSize(width: 0, height: 0)
         //customLobbyButton.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.darkGrey, property: "corner")
         
-    
+        
         //statisticsButton.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.darkGrey, property: "corner")
     }
     
@@ -222,9 +222,9 @@ class mainMenu: UIViewController {
                 }
                 
             }
-                newAlert.addTextField { (alertTextField) in
+            newAlert.addTextField { (alertTextField) in
                 alertTextField.placeholder = "Lobby Code"
-                    self.textField = alertTextField
+                self.textField = alertTextField
             }
             
             newAlert.addAction(doneButton)
@@ -242,59 +242,59 @@ class mainMenu: UIViewController {
             let doneButton = UIAlertAction(title: "Done", style: .default) { (action) in
                 if self.textField != nil {
                     //print(textField.text)
-                
+                    
                     self.ref.child("CustomLobbies").observeSingleEvent(of: .value) { (snapshot) in
-                    guard let value = snapshot.value as? NSDictionary else {
-                        
-                        let newAlert3 = UIAlertController(title: "Error", message: "The code you entered is invalid", preferredStyle: .alert)
-                        
-                        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                            //do nothing
+                        guard let value = snapshot.value as? NSDictionary else {
+                            
+                            let newAlert3 = UIAlertController(title: "Error", message: "The code you entered is invalid", preferredStyle: .alert)
+                            
+                            let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                                //do nothing
+                            }
+                            
+                            newAlert3.addAction(okAction)
+                            self.present(newAlert3, animated: true, completion: nil)
+                            return
                         }
                         
-                        newAlert3.addAction(okAction)
-                        self.present(newAlert3, animated: true, completion: nil)
-                        return
-                    }
-                    
                         //If the code the user typed is in the data base, then proceed here
                         if (snapshot.hasChild(self.textField.text!)) {
-                        self.ref.child("CustomLobbies").child(self.textField.text!).observeSingleEvent(of: .value) { (snapshot2) in
-                            guard let value2 = snapshot2.value as? NSDictionary else {
-                                print("No Data!!!")
-                                return
+                            self.ref.child("CustomLobbies").child(self.textField.text!).observeSingleEvent(of: .value) { (snapshot2) in
+                                guard let value2 = snapshot2.value as? NSDictionary else {
+                                    print("No Data!!!")
+                                    return
+                                }
+                                let numPlayers = value2["numPlayers"] as! Int
+                                print(numPlayers)
+                                self.ref.child("CustomLobbies").child(self.textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : numPlayers, "Username" : self.name])
+                                self.ref.child("CustomLobbies").child(self.textField.text!).updateChildValues(["numPlayers" : numPlayers + 1])
+                                self.performSegue(withIdentifier: "goToCustomQueue", sender: self)
+                                
                             }
-                            let numPlayers = value2["numPlayers"] as! Int
-                            print(numPlayers)
-                            self.ref.child("CustomLobbies").child(self.textField.text!).child("Players").child(Auth.auth().currentUser!.uid).setValue(["id" : Auth.auth().currentUser!.uid, "PlayerIndex" : numPlayers, "Username" : self.name])
-                            self.ref.child("CustomLobbies").child(self.textField.text!).updateChildValues(["numPlayers" : numPlayers + 1])
-                            self.performSegue(withIdentifier: "goToCustomQueue", sender: self)
+                            
+                        } else {
+                            let newAlert3 = UIAlertController(title: "Error", message: "The code you entered is invalid", preferredStyle: .alert)
+                            
+                            let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                                //do nothing
+                            }
+                            
+                            newAlert3.addAction(okAction)
+                            self.present(newAlert3, animated: true, completion: nil)
                             
                         }
-                            
-                    } else {
-                        let newAlert3 = UIAlertController(title: "Error", message: "The code you entered is invalid", preferredStyle: .alert)
-                        
-                        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                            //do nothing
-                        }
-                        
-                        newAlert3.addAction(okAction)
-                        self.present(newAlert3, animated: true, completion: nil)
                         
                     }
-                    
                 }
-            }
                 
             }
             newAlert2.addTextField { (alertTextField) in
                 alertTextField.placeholder = "Lobby Code"
                 self.textField = alertTextField
             }
-             newAlert2.addAction(doneButton)
+            newAlert2.addAction(doneButton)
             self.present(newAlert2, animated: true, completion: nil)
-
+            
         }
         
         //Three Options - Option 3: Cancel button (does nothing, alert should dismiss)
@@ -313,10 +313,10 @@ class mainMenu: UIViewController {
         if segue.identifier == "goToCustomQueue" {
             let customVC = segue.destination as! CustomLobbyQueueViewController
             customVC.lobbyCode = textField.text!
-
+            
         }
     }
-
+    
     func startAnimation() {
         RunningAnimation.animation = Animation.named("runninganimation")
         RunningAnimation.loopMode = .loop
