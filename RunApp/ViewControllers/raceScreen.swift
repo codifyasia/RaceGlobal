@@ -47,7 +47,8 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("entered race screen")
+
+        
         locationManager.requestAlwaysAuthorization()
         //Set everything up and start everything
         ref = Database.database().reference()
@@ -174,7 +175,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
                         self.newProgressBar1.isHidden = true
                     }
 //                    UIView.animate(withDuration: 0.5) {
-                    self.newProgressBar1.value = CGFloat(distanceRan / self.goalDistance)
+                    self.newProgressBar1.value = CGFloat(distanceRan / self.goalDistance) * 100
 //                }
                     self.progressBar1.progress = CGFloat(distanceRan / self.goalDistance)
                     
