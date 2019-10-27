@@ -31,6 +31,7 @@
 		9C23712723021EB800A5662B /* customCellxib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C23712523021EB800A5662B /* customCellxib.xib */; };
 		9C23712B23022B5000A5662B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C23712923022B5000A5662B /* SWRevealViewController.m */; };
 		9C327DC622FF40EC00D04ACA /* mainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C327DC522FF40EC00D04ACA /* mainMenu.swift */; };
+		9C71AC13236527E6003B6C6E /* 1049-hourglass.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C71AC12236527E6003B6C6E /* 1049-hourglass.json */; };
 		9C8EEF44235D2955002AF9BC /* DistanceChoose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8EEF43235D2955002AF9BC /* DistanceChoose.swift */; };
 		9C90E68422F8E6FF00376DDA /* raceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C90E68322F8E6FF00376DDA /* raceScreen.swift */; };
 		9CA8D42823442BD000B2AEC2 /* WinScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA8D42723442BD000B2AEC2 /* WinScreen.swift */; };
@@ -68,6 +69,7 @@
 		9C23712923022B5000A5662B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		9C23712A23022B5000A5662B /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		9C327DC522FF40EC00D04ACA /* mainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainMenu.swift; sourceTree = "<group>"; };
+		9C71AC12236527E6003B6C6E /* 1049-hourglass.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1049-hourglass.json"; sourceTree = "<group>"; };
 		9C8EEF43235D2955002AF9BC /* DistanceChoose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceChoose.swift; sourceTree = "<group>"; };
 		9C90E68322F8E6FF00376DDA /* raceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = raceScreen.swift; sourceTree = "<group>"; };
 		9CA8D42723442BD000B2AEC2 /* WinScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinScreen.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		89AACCF3235BE1EB00844203 /* Lottie Files */ = {
 			isa = PBXGroup;
 			children = (
+				9C71AC12236527E6003B6C6E /* 1049-hourglass.json */,
 				4758D66C2362AA0D00AE8B45 /* Sad.json */,
 				895BBB3C2311F7F6006F06FE /* loading.json */,
 				895BBB382311F117006F06FE /* world.json */,
@@ -264,6 +267,7 @@
 				890F3A9822F8DD4200D14044 /* Assets.xcassets in Resources */,
 				9C23712723021EB800A5662B /* customCellxib.xib in Resources */,
 				895BBB392311F117006F06FE /* world.json in Resources */,
+				9C71AC13236527E6003B6C6E /* 1049-hourglass.json in Resources */,
 				896400CD2352429C00D9DD8F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

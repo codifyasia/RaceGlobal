@@ -31,7 +31,7 @@ class CustomLobbyQueueViewController : UIViewController {
     
     
     func startAnimation() {
-        animationView.animation = Animation.named("map")
+        animationView.animation = Animation.named("1049-hourglass")
         animationView.loopMode = .loop
         animationView.play()
     }
