@@ -234,7 +234,8 @@
                         <viewLayoutGuide key="safeArea" id="W9J-hV-Zl9"/>
                     </view>
                     <connections>
-                        <outlet property="SadFace" destination="0Hf-SB-xdS" id="kSm-N8-d1U"/>
+                        <outlet property="loseLabel" destination="se5-a6-SyR" id="NEh-0E-dh6"/>
+                        <outlet property="runningFlash" destination="0Hf-SB-xdS" id="Q4E-DW-hAa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fod-sK-q5t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

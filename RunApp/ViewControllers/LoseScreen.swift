@@ -12,8 +12,8 @@ import Firebase
 
 class LoseScreen: UIViewController {
     
-    @IBOutlet weak var SadFace: AnimationView!
-    @IBOutlet var loseLabel: UILabel!
+    @IBOutlet weak var loseLabel: UILabel!
+    @IBOutlet var runningFlash: AnimationView!
     override func viewDidLoad() {
         super.viewDidLoad()
         startAnimation()
@@ -22,9 +22,9 @@ class LoseScreen: UIViewController {
     
     
     func startAnimation() {
-        SadFace.animation = Animation.named("runningFlash")
-        SadFace.loopMode = .loop
-        SadFace.play()
+        runningFlash.animation = Animation.named("runningFlash")
+        runningFlash.loopMode = .loop
+        runningFlash.play()
     }
     
     /*

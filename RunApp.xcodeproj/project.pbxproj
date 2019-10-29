@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4702C4B3235EAA1F0016805C /* LoseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4702C4B2235EAA1F0016805C /* LoseScreen.swift */; };
+		4729BA7C236800810006088C /* runningFlash.json in Resources */ = {isa = PBXBuildFile; fileRef = 4729BA7B236800810006088C /* runningFlash.json */; };
 		4758D66D2362AA0D00AE8B45 /* Sad.json in Resources */ = {isa = PBXBuildFile; fileRef = 4758D66C2362AA0D00AE8B45 /* Sad.json */; };
 		47CD8DFF23493AE0007F8D20 /* CustomLobbyQueueScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CD8DFE23493AE0007F8D20 /* CustomLobbyQueueScreenViewController.swift */; };
 		8904202F22FA33F50044EEBD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8904202E22FA33F50044EEBD /* SignUpViewController.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		082861AF11D40A55A7DA9473 /* Pods-RunApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunApp.debug.xcconfig"; path = "Target Support Files/Pods-RunApp/Pods-RunApp.debug.xcconfig"; sourceTree = "<group>"; };
 		4702C4B2235EAA1F0016805C /* LoseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseScreen.swift; sourceTree = "<group>"; };
+		4729BA7B236800810006088C /* runningFlash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = runningFlash.json; sourceTree = "<group>"; };
 		4758D66C2362AA0D00AE8B45 /* Sad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sad.json; sourceTree = "<group>"; };
 		47CD8DFE23493AE0007F8D20 /* CustomLobbyQueueScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLobbyQueueScreenViewController.swift; sourceTree = "<group>"; };
 		8904202E22FA33F50044EEBD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				4758D66C2362AA0D00AE8B45 /* Sad.json */,
 				895BBB3C2311F7F6006F06FE /* loading.json */,
 				895BBB382311F117006F06FE /* world.json */,
+				4729BA7B236800810006088C /* runningFlash.json */,
 				9CC1E7542349782600A4632A /* runninganimation.json */,
 				89AACCF1235BE0C700844203 /* map.json */,
 				9C08960923188B6000F15BDE /* 8803-simple-countdown.json */,
@@ -262,6 +265,7 @@
 				89AACCF2235BE0C700844203 /* map.json in Resources */,
 				9C08960A23188B6000F15BDE /* 8803-simple-countdown.json in Resources */,
 				9CC1E7552349782600A4632A /* runninganimation.json in Resources */,
+				4729BA7C236800810006088C /* runningFlash.json in Resources */,
 				4758D66D2362AA0D00AE8B45 /* Sad.json in Resources */,
 				890F3AA522F8E2D800D14044 /* GoogleService-Info.plist in Resources */,
 				890F3A9822F8DD4200D14044 /* Assets.xcassets in Resources */,
@@ -478,14 +482,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 25BKB2B8F3;
+				DEVELOPMENT_TEAM = 2386LZ47TS;
 				INFOPLIST_FILE = RunApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mpeng20212.RunApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpeng212.RunApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "RunApp/RunApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -501,14 +505,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 25BKB2B8F3;
+				DEVELOPMENT_TEAM = 2386LZ47TS;
 				INFOPLIST_FILE = RunApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mpeng20212.RunApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpeng212.RunApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "RunApp/RunApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
