@@ -22,7 +22,7 @@ class LoseScreen: UIViewController {
     
     
     func startAnimation() {
-        SadFace.animation = Animation.named("Sad")
+        SadFace.animation = Animation.named("runningFlash")
         SadFace.loopMode = .loop
         SadFace.play()
     }
