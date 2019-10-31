@@ -22,7 +22,6 @@ class mainMenu: UIViewController {
     
     @IBOutlet weak var signOutButton: UIBarButtonItem!
     @IBOutlet weak var sideBarButton: UIBarButtonItem!
-    @IBOutlet weak var RunningAnimation: AnimationView!
     @IBOutlet weak var queueButton: UIButton!
     @IBOutlet weak var customLobbyButton: UIButton!
     
@@ -40,17 +39,7 @@ class mainMenu: UIViewController {
             NSAttributedString.Key.font: UIFont(name: "Avenir Next", size: 18.0)!,
             NSAttributedString.Key.foregroundColor: UIColor.white],
                                              for: .normal)
-        sideBarButton.setTitleTextAttributes([
-            NSAttributedString.Key.font: UIFont(name: "Avenir Next", size: 18.0)!,
-            NSAttributedString.Key.foregroundColor: UIColor.white],
-                                             for: .normal)
-        startAnimation()
         buttonAdjustments()
-        RunningAnimation.layer.cornerRadius = 20
-        RunningAnimation.layer.shadowColor = UIColor.black.cgColor
-        RunningAnimation.layer.shadowRadius = 40
-        RunningAnimation.layer.shadowOpacity = 0.5
-        RunningAnimation.layer.shadowOffset = CGSize(width: 0, height: 0)
         menuButton.target = self.revealViewController()
         menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
         
@@ -317,12 +306,6 @@ class mainMenu: UIViewController {
         }
     }
     
-    func startAnimation() {
-        RunningAnimation.animation = Animation.named("runninganimation")
-        RunningAnimation.loopMode = .loop
-        RunningAnimation.play()
-        // Finished code
-    }
 }
 
 
