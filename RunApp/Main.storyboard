@@ -1074,7 +1074,6 @@
         <image name="trash" catalog="system" width="60" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1f6-9i-ew7"/>
         <segue reference="Up0-eM-F4f"/>
         <segue reference="cst-aM-I2y"/>
         <segue reference="djm-DF-YzH"/>

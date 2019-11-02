@@ -23,6 +23,7 @@
 		895BBB3D2311F7F6006F06FE /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 895BBB3C2311F7F6006F06FE /* loading.json */; };
 		896400CD2352429C00D9DD8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 896400CC2352429C00D9DD8F /* Main.storyboard */; };
 		89AACCF2235BE0C700844203 /* map.json in Resources */ = {isa = PBXBuildFile; fileRef = 89AACCF1235BE0C700844203 /* map.json */; };
+		89AF7F3B236E46EC00DD7531 /* TimeTrialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF7F3A236E46EC00DD7531 /* TimeTrialViewController.swift */; };
 		89FA1A3C23493BAD004F412B /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FA1A3B23493BAD004F412B /* constants.swift */; };
 		89FA1A3F23493C0B004F412B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FA1A3E23493C0B004F412B /* UIView+Extension.swift */; };
 		89FA1A41234EDFB0004F412B /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FA1A40234EDFB0004F412B /* StatisticsViewController.swift */; };
@@ -60,6 +61,7 @@
 		895BBB3C2311F7F6006F06FE /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		896400CC2352429C00D9DD8F /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		89AACCF1235BE0C700844203 /* map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = map.json; sourceTree = "<group>"; };
+		89AF7F3A236E46EC00DD7531 /* TimeTrialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTrialViewController.swift; sourceTree = "<group>"; };
 		89FA1A3B23493BAD004F412B /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		89FA1A3E23493C0B004F412B /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		89FA1A40234EDFB0004F412B /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				895BBB3A2311F1B1006F06FE /* QueueScreenViewController.swift */,
+				89AF7F3A236E46EC00DD7531 /* TimeTrialViewController.swift */,
 				47CD8DFE23493AE0007F8D20 /* CustomLobbyQueueScreenViewController.swift */,
 				9C23712223021BAE00A5662B /* sideBarViewController.swift */,
 				8904203022FA359F0044EEBD /* LoginViewController.swift */,
@@ -333,6 +336,7 @@
 				9CA8D42823442BD000B2AEC2 /* WinScreen.swift in Sources */,
 				895BBB3B2311F1B1006F06FE /* QueueScreenViewController.swift in Sources */,
 				8904203122FA359F0044EEBD /* LoginViewController.swift in Sources */,
+				89AF7F3B236E46EC00DD7531 /* TimeTrialViewController.swift in Sources */,
 				89FA1A3F23493C0B004F412B /* UIView+Extension.swift in Sources */,
 				9C23712B23022B5000A5662B /* SWRevealViewController.m in Sources */,
 				9C90E68422F8E6FF00376DDA /* raceScreen.swift in Sources */,
