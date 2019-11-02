@@ -620,7 +620,7 @@
         <!--Nothing-->
         <scene sceneID="vGj-nn-QXG">
             <objects>
-                <viewController id="hj3-Nx-gLJ" sceneMemberID="viewController">
+                <viewController id="hj3-Nx-gLJ" customClass="TimeTrialViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SiZ-cy-Ag5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -641,6 +641,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="startPressed:" destination="hj3-Nx-gLJ" eventType="touchUpInside" id="I37-mM-X6S"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.22697890230000001" green="0.22697890230000001" blue="0.22697890230000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1075,7 +1078,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Up0-eM-F4f"/>
-        <segue reference="cst-aM-I2y"/>
+        <segue reference="E8s-5j-gj4"/>
         <segue reference="djm-DF-YzH"/>
     </inferredMetricsTieBreakers>
 </document>
