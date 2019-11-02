@@ -13,6 +13,7 @@ import Firebase
 class LoseScreen: UIViewController {
     
     @IBOutlet weak var loseLabel: UILabel!
+    @IBOutlet weak var msgsPressed: UIButton!
     @IBOutlet var runningFlash: AnimationView!
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -11,6 +11,7 @@ import UIKit
 class WinScreen: UIViewController {
     
     @IBOutlet weak var WonLabel: UILabel!
+    @IBOutlet weak var msgsPressed: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
