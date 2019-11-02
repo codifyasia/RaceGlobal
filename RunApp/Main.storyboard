@@ -1058,6 +1058,7 @@
                         <outlet property="Username" destination="2ek-NI-n5G" id="eia-ci-kpo"/>
                         <outlet property="emailField" destination="oYf-P6-Awo" id="hDa-IR-uCk"/>
                         <outlet property="passwordField" destination="xy1-pp-OlU" id="utu-Ix-Cpv"/>
+                        <outlet property="phoneNumberField" destination="4mO-8O-Afy" id="zaC-EX-vUg"/>
                         <outlet property="registerButton" destination="yDS-yT-IjP" id="FLj-en-6hU"/>
                         <segue destination="Tto-1j-1eD" kind="show" identifier="goToMainMenu" id="cst-aM-I2y"/>
                     </connections>

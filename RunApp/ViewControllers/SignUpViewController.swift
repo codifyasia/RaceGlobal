@@ -19,6 +19,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailField: AkiraTextField!
     @IBOutlet weak var passwordField: AkiraTextField!
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var phoneNumberField: UITextField!
     
     var ref: DatabaseReference!
     
