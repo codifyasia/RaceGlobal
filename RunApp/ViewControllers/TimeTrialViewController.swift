@@ -18,6 +18,8 @@ class TimeTrialViewController: UIViewController {
         
         
     }
+    @IBAction func startPressed(_ sender: Any) {
+    }
     
 
     /*
