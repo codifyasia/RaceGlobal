@@ -11,11 +11,12 @@ import UIKit
 class WinScreen: UIViewController {
     
     @IBOutlet weak var WonLabel: UILabel!
-    @IBOutlet weak var msgsPressed: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+    }
+    @IBAction func goToMessages(_ sender: Any) {
     }
     
     
