@@ -305,7 +305,18 @@ class mainMenu: UIViewController {
             
         }
     }
-    
+    @IBAction func msgs(_ sender: Any) {
+        let instagramHooks = "sms://1-408-334-5773"
+        let instagramUrl = NSURL(string: instagramHooks)
+        if UIApplication.shared.canOpenURL(instagramUrl! as URL)
+        {
+            UIApplication.shared.openURL(instagramUrl! as URL)
+
+         } else {
+            //redirect to safari because the user doesn't have Instagram
+            UIApplication.shared.openURL(NSURL(string: "http://instagram.com/")! as URL)
+        }
+    }
 }
 
 
