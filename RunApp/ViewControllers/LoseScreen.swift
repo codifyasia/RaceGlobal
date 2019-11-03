@@ -59,6 +59,8 @@ class LoseScreen: UIViewController {
             }
             newString = newString + String(phoneNum[phoneNum.index(phoneNum.startIndex, offsetBy: i-1)])
         }
+        phoneNum = newString
+        print(phoneNum)
     }
     
     
