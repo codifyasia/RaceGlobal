@@ -27,19 +27,33 @@ class TimeTrialViewController: UIViewController {
         
         let action1 = UIAlertAction(title: "800 Meters", style: .default) { (action) in
             self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["TrialDistance" : 800])
+            self.performSegue(withIdentifier: "toTrial", sender: self)
         }
         
         let action2 = UIAlertAction(title: "1600 Meters", style: .default) { (action) in
             self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["TrialDistance" : 1600])
+            self.performSegue(withIdentifier: "toTrial", sender: self)
+
         }
         let action3 = UIAlertAction(title: "3200 Meters", style: .default) { (action) in
             self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["TrialDistance" : 3200])
+            self.performSegue(withIdentifier: "toTrial", sender: self)
+
         }
         let action4 = UIAlertAction(title: "5 Kilometers", style: .default) { (action) in
             self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["TrialDistance" : 5000])
+            self.performSegue(withIdentifier: "toTrial", sender: self)
         }
         let action5 = UIAlertAction(title: "Custom Distance", style: .default) { (action) in
+            let customAlert = UIAlertController(title: "Distance", message: "Enter your Distance", preferredStyle: .alert)
+            customAlert.addTextField { (UITextField) in
+                UITextField.placeholder = "Distance to run"
+//                let integerText = UITextField as! Int
+//                self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["TrialDistance" : integerText ])
+//                self.performSegue(withIdentifier: "toTrial", sender: self)
+            }
             
+            self.present(customAlert, animated: true, completion: nil)
         }
         
         alert.addAction(action1)
