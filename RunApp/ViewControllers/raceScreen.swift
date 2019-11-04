@@ -244,5 +244,9 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     func setData(dist : Double ) -> Void{
         goalDistance = dist
     }
+    @IBAction func optOut(_ sender: Any) {
+        self.performSegue(withIdentifier: "goToLoseScreen", sender: self)
+    }
+    
 }
 //bruvv
