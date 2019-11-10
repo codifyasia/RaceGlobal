@@ -15,6 +15,7 @@ class WinScreen: UIViewController {
     var phoneNum = ""
     var ref : DatabaseReference!
     var StringLabel = ""
+    var currentLobby : Int!
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()

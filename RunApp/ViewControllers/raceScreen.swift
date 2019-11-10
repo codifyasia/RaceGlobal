@@ -217,9 +217,6 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         print(self.goalDistance)
     }
     
-    @IBAction func OptOut(_ sender: Any) {
-        
-    }
     func retrieveLabels() {
         ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { snapshot in
             print(snapshot.childrenCount)
@@ -241,13 +238,14 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
             }
         }
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            let destinationVC = segue.destination as! raceScreen
+            destinationVC.currentLobby = currentLobby
+        }
     func setData(dist : Double ) -> Void{
         goalDistance = dist
     }
-    @IBAction func optOut(_ sender: Any) {
-        self.performSegue(withIdentifier: "goToLoseScreen", sender: self)
     }
     
-}
+
 //bruvv
