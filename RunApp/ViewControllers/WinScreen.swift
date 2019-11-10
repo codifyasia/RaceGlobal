@@ -22,33 +22,45 @@ class WinScreen: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func goToMessages(_ sender: Any) {
-        
-    }
-    func retrievePhoneNum() {
-        
+        retrieveData()
     }
     
     func retrieveData() {
-        ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            guard let value = snapshot.value as? NSDictionary else {
-                print("No Data!!!!!!")
-                return
+        func retrieveData() {
+            ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { snapshot in
+                print(snapshot.childrenCount)
+                for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                    guard let value = rest.value as? NSDictionary else {
+                        print("could not collect label data")
+                        return
+                    }
+                    let uid = value["id"] as! String
+                    if (uid != Auth.auth().currentUser!.uid) {
+                        self.ref.child("PlayerStats").child(uid).observeSingleEvent(of: .value) { snapshot in
+                            guard let value = snapshot.value as? NSDictionary else {
+                                print("No Data!!!!!!")
+                                return
+                            }
+                            
+                             let phoneNum = value["Phone"] as! String
+                             let instagramHooks = "sms://1" + phoneNum
+                             let instagramUrl = NSURL(string: instagramHooks)
+                             if UIApplication.shared.canOpenURL(instagramUrl! as URL)
+                             {
+                                 UIApplication.shared.openURL(instagramUrl! as URL)
+
+                              } else {
+                                 //redirect to safari because the user doesn't have Instagram
+                                 UIApplication.shared.openURL(NSURL(string: "http://instagram.com/")! as URL)
+                             }
+                            
+                            //            self.goalDistance = value["SelectedDist"] as! Double
+                        }
+                    }
+                
+                }
             }
-            self.phoneNum = value["Phone"] as! String
-        }) { (error) in
-            print("error:\(error.localizedDescription)")
         }
-        var newString = "1-"
-        for i in 1...10 {
-            if (i == 4 || i == 7) {
-                newString = newString + " "
-            }
-            newString = newString + String(phoneNum[phoneNum.index(phoneNum.startIndex, offsetBy: i-1)])
-        }
-        phoneNum = newString
-        print(phoneNum)
-        WonLabel.text = phoneNum
     }
     
     
