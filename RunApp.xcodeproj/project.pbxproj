@@ -24,6 +24,7 @@
 		896400CD2352429C00D9DD8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 896400CC2352429C00D9DD8F /* Main.storyboard */; };
 		89AACCF2235BE0C700844203 /* map.json in Resources */ = {isa = PBXBuildFile; fileRef = 89AACCF1235BE0C700844203 /* map.json */; };
 		89AF7F3B236E46EC00DD7531 /* TimeTrialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF7F3A236E46EC00DD7531 /* TimeTrialViewController.swift */; };
+		89D2531523777F9500B8D7D6 /* InTrialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2531423777F9500B8D7D6 /* InTrialViewController.swift */; };
 		89FA1A3C23493BAD004F412B /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FA1A3B23493BAD004F412B /* constants.swift */; };
 		89FA1A3F23493C0B004F412B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FA1A3E23493C0B004F412B /* UIView+Extension.swift */; };
 		89FA1A41234EDFB0004F412B /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FA1A40234EDFB0004F412B /* StatisticsViewController.swift */; };
@@ -62,6 +63,7 @@
 		896400CC2352429C00D9DD8F /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		89AACCF1235BE0C700844203 /* map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = map.json; sourceTree = "<group>"; };
 		89AF7F3A236E46EC00DD7531 /* TimeTrialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTrialViewController.swift; sourceTree = "<group>"; };
+		89D2531423777F9500B8D7D6 /* InTrialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InTrialViewController.swift; sourceTree = "<group>"; };
 		89FA1A3B23493BAD004F412B /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		89FA1A3E23493C0B004F412B /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		89FA1A40234EDFB0004F412B /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				895BBB3A2311F1B1006F06FE /* QueueScreenViewController.swift */,
+				89D2531423777F9500B8D7D6 /* InTrialViewController.swift */,
 				89AF7F3A236E46EC00DD7531 /* TimeTrialViewController.swift */,
 				47CD8DFE23493AE0007F8D20 /* CustomLobbyQueueScreenViewController.swift */,
 				9C23712223021BAE00A5662B /* sideBarViewController.swift */,
@@ -332,6 +335,7 @@
 				890F3A9122F8DD4100D14044 /* AppDelegate.swift in Sources */,
 				8904202F22FA33F50044EEBD /* SignUpViewController.swift in Sources */,
 				89FA1A41234EDFB0004F412B /* StatisticsViewController.swift in Sources */,
+				89D2531523777F9500B8D7D6 /* InTrialViewController.swift in Sources */,
 				9C327DC622FF40EC00D04ACA /* mainMenu.swift in Sources */,
 				9CA8D42823442BD000B2AEC2 /* WinScreen.swift in Sources */,
 				895BBB3B2311F1B1006F06FE /* QueueScreenViewController.swift in Sources */,

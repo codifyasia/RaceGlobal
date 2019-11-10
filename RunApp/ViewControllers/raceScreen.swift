@@ -47,6 +47,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         //reset progress bars
         newProgressBar1.value = 0
         newProgressBar2.value = 0
@@ -55,7 +56,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         //Set everything up and start everything
         ref = Database.database().reference()
         //TODO: Timer
-        checkerTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(raceScreen.checkIn), userInfo: nil, repeats: true)
+        checkerTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(raceScreen.checkIn), userInfo: nil, repeats: true)
         locationManager.desiredAccuracy=kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
         
