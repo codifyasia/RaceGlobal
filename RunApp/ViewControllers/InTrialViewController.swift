@@ -138,7 +138,14 @@ class InTrialViewController: UIViewController, CLLocationManagerDelegate, UIText
     func updateSelfProgress() {
         //        distanceLabel.text = String(traveledDistance)
         UIView.animate(withDuration: 0.5) {
-            self.progressBar.value = CGFloat(self.traveledDistance / self.dist) * 100
+            let bar = CGFloat(self.traveledDistance / self.dist) * 100
+            
+            if (bar <= 100) {
+                self.progressBar.value = bar
+            }
+            else if (bar > 100) {
+                self.progressBar.value = 100
+            }
         }
     }
     
