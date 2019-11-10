@@ -16,9 +16,9 @@
 
 #import "GDTCCTLibrary/Private/GDTCCTUploader.h"
 
-#import <GoogleDataTransport/GDTCORConsoleLogger.h>
-#import <GoogleDataTransport/GDTCORPlatform.h>
-#import <GoogleDataTransport/GDTCORRegistrar.h>
+#import "GoogleDataTransport/GDTCORConsoleLogger.h"
+#import "GoogleDataTransport/GDTCORPlatform.h"
+#import "GoogleDataTransport/GDTCORRegistrar.h"
 
 #import <nanopb/pb.h>
 #import <nanopb/pb_decode.h>

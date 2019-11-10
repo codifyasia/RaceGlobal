@@ -306,7 +306,7 @@ class mainMenu: UIViewController {
         }
     }
     @IBAction func msgs(_ sender: Any) {
-        let instagramHooks = "sms://1-408-334-5777"
+        let instagramHooks = "sms://14083345777"
         let instagramUrl = NSURL(string: instagramHooks)
         if UIApplication.shared.canOpenURL(instagramUrl! as URL)
         {
