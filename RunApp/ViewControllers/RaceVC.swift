@@ -147,7 +147,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         if (travelledDistance > goalDistance) {
             ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { (snapshot) in
                 if !snapshot.hasChild("Winner") {
-                    self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").updateChildValues(["Winner" : self.name!])
+                    self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").updateChildValues(["Winner" : Auth.auth().currentUser!.uid])
                     self.performSegue(withIdentifier: "toWinScreen", sender: self)
                 } else {
                     self.performSegue(withIdentifier: "goToLoseScreen", sender: self)
