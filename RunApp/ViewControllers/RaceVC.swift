@@ -116,9 +116,9 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     }
     func StartEverything() {
         print("started starting everything")
+        locationManager.delegate = self
         locationManager.desiredAccuracy=kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
-        locationManager.delegate = self
         print("ended starting everything")
     }
     func setUpLabels() {
