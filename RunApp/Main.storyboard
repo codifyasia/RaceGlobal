@@ -105,8 +105,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="ElE-5b-foT" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="187.5" y="323.5" width="0.0" height="0.0"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ElE-5b-foT" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3kz-VE-xZA">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
@@ -160,11 +160,13 @@
                         <color key="backgroundColor" red="0.22697890230000001" green="0.22697890230000001" blue="0.22697890230000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="xh0-kx-4HE" firstAttribute="bottom" secondItem="3kz-VE-xZA" secondAttribute="bottom" id="9ne-cz-gTg"/>
+                            <constraint firstItem="ElE-5b-foT" firstAttribute="top" secondItem="bAE-Jk-nC7" secondAttribute="top" id="FqY-o4-l7T"/>
                             <constraint firstItem="3kz-VE-xZA" firstAttribute="leading" secondItem="xh0-kx-4HE" secondAttribute="leading" id="Gt0-My-swV"/>
                             <constraint firstItem="xh0-kx-4HE" firstAttribute="trailing" secondItem="3kz-VE-xZA" secondAttribute="trailing" id="I6C-yu-uxj"/>
-                            <constraint firstItem="ElE-5b-foT" firstAttribute="centerX" secondItem="bAE-Jk-nC7" secondAttribute="centerX" id="QRA-6t-Y9P"/>
-                            <constraint firstItem="ElE-5b-foT" firstAttribute="centerY" secondItem="bAE-Jk-nC7" secondAttribute="centerY" id="dXi-Ry-d2k"/>
+                            <constraint firstItem="ElE-5b-foT" firstAttribute="leading" secondItem="bAE-Jk-nC7" secondAttribute="leading" id="YXh-Xk-g2c"/>
+                            <constraint firstAttribute="trailing" secondItem="ElE-5b-foT" secondAttribute="trailing" id="lMQ-Ou-brq"/>
                             <constraint firstItem="3kz-VE-xZA" firstAttribute="top" secondItem="xh0-kx-4HE" secondAttribute="top" id="xsX-bp-6X2"/>
+                            <constraint firstAttribute="bottom" secondItem="ElE-5b-foT" secondAttribute="bottom" id="zTs-Ko-E5v"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xh0-kx-4HE"/>
                     </view>
@@ -1169,7 +1171,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tgZ-Yd-6wl"/>
-        <segue reference="E8s-5j-gj4"/>
-        <segue reference="djm-DF-YzH"/>
+        <segue reference="vlS-Fz-L6C"/>
+        <segue reference="tc7-xb-7gJ"/>
     </inferredMetricsTieBreakers>
 </document>
