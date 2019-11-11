@@ -13,7 +13,7 @@ import TextFieldEffects
 import Lottie
 import MBCircularProgressBar
 
-class RaceVC: UIViewController {
+class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     //location
     let locationManager = CLLocationManager()
     var startLocation:CLLocation!
@@ -118,6 +118,7 @@ class RaceVC: UIViewController {
         print("started starting everything")
         locationManager.desiredAccuracy=kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
+        locationManager.delegate = self
         print("ended starting everything")
     }
     func setUpLabels() {
