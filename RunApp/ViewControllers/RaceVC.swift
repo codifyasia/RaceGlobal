@@ -39,6 +39,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.requestAlwaysAuthorization()
         ref = Database.database().reference()
         retrieveData()
         setUpLabels()
