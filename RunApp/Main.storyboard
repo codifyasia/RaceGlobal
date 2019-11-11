@@ -586,15 +586,9 @@
                     <navigationItem key="navigationItem" id="rah-0y-II5"/>
                     <connections>
                         <outlet property="EnemyLabel" destination="wTM-6V-BRG" id="KLX-eO-RYT"/>
-                        <outlet property="Label1" destination="wTM-6V-BRG" id="Agh-qX-IAN"/>
-                        <outlet property="Label2" destination="Dao-aJ-AK3" id="gQb-bl-gSN"/>
                         <outlet property="NameLabel" destination="Dao-aJ-AK3" id="uY6-ok-rZr"/>
-                        <outlet property="countdownAnimation" destination="9WK-IS-PZU" id="iF1-Wg-BNZ"/>
-                        <outlet property="distanceLabel" destination="HMj-E1-UG8" id="4RO-JJ-An5"/>
                         <outlet property="enemyProgressBar" destination="129-Ad-Zk7" id="laB-0Z-OCi"/>
                         <outlet property="goalDistanceLabel" destination="MXE-DV-yoZ" id="kUx-hk-bAG"/>
-                        <outlet property="newProgressBar1" destination="lK4-Tq-PMy" id="6uC-Va-C2y"/>
-                        <outlet property="newProgressBar2" destination="129-Ad-Zk7" id="XyG-fA-oSd"/>
                         <outlet property="playerProgressBar" destination="lK4-Tq-PMy" id="8Jo-kx-yBT"/>
                         <outlet property="traveledDistanceLabel" destination="HMj-E1-UG8" id="8yR-gA-1mn"/>
                         <segue destination="gGL-cb-sXM" kind="presentation" identifier="toWinScreen" id="1OZ-Zl-3QL"/>
