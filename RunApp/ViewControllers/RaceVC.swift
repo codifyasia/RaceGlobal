@@ -115,10 +115,10 @@ class RaceVC: UIViewController {
         checkIfPlayerWon()
     }
     func StartEverything() {
-        "started starting everything"
+        print("started starting everything")
         locationManager.desiredAccuracy=kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
-        "ended starting everything"
+        print("ended starting everything")
     }
     func setUpLabels() {
         print("started setting up labels")
