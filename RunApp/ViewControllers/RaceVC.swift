@@ -49,16 +49,19 @@ class RaceVC: UIViewController {
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         if startLocation == nil {
+            print("got first location")
             startLocation = locations.first as! CLLocation
         } else {
-            
+            print("getting new location and calculating distance...")
             let lastLocation = locations.last as! CLLocation
             let distance = startLocation.distance(from: lastLocation)
             startLocation = lastLocation
             travelledDistance += distance
+            print("ended the above shit")
         }
     }
     func retrieveData() {
+        print("Started retrieving data")
        ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { snapshot in
             print("retrieve data: " + String(snapshot.childrenCount))
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
@@ -78,6 +81,7 @@ class RaceVC: UIViewController {
             }
             print("Goal Distance: " + String(self.goalDistance))
         }
+        print("finished retrieving data")
     }
     @objc func updateAll() {
         updateSelfDistToFirebase()
@@ -111,15 +115,18 @@ class RaceVC: UIViewController {
         checkIfPlayerWon()
     }
     func StartEverything() {
+        "started starting everything"
         locationManager.desiredAccuracy=kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
+        "ended starting everything"
     }
     func setUpLabels() {
+        print("started setting up labels")
         playerProgressBar.value = 0
         enemyProgressBar.value = 0
         goalDistanceLabel.text = String(goalDistance)
         traveledDistanceLabel.text = String(travelledDistance)
-        
+        print("ended setting up labels")
     }
     func updateSelfDistToFirebase() {
         ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "Distance" : travelledDistance])
