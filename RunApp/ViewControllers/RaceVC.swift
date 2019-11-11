@@ -51,6 +51,7 @@ class RaceVC: UIViewController {
         if startLocation == nil {
             startLocation = locations.first as! CLLocation
         } else {
+            
             let lastLocation = locations.last as! CLLocation
             let distance = startLocation.distance(from: lastLocation)
             startLocation = lastLocation
@@ -59,7 +60,7 @@ class RaceVC: UIViewController {
     }
     func retrieveData() {
        ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { snapshot in
-            print(snapshot.childrenCount)
+            print("retrieve data: " + String(snapshot.childrenCount))
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
                 guard let value = rest.value as? NSDictionary else {
                     print("could not collect label data")
@@ -69,20 +70,20 @@ class RaceVC: UIViewController {
                 let username = value["Username"] as! String
                 
                 if (uid == Auth.auth().currentUser!.uid) {
-                    self.goalDistance = value["SelectedDist"] as! Double//might be fucked
+                    self.goalDistance = value["SelectedDist"] as! Double //might be fucked
                     self.NameLabel.text = username
                 } else {
                     self.EnemyLabel.text = username
                 }
             }
+            print("Goal Distance: " + String(self.goalDistance))
         }
-        print("Goal Distance: " + String(self.goalDistance))
     }
     @objc func updateAll() {
         updateSelfDistToFirebase()
         self.traveledDistanceLabel.text = String(travelledDistance)
         ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { snapshot in
-            print(snapshot.childrenCount)
+            print("updateAll: " + String(snapshot.childrenCount))
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
                 guard let value = rest.value as? NSDictionary else {
                     print("No Data!!!")
