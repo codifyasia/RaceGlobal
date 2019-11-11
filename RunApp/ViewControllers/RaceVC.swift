@@ -48,17 +48,24 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        if startLocation == nil {
-            print("got first location")
-            startLocation = locations.first as! CLLocation
-        } else {
-            print("getting new location and calculating distance...")
-            let lastLocation = locations.last as! CLLocation
-            let distance = startLocation.distance(from: lastLocation)
-            startLocation = lastLocation
-            travelledDistance += distance
-            print("ended the above shit")
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print(travelledDistance)
+        let location = locations[locations.count - 1]
+        if (location.horizontalAccuracy > 0) {
+            //            var speed: CLLocationSpeed = CLLocationSpeed()
+            if startLocation == nil {
+                startLocation = locations.first
+            } else {
+                if (travelledDistance >= goalDistance) {
+                    locationManager.stopUpdatingLocation()
+                }
+                let lastLocation = locations.last as! CLLocation
+                if (startLocation.distance(from: lastLocation) > 4) {
+                    let distance = startLocation.distance(from: lastLocation)
+                    startLocation = lastLocation
+                    travelledDistance += distance
+                }
+            }
         }
     }
     func retrieveData() {
