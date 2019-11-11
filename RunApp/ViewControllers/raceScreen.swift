@@ -4,7 +4,7 @@
 //  Created by Ricky Wang on 8/5/19.
 //  Copyright © 2019 Michael Peng. All rights reserved.
 //
-
+/*
 import UIKit
 import Firebase
 import CoreLocation
@@ -256,3 +256,4 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
     
 
 //bruvv
+*/

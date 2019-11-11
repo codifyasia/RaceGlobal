@@ -67,7 +67,7 @@ class DistanceChoose: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goRaceScreen" {
-            let destinationVC = segue.destination as! raceScreen
+            let destinationVC = segue.destination as! RaceVC
             destinationVC.currentLobby = currentLobby
         }
     }
