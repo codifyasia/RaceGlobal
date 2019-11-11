@@ -152,10 +152,13 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         }
     }
     //TODO: Labels
+    /*
     func updateSelfProgress() {
         distanceLabel.text = String(traveledDistance)
         ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "Distance" : traveledDistance])
     }
+    */
+    /*
     func updateRivalProgressBars() {
         ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { snapshot in
             print(snapshot.childrenCount)
@@ -190,13 +193,15 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
             }
         }
     }
+    */
+    /*
     func startAnimation() {
         countdownAnimation.animation = Animation.named("8803-simple-countdown")
         countdownAnimation.play()
     }
-    
+    */
     // basically right now the firebase RacingPlayers section has "id" "Distance" "Lobby" "PlayerIndex". PlayerIndex is to figure out which progress bar to update. Lobby is for checking if the player's lobby is the same one as the player who's currently signed in.
-    
+    /*
     func retrieveData() {
         ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { snapshot in
             print(snapshot.childrenCount)
@@ -216,7 +221,8 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
         }
         print(self.goalDistance)
     }
-    
+    */
+    /*
     func retrieveLabels() {
         ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { snapshot in
             print(snapshot.childrenCount)
@@ -238,6 +244,7 @@ class raceScreen: UIViewController, CLLocationManagerDelegate, UITextFieldDelega
             }
         }
     }
+ */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             let destinationVC = segue.destination as! raceScreen
             destinationVC.currentLobby = currentLobby
