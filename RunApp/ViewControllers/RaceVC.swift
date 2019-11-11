@@ -83,6 +83,8 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
                 if (uid == Auth.auth().currentUser!.uid) {
                     self.goalDistance = value["SelectedDist"] as! Double //might be fucked
                     self.NameLabel.text = username
+                    self.name = username
+
                 } else {
                     self.EnemyLabel.text = username
                 }
