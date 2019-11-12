@@ -20,7 +20,8 @@ class mainMenu: UIViewController {
     var ref: DatabaseReference!
     var name:String = ""
     
-    @IBOutlet weak var signOutButton: UIBarButtonItem!
+
+    @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var sideBarButton: UIBarButtonItem!
     @IBOutlet weak var queueButton: UIButton!
     @IBOutlet weak var customLobbyButton: UIButton!
@@ -33,12 +34,12 @@ class mainMenu: UIViewController {
         let locationManager = CLLocationManager()
         locationManager.requestAlwaysAuthorization()
         
-        signOutButton.tintColor = .white
+//        signOutButton.tintColor = .white
         sideBarButton.tintColor = .white
-        signOutButton.setTitleTextAttributes([
-            NSAttributedString.Key.font: UIFont(name: "Avenir Next", size: 18.0)!,
-            NSAttributedString.Key.foregroundColor: UIColor.white],
-                                             for: .normal)
+//        signOutButton.setTitleTextAttributes([
+//            NSAttributedString.Key.font: UIFont(name: "Avenir Next", size: 18.0)!,
+//            NSAttributedString.Key.foregroundColor: UIColor.white],
+//                                             for: .normal)
         buttonAdjustments()
         menuButton.target = self.revealViewController()
         menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
@@ -111,6 +112,7 @@ class mainMenu: UIViewController {
     //        }
     //    }
     
+
     @IBAction func signOutPressed(_ sender: Any) {
         do {
             try Auth.auth().signOut()

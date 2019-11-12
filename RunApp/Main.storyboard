@@ -804,8 +804,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign Out"/>
                                 <connections>
-                                    <action selector="signOutButton:" destination="9TJ-4A-s6H" eventType="touchUpInside" id="pTX-JW-fKs"/>
-                                    <segue destination="ZWA-1g-zMV" kind="presentation" identifier="goBackToSignUp" id="UgD-Hw-Rha"/>
+                                    <action selector="signOutPressed:" destination="9TJ-4A-s6H" eventType="touchUpInside" id="GoP-6z-Jy2"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZx-I3-haQ">
@@ -868,14 +867,15 @@
                         <outlet property="menuButton" destination="tBd-up-OL5" id="FbI-rB-EFq"/>
                         <outlet property="queueButton" destination="7nD-eZ-glN" id="IJo-xm-J9o"/>
                         <outlet property="sideBarButton" destination="tBd-up-OL5" id="kgd-IL-Skg"/>
-                        <outlet property="signOutButton" destination="G4Q-zR-iuv" id="Wx6-6n-1Hv"/>
+                        <outlet property="signOutButton" destination="1dS-D8-uYx" id="Gp9-eQ-Hnq"/>
                         <segue destination="cfW-kX-xiS" kind="show" identifier="goToCustomQueue" id="1f6-9i-ew7"/>
                         <segue destination="aVs-zb-F40" kind="show" identifier="goToQueue" id="qHj-ox-ScC"/>
+                        <segue destination="ZWA-1g-zMV" kind="presentation" identifier="goBackToSignUp" id="iOg-C8-4sr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQc-2c-sef" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3250" y="-468"/>
+            <point key="canvasLocation" x="3412" y="-207"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="UF6-Ej-vPz">
@@ -1170,6 +1170,7 @@
         <image name="trash" catalog="system" width="60" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="1f6-9i-ew7"/>
         <segue reference="tgZ-Yd-6wl"/>
         <segue reference="1qV-dv-OJ2"/>
         <segue reference="djm-DF-YzH"/>
