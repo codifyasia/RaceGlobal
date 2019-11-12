@@ -912,7 +912,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Choose a username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fbq-g4-1f6">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Enter your phone number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fbq-g4-1f6">
                                                 <rect key="frame" x="16" y="304" width="345" height="34"/>
                                                 <color key="backgroundColor" red="0.8973138947" green="0.8973138947" blue="0.8973138947" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1171,7 +1171,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tgZ-Yd-6wl"/>
-        <segue reference="vlS-Fz-L6C"/>
-        <segue reference="tc7-xb-7gJ"/>
+        <segue reference="1qV-dv-OJ2"/>
+        <segue reference="djm-DF-YzH"/>
     </inferredMetricsTieBreakers>
 </document>
