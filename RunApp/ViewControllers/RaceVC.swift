@@ -13,7 +13,7 @@ import TextFieldEffects
 import Lottie
 import MBCircularProgressBar
 
-class RaceVC: UIViewController {
+class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     //location
     let locationManager = CLLocationManager()
     var startLocation:CLLocation!
@@ -39,6 +39,7 @@ class RaceVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.requestAlwaysAuthorization()
         ref = Database.database().reference()
         retrieveData()
         setUpLabels()
@@ -47,17 +48,24 @@ class RaceVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        if startLocation == nil {
-            print("got first location")
-            startLocation = locations.first as! CLLocation
-        } else {
-            print("getting new location and calculating distance...")
-            let lastLocation = locations.last as! CLLocation
-            let distance = startLocation.distance(from: lastLocation)
-            startLocation = lastLocation
-            travelledDistance += distance
-            print("ended the above shit")
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print(travelledDistance)
+        let location = locations[locations.count - 1]
+        if (location.horizontalAccuracy > 0) {
+            //            var speed: CLLocationSpeed = CLLocationSpeed()
+            if startLocation == nil {
+                startLocation = locations.first
+            } else {
+                if (travelledDistance >= goalDistance) {
+                    locationManager.stopUpdatingLocation()
+                }
+                let lastLocation = locations.last as! CLLocation
+                if (startLocation.distance(from: lastLocation) > 4) {
+                    let distance = startLocation.distance(from: lastLocation)
+                    startLocation = lastLocation
+                    travelledDistance += distance
+                }
+            }
         }
     }
     func retrieveData() {
@@ -75,6 +83,8 @@ class RaceVC: UIViewController {
                 if (uid == Auth.auth().currentUser!.uid) {
                     self.goalDistance = value["SelectedDist"] as! Double //might be fucked
                     self.NameLabel.text = username
+                    self.name = username
+
                 } else {
                     self.EnemyLabel.text = username
                 }
@@ -115,10 +125,11 @@ class RaceVC: UIViewController {
         checkIfPlayerWon()
     }
     func StartEverything() {
-        "started starting everything"
+        print("started starting everything")
+        locationManager.delegate = self
         locationManager.desiredAccuracy=kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
-        "ended starting everything"
+        print("ended starting everything")
     }
     func setUpLabels() {
         print("started setting up labels")
@@ -136,7 +147,7 @@ class RaceVC: UIViewController {
         if (travelledDistance > goalDistance) {
             ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { (snapshot) in
                 if !snapshot.hasChild("Winner") {
-                    self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").updateChildValues(["Winner" : self.name!])
+                    self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").updateChildValues(["Winner" : Auth.auth().currentUser!.uid])
                     self.performSegue(withIdentifier: "toWinScreen", sender: self)
                 } else {
                     self.performSegue(withIdentifier: "goToLoseScreen", sender: self)
