@@ -155,6 +155,18 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
             }
         }
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToLoseScreen" {
+            let destinationVC = segue.destination as! LoseScreen
+            destinationVC.currentLobby = self.currentLobby
+        }
+        if (segue.identifier == "toWinScreen") {
+            let destinationVC = segue.destination as! WinScreen
+            destinationVC.currentLobby = self.currentLobby
+        }
+    }
     /*
     // MARK: - Navigation
 
