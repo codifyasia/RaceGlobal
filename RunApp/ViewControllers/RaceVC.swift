@@ -44,7 +44,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         retrieveData()
         setUpLabels()
         StartEverything()
-        updateTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(RaceVC.updateAll), userInfo: nil, repeats: true)
+//        updateTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(RaceVC.updateAll), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view.
     }
     
@@ -64,6 +64,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
                     let distance = startLocation.distance(from: lastLocation)
                     startLocation = lastLocation
                     travelledDistance += distance
+                    updateAll()
                 }
             }
         }
