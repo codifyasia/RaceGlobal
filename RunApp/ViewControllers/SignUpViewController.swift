@@ -39,24 +39,39 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func registerPressed(_ sender: Any) {
         SVProgressHUD.show()
-        Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
-            if (error == nil) {
-                self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).setValue(["FirstName" : self.FirstName.text, "LastName" : self.LastName.text, "Username" : self.Username.text, "Phone" : self.phoneNumberField.text, "CompletedRaces" : 0, "TotalDistance" : 0, "Wins" : 0, "BestMile" : 0.0, "Best5k" : 0.0, "Best800" : 0.0, "Lobby" : 0])
-                SVProgressHUD.dismiss()
-                self.performSegue(withIdentifier: "goToMainMenu", sender: self)
-            } else {
-                SVProgressHUD.dismiss()
-                
-                let alert = UIAlertController(title: "Registration Error", message: "Please check to make sure you have met all the registration guidelines", preferredStyle: .alert)
-                
-                let OK = UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
-                    self.passwordField.text = ""
-                })
-                
-                alert.addAction(OK)
-                self.present(alert, animated: true, completion: nil)
-                
-                print("Error: \(error)")
+        if (FirstName.text?.isEmpty ?? true || LastName.text?.isEmpty ?? true || Username.text?.isEmpty ?? true || emailField.text?.isEmpty ?? true || passwordField.text?.isEmpty ?? true || passwordField.text?.isEmpty ?? true || phoneNumberField.text?.isEmpty ?? true) {
+            SVProgressHUD.dismiss()
+            print("THERE IS AN ERROR")
+            let alert = UIAlertController(title: "Registration Error", message: "Please make sure you have completed filled out every textfield", preferredStyle: .alert)
+            
+            let OK = UIAlertAction(title: "OK", style: .default) { (alert) in
+                return
+            }
+            
+            alert.addAction(OK)
+            self.present(alert, animated: true, completion: nil)
+            
+        } else {
+            Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
+                if (error == nil) {
+                    self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).setValue(["FirstName" : self.FirstName.text, "LastName" : self.LastName.text, "Username" : self.Username.text, "Phone" : self.phoneNumberField.text, "CompletedRaces" : 0, "TotalDistance" : 0, "Wins" : 0, "BestMile" : 0.0, "Best5k" : 0.0, "Best800" : 0.0, "Lobby" : 0])
+                    SVProgressHUD.dismiss()
+                    print("Going to MAIN MENU")
+                    self.performSegue(withIdentifier: "goToMainMenu", sender: self)
+                } else {
+                    SVProgressHUD.dismiss()
+                    
+                    let alert = UIAlertController(title: "Registration Error", message: "Please check to make sure you have met all the registration guidelines", preferredStyle: .alert)
+                    
+                    let OK = UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
+                        self.passwordField.text = ""
+                    })
+                    
+                    alert.addAction(OK)
+                    self.present(alert, animated: true, completion: nil)
+                    
+                    print("Error: \(error)")
+                }
             }
         }
     }

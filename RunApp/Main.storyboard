@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -728,7 +728,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQf-dA-FEP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-378" y="-468"/>
+            <point key="canvasLocation" x="-353" y="-22"/>
         </scene>
         <!--Nothing-->
         <scene sceneID="vGj-nn-QXG">
@@ -1074,7 +1074,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="registerPressed:" destination="ZWA-1g-zMV" eventType="touchUpInside" id="zdx-q5-NGJ"/>
-                                                    <segue destination="Tto-1j-1eD" kind="show" identifier="goToMainMenu" id="1qV-dv-OJ2"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btl-YT-1gc">
@@ -1157,6 +1156,7 @@
                         <outlet property="passwordField" destination="CHc-3U-Xty" id="Q04-Sn-gaD"/>
                         <outlet property="phoneNumberField" destination="Fbq-g4-1f6" id="bNe-6k-NcS"/>
                         <outlet property="registerButton" destination="FDi-kB-6dw" id="Bhm-cf-tXX"/>
+                        <segue destination="Tto-1j-1eD" kind="presentation" identifier="goToMainMenu" id="ScD-de-M0L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KUh-lH-XQT" sceneMemberID="firstResponder"/>
@@ -1172,7 +1172,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="1f6-9i-ew7"/>
         <segue reference="tgZ-Yd-6wl"/>
-        <segue reference="1qV-dv-OJ2"/>
+        <segue reference="ScD-de-M0L"/>
         <segue reference="djm-DF-YzH"/>
     </inferredMetricsTieBreakers>
 </document>
