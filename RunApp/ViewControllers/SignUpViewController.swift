@@ -18,6 +18,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var Username: AkiraTextField!
     @IBOutlet weak var emailField: AkiraTextField!
     @IBOutlet weak var passwordField: AkiraTextField!
+    @IBOutlet weak var alreadyHaveAccount: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var phoneNumberField: UITextField!
     var ref: DatabaseReference!
@@ -27,9 +28,25 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         ref = Database.database().reference()
         self.emailField.delegate = self
         self.passwordField.delegate = self
-        registerButton.layer.cornerRadius = 20
         
-        registerButton.layer.cornerRadius = 10
+        //making the alreadyHaveAccount button look better
+        alreadyHaveAccount.backgroundColor = UIColor.lightGray
+        alreadyHaveAccount.layer.cornerRadius = alreadyHaveAccount.frame.height / 2
+//        alreadyHaveAccount.setTitleColor(UIColor.white, for: .normal)
+        
+        alreadyHaveAccount.layer.shadowColor = UIColor.white.cgColor
+        alreadyHaveAccount.layer.shadowRadius = 4
+        alreadyHaveAccount.layer.shadowOpacity = 1
+        alreadyHaveAccount.layer.shadowOffset = CGSize(width: 0, height: 0)
+        
+        //making the the register Button look better
+        registerButton.backgroundColor = UIColor.lightGray
+        registerButton.layer.cornerRadius = registerButton.frame.height / 2 - 5
+        
+        registerButton.layer.shadowColor = UIColor.white.cgColor
+        registerButton.layer.shadowRadius = 4
+        registerButton.layer.shadowOpacity = 1
+        registerButton.layer.shadowOffset = CGSize(width: 0, height: 0)
     }
     
     //TODO:Touch out

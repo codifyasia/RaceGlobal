@@ -889,7 +889,7 @@
                                 <rect key="frame" x="-2" y="0.0" width="377" height="980"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBm-s1-JQn" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="377" height="1019"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="377" height="980"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Enter your first name" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Cex-Ms-HiY">
                                                 <rect key="frame" x="16" y="112" width="345" height="34"/>
@@ -934,10 +934,11 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sM-ZO-ETc">
-                                                <rect key="frame" x="74" y="642" width="229" height="40"/>
+                                                <rect key="frame" x="74" y="656" width="229" height="40"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                                 <state key="normal" title="Already have an account?">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <segue destination="Vda-ce-Hw4" kind="popoverPresentation" popoverAnchorView="5sM-ZO-ETc" id="RVr-WA-Qth">
@@ -1066,18 +1067,18 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDi-kB-6dw">
-                                                <rect key="frame" x="157" y="690" width="63" height="36"/>
+                                                <rect key="frame" x="157" y="726" width="63" height="36"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                 <state key="normal" title="Sign-Up">
-                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="registerPressed:" destination="ZWA-1g-zMV" eventType="touchUpInside" id="zdx-q5-NGJ"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btl-YT-1gc">
-                                                <rect key="frame" x="127.5" y="24" width="122" height="41"/>
+                                                <rect key="frame" x="127.5" y="30" width="122" height="41"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
                                                 <color key="textColor" red="0.78823529410000004" green="0.2274509804" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -1090,6 +1091,7 @@
                                             <constraint firstItem="ZuM-d9-fSQ" firstAttribute="leading" secondItem="OBm-s1-JQn" secondAttribute="leading" constant="16" id="3Du-cI-XcK"/>
                                             <constraint firstItem="vcO-Bx-LYX" firstAttribute="top" secondItem="Cex-Ms-HiY" secondAttribute="bottom" constant="30" id="3hp-L2-3qg"/>
                                             <constraint firstAttribute="trailing" secondItem="tby-fC-Hat" secondAttribute="trailing" constant="16" id="6jU-G7-ATh"/>
+                                            <constraint firstAttribute="bottom" secondItem="FDi-kB-6dw" secondAttribute="bottom" constant="218" id="7Tu-Xe-v0K"/>
                                             <constraint firstItem="3EF-Hi-ck7" firstAttribute="top" secondItem="Sc4-x5-q5f" secondAttribute="bottom" constant="30" id="8Ci-oe-d4e"/>
                                             <constraint firstItem="Fbq-g4-1f6" firstAttribute="top" secondItem="3EF-Hi-ck7" secondAttribute="bottom" constant="8" id="C9w-Hg-tvZ"/>
                                             <constraint firstItem="3EF-Hi-ck7" firstAttribute="leading" secondItem="OBm-s1-JQn" secondAttribute="leading" constant="20" id="Efu-dR-RyM"/>
@@ -1102,23 +1104,22 @@
                                             <constraint firstItem="pCD-OQ-f9K" firstAttribute="top" secondItem="Fbq-g4-1f6" secondAttribute="bottom" constant="30" id="NLp-4e-bCy"/>
                                             <constraint firstItem="ZuM-d9-fSQ" firstAttribute="top" secondItem="pCD-OQ-f9K" secondAttribute="bottom" constant="8" id="NSm-rH-nMu"/>
                                             <constraint firstItem="BMz-bA-urL" firstAttribute="top" secondItem="OBm-s1-JQn" secondAttribute="top" constant="80" id="NYx-zx-Ldp"/>
-                                            <constraint firstAttribute="bottom" secondItem="FDi-kB-6dw" secondAttribute="bottom" constant="293" id="Nea-SY-pR8"/>
                                             <constraint firstItem="m4c-am-WqN" firstAttribute="top" secondItem="ZuM-d9-fSQ" secondAttribute="bottom" constant="30" id="QGg-Fw-Ifu"/>
                                             <constraint firstAttribute="trailing" secondItem="Cex-Ms-HiY" secondAttribute="trailing" constant="16" id="TGq-Wh-kGA"/>
                                             <constraint firstAttribute="trailing" secondItem="ZuM-d9-fSQ" secondAttribute="trailing" constant="16" id="THw-6x-KbU"/>
                                             <constraint firstItem="pCD-OQ-f9K" firstAttribute="leading" secondItem="OBm-s1-JQn" secondAttribute="leading" constant="20" id="Tio-ED-OWR"/>
                                             <constraint firstItem="Cex-Ms-HiY" firstAttribute="top" secondItem="BMz-bA-urL" secondAttribute="bottom" constant="8" id="Tpo-Pb-NJ0"/>
-                                            <constraint firstItem="FDi-kB-6dw" firstAttribute="top" secondItem="5sM-ZO-ETc" secondAttribute="bottom" constant="8" id="U4r-3I-ojo"/>
+                                            <constraint firstItem="FDi-kB-6dw" firstAttribute="top" secondItem="5sM-ZO-ETc" secondAttribute="bottom" constant="30" id="U4r-3I-ojo"/>
                                             <constraint firstItem="tby-fC-Hat" firstAttribute="leading" secondItem="OBm-s1-JQn" secondAttribute="leading" constant="16" id="YjM-PZ-szM"/>
                                             <constraint firstItem="vcO-Bx-LYX" firstAttribute="leading" secondItem="OBm-s1-JQn" secondAttribute="leading" constant="20" id="dWL-J5-zdL"/>
                                             <constraint firstItem="5sM-ZO-ETc" firstAttribute="centerX" secondItem="OBm-s1-JQn" secondAttribute="centerX" id="iuw-47-QNA"/>
                                             <constraint firstItem="Sc4-x5-q5f" firstAttribute="top" secondItem="vcO-Bx-LYX" secondAttribute="bottom" constant="8" id="lGM-rB-I9V"/>
                                             <constraint firstItem="m4c-am-WqN" firstAttribute="leading" secondItem="OBm-s1-JQn" secondAttribute="leading" constant="20" id="m3H-qE-Gdo"/>
-                                            <constraint firstItem="5sM-ZO-ETc" firstAttribute="top" secondItem="CHc-3U-Xty" secondAttribute="bottom" constant="16" id="mCs-oC-8ri"/>
+                                            <constraint firstItem="5sM-ZO-ETc" firstAttribute="top" secondItem="CHc-3U-Xty" secondAttribute="bottom" constant="30" id="mCs-oC-8ri"/>
                                             <constraint firstItem="FDi-kB-6dw" firstAttribute="centerX" secondItem="OBm-s1-JQn" secondAttribute="centerX" id="rkD-0E-VH9"/>
                                             <constraint firstItem="BMz-bA-urL" firstAttribute="leading" secondItem="OBm-s1-JQn" secondAttribute="leading" constant="20" id="twX-TW-P4h"/>
                                             <constraint firstAttribute="trailing" secondItem="Fbq-g4-1f6" secondAttribute="trailing" constant="16" id="uqV-nw-9b3"/>
-                                            <constraint firstItem="btl-YT-1gc" firstAttribute="top" secondItem="OBm-s1-JQn" secondAttribute="top" constant="24" id="uzd-QN-9dl"/>
+                                            <constraint firstItem="btl-YT-1gc" firstAttribute="top" secondItem="OBm-s1-JQn" secondAttribute="top" constant="30" id="uzd-QN-9dl"/>
                                             <constraint firstAttribute="trailing" secondItem="CHc-3U-Xty" secondAttribute="trailing" constant="16" id="vFg-Sk-JY9"/>
                                             <constraint firstItem="Cex-Ms-HiY" firstAttribute="leading" secondItem="OBm-s1-JQn" secondAttribute="leading" constant="16" id="yXr-ax-q9U"/>
                                             <constraint firstItem="V3v-lk-a4C" firstAttribute="leading" secondItem="OBm-s1-JQn" secondAttribute="leading" constant="20" id="zgA-c4-bZ9"/>
@@ -1152,6 +1153,7 @@
                         <outlet property="FirstName" destination="Cex-Ms-HiY" id="Chg-yO-QRa"/>
                         <outlet property="LastName" destination="Sc4-x5-q5f" id="5VR-kV-v4d"/>
                         <outlet property="Username" destination="ZuM-d9-fSQ" id="aGy-1G-Fib"/>
+                        <outlet property="alreadyHaveAccount" destination="5sM-ZO-ETc" id="xOY-Yv-Ry3"/>
                         <outlet property="emailField" destination="tby-fC-Hat" id="BbL-d7-aoS"/>
                         <outlet property="passwordField" destination="CHc-3U-Xty" id="Q04-Sn-gaD"/>
                         <outlet property="phoneNumberField" destination="Fbq-g4-1f6" id="bNe-6k-NcS"/>
@@ -1170,8 +1172,7 @@
         <image name="trash" catalog="system" width="60" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1f6-9i-ew7"/>
-        <segue reference="tgZ-Yd-6wl"/>
+        <segue reference="6q0-jF-oIn"/>
         <segue reference="ScD-de-M0L"/>
         <segue reference="djm-DF-YzH"/>
     </inferredMetricsTieBreakers>
