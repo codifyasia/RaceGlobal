@@ -35,6 +35,11 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     @IBOutlet weak var EnemyLabel: UILabel! // rename these
     var name: String!
     
+    //Timer
+    var hundreds : Int = 0
+    var tens : Int = 0
+    var ones : Int = 0
+    
     var ref: DatabaseReference!
     
     override func viewDidLoad() {
@@ -168,6 +173,25 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
             destinationVC.currentLobby = self.currentLobby
         }
     }
+    
+    
+    @objc func changeTimer() {
+              
+              ones = ones + 1
+              if (ones == 100) {
+                  ones = 0
+                  tens = tens + 1
+              }
+              if (tens == 60) {
+                  tens = 0
+                  hundreds = hundreds + 1
+              }
+              
+              
+              
+              
+              goalDistanceLabel.text = "\(hundreds):\(tens):\(ones)"
+          }
     /*
     // MARK: - Navigation
 

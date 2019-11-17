@@ -11,8 +11,9 @@ import Firebase
 import TextFieldEffects
 import SVProgressHUD
 
-class SignUpViewController: UIViewController, UITextFieldDelegate {
+class SignUpViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
     
+    @IBOutlet weak var scroll: UIScrollView!
     @IBOutlet weak var FirstName: AkiraTextField!
     @IBOutlet weak var LastName: AkiraTextField!
     @IBOutlet weak var Username: AkiraTextField!
@@ -28,25 +29,27 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         ref = Database.database().reference()
         self.emailField.delegate = self
         self.passwordField.delegate = self
+        self.scroll.delegate = self
         
+        scroll.keyboardDismissMode = .onDrag
         //making the alreadyHaveAccount button look better
-        alreadyHaveAccount.backgroundColor = UIColor.lightGray
-        alreadyHaveAccount.layer.cornerRadius = alreadyHaveAccount.frame.height / 2
-//        alreadyHaveAccount.setTitleColor(UIColor.white, for: .normal)
-        
-        alreadyHaveAccount.layer.shadowColor = UIColor.white.cgColor
-        alreadyHaveAccount.layer.shadowRadius = 4
-        alreadyHaveAccount.layer.shadowOpacity = 1
-        alreadyHaveAccount.layer.shadowOffset = CGSize(width: 0, height: 0)
-        
-        //making the the register Button look better
-        registerButton.backgroundColor = UIColor.lightGray
-        registerButton.layer.cornerRadius = registerButton.frame.height / 2 - 5
-        
-        registerButton.layer.shadowColor = UIColor.white.cgColor
-        registerButton.layer.shadowRadius = 4
-        registerButton.layer.shadowOpacity = 1
-        registerButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+//        alreadyHaveAccount.backgroundColor = UIColor.lightGray
+//        alreadyHaveAccount.layer.cornerRadius = alreadyHaveAccount.frame.height / 2
+////        alreadyHaveAccount.setTitleColor(UIColor.white, for: .normal)
+//
+//        alreadyHaveAccount.layer.shadowColor = UIColor.white.cgColor
+//        alreadyHaveAccount.layer.shadowRadius = 4
+//        alreadyHaveAccount.layer.shadowOpacity = 1
+//        alreadyHaveAccount.layer.shadowOffset = CGSize(width: 0, height: 0)
+//
+//        //making the the register Button look better
+//        registerButton.backgroundColor = UIColor.lightGray
+//        registerButton.layer.cornerRadius = registerButton.frame.height / 2 - 5
+//
+//        registerButton.layer.shadowColor = UIColor.white.cgColor
+//        registerButton.layer.shadowRadius = 4
+//        registerButton.layer.shadowOpacity = 1
+//        registerButton.layer.shadowOffset = CGSize(width: 0, height: 0)
     }
     
     //TODO:Touch out
