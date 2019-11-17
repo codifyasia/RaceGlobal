@@ -19,7 +19,6 @@ class LoseScreen: UIViewController {
         super.viewDidLoad()
         startAnimation()
         ref = Database.database().reference()
-        retrieveData()
         
         // Do any additional setup after loading the view.
     }
