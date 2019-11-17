@@ -25,7 +25,6 @@ class WinScreen: UIViewController {
         retrieveData()
     }
     
-    func retrieveData() {
         func retrieveData() {
             ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { snapshot in
                 print(snapshot.childrenCount)
@@ -36,6 +35,7 @@ class WinScreen: UIViewController {
                     }
                     let uid = value["id"] as! String
                     if (uid != Auth.auth().currentUser!.uid) {
+                        print("uid: " + uid)
                         self.ref.child("PlayerStats").child(uid).observeSingleEvent(of: .value) { snapshot in
                             guard let value = snapshot.value as? NSDictionary else {
                                 print("No Data!!!!!!")
@@ -43,7 +43,9 @@ class WinScreen: UIViewController {
                             }
                             
                              let phoneNum = value["Phone"] as! String
-                             let instagramHooks = "sms://1" + phoneNum
+                            print("phonenum: " + phoneNum)
+                             let instagramHooks = "sms://12223334444" + phoneNum
+                            //let instagramHooks = "sms://1" + phoneNum
                              let instagramUrl = NSURL(string: instagramHooks)
                              if UIApplication.shared.canOpenURL(instagramUrl! as URL)
                              {
@@ -60,7 +62,6 @@ class WinScreen: UIViewController {
                 
                 }
             }
-        }
     }
     
     
