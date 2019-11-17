@@ -12,6 +12,7 @@ import CoreLocation
 import TextFieldEffects
 import Lottie
 import MBCircularProgressBar
+import MapKit
 
 class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     //location
@@ -26,6 +27,8 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     var playerName: String = ""
     //fires at very short intervals
     var updateTimer = Timer()
+    var startTimer = Timer()
+    var cdVal = 5
     //UI linking
     @IBOutlet weak var enemyProgressBar: MBCircularProgressBarView!
     @IBOutlet weak var playerProgressBar: MBCircularProgressBarView!
@@ -33,8 +36,11 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     @IBOutlet weak var goalDistanceLabel: UILabel!
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var EnemyLabel: UILabel! // rename these
+    @IBOutlet weak var cdLabel: UILabel!
     var name: String!
+    @IBOutlet weak var progressLabel: UILabel!
     
+    @IBOutlet weak var mapView: MKMapView!
     //Timer
     var hundreds : Int = 0
     var tens : Int = 0
@@ -46,10 +52,12 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         super.viewDidLoad()
         locationManager.requestAlwaysAuthorization()
         ref = Database.database().reference()
+        cdLabel.text = String(cdVal)
         retrieveData()
         setUpLabels()
-        StartEverything()
-//        updateTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(RaceVC.updateAll), userInfo: nil, repeats: true)
+        hideAll()
+        startTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(RaceVC.startTimerChange), userInfo: nil, repeats: true)
+//        StartEverything()
         // Do any additional setup after loading the view.
     }
     
@@ -76,7 +84,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     }
     func retrieveData() {
         print("Started retrieving data")
-       ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { snapshot in
+        ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { snapshot in
             print("retrieve data: " + String(snapshot.childrenCount))
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
                 guard let value = rest.value as? NSDictionary else {
@@ -90,7 +98,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
                     self.goalDistance = value["SelectedDist"] as! Double //might be fucked
                     self.NameLabel.text = username
                     self.name = username
-
+                    
                 } else {
                     self.EnemyLabel.text = username
                 }
@@ -124,18 +132,22 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
                     UIView.animate(withDuration: 0.5) {
                         self.enemyProgressBar.value = CGFloat(distanceRan / self.goalDistance) * 100
                     }
-            
+                    
                 }
             }
         }
         checkIfPlayerWon()
     }
     func StartEverything() {
+        showAll()
+        startTimer.invalidate()
+        cdLabel.isHidden = true
         print("started starting everything")
         locationManager.delegate = self
         locationManager.desiredAccuracy=kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
         print("ended starting everything")
+        updateTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(RaceVC.changeTimer), userInfo: nil, repeats: true)
     }
     func setUpLabels() {
         print("started setting up labels")
@@ -176,30 +188,62 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     
     
     @objc func changeTimer() {
-              
-              ones = ones + 1
-              if (ones == 100) {
-                  ones = 0
-                  tens = tens + 1
-              }
-              if (tens == 60) {
-                  tens = 0
-                  hundreds = hundreds + 1
-              }
-              
-              
-              
-              
-              goalDistanceLabel.text = "\(hundreds):\(tens):\(ones)"
-          }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        ones = ones + 1
+        if (ones == 100) {
+            ones = 0
+            tens = tens + 1
+        }
+        if (tens == 60) {
+            tens = 0
+            hundreds = hundreds + 1
+        }
+        
+        
+        
+        
+        goalDistanceLabel.text = "\(hundreds):\(tens):\(ones)"
     }
-    */
-
+    
+    
+    func hideAll() {
+        enemyProgressBar.isHidden = true
+        playerProgressBar.isHidden = true
+        goalDistanceLabel.isHidden = true
+        NameLabel.isHidden = true
+        EnemyLabel.isHidden = true
+        progressLabel.isHidden = true
+        mapView.isHidden = true
+    }
+    
+    func showAll() {
+        cdLabel.isHidden = false
+        enemyProgressBar.isHidden = false
+        playerProgressBar.isHidden = false
+        goalDistanceLabel.isHidden = false
+        NameLabel.isHidden = false
+        EnemyLabel.isHidden = false
+        progressLabel.isHidden = false
+        mapView.isHidden = false
+    }
+    
+    @objc func startTimerChange() {
+        if (cdVal == 0) {
+            StartEverything()
+        }
+        
+        cdVal -= 1
+        cdLabel.text = String(cdVal)
+    }
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
