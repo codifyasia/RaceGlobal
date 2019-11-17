@@ -102,7 +102,7 @@ class InTrialViewController: UIViewController, CLLocationManagerDelegate, UIText
             
             let val = value["TrialDistance"] as! Int
             
-            self.distanceLabel.text = "Goal Distance: \(val)"
+            self.distanceLabel.text = "\(val) meters"
             
             self.dist = Double(val)
             
