@@ -21,6 +21,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     var lastLocation: CLLocation!
     var goalDistance:Double = 0
     var travelledDistance: Double = 0
+    let zoom : Double = 1000
     //firebase
     var currentLobby: Int!
     var enemyName: String = ""
@@ -61,11 +62,22 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         startTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(RaceVC.startTimerChange), userInfo: nil, repeats: true)
 //        StartEverything()
         // Do any additional setup after loading the view.
+        
+    }
+    
+    
+    func centerViewOnUserLocation() {
+        if let location = locationManager.location?.coordinate {
+            let region = MKCoordinateRegion.init(center: location, latitudinalMeters: zoom, longitudinalMeters: zoom)
+            mapView.setRegion(region, animated: true)
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print(travelledDistance)
         let location = locations[locations.count - 1]
+        let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: zoom, longitudinalMeters: zoom)
+        mapView.setRegion(region, animated: true)
         if (location.horizontalAccuracy > 0) {
             //            var speed: CLLocationSpeed = CLLocationSpeed()
             if startLocation == nil {
@@ -164,6 +176,8 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         locationManager.startUpdatingLocation()
         print("ended starting everything")
         updateTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(RaceVC.changeTimer), userInfo: nil, repeats: true)
+        mapView.showsUserLocation = true
+        centerViewOnUserLocation()
     }
     func setUpLabels() {
         print("started setting up labels")
