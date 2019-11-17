@@ -30,6 +30,8 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     var startTimer = Timer()
     var cdVal = 5
     //UI linking
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var OptOutButton: UIButton!
     @IBOutlet weak var enemyProgressBar: MBCircularProgressBarView!
     @IBOutlet weak var playerProgressBar: MBCircularProgressBarView!
     @IBOutlet weak var traveledDistanceLabel: UILabel!
@@ -70,6 +72,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
                 startLocation = locations.first
             } else {
                 if (travelledDistance >= goalDistance) {
+                    checkIfPlayerWon()
                     locationManager.stopUpdatingLocation()
                 }
                 let lastLocation = locations.last as! CLLocation
@@ -136,8 +139,21 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
                 }
             }
         }
-        checkIfPlayerWon()
+        checkOtherStatus()
     }
+    
+    func checkOtherStatus() {
+        print("entered checking other status")
+        ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.hasChild("Winner") {
+                self.statusLabel.text = "opponent alr won"
+            }
+            if snapshot.hasChild("OptOut") {
+                self.statusLabel.text = "opponent opted out"
+            }
+        }
+    }
+    
     func StartEverything() {
         showAll()
         startTimer.invalidate()
@@ -162,7 +178,8 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     }
     
     func checkIfPlayerWon() {
-        if (travelledDistance > goalDistance) {
+        print("checking if player won")
+        if (travelledDistance >= goalDistance) {
             ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { (snapshot) in
                 if !snapshot.hasChild("Winner") {
                     self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").updateChildValues(["Winner" : Auth.auth().currentUser!.uid])
@@ -204,9 +221,22 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         
         goalDistanceLabel.text = "\(hundreds):\(tens):\(ones)"
     }
+    @IBAction func OptOutPressed(_ sender: Any) {
+        ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { (snapshot) in
+            if !snapshot.hasChild("OptOut") {
+                self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").updateChildValues(["OptOut" : Auth.auth().currentUser!.uid])
+                self.performSegue(withIdentifier: "OptOut", sender: self)
+            } else {
+                self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").removeValue()
+                self.performSegue(withIdentifier: "OptOut", sender: self)
+            }
+        }
+    }
     
     
     func hideAll() {
+        statusLabel.isHidden = true
+        OptOutButton.isHidden = true
         traveledDistanceLabel.isHidden = true
         enemyProgressBar.isHidden = true
         playerProgressBar.isHidden = true
@@ -218,6 +248,8 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     }
     
     func showAll() {
+        statusLabel.isHidden = false
+        OptOutButton.isHidden = false
         traveledDistanceLabel.isHidden = false
         cdLabel.isHidden = false
         enemyProgressBar.isHidden = false
