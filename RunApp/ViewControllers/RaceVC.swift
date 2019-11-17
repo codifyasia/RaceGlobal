@@ -207,6 +207,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     
     
     func hideAll() {
+        traveledDistanceLabel.isHidden = true
         enemyProgressBar.isHidden = true
         playerProgressBar.isHidden = true
         goalDistanceLabel.isHidden = true
@@ -217,6 +218,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     }
     
     func showAll() {
+        traveledDistanceLabel.isHidden = false
         cdLabel.isHidden = false
         enemyProgressBar.isHidden = false
         playerProgressBar.isHidden = false
