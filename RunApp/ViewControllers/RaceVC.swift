@@ -197,8 +197,10 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
             ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { (snapshot) in
                 if !snapshot.hasChild("Winner") {
                     self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").updateChildValues(["Winner" : Auth.auth().currentUser!.uid])
+                    self.locationManager.stopUpdatingLocation()
                     self.performSegue(withIdentifier: "toWinScreen", sender: self)
                 } else {
+                    self.locationManager.stopUpdatingLocation()
                     self.performSegue(withIdentifier: "goToLoseScreen", sender: self)
                 }
             }
@@ -239,9 +241,11 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { (snapshot) in
             if !snapshot.hasChild("OptOut") {
                 self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").updateChildValues(["OptOut" : Auth.auth().currentUser!.uid])
+                locationManager.stopUpdatingLocation()
                 self.performSegue(withIdentifier: "OptOut", sender: self)
             } else {
                 self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").removeValue()
+                locationManager.stopUpdatingLocation()
                 self.performSegue(withIdentifier: "OptOut", sender: self)
             }
         }
