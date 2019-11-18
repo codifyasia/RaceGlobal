@@ -11,7 +11,31 @@ import Firebase
 import TextFieldEffects
 import SVProgressHUD
 
+extension UIView {
+    @discardableResult
+    func applyGradient(colours: [UIColor]) -> CAGradientLayer {
+        self.layer.cornerRadius = 5000
+        self.layer.shadowColor = UIColor.white.cgColor
+        self.layer.shadowRadius = 4
+        self.layer.shadowOpacity = 1
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        return self.applyGradient(colours: colours, locations: nil)
+        
+    }
+
+    @discardableResult
+    func applyGradient(colours: [UIColor], locations: [NSNumber]?) -> CAGradientLayer {
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = colours.map { $0.cgColor }
+        gradient.locations = locations
+        self.layer.insertSublayer(gradient, at: 0)
+        return gradient
+    }
+}
+
 class SignUpViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
+    
     
     @IBOutlet weak var scroll: UIScrollView!
     @IBOutlet weak var FirstName: AkiraTextField!
@@ -32,21 +56,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
         self.scroll.delegate = self
         
         scroll.keyboardDismissMode = .onDrag
+        
+        
         //making the alreadyHaveAccount button look better
-//        alreadyHaveAccount.backgroundColor = UIColor.lightGray
-//        alreadyHaveAccount.layer.cornerRadius = alreadyHaveAccount.frame.height / 2
-////        alreadyHaveAccount.setTitleColor(UIColor.white, for: .normal)
-//
-//        alreadyHaveAccount.layer.shadowColor = UIColor.white.cgColor
-//        alreadyHaveAccount.layer.shadowRadius = 4
-//        alreadyHaveAccount.layer.shadowOpacity = 1
-//        alreadyHaveAccount.layer.shadowOffset = CGSize(width: 0, height: 0)
-//
-//        //making the the register Button look better
-//        registerButton.backgroundColor = UIColor.lightGray
+        alreadyHaveAccount.applyGradient(colours: [.black, .darkGray, .lightGray])
+
+        //making the the register Button look better
 //        registerButton.layer.cornerRadius = registerButton.frame.height / 2 - 5
-//
-//        registerButton.layer.shadowColor = UIColor.white.cgColor
+        registerButton.applyGradient(colours: [.black, .darkGray, .lightGray])
 //        registerButton.layer.shadowRadius = 4
 //        registerButton.layer.shadowOpacity = 1
 //        registerButton.layer.shadowOffset = CGSize(width: 0, height: 0)
