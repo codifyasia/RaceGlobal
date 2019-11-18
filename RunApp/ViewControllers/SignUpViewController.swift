@@ -30,6 +30,7 @@ extension UIView {
         gradient.colors = colours.map { $0.cgColor }
         gradient.locations = locations
         self.layer.insertSublayer(gradient, at: 0)
+        gradient.cornerRadius = 20
         return gradient
     }
 }

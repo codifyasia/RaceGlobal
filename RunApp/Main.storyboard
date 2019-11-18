@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="Fu9-UY-hAk" customClass="InTrialViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mDe-GB-bux">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wpt-YL-Jjj" userLabel="newProgress1" customClass="MBCircularProgressBarView">
@@ -109,20 +109,20 @@
             <objects>
                 <viewController id="aVs-zb-F40" customClass="QueueScreenViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bAE-Jk-nC7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ElE-5b-foT" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3kz-VE-xZA">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4gw-PU-SAp" userLabel="TopView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="167"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Searching for Players" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Or-RB-lJv">
-                                                <rect key="frame" x="108.5" y="69" width="158.5" height="23.5"/>
+                                                <rect key="frame" x="108.5" y="71.5" width="158.5" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Avenir-BookOblique" family="Avenir" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -135,24 +135,24 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RyL-Ht-ebG" userLabel="MiddleTopView">
-                                        <rect key="frame" x="0.0" y="162" width="375" height="161.5"/>
+                                        <rect key="frame" x="0.0" y="167" width="375" height="166.5"/>
                                         <accessibility key="accessibilityConfiguration" label="MiddleTopView"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3aZ-MG-dkm" userLabel="MiddleBottomView">
-                                        <rect key="frame" x="0.0" y="323.5" width="375" height="162"/>
+                                        <rect key="frame" x="0.0" y="333.5" width="375" height="167"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKl-FT-rk7" userLabel="BottomView">
-                                        <rect key="frame" x="0.0" y="485.5" width="375" height="161.5"/>
+                                        <rect key="frame" x="0.0" y="500.5" width="375" height="166.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYQ-u4-HVo">
-                                                <rect key="frame" x="156.5" y="60.5" width="62" height="40"/>
+                                                <rect key="frame" x="156.5" y="63" width="62" height="40"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                                 <state key="normal" title="Cancel">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="cancelPressed:" destination="aVs-zb-F40" eventType="touchUpInside" id="X96-4S-vPZ"/>
-                                                    <segue destination="Tto-1j-1eD" kind="show" id="vlS-Fz-L6C"/>
+                                                    <segue destination="Tto-1j-1eD" kind="presentation" modalPresentationStyle="fullScreen" id="vlS-Fz-L6C"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -181,7 +181,7 @@
                     <connections>
                         <outlet property="animationView" destination="ElE-5b-foT" id="zKR-cC-9ja"/>
                         <outlet property="searchingLabel" destination="0Or-RB-lJv" id="bD7-fo-ege"/>
-                        <segue destination="mnj-Dk-Yhs" kind="presentation" identifier="toRaceScreen" id="tc7-xb-7gJ"/>
+                        <segue destination="mnj-Dk-Yhs" kind="presentation" identifier="toRaceScreen" modalPresentationStyle="fullScreen" id="tc7-xb-7gJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVB-oe-gKX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -193,7 +193,7 @@
             <objects>
                 <viewController id="cfW-kX-xiS" customClass="CustomLobbyQueueViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="smF-Rf-d6m">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pDv-Yc-4LI" customClass="AnimationView" customModule="Lottie">
@@ -226,7 +226,7 @@
                         <outlet property="animationView" destination="pDv-Yc-4LI" id="jjv-TO-MtG"/>
                         <outlet property="stuff" destination="ciw-84-vWz" id="D7y-Sz-yrB"/>
                         <segue destination="Tto-1j-1eD" kind="presentation" identifier="customToMain" id="E8s-5j-gj4"/>
-                        <segue destination="mnj-Dk-Yhs" kind="presentation" identifier="goToRaceScreen" id="djm-DF-YzH"/>
+                        <segue destination="mnj-Dk-Yhs" kind="presentation" identifier="goToRaceScreen" modalPresentationStyle="fullScreen" id="djm-DF-YzH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sc0-S7-d8k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -238,7 +238,7 @@
             <objects>
                 <viewController id="mnj-Dk-Yhs" customClass="DistanceChoose" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ghh-jy-hFa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WpN-Ce-7nk">
@@ -273,7 +273,7 @@
                         <outlet property="mile1" destination="sw7-lc-8Fh" id="p5f-Zy-ZTE"/>
                         <outlet property="mile2" destination="WpN-Ce-7nk" id="uM9-i8-dfF"/>
                         <outlet property="mile3" destination="bRH-u8-e9H" id="jv7-fg-Wzv"/>
-                        <segue destination="gF5-aO-G6X" kind="presentation" identifier="goRaceScreen" id="5UX-tR-BUB"/>
+                        <segue destination="gF5-aO-G6X" kind="presentation" identifier="goRaceScreen" modalPresentationStyle="fullScreen" id="5UX-tR-BUB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CrV-ct-hBf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -328,7 +328,7 @@
             <objects>
                 <viewController id="4M4-wt-BiP" customClass="LoseScreen" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iau-ro-JCR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Hf-SB-xdS" customClass="AnimationView" customModule="Lottie">
@@ -392,7 +392,7 @@
             <objects>
                 <viewController id="nKt-Gf-VjN" customClass="StatisticsViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c8J-QU-LvV" customClass="Stat">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Statistics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Up9-iK-0Eo">
@@ -469,7 +469,7 @@
             <objects>
                 <viewController id="gF5-aO-G6X" customClass="RaceVC" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YD0-mB-C9h">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="129-Ad-Zk7" userLabel="newProgress2" customClass="MBCircularProgressBarView">
@@ -620,7 +620,7 @@
                         <outlet property="statusLabel" destination="5gD-LB-d5n" id="NRs-te-lFI"/>
                         <outlet property="traveledDistanceLabel" destination="HMj-E1-UG8" id="8yR-gA-1mn"/>
                         <segue destination="gGL-cb-sXM" kind="presentation" identifier="toWinScreen" id="1OZ-Zl-3QL"/>
-                        <segue destination="4M4-wt-BiP" kind="presentation" identifier="goToLoseScreen" id="l4k-c0-FDY"/>
+                        <segue destination="4M4-wt-BiP" kind="presentation" identifier="goToLoseScreen" modalPresentationStyle="fullScreen" id="l4k-c0-FDY"/>
                         <segue destination="Tto-1j-1eD" kind="presentation" identifier="OptOut" id="xFx-98-eTL"/>
                     </connections>
                 </viewController>
@@ -633,7 +633,7 @@
             <objects>
                 <viewController id="Vda-ce-Hw4" customClass="LoginViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BqN-8T-ona">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GTb-kx-rns" userLabel="CView">
@@ -725,7 +725,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rn4-Rv-eZB">
-                                <rect key="frame" x="165" y="305.5" width="45" height="36"/>
+                                <rect key="frame" x="165" y="315.5" width="45" height="36"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                 <state key="normal" title="Login">
@@ -752,7 +752,7 @@
                         <outlet property="emailTextField" destination="eNk-3G-bto" id="V2S-Eh-dUo"/>
                         <outlet property="loginButton" destination="Rn4-Rv-eZB" id="zBh-mn-NFe"/>
                         <outlet property="passwordTextField" destination="dVx-Lx-HGs" id="00J-Fu-qt1"/>
-                        <segue destination="Tto-1j-1eD" kind="show" identifier="goToMainMenu" id="nB9-1E-bh5"/>
+                        <segue destination="Tto-1j-1eD" kind="presentation" identifier="goToMainMenu" modalPresentationStyle="fullScreen" id="nB9-1E-bh5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQf-dA-FEP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -764,7 +764,7 @@
             <objects>
                 <viewController id="hj3-Nx-gLJ" customClass="TimeTrialViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SiZ-cy-Ag5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time Trials" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wsa-Se-OWB">
@@ -793,7 +793,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Nothing" image="square.and.arrow.up" catalog="system" id="pdP-6K-Vlv"/>
                     <connections>
-                        <segue destination="Fu9-UY-hAk" kind="presentation" identifier="toTrial" id="f9n-FG-WnA"/>
+                        <segue destination="Fu9-UY-hAk" kind="presentation" identifier="toTrial" modalPresentationStyle="fullScreen" id="f9n-FG-WnA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Bf-9Z-b84" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -825,7 +825,7 @@
             <objects>
                 <viewController id="9TJ-4A-s6H" customClass="mainMenu" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UpA-Jl-3ot">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dS-D8-uYx">
@@ -897,8 +897,8 @@
                         <outlet property="queueButton" destination="7nD-eZ-glN" id="IJo-xm-J9o"/>
                         <outlet property="sideBarButton" destination="tBd-up-OL5" id="kgd-IL-Skg"/>
                         <outlet property="signOutButton" destination="1dS-D8-uYx" id="Gp9-eQ-Hnq"/>
-                        <segue destination="cfW-kX-xiS" kind="show" identifier="goToCustomQueue" id="1f6-9i-ew7"/>
-                        <segue destination="aVs-zb-F40" kind="show" identifier="goToQueue" id="qHj-ox-ScC"/>
+                        <segue destination="cfW-kX-xiS" kind="presentation" identifier="goToCustomQueue" modalPresentationStyle="fullScreen" id="1f6-9i-ew7"/>
+                        <segue destination="aVs-zb-F40" kind="presentation" identifier="goToQueue" modalPresentationStyle="fullScreen" id="qHj-ox-ScC"/>
                         <segue destination="ZWA-1g-zMV" kind="presentation" identifier="goBackToSignUp" id="iOg-C8-4sr"/>
                     </connections>
                 </viewController>
@@ -971,7 +971,7 @@
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="bold"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="Vda-ce-Hw4" kind="show" id="6b8-eO-h56"/>
+                                                    <segue destination="Vda-ce-Hw4" kind="presentation" modalPresentationStyle="fullScreen" id="6b8-eO-h56"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Type your email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tby-fC-Hat">
@@ -1108,7 +1108,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btl-YT-1gc">
                                                 <rect key="frame" x="127.5" y="30" width="122" height="41"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
-                                                <color key="textColor" red="0.78823529410000004" green="0.2274509804" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="textColor" red="0.78713911800000003" green="0.22844523289999999" blue="0.17893076629999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -1201,8 +1201,9 @@
         <image name="trash" catalog="system" width="60" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Up0-eM-F4f"/>
-        <segue reference="ScD-de-M0L"/>
+        <segue reference="qHj-ox-ScC"/>
+        <segue reference="6q0-jF-oIn"/>
+        <segue reference="vlS-Fz-L6C"/>
         <segue reference="djm-DF-YzH"/>
     </inferredMetricsTieBreakers>
 </document>
