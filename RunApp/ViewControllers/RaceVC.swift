@@ -55,6 +55,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         super.viewDidLoad()
         locationManager.requestAlwaysAuthorization()
         ref = Database.database().reference()
+        
         cdLabel.text = String(cdVal)
         retrieveData()
         setUpLabels()
@@ -65,6 +66,15 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         
     }
     
+    @IBAction func expandMap(_ sender: Any) {
+        UIView.animate(withDuration: 2.0, animations: {() -> Void in
+            self.mapView?.transform = CGAffineTransform(scaleX: 2, y: 5)
+//            , completion: {(_ finished: Bool) -> Void in
+//            UIView.animate(withDuration: 2.0, animations: {() -> Void in
+//                self.mapView?.transform = CGAffineTransform(scaleX: 1, y: 1)
+//            })
+        })
+    }
     
     func centerViewOnUserLocation() {
         if let location = locationManager.location?.coordinate {
@@ -241,11 +251,11 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { (snapshot) in
             if !snapshot.hasChild("OptOut") {
                 self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").updateChildValues(["OptOut" : Auth.auth().currentUser!.uid])
-                locationManager.stopUpdatingLocation()
+                self.locationManager.stopUpdatingLocation()
                 self.performSegue(withIdentifier: "OptOut", sender: self)
             } else {
                 self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").removeValue()
-                locationManager.stopUpdatingLocation()
+                self.locationManager.stopUpdatingLocation()
                 self.performSegue(withIdentifier: "OptOut", sender: self)
             }
         }
