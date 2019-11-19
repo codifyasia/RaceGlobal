@@ -25,14 +25,13 @@ class mainMenu: UIViewController {
     @IBOutlet weak var sideBarButton: UIBarButtonItem!
     @IBOutlet weak var queueButton: UIButton!
     @IBOutlet weak var customLobbyButton: UIButton!
+    let locationManager = CLLocationManager()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //location request
-        let locationManager = CLLocationManager()
-        locationManager.requestAlwaysAuthorization()
+        
         
 //        signOutButton.tintColor = .white
         sideBarButton.tintColor = .white
@@ -63,6 +62,9 @@ class mainMenu: UIViewController {
             print("error:\(error.localizedDescription)")
         }
         
+        //location request
+        locationManager.requestWhenInUseAuthorization()
+        print("ASKING FOR LOCATION SERVICES")
         
         // Do any additional setup after loading the view.
     }
