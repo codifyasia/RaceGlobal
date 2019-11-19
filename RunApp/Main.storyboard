@@ -102,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ld8-iE-DUU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="997.60000000000002" y="-1479.3103448275863"/>
+            <point key="canvasLocation" x="922" y="-1758"/>
         </scene>
         <!--Queue Screen View Controller-->
         <scene sceneID="aoP-I2-JrT">
@@ -448,7 +448,7 @@
                         <color key="backgroundColor" red="0.22697890230000001" green="0.22697890230000001" blue="0.22697890230000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="UmL-yj-pKc"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Statistics" image="folder" catalog="system" id="UQU-I3-T1H"/>
+                    <tabBarItem key="tabBarItem" title="Statistics" image="chart.bar.fill" catalog="system" id="UQU-I3-T1H"/>
                     <navigationItem key="navigationItem" id="i3z-It-2wE"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
@@ -626,7 +626,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nua-f9-Zqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3924" y="294.60269865067471"/>
+            <point key="canvasLocation" x="4058" y="626"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="yJq-ta-FLb">
@@ -757,9 +757,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQf-dA-FEP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-353" y="-22"/>
+            <point key="canvasLocation" x="-782" y="326"/>
         </scene>
-        <!--Nothing-->
+        <!--Time Trials-->
         <scene sceneID="vGj-nn-QXG">
             <objects>
                 <viewController id="hj3-Nx-gLJ" customClass="TimeTrialViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -791,14 +791,14 @@
                         <color key="backgroundColor" red="0.22697890230000001" green="0.22697890230000001" blue="0.22697890230000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="4Jj-dr-FAN"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Nothing" image="square.and.arrow.up" catalog="system" id="pdP-6K-Vlv"/>
+                    <tabBarItem key="tabBarItem" title="Time Trials" image="timer" catalog="system" id="pdP-6K-Vlv"/>
                     <connections>
                         <segue destination="Fu9-UY-hAk" kind="presentation" identifier="toTrial" modalPresentationStyle="fullScreen" id="f9n-FG-WnA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Bf-9Z-b84" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1584.8" y="-407.0464767616192"/>
+            <point key="canvasLocation" x="-783" y="-1687"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Nll-W0-y7B">
@@ -818,9 +818,9 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQ9-uB-6uf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="806" y="-562"/>
+            <point key="canvasLocation" x="655" y="112"/>
         </scene>
-        <!--Start-->
+        <!--Main Menu-->
         <scene sceneID="Qdy-IB-Ptj">
             <objects>
                 <viewController id="9TJ-4A-s6H" customClass="mainMenu" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -881,7 +881,7 @@
                         <color key="backgroundColor" red="0.22697890230000001" green="0.22697890230000001" blue="0.22697890230000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="xjI-gW-Ztv"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Start" image="trash" catalog="system" id="hUA-I2-8a9"/>
+                    <tabBarItem key="tabBarItem" title="Main Menu" image="house" catalog="system" id="hUA-I2-8a9"/>
                     <navigationItem key="navigationItem" id="swr-et-RBp" colorLabel="IBBuiltInLabel-Yellow">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="tBd-up-OL5"/>
                         <barButtonItem key="rightBarButtonItem" title="Sign Out" style="plain" id="G4Q-zR-iuv">
@@ -1192,18 +1192,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KUh-lH-XQT" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1359" y="-557"/>
+            <point key="canvasLocation" x="-1871" y="-558"/>
         </scene>
     </scenes>
     <resources>
-        <image name="folder" catalog="system" width="64" height="46"/>
-        <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
-        <image name="trash" catalog="system" width="60" height="64"/>
+        <image name="chart.bar.fill" catalog="system" width="64" height="44"/>
+        <image name="house" catalog="system" width="64" height="54"/>
+        <image name="timer" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qHj-ox-ScC"/>
         <segue reference="6q0-jF-oIn"/>
-        <segue reference="vlS-Fz-L6C"/>
+        <segue reference="xFx-98-eTL"/>
         <segue reference="djm-DF-YzH"/>
     </inferredMetricsTieBreakers>
 </document>
