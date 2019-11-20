@@ -30,9 +30,7 @@ class mainMenu: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
+        ref = Database.database().reference()
 //        signOutButton.tintColor = .white
         sideBarButton.tintColor = .white
 //        signOutButton.setTitleTextAttributes([
@@ -43,8 +41,17 @@ class mainMenu: UIViewController {
         menuButton.target = self.revealViewController()
         menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
         
-        ref = Database.database().reference()
+        loadGoals()
         
+        
+        //location request
+        locationManager.requestWhenInUseAuthorization()
+        print("ASKING FOR LOCATION SERVICES")
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    func loadGoals() {
         ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             guard let value = snapshot.value as? NSDictionary else {
@@ -53,21 +60,24 @@ class mainMenu: UIViewController {
             }
             
             self.name = value["Username"] as! String
-            
             self.helloLabel.text = "Hello \(self.name)!"
+            
+            let distanceTraveled = value["TotalDistance"] as! Double
+            let goalDistance = value["DistanceGoal"] as! Double
+            
+            
+            
+            
             
             
             
         }) { (error) in
             print("error:\(error.localizedDescription)")
         }
-        
-        //location request
-        locationManager.requestWhenInUseAuthorization()
-        print("ASKING FOR LOCATION SERVICES")
-        
-        // Do any additional setup after loading the view.
     }
+    
+    
+    
     @IBAction func QueueUp(_ sender: Any) {
         //        ref.child("QueueLine").child(Auth.auth().currentUser!.uid).setValue(Auth.auth().currentUser!.uid)
         ref.child("QueueLine").observeSingleEvent(of: .value, with: { (snapshot) in

@@ -92,7 +92,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
         } else {
             Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
                 if (error == nil) {
-                    self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).setValue(["FirstName" : self.FirstName.text, "LastName" : self.LastName.text, "Username" : self.Username.text, "Phone" : self.phoneNumberField.text, "CompletedRaces" : 0, "TotalDistance" : 0, "Wins" : 0, "BestMile" : 0.0, "Best5k" : 0.0, "Best800" : 0.0, "Lobby" : 0])
+                    self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).setValue(["FirstName" : self.FirstName.text, "LastName" : self.LastName.text, "Username" : self.Username.text, "Phone" : self.phoneNumberField.text, "CompletedRaces" : 0, "TotalDistance" : 0, "Wins" : 0, "BestMile" : 0.0, "Best5k" : 0.0, "Best800" : 0.0, "Lobby" : 0, "DistanceGoal" : 1600, "MileSplitGoal" : 7, "RacesToWin" : 3])
                     SVProgressHUD.dismiss()
                     print("Going to MAIN MENU")
                     self.performSegue(withIdentifier: "goToMainMenu", sender: self)
