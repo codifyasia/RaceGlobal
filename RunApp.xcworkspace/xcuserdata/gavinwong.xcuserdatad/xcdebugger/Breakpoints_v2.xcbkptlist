@@ -189,8 +189,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
             endingLineNumber = "19"
-            landmarkName = "raceScreen"
-            landmarkType = "3">
+            landmarkName = "unknown"
+            landmarkType = "0">
             <Locations>
                <Location
                   uuid = "0846EF1F-43E2-4B01-96A0-2480E767154F - 6457bc0988de92b6"
@@ -243,16 +243,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3C3106EA-EC0A-4B09-B267-164E2E70813C"
+            uuid = "EC9AEAE1-33EB-46C8-94FC-49E88E948067"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RunApp/ViewControllers/mainMenu.swift"
+            filePath = "RunApp/ViewControllers/CustomLobbyQueueScreenViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "check()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EC9AEAE1-33EB-46C8-94FC-49E88E948067 - 37a9be024a742d69"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in RunApp.CustomLobbyQueueViewController.check() -&gt; ()"
+                  moduleName = "RunApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gavinwong/Desktop/raceApp/RunApp/ViewControllers/CustomLobbyQueueScreenViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "3398">
+               </Location>
+               <Location
+                  uuid = "EC9AEAE1-33EB-46C8-94FC-49E88E948067 - e8603b2902701b97"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in closure #1 (__C.FIRDataSnapshot) -&gt; () in RunApp.CustomLobbyQueueViewController.check() -&gt; ()"
+                  moduleName = "RunApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gavinwong/Desktop/raceApp/RunApp/ViewControllers/CustomLobbyQueueScreenViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "179">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ECFB6130-CF8E-4D64-938E-2607CD69B25E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RunApp/ViewControllers/SignUpViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "touchesBegan(_:with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

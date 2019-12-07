@@ -13,13 +13,15 @@ import SVProgressHUD
 import Lottie
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var emailTextField: KaedeTextField!
     @IBOutlet weak var passwordTextField: KaedeTextField!
+    @IBOutlet weak var loginButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginButton.layer.cornerRadius = 20
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
     }
@@ -29,7 +31,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if (error == nil) {
                 SVProgressHUD.dismiss()
-                self.performSegue(withIdentifier: "loginToMain", sender: self)
+                self.performSegue(withIdentifier: "goToMainMenu", sender: self)
             } else {
                 
                 SVProgressHUD.dismiss()
@@ -58,7 +60,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-     @IBAction func backToRegister(_ sender: Any) {
+    @IBAction func backToRegister(_ sender: Any) {
         dismiss(animated: false, completion: nil)
-     }
+    }
 }

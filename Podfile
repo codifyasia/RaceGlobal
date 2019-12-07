@@ -13,6 +13,7 @@ target 'RunApp' do
     pod 'SVProgressHUD'
     pod 'PKRevealController'
     pod 'lottie-ios'
+    pod "MBCircularProgressBar"
 
   # Pods for RunApp
 

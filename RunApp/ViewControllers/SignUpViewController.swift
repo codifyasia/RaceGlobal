@@ -11,14 +11,42 @@ import Firebase
 import TextFieldEffects
 import SVProgressHUD
 
-class SignUpViewController: UIViewController, UITextFieldDelegate {
+extension UIView {
+    @discardableResult
+    func applyGradient(colours: [UIColor]) -> CAGradientLayer {
+        self.layer.cornerRadius = 5000
+        self.layer.shadowColor = UIColor.white.cgColor
+        self.layer.shadowRadius = 4
+        self.layer.shadowOpacity = 1
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        return self.applyGradient(colours: colours, locations: nil)
+        
+    }
 
+    @discardableResult
+    func applyGradient(colours: [UIColor], locations: [NSNumber]?) -> CAGradientLayer {
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = colours.map { $0.cgColor }
+        gradient.locations = locations
+        self.layer.insertSublayer(gradient, at: 0)
+        gradient.cornerRadius = gradient.frame.height / 2
+        return gradient
+    }
+}
+
+class SignUpViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
+    
+    
+    @IBOutlet weak var scroll: UIScrollView!
     @IBOutlet weak var FirstName: AkiraTextField!
     @IBOutlet weak var LastName: AkiraTextField!
     @IBOutlet weak var Username: AkiraTextField!
     @IBOutlet weak var emailField: AkiraTextField!
     @IBOutlet weak var passwordField: AkiraTextField!
-    
+    @IBOutlet weak var alreadyHaveAccount: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var phoneNumberField: UITextField!
     var ref: DatabaseReference!
     
     override func viewDidLoad() {
@@ -26,7 +54,20 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         ref = Database.database().reference()
         self.emailField.delegate = self
         self.passwordField.delegate = self
-        // Do any additional setup after loading the view.
+        self.scroll.delegate = self
+        
+        scroll.keyboardDismissMode = .onDrag
+        
+        
+        //making the alreadyHaveAccount button look better
+        alreadyHaveAccount.applyGradient(colours: [.black, .darkGray, .lightGray])
+
+        //making the the register Button look better
+//        registerButton.layer.cornerRadius = registerButton.frame.height / 2 - 5
+        registerButton.applyGradient(colours: [.black, .darkGray, .lightGray])
+//        registerButton.layer.shadowRadius = 4
+//        registerButton.layer.shadowOpacity = 1
+//        registerButton.layer.shadowOffset = CGSize(width: 0, height: 0)
     }
     
     //TODO:Touch out
@@ -36,24 +77,39 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func registerPressed(_ sender: Any) {
         SVProgressHUD.show()
-        Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
-            if (error == nil) {
-                self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).setValue(["FirstName" : self.FirstName.text, "LastName" : self.LastName.text, "Username" : self.Username.text, "Points" : 0, "Lobby" : 0])
-                SVProgressHUD.dismiss()
-                self.performSegue(withIdentifier: "goToMainMenu", sender: self)
-            } else {
-                SVProgressHUD.dismiss()
-                
-                let alert = UIAlertController(title: "Registration Error", message: "Please check to make sure you have met all the registration guidelines", preferredStyle: .alert)
-                
-                let OK = UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
-                    self.passwordField.text = ""
-                })
-                
-                alert.addAction(OK)
-                self.present(alert, animated: true, completion: nil)
-                
-                print("Error: \(error)")
+        if (FirstName.text?.isEmpty ?? true || LastName.text?.isEmpty ?? true || Username.text?.isEmpty ?? true || emailField.text?.isEmpty ?? true || passwordField.text?.isEmpty ?? true || passwordField.text?.isEmpty ?? true || phoneNumberField.text?.isEmpty ?? true) {
+            SVProgressHUD.dismiss()
+            print("THERE IS AN ERROR")
+            let alert = UIAlertController(title: "Registration Error", message: "Please make sure you have completed filled out every textfield", preferredStyle: .alert)
+            
+            let OK = UIAlertAction(title: "OK", style: .default) { (alert) in
+                return
+            }
+            
+            alert.addAction(OK)
+            self.present(alert, animated: true, completion: nil)
+            
+        } else {
+            Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
+                if (error == nil) {
+                    self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).setValue(["FirstName" : self.FirstName.text, "LastName" : self.LastName.text, "Username" : self.Username.text, "Phone" : self.phoneNumberField.text, "CompletedRaces" : 0, "TotalDistance" : 0, "Wins" : 0, "BestMile" : 0.0, "Best5k" : 0.0, "Best800" : 0.0, "Lobby" : 0, "DistanceGoal" : 1600, "MileSplitGoal" : 7, "RacesToWin" : 3])
+                    SVProgressHUD.dismiss()
+                    print("Going to MAIN MENU")
+                    self.performSegue(withIdentifier: "goToMainMenu", sender: self)
+                } else {
+                    SVProgressHUD.dismiss()
+                    
+                    let alert = UIAlertController(title: "Registration Error", message: "Please check to make sure you have met all the registration guidelines", preferredStyle: .alert)
+                    
+                    let OK = UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
+                        self.passwordField.text = ""
+                    })
+                    
+                    alert.addAction(OK)
+                    self.present(alert, animated: true, completion: nil)
+                    
+                    print("Error: \(error)")
+                }
             }
         }
     }
@@ -62,12 +118,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
 }
