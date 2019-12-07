@@ -33,6 +33,7 @@ class QueueScreenViewController: UIViewController {
         startAnimation()
         timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(QueueScreenViewController.change), userInfo: nil, repeats: true)
 
+        definesPresentationContext = true
         // Do any additional setup after loading the view.
     }
     
@@ -81,8 +82,10 @@ class QueueScreenViewController: UIViewController {
                         self.ref.child("QueueLine").updateChildValues(["numSegued" : 0])
                         self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby+1])
                         self.ref.child("QueueLine").updateChildValues(["Index" : 1])
-                        print("segue player 4")
+                        print("Index \(index)" )
                         self.performSegue(withIdentifier: "toRaceScreen", sender: self)
+                        print("segue player 4")
+                        
                     }
                     else if (position == index) {
                         
@@ -96,9 +99,11 @@ class QueueScreenViewController: UIViewController {
                         //makes numSegued one more than it was previously, so that equal player has a unique index for PlayerIndex.
                         self.ref.child("QueueLine").updateChildValues(["lowestLobby" : lowestLobby])
                         //this shit is pretty much useless.
-                        print("segue not player")
-                        self.performSegue(withIdentifier: "toRaceScreen", sender: self)
+                        
+                        print("Index \(index)")
                         //performs a segue.
+                        self.performSegue(withIdentifier: "toRaceScreen", sender: self)
+                        print("segue not player")
                         
                     }
                 }) { (error) in
