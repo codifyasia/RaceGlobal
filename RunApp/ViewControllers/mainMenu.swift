@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import Lottie
 import CoreLocation
+import MBCircularProgressBar
 
 class mainMenu: UIViewController {
     
@@ -26,6 +27,7 @@ class mainMenu: UIViewController {
     @IBOutlet weak var queueButton: UIButton!
     @IBOutlet weak var customLobbyButton: UIButton!
     let locationManager = CLLocationManager()
+    @IBOutlet weak var distanceProgress: MBCircularProgressBarView!
     
     
     override func viewDidLoad() {
@@ -51,30 +53,77 @@ class mainMenu: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func loadGoals() {
-        ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            guard let value = snapshot.value as? NSDictionary else {
-                print("No Data!!!!!!")
-                return
-            }
-            
-            self.name = value["Username"] as! String
-            self.helloLabel.text = "Hello \(self.name)!"
-            
-            let distanceTraveled = value["TotalDistance"] as! Double
-            let goalDistance = value["DistanceGoal"] as! Double
-            
-            
-            
-            
-            
-            
-            
-        }) { (error) in
-            print("error:\(error.localizedDescription)")
-        }
-    }
+     func loadGoals() {
+           ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+               // Get user value
+               guard let value = snapshot.value as? NSDictionary else {
+                   print("No Data!!!!!!")
+                   return
+               }
+
+               self.name = value["Username"] as! String
+               self.helloLabel.text = "Hello \(self.name)!"
+
+               let distanceTraveled = value["TotalDistance"] as! Double
+               var goalDistance = value["DistanceGoal"] as! Double
+
+               if (distanceTraveled > goalDistance) {
+                   if (goalDistance == 1600) {
+                       self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["DistanceGoal" : 5000])
+                       goalDistance = 5000
+                   }
+                   else if (goalDistance == 5000) {
+                       self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["DistanceGoal" : 10000])
+                       goalDistance = 10000
+                   }
+                   else if (goalDistance == 10000) {
+                       self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["DistanceGoal" : 16000])
+                       goalDistance = 16000
+                   }
+                   else if (goalDistance == 16000) {
+                       self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["DistanceGoal" : 25000])
+                       goalDistance = 25000
+                   }
+                   else if (goalDistance == 25000) {
+                       self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["DistanceGoal" : 32000])
+                       goalDistance = 32000
+                   }
+                   else if (goalDistance == 32000) {
+                       self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["DistanceGoal" : 50000])
+                       goalDistance = 50000
+                   }
+                   else if (goalDistance == 50000) {
+                       self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["DistanceGoal" : 10000])
+                       goalDistance = 100000
+                   }
+                   else if (goalDistance == 100000) {
+
+                   }
+
+
+                   UIView.animate(withDuration: 2) {
+                       let bar = CGFloat(distanceTraveled / goalDistance ) * 100
+
+                       self.distanceProgress.value = bar
+
+                   }
+
+
+
+
+
+
+               }
+
+
+
+
+
+
+           }) { (error) in
+               print("error:\(error.localizedDescription)")
+           }
+       }
     
     
     
