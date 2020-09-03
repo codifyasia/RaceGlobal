@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZWA-1g-zMV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZWA-1g-zMV">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -392,7 +392,7 @@
             <objects>
                 <viewController id="nKt-Gf-VjN" customClass="StatisticsViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c8J-QU-LvV" customClass="Stat">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Statistics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Up9-iK-0Eo">
@@ -764,7 +764,7 @@
             <objects>
                 <viewController id="hj3-Nx-gLJ" customClass="TimeTrialViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SiZ-cy-Ag5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time Trials" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wsa-Se-OWB">
@@ -1241,15 +1241,16 @@
             <point key="canvasLocation" x="-1871" y="-558"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="qHj-ox-ScC"/>
+        <segue reference="Up0-eM-F4f"/>
+        <segue reference="xFx-98-eTL"/>
+        <segue reference="tc7-xb-7gJ"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Screen Shot 2019-11-19 at 6.12.58 PM" width="398" height="750"/>
-        <image name="chart.bar.fill" catalog="system" width="64" height="44"/>
-        <image name="house" catalog="system" width="64" height="54"/>
-        <image name="timer" catalog="system" width="64" height="60"/>
+        <image name="chart.bar.fill" catalog="system" width="128" height="89"/>
+        <image name="house" catalog="system" width="128" height="110"/>
+        <image name="timer" catalog="system" width="128" height="121"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="tgZ-Yd-6wl"/>
-        <segue reference="ScD-de-M0L"/>
-        <segue reference="djm-DF-YzH"/>
-    </inferredMetricsTieBreakers>
 </document>
