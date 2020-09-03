@@ -31,9 +31,25 @@ class mainMenu: UIViewController {
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         ref = Database.database().reference()
-//        signOutButton.tintColor = .white
+//
+//        ref.child("QueueLine").updateChildValues(["PlayersAvailible" : 0, "Deleting" : false, "lowestLobby" : 0, "Index" : 0, "numSegued": 0 ])
+        
+        
+//        let deleting =  value["Deleting"] as! Bool
+        //If deleting is true, then queue will need to delete players from queue
+//        let numPlayers = value["PlayersAvailible"] as! Int
+        //Number of players that is in the queue
+//        let numSegued = value["numSegued"] as! Int
+        //
+//        let lowestLobby = value["lowestLobby"] as! Int
+        //the lowest lobby number
+//        let index = value["Index"] as! Int
+        
+        
+        signOutButton.tintColor = .white
         sideBarButton.tintColor = .white
 //        signOutButton.setTitleTextAttributes([
 //            NSAttributedString.Key.font: UIFont(name: "Avenir Next", size: 18.0)!,
