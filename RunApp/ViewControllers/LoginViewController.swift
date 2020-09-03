@@ -24,6 +24,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginButton.layer.cornerRadius = 20
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
+        loginButton.layer.cornerRadius = loginButton.frame.height / 2
     }
     
     @IBAction func loginPressed(_ sender: Any) {

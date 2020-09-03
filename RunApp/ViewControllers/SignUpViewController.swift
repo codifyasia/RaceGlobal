@@ -59,16 +59,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
         scroll.keyboardDismissMode = .onDrag
         
         
-        //making the alreadyHaveAccount button look better
-        alreadyHaveAccount.applyGradient(colours: [.black, .darkGray, .lightGray])
 
         //making the the register Button look better
-//        registerButton.layer.cornerRadius = registerButton.frame.height / 2 - 5
-        registerButton.applyGradient(colours: [.black, .darkGray, .lightGray])
-//        registerButton.layer.shadowRadius = 4
-//        registerButton.layer.shadowOpacity = 1
-//        registerButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-    }
+        alreadyHaveAccount.layer.cornerRadius = registerButton.frame.height / 2
+        registerButton.layer.cornerRadius = registerButton.frame.height / 2    }
     
     //TODO:Touch out
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
