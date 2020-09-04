@@ -555,7 +555,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMj-E1-UG8">
-                                <rect key="frame" x="16" y="352" width="67" height="60"/>
+                                <rect key="frame" x="16" y="352" width="97" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -575,14 +575,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLW-R7-Zvl">
-                                <rect key="frame" x="306" y="17" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="dip"/>
-                                <connections>
-                                    <action selector="OptOutPressed:" destination="gF5-aO-G6X" eventType="touchUpInside" id="nBn-1K-3kI"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gD-LB-d5n">
                                 <rect key="frame" x="28" y="284" width="85" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -599,9 +591,17 @@
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1Wh-V9-MW0">
-                                <rect key="frame" x="0.0" y="448" width="375" height="219"/>
+                                <rect key="frame" x="0.0" y="448" width="414" height="257"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLW-R7-Zvl">
+                                <rect key="frame" x="359" y="44" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="dip"/>
+                                <connections>
+                                    <action selector="OptOutPressed:" destination="gF5-aO-G6X" eventType="touchUpInside" id="nBn-1K-3kI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.22745098039215686" green="0.22745098039215686" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="683-Bd-ho7"/>
@@ -613,6 +613,7 @@
                         <outlet property="OptOutButton" destination="rLW-R7-Zvl" id="Sgk-Tg-u2i"/>
                         <outlet property="cdLabel" destination="Wke-Gl-C5y" id="8Uy-nb-15g"/>
                         <outlet property="enemyProgressBar" destination="129-Ad-Zk7" id="laB-0Z-OCi"/>
+                        <outlet property="expandMap" destination="1rC-Ta-HJF" id="NjC-2h-0Bp"/>
                         <outlet property="goalDistanceLabel" destination="MXE-DV-yoZ" id="kUx-hk-bAG"/>
                         <outlet property="mapView" destination="1Wh-V9-MW0" id="IGq-CY-LcZ"/>
                         <outlet property="playerProgressBar" destination="lK4-Tq-PMy" id="8Jo-kx-yBT"/>
@@ -626,7 +627,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nua-f9-Zqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4056.8000000000002" y="625.63718140929541"/>
+            <point key="canvasLocation" x="4056.521739130435" y="625.44642857142856"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="yJq-ta-FLb">
@@ -1187,7 +1188,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="6q0-jF-oIn"/>
-        <segue reference="nB9-1E-bh5"/>
+        <segue reference="xFx-98-eTL"/>
         <segue reference="tc7-xb-7gJ"/>
     </inferredMetricsTieBreakers>
     <resources>

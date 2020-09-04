@@ -42,6 +42,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     @IBOutlet weak var cdLabel: UILabel!
     var name: String!
     @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak var expandMap: UIButton!
     
     @IBOutlet weak var mapView: MKMapView!
     //Timer
@@ -273,6 +274,8 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         EnemyLabel.isHidden = true
         progressLabel.isHidden = true
         mapView.isHidden = true
+        expandMap.isHidden = true
+        
     }
     
     func showAll() {
@@ -287,6 +290,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         EnemyLabel.isHidden = false
         progressLabel.isHidden = false
         mapView.isHidden = false
+        expandMap.isHidden = false
     }
     
     @objc func startTimerChange() {
