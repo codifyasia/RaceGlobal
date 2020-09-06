@@ -57,12 +57,12 @@ class mainMenu: UIViewController {
 //                                             for: .normal)
         
         
-//        UIView.animate(withDuration: 1) {
+        UIView.animate(withDuration: 1) {
                             
         //                    print("yo")
                    //            let bar = CGFloat(distanceTraveled / goalDistance ) * 100
 //                               self.distanceProgress.value = bar
-//                           }
+                           }
         
         
         buttonAdjustments()
@@ -94,8 +94,11 @@ class mainMenu: UIViewController {
 
                let distanceTraveled = value["TotalDistance"] as! Double
                var goalDistance = value["DistanceGoal"] as! Double
+            
+            
 
                 print("boat\(goalDistance)")
+            print("boat\(distanceTraveled)")
                if (distanceTraveled > goalDistance) {
                    if (goalDistance == 1600) {
                        self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["DistanceGoal" : 5000])
@@ -128,18 +131,8 @@ class mainMenu: UIViewController {
                    else if (goalDistance == 100000) {
 
                    }
-                
-                    let bar = CGFloat(distanceTraveled / goalDistance ) * 100
-
-                      self.distanceProgress.value = bar
-                   UIView.animate(withDuration: 1) {
+            
                     
-//                    print("yo")
-                       let bar = CGFloat(distanceTraveled / goalDistance ) * 100
-
-                       self.distanceProgress.value = bar
-
-                   }
 
 
 
@@ -149,6 +142,9 @@ class mainMenu: UIViewController {
                }
 
 
+            UIView.animate(withDuration: 2) {
+              self.distanceProgress.value = CGFloat(distanceTraveled / goalDistance) * 100
+            }
 
 
 
