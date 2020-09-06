@@ -871,7 +871,7 @@
                                         <real key="value" value="100"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                        <real key="value" value="20"/>
+                                        <real key="value" value="50"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1187,6 +1187,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="qHj-ox-ScC"/>
         <segue reference="6q0-jF-oIn"/>
         <segue reference="xFx-98-eTL"/>
         <segue reference="tc7-xb-7gJ"/>

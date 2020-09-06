@@ -71,6 +71,8 @@ class mainMenu: UIViewController {
     
      func loadGoals() {
            ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            
                // Get user value
                guard let value = snapshot.value as? NSDictionary else {
                    print("No Data!!!!!!")
@@ -83,6 +85,7 @@ class mainMenu: UIViewController {
                let distanceTraveled = value["TotalDistance"] as! Double
                var goalDistance = value["DistanceGoal"] as! Double
 
+                print("boat\(goalDistance)")
                if (distanceTraveled > goalDistance) {
                    if (goalDistance == 1600) {
                        self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["DistanceGoal" : 5000])
@@ -115,9 +118,9 @@ class mainMenu: UIViewController {
                    else if (goalDistance == 100000) {
 
                    }
-
-
-                   UIView.animate(withDuration: 2) {
+                   UIView.animate(withDuration: 1) {
+                    
+//                    print("yo")
                        let bar = CGFloat(distanceTraveled / goalDistance ) * 100
 
                        self.distanceProgress.value = bar
