@@ -216,14 +216,20 @@ class mainMenu: UIViewController {
         customLobbyButton.layer.cornerRadius = customLobbyButton.frame.height / 2
         queueButton.layer.cornerRadius = queueButton.frame.height / 2
         
-        queueButton.layer.shadowColor = UIColor.black.cgColor
+        queueButton.layer.shadowColor = UIColor.red.cgColor
         queueButton.layer.shadowRadius = 3;
         queueButton.layer.shadowOpacity = 0.5;
         queueButton.layer.shadowOffset = CGSize(width: 0, height: 0)
         //queueButton.setGradientBackground(colorOne: Colors.veryDarkGrey, colorTwo: Colors.darkGrey, property: "corner")
+        signOutButton.layer.cornerRadius = queueButton.frame.height / 2
+        signOutButton.layer.shadowColor = UIColor.black.cgColor
+        signOutButton.layer.shadowRadius = 3;
+        signOutButton.layer.shadowOpacity = 0.5;
+        signOutButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+
         
         
-        customLobbyButton.layer.shadowColor = UIColor.black.cgColor
+        customLobbyButton.layer.shadowColor = UIColor.red.cgColor
         customLobbyButton.layer.shadowRadius = 3;
         customLobbyButton.layer.shadowOpacity = 0.5;
         customLobbyButton.layer.shadowOffset = CGSize(width: 0, height: 0)
