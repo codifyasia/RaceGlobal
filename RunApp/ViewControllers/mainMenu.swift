@@ -55,6 +55,16 @@ class mainMenu: UIViewController {
 //            NSAttributedString.Key.font: UIFont(name: "Avenir Next", size: 18.0)!,
 //            NSAttributedString.Key.foregroundColor: UIColor.white],
 //                                             for: .normal)
+        
+        
+//        UIView.animate(withDuration: 1) {
+                            
+        //                    print("yo")
+                   //            let bar = CGFloat(distanceTraveled / goalDistance ) * 100
+//                               self.distanceProgress.value = bar
+//                           }
+        
+        
         buttonAdjustments()
         menuButton.target = self.revealViewController()
         menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
@@ -118,6 +128,10 @@ class mainMenu: UIViewController {
                    else if (goalDistance == 100000) {
 
                    }
+                
+                    let bar = CGFloat(distanceTraveled / goalDistance ) * 100
+
+                      self.distanceProgress.value = bar
                    UIView.animate(withDuration: 1) {
                     
 //                    print("yo")
