@@ -18,6 +18,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     //location
     let locationManager = CLLocationManager()
     var startLocation:CLLocation!
+    var prevLocation: CLLocation!
     var lastLocation: CLLocation!
     var goalDistance:Double = 0
     var travelledDistance: Double = 0
@@ -54,13 +55,16 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.requestAlwaysAuthorization()
+//        locationManager.requestAlwaysAuthorization()
         ref = Database.database().reference()
         
         cdLabel.text = String(cdVal)
         retrieveData()
         setUpLabels()
         hideAll()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
         startTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(RaceVC.startTimerChange), userInfo: nil, repeats: true)
 //        StartEverything()
         // Do any additional setup after loading the view.
@@ -86,27 +90,49 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print(travelledDistance)
-        let location = locations[locations.count - 1]
-        let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: zoom, longitudinalMeters: zoom)
-        mapView.setRegion(region, animated: true)
-        if (location.horizontalAccuracy > 0) {
-            //            var speed: CLLocationSpeed = CLLocationSpeed()
-            if startLocation == nil {
-                startLocation = locations.first
-            } else {
-                if (travelledDistance >= goalDistance) {
-                    checkIfPlayerWon()
-                    locationManager.stopUpdatingLocation()
-                }
-                let lastLocation = locations.last as! CLLocation
-                if (startLocation.distance(from: lastLocation) > 4) {
-                    let distance = startLocation.distance(from: lastLocation)
-                    startLocation = lastLocation
+        if (cdVal == 0) {
+            guard let location = locations.last else { return }
+            let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            let region = MKCoordinateRegion.init(center: center, latitudinalMeters: zoom, longitudinalMeters: zoom)
+            mapView.setRegion(region, animated: true)
+            if (location.horizontalAccuracy < 10) {
+                //            var speed: CLLocationSpeed = CLLocationSpeed()
+                if startLocation == nil {
+                    startLocation = locations.first!
+                    prevLocation = locations.first!
+                } else {
+                    if (travelledDistance >= goalDistance) {
+                        checkIfPlayerWon()
+                        locationManager.stopUpdatingLocation()
+                    }
+                    let lastLocation = locations.last!
+                    let distance = prevLocation.distance(from: lastLocation)
+                    prevLocation = lastLocation
                     travelledDistance += distance
                     updateAll()
                 }
             }
         }
+           
+//        Ricky's Code
+//        if (location.horizontalAccuracy > 0) {
+//            //            var speed: CLLocationSpeed = CLLocationSpeed()
+//            if startLocation == nil {
+//                startLocation = locations.first
+//            } else {
+//                if (travelledDistance >= goalDistance) {
+//                    checkIfPlayerWon()
+//                    locationManager.stopUpdatingLocation()
+//                }
+//                let lastLocation = locations.last as! CLLocation
+//                if (startLocation.distance(from: lastLocation) > 4) {
+//                    let distance = startLocation.distance(from: lastLocation)
+//                    startLocation = lastLocation
+//                    travelledDistance += distance
+//                    updateAll()
+//                }
+//            }
+//        }
     }
     func retrieveData() {
         print("Started retrieving data")
@@ -182,9 +208,6 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         startTimer.invalidate()
         cdLabel.isHidden = true
         print("started starting everything")
-        locationManager.delegate = self
-        locationManager.desiredAccuracy=kCLLocationAccuracyBest
-        locationManager.startUpdatingLocation()
         print("ended starting everything")
         updateTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(RaceVC.changeTimer), userInfo: nil, repeats: true)
         mapView.showsUserLocation = true
