@@ -30,7 +30,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     //fires at very short intervals
     var updateTimer = Timer()
     var startTimer = Timer()
-    var cdVal = 5
+    var cdVal = 10
     //UI linking
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var OptOutButton: UIButton!
@@ -89,25 +89,24 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print(travelledDistance)
         if (cdVal == 0) {
             guard let location = locations.last else { return }
+            print(cdVal)
             let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             let region = MKCoordinateRegion.init(center: center, latitudinalMeters: zoom, longitudinalMeters: zoom)
             mapView.setRegion(region, animated: true)
-            if (location.horizontalAccuracy < 10) {
+            if (location.horizontalAccuracy > 0) {
                 //            var speed: CLLocationSpeed = CLLocationSpeed()
                 if startLocation == nil {
                     startLocation = locations.first!
-                    prevLocation = locations.first!
                 } else {
                     if (travelledDistance >= goalDistance) {
                         checkIfPlayerWon()
                         locationManager.stopUpdatingLocation()
                     }
-                    let lastLocation = locations.last!
-                    let distance = prevLocation.distance(from: lastLocation)
-                    prevLocation = lastLocation
+                    let lastLocation = locations.last as! CLLocation
+                    let distance = startLocation.distance(from: lastLocation)
+                    startLocation = lastLocation
                     travelledDistance += distance
                     updateAll()
                 }
