@@ -30,7 +30,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     //fires at very short intervals
     var updateTimer = Timer()
     var startTimer = Timer()
-    var cdVal = 20
+    var cdVal = 45
     //UI linking
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var OptOutButton: UIButton!
