@@ -36,13 +36,11 @@ class StatisticsViewController: UIViewController {
             self.distance.text = "Total Distance Ran: \(value["TotalDistance"] as! Int)"
             self.racesCompleted.text = "Races Completed: \(value["CompletedRaces"] as! Int)"
             self.wins.text = "Races Won: \(value["Wins"] as! Int)"
-            self.mile.text = "Best Mile Split: \(value["BestMile"] as! Int)"
-            self.bestEightHundred.text = "Best Half-Mile Split: \(value["Best800"] as! Int)"
-            self.BestFiveKilometer.text = "Best 5k Time: \(value["Best5k"] as! Int)"
             
             
             
             
+            print("bin \(value["Wins"] as! Int)")
             
             
         }) { (error) in
