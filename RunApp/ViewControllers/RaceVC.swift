@@ -30,7 +30,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     //fires at very short intervals
     var updateTimer = Timer()
     var startTimer = Timer()
-    var cdVal = 10
+    var cdVal = 20
     //UI linking
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var OptOutButton: UIButton!
@@ -65,6 +65,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
+        print("Location being updated")
         startTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(RaceVC.startTimerChange), userInfo: nil, repeats: true)
 //        StartEverything()
         // Do any additional setup after loading the view.
@@ -95,7 +96,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
             let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             let region = MKCoordinateRegion.init(center: center, latitudinalMeters: zoom, longitudinalMeters: zoom)
             mapView.setRegion(region, animated: true)
-            if (location.horizontalAccuracy > 0) {
+            if (location.horizontalAccuracy < 5) {
                 //            var speed: CLLocationSpeed = CLLocationSpeed()
                 if startLocation == nil {
                     startLocation = locations.first!
