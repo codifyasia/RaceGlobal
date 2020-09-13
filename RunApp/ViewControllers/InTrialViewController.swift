@@ -16,6 +16,7 @@ class InTrialViewController: UIViewController, CLLocationManagerDelegate, UIText
     //Firebase
     var ref: DatabaseReference!
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var exitButton: UIButton!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var progressBar: MBCircularProgressBarView!
     @IBOutlet weak var timeLabel: UILabel!
@@ -90,6 +91,13 @@ class InTrialViewController: UIViewController, CLLocationManagerDelegate, UIText
         startButton.layer.shadowRadius = 3;
         startButton.layer.shadowOpacity = 0.5;
         startButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+        
+        exitButton.layer.cornerRadius = startButton.frame.height / 2
+        
+        exitButton.layer.shadowColor = UIColor.black.cgColor
+        exitButton.layer.shadowRadius = 3;
+        exitButton.layer.shadowOpacity = 0.5;
+        exitButton.layer.shadowOffset = CGSize(width: 0, height: 0)
     }
     
     func setDistance() {

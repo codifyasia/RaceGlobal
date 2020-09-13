@@ -23,6 +23,7 @@ class TimeTrialViewController: UIViewController {
     @IBOutlet weak var mile: UILabel!
     @IBOutlet weak var BestFiveKilometer: UILabel!
     @IBOutlet weak var trialButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     var ref: DatabaseReference!
     
     
@@ -30,7 +31,14 @@ class TimeTrialViewController: UIViewController {
         super.viewDidLoad()
         ref = Database.database().reference()
         
-        trialButton.layer.cornerRadius = 20
+                trialButton.layer.cornerRadius = trialButton.frame.height / 2
+        tableView.layer.shadowColor = UIColor.black.cgColor
+        tableView.layer.shadowRadius = 3;
+        tableView.layer.shadowOpacity = 0.5;
+        trialButton.layer.shadowColor = UIColor.black.cgColor
+        trialButton.layer.shadowRadius = 3;
+        trialButton.layer.shadowOpacity = 0.5;
+        trialButton.layer.shadowOffset = CGSize(width: 0, height: 0)
         ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             guard let value = snapshot.value as? NSDictionary else {

@@ -20,6 +20,7 @@ class QueueScreenViewController: UIViewController {
     var dotCounter = 0
     //Search Label Outlet
     @IBOutlet weak var searchingLabel: UILabel!
+    @IBOutlet weak var cancelButton: UIButton!
     //Database Reference
     var ref: DatabaseReference!
     var name:String = ""
@@ -31,6 +32,11 @@ class QueueScreenViewController: UIViewController {
         ref = Database.database().reference()
         searchingLabel.text = "Searching for Players"
         super.viewDidLoad()
+        cancelButton.layer.cornerRadius = cancelButton.frame.height / 2
+        cancelButton.layer.shadowColor = UIColor.black.cgColor
+        cancelButton.layer.shadowRadius = 3;
+        cancelButton.layer.shadowOpacity = 0.5;
+        cancelButton.layer.shadowOffset = CGSize(width: 0, height: 0)
         startAnimation()
         retrieveData()
         timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(QueueScreenViewController.change), userInfo: nil, repeats: true)

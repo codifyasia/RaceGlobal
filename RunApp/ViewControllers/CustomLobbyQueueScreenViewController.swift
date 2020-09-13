@@ -19,10 +19,16 @@ class CustomLobbyQueueViewController : UIViewController {
     var timer = Timer()
     var counter  = 1
     var currentLobby : Int!
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet var stuff: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         stuff.text = "1"
+        cancelButton.layer.cornerRadius = cancelButton.frame.height / 2
+        cancelButton.layer.shadowColor = UIColor.black.cgColor
+        cancelButton.layer.shadowRadius = 3;
+        cancelButton.layer.shadowOpacity = 0.5;
+        cancelButton.layer.shadowOffset = CGSize(width: 0, height: 0)
         ref = Database.database().reference()
         timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(CustomLobbyQueueViewController.change), userInfo: nil, repeats: true)
         startAnimation()
