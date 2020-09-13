@@ -12,16 +12,46 @@ import Firebase
 class TimeTrialViewController: UIViewController {
     
     //Firebase reference
-    var ref: DatabaseReference!
+    
     
     //custom text
     var customNum : Int = 0
+    
+    @IBOutlet weak var distance: UILabel!
+    @IBOutlet weak var racesCompleted: UILabel!
+    @IBOutlet weak var wins: UILabel!
+    @IBOutlet weak var mile: UILabel!
+    @IBOutlet weak var BestFiveKilometer: UILabel!
+    @IBOutlet weak var trialButton: UIButton!
+    var ref: DatabaseReference!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
         
+        trialButton.layer.cornerRadius = 20
+        ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            guard let value = snapshot.value as? NSDictionary else {
+                print("No Data!!!")
+                return
+            }
+            
+            
+            self.distance.text = "Total Distance Ran: \(value["TotalDistance"] as! Int)"
+            self.racesCompleted.text = "Races Completed: \(value["CompletedRaces"] as! Int)"
+            self.wins.text = "Races Won: \(value["Wins"] as! Int)"
+            
+            
+            
+            
+            print("bin \(value["Wins"] as! Int)")
+            
+            
+        }) { (error) in
+            print("error:\(error.localizedDescription)")
+        }
         
         
     }
@@ -47,21 +77,9 @@ class TimeTrialViewController: UIViewController {
             self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["TrialDistance" : 5000])
             self.performSegue(withIdentifier: "toTrial", sender: self)
         }
-//        let action5 = UIAlertAction(title: "Custom Distance", style: .default) { (action) in
-//            let customAlert = UIAlertController(title: "Distance", message: "Enter your Distance", preferredStyle: .alert)
-//            customAlert.addTextField { (textField) in
-//                textField.keyboardType = .numberPad
-//                textField.placeholder = "Distance to run"
-//                self.customNum = textField as! Int
-//            }
-//
-//            let doneAction = UIAlertAction(title: "Done", style: .default) { (action) in
-//
-//                self.performSegue(withIdentifier: "toTrial", sender: self)
-//            }
-//
-//            self.present(customAlert, animated: true, completion: nil)
-//        }
+
+        
+        
         
         alert.addAction(action1)
         alert.addAction(action2)
