@@ -30,6 +30,7 @@ class InTrialViewController: UIViewController, CLLocationManagerDelegate, UIText
     
     var started : Bool = false
     
+    var cdVal = 10
     
     //distances
     let locationManager = CLLocationManager()
@@ -123,31 +124,33 @@ class InTrialViewController: UIViewController, CLLocationManagerDelegate, UIText
     //TODO: Location!!!
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print(traveledDistance)
-        let location = locations[locations.count - 1]
-        if (location.horizontalAccuracy > 0) {
-            //            var speed: CLLocationSpeed = CLLocationSpeed()
-            if startLocation == nil {
-                startLocation = locations.first
-            } else {
-                if (traveledDistance >= dist) {
-                    locationManager.stopUpdatingLocation()
-                }
-                let lastLocation = locations.last as! CLLocation
-                if (startLocation.distance(from: lastLocation) > 4) {
-                    let distance = startLocation.distance(from: lastLocation)
-                    startLocation = lastLocation
-                    traveledDistance += distance
-                    updateSelfProgress()
+        if (cdVal <= 0) {
+            guard let location = locations.last else { return }
+            if (location.horizontalAccuracy < 10) {
+                //            var speed: CLLocationSpeed = CLLocationSpeed()
+                if startLocation == nil {
+                    startLocation = locations.first
+                } else {
+                    if (traveledDistance >= dist) {
+                        locationManager.stopUpdatingLocation()
+                    }
+                    let lastLocation = locations.last as! CLLocation
+                    if (startLocation.distance(from: lastLocation) > 4) {
+                        let distance = startLocation.distance(from: lastLocation)
+                        startLocation = lastLocation
+                        traveledDistance += distance
+                        updateSelfProgress()
+                    }
                 }
             }
         }
     }
     
+    
     func updateSelfProgress() {
         //        distanceLabel.text = String(traveledDistance)
         UIView.animate(withDuration: 0.5) {
             let bar = CGFloat(self.traveledDistance / self.dist) * 100
-            
             if (bar <= 100) {
                 self.progressBar.value = bar
             }
