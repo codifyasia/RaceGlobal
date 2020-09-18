@@ -61,6 +61,7 @@ class InTrialViewController: UIViewController, CLLocationManagerDelegate, UIText
             timer.invalidate()
             startButton.setTitle("Start", for: .normal)
             started = false
+            locationManager.stopUpdatingLocation()
             
         }
     }
@@ -124,24 +125,20 @@ class InTrialViewController: UIViewController, CLLocationManagerDelegate, UIText
     //TODO: Location!!!
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print(traveledDistance)
-        if (cdVal <= 0) {
-            guard let location = locations.last else { return }
-            if (location.horizontalAccuracy < 10) {
-                //            var speed: CLLocationSpeed = CLLocationSpeed()
-                if startLocation == nil {
-                    startLocation = locations.first
-                } else {
-                    if (traveledDistance >= dist) {
-                        locationManager.stopUpdatingLocation()
-                    }
-                    let lastLocation = locations.last as! CLLocation
-                    if (startLocation.distance(from: lastLocation) > 4) {
-                        let distance = startLocation.distance(from: lastLocation)
-                        startLocation = lastLocation
-                        traveledDistance += distance
-                        updateSelfProgress()
-                    }
+        guard let location = locations.last else { return }
+        if (location.horizontalAccuracy < 100) { //might need to change this value
+            //            var speed: CLLocationSpeed = CLLocationSpeed()
+            if startLocation == nil {
+                startLocation = locations.first
+            } else {
+                if (traveledDistance >= dist) {
+                    locationManager.stopUpdatingLocation()
                 }
+                let lastLocation = locations.last as! CLLocation
+                let distance = startLocation.distance(from: lastLocation)
+                startLocation = lastLocation
+                traveledDistance += distance
+                updateSelfProgress()
             }
         }
     }

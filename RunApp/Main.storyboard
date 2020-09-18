@@ -699,7 +699,7 @@
             <objects>
                 <viewController id="hj3-Nx-gLJ" customClass="TimeTrialViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SiZ-cy-Ag5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnP-Ok-RgA">
@@ -1193,9 +1193,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="l4k-c0-FDY"/>
         <segue reference="tgZ-Yd-6wl"/>
-        <segue reference="xFx-98-eTL"/>
+        <segue reference="wya-S8-bIR"/>
         <segue reference="djm-DF-YzH"/>
     </inferredMetricsTieBreakers>
     <resources>
