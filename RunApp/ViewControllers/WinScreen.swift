@@ -12,6 +12,7 @@ import Firebase
 class WinScreen: UIViewController {
     
     @IBOutlet weak var WonLabel: UILabel!
+    @IBOutlet weak var backToMainMenu: UIButton!
     var phoneNum = ""
     var ref : DatabaseReference!
     var StringLabel = ""
