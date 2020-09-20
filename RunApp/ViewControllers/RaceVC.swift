@@ -236,6 +236,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
                 } else {
                     self.locationManager.stopUpdatingLocation()
                     self.performSegue(withIdentifier: "goToLoseScreen", sender: self)
+                    self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).child("Previous").child("1").updateChildValues(["disttraveled":self.travelledDistance])
                 }
             }
         }
