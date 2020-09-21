@@ -20,10 +20,14 @@ class StatisticsViewController: UIViewController {
     @IBOutlet weak var BestFiveKilometer: UILabel!
     var ref: DatabaseReference!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
         
+//        tableView.delegate = self
+//        tableView.dataSource = self
         
         ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
@@ -51,6 +55,10 @@ class StatisticsViewController: UIViewController {
         
         
         
+        
+    }
+    
+    func retrieveData(){
         
     }
     

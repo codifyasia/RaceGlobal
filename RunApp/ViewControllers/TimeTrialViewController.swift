@@ -25,11 +25,15 @@ class TimeTrialViewController: UIViewController {
     @IBOutlet weak var trialButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     var ref: DatabaseReference!
+    var statsList: [statClass] = [statClass]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         
                 trialButton.layer.cornerRadius = trialButton.frame.height / 2
         tableView.layer.shadowColor = UIColor.black.cgColor
@@ -101,6 +105,33 @@ class TimeTrialViewController: UIViewController {
         
         
     }
+    func retrieveData(){
+        ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).child("Previous").observeSingleEvent(of: .value, with: { (snapshot) in
+            for users in snapshot.children.allObjects as! [DataSnapshot] {
+                guard let value = users.value as? NSDictionary else {
+                    return
+                }
+                let d = value["dist"] as! Double
+                let w = value["won"] as! Bool
+                let date = value["date"] as! String
+                
+                statsList.append(statClass(dist: d, time: w, stamp: date))
+                
+                
+//                self.playerList.append(playerCell(user: name, score: score))
+                
+                
+                
+            }
+            
+//            self.playerList = self.playerList.sorted() { $0.score > $1.score }
+            self.tableView.reloadData()
+        }) { (error) in
+            print("error:(error.localizedDescription)")
+        }
+    }
+    
+    
     
     
     /*
@@ -112,5 +143,25 @@ class TimeTrialViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
+}
+
+extension TimeTrialViewController: UITableViewDelegate{
+    
+}
+
+extension TimeTrialViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return statsList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "bell", for: indexPath) as! statsTableCell
+        
+        cell.distance.text = String(statsList[indexPath.row].dist)
+        cell.time.text = String(statsList[indexPath.row].time)
+        cell.stamp.text = String(statsList[indexPath.row].stamp)
+    }
+    
     
 }
