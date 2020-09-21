@@ -36,7 +36,7 @@
             landmarkType = "0">
             <Locations>
                <Location
-                  uuid = "5A095645-C708-4837-8FF2-8126474E36AF - 63260a1c9f5c604a"
+                  uuid = "5A095645-C708-4837-8FF2-8126474E36AF - 96a04759f587c1ca"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -51,7 +51,7 @@
                   offsetFromSymbolStart = "12">
                </Location>
                <Location
-                  uuid = "5A095645-C708-4837-8FF2-8126474E36AF - 64b22e118e711559"
+                  uuid = "5A095645-C708-4837-8FF2-8126474E36AF - 91346354e4aab166"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -66,7 +66,7 @@
                   offsetFromSymbolStart = "189">
                </Location>
                <Location
-                  uuid = "5A095645-C708-4837-8FF2-8126474E36AF - 6bf110b4e700b9e8"
+                  uuid = "5A095645-C708-4837-8FF2-8126474E36AF - 9e775df18ddb1868"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -81,7 +81,7 @@
                   offsetFromSymbolStart = "12">
                </Location>
                <Location
-                  uuid = "5A095645-C708-4837-8FF2-8126474E36AF - 17c91a9f0b0a4230"
+                  uuid = "5A095645-C708-4837-8FF2-8126474E36AF - e24f57da61d1e60f"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -96,7 +96,7 @@
                   offsetFromSymbolStart = "126">
                </Location>
                <Location
-                  uuid = "5A095645-C708-4837-8FF2-8126474E36AF - a6c10eeb520b88af"
+                  uuid = "5A095645-C708-4837-8FF2-8126474E36AF - 534743ae38d0292f"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -193,7 +193,7 @@
             landmarkType = "0">
             <Locations>
                <Location
-                  uuid = "0846EF1F-43E2-4B01-96A0-2480E767154F - 6457bc0988de92b6"
+                  uuid = "0846EF1F-43E2-4B01-96A0-2480E767154F - 91d1f14ce2053689"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -208,7 +208,7 @@
                   offsetFromSymbolStart = "59">
                </Location>
                <Location
-                  uuid = "0846EF1F-43E2-4B01-96A0-2480E767154F - 64b22e118e711559"
+                  uuid = "0846EF1F-43E2-4B01-96A0-2480E767154F - 91346354e4aab166"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -223,7 +223,7 @@
                   offsetFromSymbolStart = "189">
                </Location>
                <Location
-                  uuid = "0846EF1F-43E2-4B01-96A0-2480E767154F - 17c91a9f0b0a4230"
+                  uuid = "0846EF1F-43E2-4B01-96A0-2480E767154F - e24f57da61d1e60f"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -256,7 +256,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "EC9AEAE1-33EB-46C8-94FC-49E88E948067 - 37a9be024a742d69"
+                  uuid = "EC9AEAE1-33EB-46C8-94FC-49E88E948067 - 2d878873a622bba6"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -271,7 +271,7 @@
                   offsetFromSymbolStart = "3398">
                </Location>
                <Location
-                  uuid = "EC9AEAE1-33EB-46C8-94FC-49E88E948067 - e8603b2902701b97"
+                  uuid = "EC9AEAE1-33EB-46C8-94FC-49E88E948067 - f24e0d58ee268d79"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
