@@ -232,11 +232,13 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
                 if !snapshot.hasChild("Winner") {
                     self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").updateChildValues(["Winner" : Auth.auth().currentUser!.uid])
                     self.locationManager.stopUpdatingLocation()
+                    self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).child("Previous").childByAutoId().updateChildValues(["dist":self.travelledDistance, "won": true, "date": "yote"])
                     self.performSegue(withIdentifier: "toWinScreen", sender: self)
                 } else {
                     self.locationManager.stopUpdatingLocation()
+                    self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).child("Previous").childByAutoId().updateChildValues(["dist":self.travelledDistance, "won": false, "date": "yote"])
                     self.performSegue(withIdentifier: "goToLoseScreen", sender: self)
-                    self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).child("Previous").child("1").updateChildValues(["disttraveled":self.travelledDistance])
+
                 }
             }
         }
