@@ -112,10 +112,10 @@ class TimeTrialViewController: UIViewController {
                     return
                 }
                 let d = value["dist"] as! Double
-                let w = value["won"] as! Bool
+//                let w = value["won"] as! Bool
                 let date = value["date"] as! String
                 
-                statsList.append(statClass(dist: d, time: w, stamp: date))
+                self.statsList.append(statClass(dist: d, time: 10, stamp: 10))
                 
                 
 //                self.playerList.append(playerCell(user: name, score: score))
@@ -159,8 +159,8 @@ extension TimeTrialViewController: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "bell", for: indexPath) as! statsTableCell
         
         cell.distance.text = String(statsList[indexPath.row].dist)
-        cell.time.text = String(statsList[indexPath.row].time)
-        cell.stamp.text = String(statsList[indexPath.row].stamp)
+//        cell.time.text = String(statsList[indexPath.row].time)
+//        cell.stamp.text = String(statsList[indexPath.row].stamp)
     }
     
     
