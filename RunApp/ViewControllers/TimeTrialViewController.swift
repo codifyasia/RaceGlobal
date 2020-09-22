@@ -161,6 +161,7 @@ extension TimeTrialViewController: UITableViewDataSource{
         cell.distance.text = String(statsList[indexPath.row].dist)
 //        cell.time.text = String(statsList[indexPath.row].time)
 //        cell.stamp.text = String(statsList[indexPath.row].stamp)
+        return cell
     }
     
     
