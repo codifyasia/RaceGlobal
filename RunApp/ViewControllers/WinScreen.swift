@@ -8,24 +8,46 @@
 
 import UIKit
 import Firebase
+import Lottie
+
 
 class WinScreen: UIViewController {
     
     @IBOutlet weak var WonLabel: UILabel!
     @IBOutlet weak var backToMainMenu: UIButton!
+    @IBOutlet weak var msgButton: UIButton!
+    @IBOutlet var runningFlash: AnimationView!
+    @IBOutlet weak var mmButton: UIButton!
+    
     var phoneNum = ""
     var ref : DatabaseReference!
     var StringLabel = ""
     var currentLobby : Int!
     override func viewDidLoad() {
         super.viewDidLoad()
+        startAnimation()
         ref = Database.database().reference()
+        msgButton.layer.cornerRadius = msgButton.frame.height / 2
+        msgButton.layer.shadowColor = UIColor.black.cgColor
+        msgButton.layer.shadowRadius = 3;
+        msgButton.layer.shadowOpacity = 0.5;
+        msgButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+        
+        mmButton.layer.cornerRadius = msgButton.frame.height / 2
+        mmButton.layer.shadowColor = UIColor.black.cgColor
+        mmButton.layer.shadowRadius = 3;
+        mmButton.layer.shadowOpacity = 0.5;
+        mmButton.layer.shadowOffset = CGSize(width: 0, height: 0)
         // Do any additional setup after loading the view.
     }
     @IBAction func goToMessages(_ sender: Any) {
         retrieveData()
     }
-    
+    func startAnimation() {
+        runningFlash.animation = Animation.named("runningFlash")
+        runningFlash.loopMode = .loop
+        runningFlash.play()
+    }
         func retrieveData() {
                 ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { snapshot in
                     print(snapshot.childrenCount)

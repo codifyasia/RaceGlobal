@@ -13,13 +13,25 @@ import Firebase
 class LoseScreen: UIViewController {
     var ref: DatabaseReference!
     var phoneNum = ""
+    @IBOutlet weak var msgButton: UIButton!
+    @IBOutlet weak var mmButton: UIButton!
     var currentLobby : Int!
     @IBOutlet var runningFlash: AnimationView!
     override func viewDidLoad() {
         super.viewDidLoad()
         startAnimation()
         ref = Database.database().reference()
+        msgButton.layer.cornerRadius = msgButton.frame.height / 2
+        msgButton.layer.shadowColor = UIColor.black.cgColor
+        msgButton.layer.shadowRadius = 3;
+        msgButton.layer.shadowOpacity = 0.5;
+        msgButton.layer.shadowOffset = CGSize(width: 0, height: 0)
         
+        mmButton.layer.cornerRadius = msgButton.frame.height / 2
+        mmButton.layer.shadowColor = UIColor.black.cgColor
+        mmButton.layer.shadowRadius = 3;
+        mmButton.layer.shadowOpacity = 0.5;
+        mmButton.layer.shadowOffset = CGSize(width: 0, height: 0)
         // Do any additional setup after loading the view.
     }
     
