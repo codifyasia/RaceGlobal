@@ -18,6 +18,8 @@ class WinScreen: UIViewController {
     @IBOutlet weak var msgButton: UIButton!
     @IBOutlet var runningFlash: AnimationView!
     @IBOutlet weak var mmButton: UIButton!
+    @IBOutlet weak var time: UILabel!
+    
     
     var phoneNum = ""
     var ref : DatabaseReference!
@@ -27,6 +29,8 @@ class WinScreen: UIViewController {
         super.viewDidLoad()
         startAnimation()
         ref = Database.database().reference()
+        
+        //display time
         msgButton.layer.cornerRadius = msgButton.frame.height / 2
         msgButton.layer.shadowColor = UIColor.black.cgColor
         msgButton.layer.shadowRadius = 3;

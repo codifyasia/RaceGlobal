@@ -31,6 +31,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     var updateTimer = Timer()
     var startTimer = Timer()
     var cdVal = 30
+    var finalTime : Double!
     //UI linking
 //    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var OptOutButton: UIButton!
@@ -102,8 +103,11 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
                     startLocation = locations.first!
                 } else {
                     if (travelledDistance >= goalDistance) {
-                        checkIfPlayerWon()
+                        finalTime = Double(hundreds * 60.0 + tens + ones / 100.0)
+                        ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).setValue(["Time": finalTime])
+                        updateTimer.invalidate()
                         locationManager.stopUpdatingLocation()
+                        checkIfPlayerWon()
                     }
                     let lastLocation = locations.last as! CLLocation
                     let distance = startLocation.distance(from: lastLocation)
@@ -231,11 +235,9 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
             ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { (snapshot) in
                 if !snapshot.hasChild("Winner") {
                     self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").updateChildValues(["Winner" : Auth.auth().currentUser!.uid])
-                    self.locationManager.stopUpdatingLocation()
                     self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).child("Previous").childByAutoId().updateChildValues(["dist":self.travelledDistance, "won": true, "date": "yote"])
                     self.performSegue(withIdentifier: "toWinScreen", sender: self)
                 } else {
-                    self.locationManager.stopUpdatingLocation()
                     self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).child("Previous").childByAutoId().updateChildValues(["dist":self.travelledDistance, "won": false, "date": "yote"])
                     self.performSegue(withIdentifier: "goToLoseScreen", sender: self)
 
@@ -253,6 +255,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         if (segue.identifier == "toWinScreen") {
             let destinationVC = segue.destination as! WinScreen
             destinationVC.currentLobby = self.currentLobby
+            destinationVC.time.text = "\(hundreds):\(tens):\(ones)"
         }
     }
     
