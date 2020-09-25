@@ -103,7 +103,9 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
                     startLocation = locations.first!
                 } else {
                     if (travelledDistance >= goalDistance) {
-                        finalTime = Double(hundreds * 60.0 + tens + ones / 100.0)
+                        finalTime = Double(hundreds) * 60.0
+                        finalTime += Double(tens)
+                        finalTime += Double(ones) / 100.0
                         ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).setValue(["Time": finalTime])
                         updateTimer.invalidate()
                         locationManager.stopUpdatingLocation()
@@ -251,6 +253,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         if segue.identifier == "goToLoseScreen" {
             let destinationVC = segue.destination as! LoseScreen
             destinationVC.currentLobby = self.currentLobby
+            destinationVC.time.text = "\(hundreds):\(tens):\(ones)"
         }
         if (segue.identifier == "toWinScreen") {
             let destinationVC = segue.destination as! WinScreen

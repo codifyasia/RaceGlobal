@@ -470,6 +470,7 @@
                         <outlet property="mmButton" destination="Ibj-9N-aN9" id="ehi-YF-qbh"/>
                         <outlet property="msgButton" destination="xVQ-eu-TEK" id="mI8-X6-zzQ"/>
                         <outlet property="runningFlash" destination="0Hf-SB-xdS" id="Q4E-DW-hAa"/>
+                        <outlet property="time" destination="fkd-ws-D1q" id="nwW-co-v4H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fod-sK-q5t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

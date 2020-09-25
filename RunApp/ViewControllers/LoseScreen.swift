@@ -17,6 +17,7 @@ class LoseScreen: UIViewController {
     @IBOutlet weak var mmButton: UIButton!
     var currentLobby : Int!
     @IBOutlet var runningFlash: AnimationView!
+    @IBOutlet weak var time: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         startAnimation()
