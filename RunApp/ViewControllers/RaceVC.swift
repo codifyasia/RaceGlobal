@@ -32,7 +32,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     var startTimer = Timer()
     var cdVal = 30
     //UI linking
-    @IBOutlet weak var statusLabel: UILabel!
+//    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var OptOutButton: UIButton!
     @IBOutlet weak var enemyProgressBar: MBCircularProgressBarView!
     @IBOutlet weak var playerProgressBar: MBCircularProgressBarView!
@@ -42,8 +42,8 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     @IBOutlet weak var EnemyLabel: UILabel! // rename these
     @IBOutlet weak var cdLabel: UILabel!
     var name: String!
-    @IBOutlet weak var progressLabel: UILabel!
-    @IBOutlet weak var expandMap: UIButton!
+//    @IBOutlet weak var progressLabel: UILabel!
+    
     
     @IBOutlet weak var mapView: MKMapView!
     //Timer
@@ -195,10 +195,10 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         print("entered checking other status")
         ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { (snapshot) in
             if snapshot.hasChild("Winner") {
-                self.statusLabel.text = "opponent alr won"
+//                self.statusLabel.text = "opponent alr won"
             }
             if snapshot.hasChild("OptOut") {
-                self.statusLabel.text = "opponent opted out"
+//                self.statusLabel.text = "opponent opted out"
             }
         }
     }
@@ -290,7 +290,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     
     
     func hideAll() {
-        statusLabel.isHidden = true
+//        statusLabel.isHidden = true
         OptOutButton.isHidden = true
         traveledDistanceLabel.isHidden = true
         enemyProgressBar.isHidden = true
@@ -298,14 +298,14 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         goalDistanceLabel.isHidden = true
         NameLabel.isHidden = true
         EnemyLabel.isHidden = true
-        progressLabel.isHidden = true
+//        progressLabel.isHidden = true
         mapView.isHidden = true
-        expandMap.isHidden = true
+//        expandMap.isHidden = true
         
     }
     
     func showAll() {
-        statusLabel.isHidden = false
+//        statusLabel.isHidden = false
         OptOutButton.isHidden = false
         traveledDistanceLabel.isHidden = false
         cdLabel.isHidden = false
@@ -314,9 +314,9 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         goalDistanceLabel.isHidden = false
         NameLabel.isHidden = false
         EnemyLabel.isHidden = false
-        progressLabel.isHidden = false
+//        progressLabel.isHidden = false
         mapView.isHidden = false
-        expandMap.isHidden = false
+//        expandMap.isHidden = false
     }
     
     @objc func startTimerChange() {
