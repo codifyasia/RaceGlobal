@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZWA-1g-zMV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="en4-WR-FdK">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -392,7 +392,6 @@
                         <outlet property="mmButton" destination="tOf-hl-88d" id="66t-d4-aok"/>
                         <outlet property="msgButton" destination="air-5b-1kh" id="3Gd-Ik-Ni2"/>
                         <outlet property="runningFlash" destination="wQM-tF-vAB" id="98v-ni-WJT"/>
-                        <outlet property="time" destination="pss-xT-nhi" id="3Lg-LE-fzk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tNV-c4-2bZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -470,7 +469,6 @@
                         <outlet property="mmButton" destination="Ibj-9N-aN9" id="ehi-YF-qbh"/>
                         <outlet property="msgButton" destination="xVQ-eu-TEK" id="mI8-X6-zzQ"/>
                         <outlet property="runningFlash" destination="0Hf-SB-xdS" id="Q4E-DW-hAa"/>
-                        <outlet property="time" destination="fkd-ws-D1q" id="nwW-co-v4H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fod-sK-q5t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -780,7 +778,7 @@
             <objects>
                 <viewController id="hj3-Nx-gLJ" customClass="TimeTrialViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SiZ-cy-Ag5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnP-Ok-RgA">
@@ -875,7 +873,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Nll-W0-y7B">
             <objects>
-                <tabBarController modalPresentationStyle="fullScreen" id="Tto-1j-1eD" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainStoryboard" modalPresentationStyle="fullScreen" id="Tto-1j-1eD" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="jgJ-so-8sQ"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YyO-BY-e8B">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -1020,10 +1018,25 @@
             </objects>
             <point key="canvasLocation" x="3411.594202898551" y="-207.58928571428569"/>
         </scene>
+        <!--Auth Handler-->
+        <scene sceneID="wd3-QO-Znj">
+            <objects>
+                <viewController id="en4-WR-FdK" customClass="AuthHandler" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W4g-ac-1pr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Csd-TK-lTt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mho-Yu-lAK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4197" y="-1097"/>
+        </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="UF6-Ej-vPz">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="ZWA-1g-zMV" customClass="SignUpViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Register" modalPresentationStyle="fullScreen" id="ZWA-1g-zMV" customClass="SignUpViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X7y-T0-cry">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1031,8 +1044,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DH0-gm-k3b">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBm-s1-JQn" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OBm-s1-JQn" userLabel="ContentView">
+                                        <rect key="frame" x="-8" y="0.0" width="414" height="896"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Enter your phone number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fbq-g4-1f6">
                                                 <rect key="frame" x="16" y="279" width="382" height="34"/>
@@ -1292,8 +1305,8 @@
         <designable name="wQM-tF-vAB"/>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="tgZ-Yd-6wl"/>
-        <segue reference="hOo-bE-40F"/>
+        <segue reference="6q0-jF-oIn"/>
+        <segue reference="ScD-de-M0L"/>
         <segue reference="tc7-xb-7gJ"/>
     </inferredMetricsTieBreakers>
     <resources>

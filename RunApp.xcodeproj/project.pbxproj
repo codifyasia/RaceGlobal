@@ -43,6 +43,8 @@
 		9C90E68422F8E6FF00376DDA /* raceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C90E68322F8E6FF00376DDA /* raceScreen.swift */; };
 		9CA8D42823442BD000B2AEC2 /* WinScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA8D42723442BD000B2AEC2 /* WinScreen.swift */; };
 		9CC1E7552349782600A4632A /* runninganimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CC1E7542349782600A4632A /* runninganimation.json */; };
+		9CC89E8925200094006CC6CE /* AuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC89E8825200094006CC6CE /* AuthHandler.swift */; };
+		9CC89E8C25200103006CC6CE /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC89E8B25200103006CC6CE /* AuthManager.swift */; };
 		CC7FC6A63A98319046DC8F48 /* Pods_RunApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B305F65C8608FFE7E168E376 /* Pods_RunApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +90,8 @@
 		9C90E68322F8E6FF00376DDA /* raceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = raceScreen.swift; sourceTree = "<group>"; };
 		9CA8D42723442BD000B2AEC2 /* WinScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinScreen.swift; sourceTree = "<group>"; };
 		9CC1E7542349782600A4632A /* runninganimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = runninganimation.json; sourceTree = "<group>"; };
+		9CC89E8825200094006CC6CE /* AuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHandler.swift; sourceTree = "<group>"; };
+		9CC89E8B25200103006CC6CE /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		B305F65C8608FFE7E168E376 /* Pods_RunApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B775B0A46C7C933075009024 /* Pods-RunApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunApp.release.xcconfig"; path = "Target Support Files/Pods-RunApp/Pods-RunApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +142,8 @@
 				89FA1A3D23493BD7004F412B /* Color Extensions */,
 				890F3A9022F8DD4100D14044 /* AppDelegate.swift */,
 				896400CC2352429C00D9DD8F /* Main.storyboard */,
+				9CC89E8B25200103006CC6CE /* AuthManager.swift */,
+				9CC89E8825200094006CC6CE /* AuthHandler.swift */,
 				895C8F7525193AEB003AF77B /* statClass.swift */,
 				895C8F712519386E003AF77B /* statsTableCell.swift */,
 				895C8F722519386E003AF77B /* statsTableCell.xib */,
@@ -345,12 +351,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				890F3A9322F8DD4100D14044 /* ViewController.swift in Sources */,
+				9CC89E8C25200103006CC6CE /* AuthManager.swift in Sources */,
 				890F3A9122F8DD4100D14044 /* AppDelegate.swift in Sources */,
 				895C8F7625193AEB003AF77B /* statClass.swift in Sources */,
 				8904202F22FA33F50044EEBD /* SignUpViewController.swift in Sources */,
 				89FA1A41234EDFB0004F412B /* StatisticsViewController.swift in Sources */,
 				89D2531523777F9500B8D7D6 /* InTrialViewController.swift in Sources */,
 				9C327DC622FF40EC00D04ACA /* mainMenu.swift in Sources */,
+				9CC89E8925200094006CC6CE /* AuthHandler.swift in Sources */,
 				9CA8D42823442BD000B2AEC2 /* WinScreen.swift in Sources */,
 				895BBB3B2311F1B1006F06FE /* QueueScreenViewController.swift in Sources */,
 				8904203122FA359F0044EEBD /* LoginViewController.swift in Sources */,
