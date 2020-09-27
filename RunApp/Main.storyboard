@@ -114,6 +114,7 @@
                         <outlet property="progressBar" destination="wpt-YL-Jjj" id="wYO-bt-ntM"/>
                         <outlet property="startButton" destination="H1e-qc-QFi" id="AnS-X6-ufv"/>
                         <outlet property="timeLabel" destination="eqa-3p-9GK" id="nvy-OE-yDe"/>
+                        <segue destination="9TJ-4A-s6H" kind="presentation" identifier="backToMainMenu" id="zkm-pb-Jbg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ld8-iE-DUU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -386,6 +387,7 @@
                         <viewLayoutGuide key="safeArea" id="D9P-1o-Pnd"/>
                         <color key="backgroundColor" red="0.22745098039215686" green="0.22745098039215686" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="rHm-66-Eju"/>
                     <connections>
                         <outlet property="WonLabel" destination="5ql-Pf-GwF" id="PaX-Zm-CTM"/>
                         <outlet property="backToMainMenu" destination="tOf-hl-88d" id="Hfl-43-gmj"/>
@@ -675,6 +677,7 @@
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eNk-3G-bto">
                                         <rect key="frame" x="16" y="104" width="382" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <attributedString key="attributedText"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -701,6 +704,7 @@
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dVx-Lx-HGs">
                                         <rect key="frame" x="16" y="192" width="382" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <attributedString key="attributedText"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -1050,7 +1054,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Enter your phone number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fbq-g4-1f6">
                                                 <rect key="frame" x="16" y="279" width="382" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.8973138947" green="0.8973138947" blue="0.8973138947" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
@@ -1084,7 +1088,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Type your email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tby-fC-Hat">
                                                 <rect key="frame" x="16" y="427" width="382" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.8973138947" green="0.8973138947" blue="0.8973138947" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -1106,7 +1110,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Enter your password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CHc-3U-Xty">
                                                 <rect key="frame" x="16" y="501" width="382" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.8973138947" green="0.8973138947" blue="0.8973138947" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -1135,7 +1139,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Choose a username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZuM-d9-fSQ">
                                                 <rect key="frame" x="16" y="353" width="382" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.8973138947" green="0.8973138947" blue="0.8973138947" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -1178,7 +1182,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Enter your last name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sc4-x5-q5f">
                                                 <rect key="frame" x="16" y="205" width="382" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.8973138947" green="0.8973138947" blue="0.8973138947" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -1212,7 +1216,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Enter your first name" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Cex-Ms-HiY">
                                                 <rect key="frame" x="16" y="131" width="382" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.8973138947" green="0.8973138947" blue="0.8973138947" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -1305,7 +1309,7 @@
         <designable name="wQM-tF-vAB"/>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="6q0-jF-oIn"/>
+        <segue reference="tgZ-Yd-6wl"/>
         <segue reference="ScD-de-M0L"/>
         <segue reference="tc7-xb-7gJ"/>
     </inferredMetricsTieBreakers>

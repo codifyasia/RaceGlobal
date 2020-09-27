@@ -61,7 +61,6 @@ class InTrialViewController: UIViewController, CLLocationManagerDelegate, UIText
             timer.invalidate()
             startButton.setTitle("Start", for: .normal)
             started = false
-            locationManager.stopUpdatingLocation()
             
         }
     }
@@ -125,22 +124,34 @@ class InTrialViewController: UIViewController, CLLocationManagerDelegate, UIText
     //TODO: Location!!!
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print(traveledDistance)
-        guard let location = locations.last else { return }
-        if (location.horizontalAccuracy < 100) { //might need to change this value
-            //            var speed: CLLocationSpeed = CLLocationSpeed()
-            if startLocation == nil {
-                startLocation = locations.first
-            } else {
-                if (traveledDistance >= dist) {
-                    locationManager.stopUpdatingLocation()
+        if (started) {
+            guard let location = locations.last else { return }
+            if (location.horizontalAccuracy < 100) { //might need to change this value
+                //            var speed: CLLocationSpeed = CLLocationSpeed()
+                if startLocation == nil {
+                    startLocation = locations.first
+                } else {
+                    if (traveledDistance >= dist) {
+                        locationManager.stopUpdatingLocation()
+                        timer.invalidate()
+                        
+                        let alert = UIAlertController(title: "Good Job!", message: "Your time was " + "\(hundreds):\(tens):\(ones)", preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                            alert.dismiss(animated: true, completion: nil)
+                            self.performSegue(withIdentifier: "backToMainMenu", sender: self)
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    let lastLocation = locations.last as! CLLocation
+                    let distance = startLocation.distance(from: lastLocation)
+                    startLocation = lastLocation
+                    traveledDistance += distance
+                    updateSelfProgress()
                 }
-                let lastLocation = locations.last as! CLLocation
-                let distance = startLocation.distance(from: lastLocation)
-                startLocation = lastLocation
-                traveledDistance += distance
-                updateSelfProgress()
             }
         }
+        
     }
     
     
@@ -154,6 +165,13 @@ class InTrialViewController: UIViewController, CLLocationManagerDelegate, UIText
             else if (bar > 100) {
                 self.progressBar.value = 100
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toWinScreen") {
+            let destinationVC = segue.destination as! WinScreen
+            destinationVC.time.text = "\(hundreds):\(tens):\(ones)"
         }
     }
     
