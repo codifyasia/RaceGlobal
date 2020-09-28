@@ -111,6 +111,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIScrollViewD
         textField.resignFirstResponder()
         return true
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.x > 0 {
+            scrollView.contentOffset.x = 0
+        }
+    }
     /*
      // MARK: - Navigation
      
