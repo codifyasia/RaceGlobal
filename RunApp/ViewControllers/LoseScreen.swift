@@ -18,6 +18,7 @@ class LoseScreen: UIViewController {
     var currentLobby : Int!
     @IBOutlet var runningFlash: AnimationView!
     @IBOutlet weak var time: UILabel!
+    var dist : Double = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         startAnimation()
@@ -33,7 +34,8 @@ class LoseScreen: UIViewController {
         mmButton.layer.shadowRadius = 3;
         mmButton.layer.shadowOpacity = 0.5;
         mmButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-        // Do any additional setup after loading the view.
+        
+            self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).child("Previous").childByAutoId().updateChildValues(["dist":dist, "won": false, "date": "yote"])
     }
     
     

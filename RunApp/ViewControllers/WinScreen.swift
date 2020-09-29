@@ -25,6 +25,7 @@ class WinScreen: UIViewController {
     var ref : DatabaseReference!
     var StringLabel = ""
     var currentLobby : Int!
+    var dist : Double = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         startAnimation()
@@ -43,6 +44,7 @@ class WinScreen: UIViewController {
         mmButton.layer.shadowOpacity = 0.5;
         mmButton.layer.shadowOffset = CGSize(width: 0, height: 0)
         // Do any additional setup after loading the view.
+            self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).child("Previous").childByAutoId().updateChildValues(["dist":dist, "won": true, "date": "yote"])
     }
     @IBAction func goToMessages(_ sender: Any) {
         retrieveData()

@@ -237,10 +237,10 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
             ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { (snapshot) in
                 if !snapshot.hasChild("Winner") {
                     self.ref.child("RacingPlayers").child("Players").child("\(self.currentLobby!)").updateChildValues(["Winner" : Auth.auth().currentUser!.uid])
-                    self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).child("Previous").childByAutoId().updateChildValues(["dist":self.travelledDistance, "won": true, "date": "yote"])
+//                    self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).child("Previous").childByAutoId().updateChildValues(["dist":self.travelledDistance, "won": true, "date": "yote"])
                     self.performSegue(withIdentifier: "toWinScreen", sender: self)
                 } else {
-                    self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).child("Previous").childByAutoId().updateChildValues(["dist":self.travelledDistance, "won": false, "date": "yote"])
+//                    self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).child("Previous").childByAutoId().updateChildValues(["dist":self.travelledDistance, "won": false, "date": "yote"])
                     self.performSegue(withIdentifier: "goToLoseScreen", sender: self)
 
                 }
@@ -254,11 +254,13 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
             let destinationVC = segue.destination as! LoseScreen
             destinationVC.currentLobby = self.currentLobby
             destinationVC.time.text = "\(hundreds):\(tens):\(ones)"
+            destinationVC.dist = travelledDistance
         }
         if (segue.identifier == "toWinScreen") {
             let destinationVC = segue.destination as! WinScreen
             destinationVC.currentLobby = self.currentLobby
             destinationVC.time.text = "\(hundreds):\(tens):\(ones)"
+            destinationVC.dist = travelledDistance
         }
     }
     
