@@ -414,6 +414,7 @@
                         <outlet property="mmButton" destination="tOf-hl-88d" id="66t-d4-aok"/>
                         <outlet property="msgButton" destination="air-5b-1kh" id="3Gd-Ik-Ni2"/>
                         <outlet property="runningFlash" destination="wQM-tF-vAB" id="98v-ni-WJT"/>
+                        <outlet property="time" destination="pss-xT-nhi" id="Sdd-YR-IEr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tNV-c4-2bZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -520,6 +521,7 @@
                         <outlet property="mmButton" destination="Ibj-9N-aN9" id="ehi-YF-qbh"/>
                         <outlet property="msgButton" destination="xVQ-eu-TEK" id="mI8-X6-zzQ"/>
                         <outlet property="runningFlash" destination="0Hf-SB-xdS" id="Q4E-DW-hAa"/>
+                        <outlet property="time" destination="fkd-ws-D1q" id="POm-z3-zob"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fod-sK-q5t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -831,7 +833,7 @@
             <objects>
                 <viewController id="hj3-Nx-gLJ" customClass="TimeTrialViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SiZ-cy-Ag5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnP-Ok-RgA">
@@ -1385,7 +1387,7 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="tgZ-Yd-6wl"/>
-        <segue reference="nB9-1E-bh5"/>
+        <segue reference="hOo-bE-40F"/>
         <segue reference="tc7-xb-7gJ"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -20,7 +20,6 @@ class WinScreen: UIViewController {
     @IBOutlet weak var mmButton: UIButton!
     @IBOutlet weak var time: UILabel!
     
-    
     var phoneNum = ""
     var ref : DatabaseReference!
     var StringLabel = ""
