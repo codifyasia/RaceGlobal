@@ -198,8 +198,10 @@ class QueueScreenViewController: UIViewController {
     //TODO: Animations
     func startAnimation() {
         animationView.animation = Animation.named("world")
-        animationView.frame.size.height *= 2
-        animationView.frame.size.width *= 1.5
+        animationView.frame = CGRect(x: 0, y: 0, width:500, height: 500)
+        
+//        animationView.frame.size.height *= 2
+//        animationView.frame.size.width *= 1.5
         animationView.loopMode = .loop
         animationView.play()
         // Finished code

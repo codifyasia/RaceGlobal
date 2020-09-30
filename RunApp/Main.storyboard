@@ -161,10 +161,13 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKl-FT-rk7" userLabel="BottomView">
                                         <rect key="frame" x="0.0" y="613.66666666666663" width="414" height="204.33333333333337"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYQ-u4-HVo">
-                                                <rect key="frame" x="58" y="29" width="299" height="73"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYQ-u4-HVo">
+                                                <rect key="frame" x="82" y="0.0" width="250" height="60"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="00M-V8-WfP"/>
+                                                    <constraint firstAttribute="width" constant="250" id="Ogk-Rp-ceC"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                                 <state key="normal" title="Cancel Queue">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -175,6 +178,10 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="fYQ-u4-HVo" firstAttribute="centerX" secondItem="eKl-FT-rk7" secondAttribute="centerX" id="843-De-uu9"/>
+                                            <constraint firstItem="fYQ-u4-HVo" firstAttribute="top" secondItem="eKl-FT-rk7" secondAttribute="top" id="wQ1-fF-v9F"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -212,22 +219,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pDv-Yc-4LI" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="36" y="167" width="343" height="338"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pDv-Yc-4LI" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="32" y="165.66666666666663" width="350" height="350"/>
                                 <color key="backgroundColor" red="0.22745098039215686" green="0.22745098039215686" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="Yeq-OJ-6O9"/>
+                                    <constraint firstAttribute="width" constant="350" id="a4M-ay-n52"/>
+                                </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Waiting For Players" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciw-84-vWz">
-                                <rect key="frame" x="44" y="90" width="327" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting For Players" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciw-84-vWz">
+                                <rect key="frame" x="108.33333333333333" y="84" width="197.33333333333337" height="31.666666666666671"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQd-8s-taH">
-                                <rect key="frame" x="39" y="585" width="337" height="74"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQd-8s-taH">
+                                <rect key="frame" x="82" y="595.66666666666663" width="250" height="60"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="Du9-do-Xc1"/>
+                                    <constraint firstAttribute="height" constant="60" id="cRR-Ha-cEL"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
                                 <state key="normal" title="Back to Main Menu">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -239,6 +251,14 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DKD-wb-bu4"/>
                         <color key="backgroundColor" red="0.22745098039215686" green="0.22745098039215686" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="ZQd-8s-taH" firstAttribute="top" secondItem="pDv-Yc-4LI" secondAttribute="bottom" constant="80" id="0oN-ty-ItU"/>
+                            <constraint firstItem="ciw-84-vWz" firstAttribute="top" secondItem="DKD-wb-bu4" secondAttribute="top" constant="40" id="2hI-2Z-tf9"/>
+                            <constraint firstItem="ZQd-8s-taH" firstAttribute="centerX" secondItem="smF-Rf-d6m" secondAttribute="centerX" id="D5c-Bn-7fS"/>
+                            <constraint firstItem="pDv-Yc-4LI" firstAttribute="top" secondItem="ciw-84-vWz" secondAttribute="bottom" constant="50" id="DIO-nO-SWN"/>
+                            <constraint firstItem="ciw-84-vWz" firstAttribute="centerX" secondItem="smF-Rf-d6m" secondAttribute="centerX" id="HrY-Ho-3Pb"/>
+                            <constraint firstItem="pDv-Yc-4LI" firstAttribute="centerX" secondItem="smF-Rf-d6m" secondAttribute="centerX" id="lx3-fJ-YiY"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kzE-ll-5gM"/>
                     <connections>
@@ -833,7 +853,7 @@
             <objects>
                 <viewController id="hj3-Nx-gLJ" customClass="TimeTrialViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SiZ-cy-Ag5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnP-Ok-RgA">
@@ -952,19 +972,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNZ-se-1ew">
-                                <rect key="frame" x="35" y="661" width="343" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="KohinoorTelugu-Regular" family="Kohinoor Telugu" pointSize="18"/>
-                                <state key="normal" title="Custom Lobby">
-                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="customLobbyPressed:" destination="9TJ-4A-s6H" eventType="touchUpInside" id="Vlx-mH-uw0"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nD-eZ-glN">
                                 <rect key="frame" x="36" y="586" width="343" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1043,6 +1050,19 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNZ-se-1ew">
+                                <rect key="frame" x="36" y="658" width="343" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="KohinoorTelugu-Regular" family="Kohinoor Telugu" pointSize="18"/>
+                                <state key="normal" title="Custom Lobby">
+                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="customLobbyPressed:" destination="9TJ-4A-s6H" eventType="touchUpInside" id="Vlx-mH-uw0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xjI-gW-Ztv"/>
                         <color key="backgroundColor" red="0.22697890230000001" green="0.22697890230000001" blue="0.22697890230000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1386,8 +1406,9 @@
         <designable name="wQM-tF-vAB"/>
     </designables>
     <inferredMetricsTieBreakers>
+        <segue reference="qHj-ox-ScC"/>
         <segue reference="tgZ-Yd-6wl"/>
-        <segue reference="hOo-bE-40F"/>
+        <segue reference="vlS-Fz-L6C"/>
         <segue reference="tc7-xb-7gJ"/>
     </inferredMetricsTieBreakers>
     <resources>
