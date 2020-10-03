@@ -30,7 +30,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     //fires at very short intervals
     var updateTimer = Timer()
     var startTimer = Timer()
-    var cdVal = 10
+    var cdVal = 5
     
     var finalTime : Double!
     //UI linking
@@ -98,17 +98,17 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
             let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             let region = MKCoordinateRegion.init(center: center, latitudinalMeters: zoom, longitudinalMeters: zoom)
             mapView.setRegion(region, animated: true)
-            if (location.horizontalAccuracy < 10) {
+            if (location.horizontalAccuracy > 0) {
                 //            var speed: CLLocationSpeed = CLLocationSpeed()
                 if startLocation == nil {
                     startLocation = locations.first!
                 } else {
                     if (travelledDistance >= goalDistance) {
+                        updateTimer.invalidate()
                         finalTime = Double(hundreds) * 60.0
                         finalTime += Double(tens)
                         finalTime += Double(ones) / 100.0
                         ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues(["Time": finalTime])
-                        updateTimer.invalidate()
                         locationManager.stopUpdatingLocation()
                         checkIfPlayerWon()
                     }
@@ -264,14 +264,14 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
             let destinationVC = segue.destination as! LoseScreen
             destinationVC.currentLobby = self.currentLobby
 
-//            destinationVC.time.text = "\(hundreds):\(tens):\(ones)"
+            destinationVC.timeText = "\(hundreds):\(tens):\(ones)"
             destinationVC.dist = travelledDistance
         }
         if (segue.identifier == "toWinScreen") {
 //            self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).child("Previous").childByAutoId().updateChildValues(["dist":self.travelledDistance, "won": true, "date": "yote"])
             let destinationVC = segue.destination as! WinScreen
             destinationVC.currentLobby = self.currentLobby
-//            destinationVC.time.text = "\(hundreds):\(tens):\(ones)"
+            destinationVC.timeText = "\(hundreds):\(tens):\(ones)"
             destinationVC.dist = travelledDistance
         }
     }

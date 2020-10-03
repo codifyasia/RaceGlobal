@@ -19,10 +19,13 @@ class LoseScreen: UIViewController {
     @IBOutlet var runningFlash: AnimationView!
     @IBOutlet weak var time: UILabel!
     var dist : Double = 0
+    var timeText : String!
     override func viewDidLoad() {
         super.viewDidLoad()
         startAnimation()
         ref = Database.database().reference()
+        time.text = timeText
+        
         msgButton.layer.cornerRadius = msgButton.frame.height / 2
         msgButton.layer.shadowColor = UIColor.black.cgColor
         msgButton.layer.shadowRadius = 3;

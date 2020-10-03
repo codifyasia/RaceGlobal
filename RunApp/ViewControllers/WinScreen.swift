@@ -25,10 +25,13 @@ class WinScreen: UIViewController {
     var StringLabel = ""
     var currentLobby : Int!
     var dist : Double = 0
+    var timeText: String!
     override func viewDidLoad() {
         super.viewDidLoad()
         startAnimation()
         ref = Database.database().reference()
+        
+        time.text = timeText
         
         //display time
         msgButton.layer.cornerRadius = msgButton.frame.height / 2
