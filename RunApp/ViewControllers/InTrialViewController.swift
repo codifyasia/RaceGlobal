@@ -142,20 +142,19 @@ class InTrialViewController: UIViewController, CLLocationManagerDelegate, UIText
                         
                         switch dist {
                         case 10:
-                            sref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Best800": finalTime])
+                            ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Best800": finalTime])
                         case 1600:
-                            ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Best1600": fi])
+                            ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Best1600": finalTime])
                         case 3200:
-                            ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Best800": 10])
+                            ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Best3200": finalTime])
                         case 5000:
-                            ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Best800": 10])
+                            ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Best5000": finalTime])
                         default:
                             print("Error with selected distance: \(dist)")
                         }
-                        print(statString!)
+
                         print("final time = \(finalTime)")
                         
-                        ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Best800": 10])
                         
                         let alert = UIAlertController(title: "Good Job!", message: "Your time was " + "\(hundreds):\(tens):\(ones)", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
