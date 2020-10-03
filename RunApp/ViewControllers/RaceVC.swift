@@ -176,7 +176,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
                 return
             }
             
-            let winnerID = val123["Winner"] as! String
+//            let winnerID = val123["Winner"] as! String
             
             
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
@@ -184,10 +184,10 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
                     print("No Data!!!")
                     return
                 }
-//                let uid = value["id"] as! String
+                let uid = value["id"] as! String
                 let distanceRan = value["Distance"] as! Double
                 
-                if (winnerID == Auth.auth().currentUser!.uid) {
+                if (uid == Auth.auth().currentUser!.uid) {
                     
                     UIView.animate(withDuration: 0.5) {
                         self.playerProgressBar.value = CGFloat(self.travelledDistance / self.goalDistance) * 100
