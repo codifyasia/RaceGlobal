@@ -140,20 +140,40 @@ class InTrialViewController: UIViewController, CLLocationManagerDelegate, UIText
                         finalTime += Double(tens)
                         finalTime += Double(ones) / 100.0
                         
-                        switch dist {
-                        case 10:
-                            ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Best800": finalTime])
-                        case 1600:
-                            ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Best1600": finalTime])
-                        case 3200:
-                            ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Best3200": finalTime])
-                        case 5000:
-                            ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Best5000": finalTime])
-                        default:
-                            print("Error with selected distance: \(dist)")
-                        }
+                        
+                        ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                         
+                            // Get user value
+                            guard let value = snapshot.value as? NSDictionary else {
+                                print("No Data!!!!!!")
+                                return
+                            }
+                            
+                            switch self.dist {
+                            case 10:
+                                if (value["Best800"] as! Double == 0 || value["Best800"] as! Double > self.finalTime) {
+                                    self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Best800": self.finalTime as Double])
+                                }
+                            case 1600:
+                                if (value["Best1600"] as! Double == 0 || value["Best1600"] as! Double > self.finalTime) {
+                                    self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Best1600": self.finalTime as Double])
+                                }
+                            case 3200:
+                                if (value["Best3200"] as! Double == 0 || value["Best3200"] as! Double > self.finalTime) {
+                                    self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Best3200": self.finalTime as Double])
+                                }
+                            case 5000:
+                                if (value["Best5000"] as! Double == 0 || value["Best5000"] as! Double > self.finalTime) {
+                                    self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Best5000": self.finalTime as Double])
+                                }
+                            default:
+                                print("Error with selected distance: \(self.dist)")
+                            }
 
-                        print("final time = \(finalTime)")
+                            print("final time = \(self.finalTime)")
+                        })
+                            
+                        
                         
                         
                         let alert = UIAlertController(title: "Good Job!", message: "Your time was " + "\(hundreds):\(tens):\(ones)", preferredStyle: .alert)
