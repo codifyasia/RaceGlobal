@@ -30,7 +30,8 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     //fires at very short intervals
     var updateTimer = Timer()
     var startTimer = Timer()
-    var cdVal = 30
+    var cdVal = 10
+    
     var finalTime : Double!
     //UI linking
 //    @IBOutlet weak var statusLabel: UILabel!
@@ -262,13 +263,13 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         if segue.identifier == "goToLoseScreen" {
             let destinationVC = segue.destination as! LoseScreen
             destinationVC.currentLobby = self.currentLobby
-//            destinationVC.time.text = "\(hundreds):\(tens):\(ones)"
+            destinationVC.time.text = "\(hundreds):\(tens):\(ones)"
             destinationVC.dist = travelledDistance
         }
         if (segue.identifier == "toWinScreen") {
             let destinationVC = segue.destination as! WinScreen
             destinationVC.currentLobby = self.currentLobby
-//            destinationVC.time.text = "\(hundreds):\(tens):\(ones)"
+            destinationVC.time.text = "\(hundreds):\(tens):\(ones)"
             destinationVC.dist = travelledDistance
         }
     }
