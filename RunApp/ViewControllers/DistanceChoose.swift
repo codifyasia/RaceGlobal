@@ -27,10 +27,13 @@ class DistanceChoose: UIViewController {
     @IBAction func mi1Pressed(_ sender: Any) { self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 10])
     }
     @IBAction func mi2Pressed(_ sender: Any) {
-        self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 2000])
+        self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 1600])
     }
     @IBAction func mi3Pressed(_ sender: Any) {
-        self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 3000])
+        self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 3200])
+    }
+    @IBAction func mi4Pressed(_ sender: Any) {
+        self.ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues([ "SelectedDist" : 5000])
     }
     @objc func fireTimer() {
         var numSelectedDist = 0

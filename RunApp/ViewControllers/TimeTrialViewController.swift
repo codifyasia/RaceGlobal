@@ -71,7 +71,7 @@ class TimeTrialViewController: UIViewController {
         let alert = UIAlertController(title: "Distance", message: "Choose the distance you would like to have a time trial for", preferredStyle: .alert)
         
         let action1 = UIAlertAction(title: "800 Meters", style: .default) { (action) in
-            self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["TrialDistance" : 800])
+            self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["TrialDistance" : 10])
             self.performSegue(withIdentifier: "toTrial", sender: self)
         }
         
@@ -89,6 +89,10 @@ class TimeTrialViewController: UIViewController {
             self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["TrialDistance" : 5000])
             self.performSegue(withIdentifier: "toTrial", sender: self)
         }
+        
+        let action5 = UIAlertAction(title: "Cancel", style: .default) { (action) in
+            //do nothing
+        }
 
         
         
@@ -97,7 +101,7 @@ class TimeTrialViewController: UIViewController {
         alert.addAction(action2)
         alert.addAction(action3)
         alert.addAction(action4)
-//        alert.addAction(action5)
+        alert.addAction(action5)
         
         self.present(alert, animated: true, completion: nil)
         

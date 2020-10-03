@@ -27,6 +27,7 @@ class InTrialViewController: UIViewController, CLLocationManagerDelegate, UIText
     var hundreds : Int = 0
     var tens : Int = 0
     var ones : Int = 0
+    var finalTime: Double!
     
     var started : Bool = false
     
@@ -135,8 +136,28 @@ class InTrialViewController: UIViewController, CLLocationManagerDelegate, UIText
                         locationManager.stopUpdatingLocation()
                         timer.invalidate()
                         
-                        let alert = UIAlertController(title: "Good Job!", message: "Your time was " + "\(hundreds):\(tens):\(ones)", preferredStyle: .alert)
+                        finalTime = Double(hundreds) * 60.0
+                        finalTime += Double(tens)
+                        finalTime += Double(ones) / 100.0
                         
+                        switch dist {
+                        case 10:
+                            sref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Best800": finalTime])
+                        case 1600:
+                            ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Best1600": fi])
+                        case 3200:
+                            ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Best800": 10])
+                        case 5000:
+                            ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Best800": 10])
+                        default:
+                            print("Error with selected distance: \(dist)")
+                        }
+                        print(statString!)
+                        print("final time = \(finalTime)")
+                        
+                        ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Best800": 10])
+                        
+                        let alert = UIAlertController(title: "Good Job!", message: "Your time was " + "\(hundreds):\(tens):\(ones)", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
                             alert.dismiss(animated: true, completion: nil)
                             self.performSegue(withIdentifier: "backToMainMenu", sender: self)
