@@ -106,7 +106,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
                         finalTime = Double(hundreds) * 60.0
                         finalTime += Double(tens)
                         finalTime += Double(ones) / 100.0
-                        ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).setValue(["Time": finalTime])
+                        ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").child(Auth.auth().currentUser!.uid).updateChildValues(["Time": finalTime])
                         updateTimer.invalidate()
                         locationManager.stopUpdatingLocation()
                         checkIfPlayerWon()
