@@ -169,16 +169,25 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         updateSelfDistToFirebase()
         self.traveledDistanceLabel.text = String(travelledDistance)
         ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { snapshot in
-            print("updateAll: " + String(snapshot.childrenCount))
+            
+            
+            guard let val123 = snapshot.value as? NSDictionary else {
+                
+                return
+            }
+            
+            let winnerID = val123["Winner"] as! String
+            
+            
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
                 guard let value = rest.value as? NSDictionary else {
                     print("No Data!!!")
                     return
                 }
-                let uid = value["id"] as! String
+//                let uid = value["id"] as! String
                 let distanceRan = value["Distance"] as! Double
                 
-                if (uid == Auth.auth().currentUser!.uid) {
+                if (winnerID == Auth.auth().currentUser!.uid) {
                     
                     UIView.animate(withDuration: 0.5) {
                         self.playerProgressBar.value = CGFloat(self.travelledDistance / self.goalDistance) * 100
