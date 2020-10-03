@@ -171,10 +171,10 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { snapshot in
             
             
-            guard let val123 = snapshot.value as? NSDictionary else {
-                
-                return
-            }
+//            guard let val123 = snapshot.value as? NSDictionary else {
+//
+//                return
+//            }
             
 //            let winnerID = val123["Winner"] as! String
             
