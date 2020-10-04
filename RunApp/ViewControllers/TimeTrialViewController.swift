@@ -20,10 +20,16 @@ class TimeTrialViewController: UIViewController {
     @IBOutlet weak var distance: UILabel!
     @IBOutlet weak var racesCompleted: UILabel!
     @IBOutlet weak var wins: UILabel!
-    @IBOutlet weak var mile: UILabel!
-    @IBOutlet weak var BestFiveKilometer: UILabel!
+    
+    @IBOutlet weak var EightHundred: UILabel!
+    @IBOutlet weak var SixteenHundred: UILabel!
+    @IBOutlet weak var ThirtyTwoHundred: UILabel!
+    @IBOutlet weak var FiveK: UILabel!
+    
     @IBOutlet weak var trialButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    
+    
     var ref: DatabaseReference!
     var statsList: [statClass] = [statClass]()
     
@@ -54,6 +60,10 @@ class TimeTrialViewController: UIViewController {
             self.distance.text = "Total Distance Ran: \(value["TotalDistance"] as! Int)"
             self.racesCompleted.text = "Races Completed: \(value["CompletedRaces"] as! Int)"
             self.wins.text = "Races Won: \(value["Wins"] as! Int)"
+            self.EightHundred.text = "Best 800 M: " + self.changeTime(time: value["Best800"] as! Double)
+            self.SixteenHundred.text = "Best 1600 M: " + self.changeTime(time: value["Best1600"] as! Double)
+            self.ThirtyTwoHundred.text = "Best 3200 M: " + self.changeTime(time: value["Best3200"] as! Double)
+            self.FiveK.text = "Best 5 KM: " + self.changeTime(time: value["Best5000"] as! Double)
             
             
             
@@ -65,6 +75,21 @@ class TimeTrialViewController: UIViewController {
             print("error:\(error.localizedDescription)")
         }
         
+        
+    }
+    
+    func changeTime(time : Double) -> String {
+        let min = Int(time) / 60
+        let seconds = time - Double(min * 60)
+        let roundedSec = Double(round(1000 * seconds)/1000)
+        var str : String!
+        if min == 0 {
+            str = "\(roundedSec)"
+        } else {
+            str = "\(min):\(roundedSec)"
+        }
+        
+        return str
         
     }
     @IBAction func startPressed(_ sender: Any) {

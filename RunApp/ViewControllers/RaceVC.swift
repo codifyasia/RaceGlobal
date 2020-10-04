@@ -264,14 +264,14 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
             let destinationVC = segue.destination as! LoseScreen
             destinationVC.currentLobby = self.currentLobby
 
-            destinationVC.timeText = "\(hundreds):\(tens):\(ones)"
+            destinationVC.timeText = "\(hundreds):\(tens).\(ones)"
             destinationVC.dist = travelledDistance
         }
         if (segue.identifier == "toWinScreen") {
 //            self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).child("Previous").childByAutoId().updateChildValues(["dist":self.travelledDistance, "won": true, "date": "yote"])
             let destinationVC = segue.destination as! WinScreen
             destinationVC.currentLobby = self.currentLobby
-            destinationVC.timeText = "\(hundreds):\(tens):\(ones)"
+            destinationVC.timeText = "\(hundreds):\(tens).\(ones)"
             destinationVC.dist = travelledDistance
         }
     }

@@ -176,7 +176,7 @@ class InTrialViewController: UIViewController, CLLocationManagerDelegate, UIText
                         
                         
                         
-                        let alert = UIAlertController(title: "Good Job!", message: "Your time was " + "\(hundreds):\(tens):\(ones)", preferredStyle: .alert)
+                        let alert = UIAlertController(title: "Good Job!", message: "Your time was " + "\(hundreds):\(tens).\(ones)", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
                             alert.dismiss(animated: true, completion: nil)
                             self.performSegue(withIdentifier: "backToMainMenu", sender: self)
