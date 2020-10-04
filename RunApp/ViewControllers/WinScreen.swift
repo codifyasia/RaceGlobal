@@ -46,9 +46,21 @@ class WinScreen: UIViewController {
         mmButton.layer.shadowOpacity = 0.5;
         mmButton.layer.shadowOffset = CGSize(width: 0, height: 0)
         // Do any additional setup after loading the view.
-        
-//        ref.child("RacingPlayers").child("Players").child("\(currentLobby!)").observeSingleEvent(of: .value) { snapshot in
             self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).child("Previous").childByAutoId().updateChildValues(["dist":dist, "won": true, "date": "yote"])
+        
+        ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { snapshot in
+            guard let value1 = snapshot.value as? NSDictionary else {
+                print("could not collect label data")
+                return
+            }
+            let td = value1["TotalDistance"] as! Double
+               
+            self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["TotalDistance": (td + self.dist)])
+            
+            
+            
+            
+        }
     }
     @IBAction func goToMessages(_ sender: Any) {
         retrieveData()
