@@ -39,6 +39,22 @@ class LoseScreen: UIViewController {
         mmButton.layer.shadowOffset = CGSize(width: 0, height: 0)
         
             self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).child("Previous").childByAutoId().updateChildValues(["dist":dist, "won": false, "date": "yote"])
+        ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { snapshot in
+                 guard let value1 = snapshot.value as? NSDictionary else {
+                     print("could not collect label data")
+                     return
+                 }
+                 let td = value1["TotalDistance"] as! Double
+                 let w = value1["Wins"] as! Int
+                    
+                 let c = value1["CompletedRaces"] as! Int
+                    
+                 self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["TotalDistance": (td + self.dist)])
+
+//                 self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Wins": (w + 1)])
+                 self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["CompletedRaces": (c + 1)])
+                 
+             }
     }
     
     

@@ -25,6 +25,7 @@ class WinScreen: UIViewController {
     var StringLabel = ""
     var currentLobby : Int!
     var dist : Double = 0
+    
     var timeText: String!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,9 +55,13 @@ class WinScreen: UIViewController {
                 return
             }
             let td = value1["TotalDistance"] as! Double
+            let w = value1["Wins"] as! Int
+            let c = value1["CompletedRaces"] as! Int
                
             self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["TotalDistance": (td + self.dist)])
-            
+
+            self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["Wins": (w + 1)])
+            self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["CompletedRaces": (c + 1)])
             
             
             
