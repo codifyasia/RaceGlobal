@@ -195,7 +195,6 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
                     }
                 } else {
                     if (distanceRan > self.goalDistance) {
-                        self.enemyProgressBar.isHidden = true
                     } // enemy win condition
                     UIView.animate(withDuration: 0.5) {
                         self.enemyProgressBar.value = CGFloat(distanceRan / self.goalDistance) * 100
