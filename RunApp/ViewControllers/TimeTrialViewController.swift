@@ -57,7 +57,7 @@ class TimeTrialViewController: UIViewController {
             }
             
             
-            self.distance.text = "Total Distance Ran: \(value["TotalDistance"] as! Int)"
+            self.distance.text = "Total Distance Ran: \(value["TotalDistance"] as! Double)"
             self.racesCompleted.text = "Races Completed: \(value["CompletedRaces"] as! Int)"
             self.wins.text = "Races Won: \(value["Wins"] as! Int)"
             self.EightHundred.text = "Best 800 M: " + self.changeTime(time: value["Best800"] as! Double)
