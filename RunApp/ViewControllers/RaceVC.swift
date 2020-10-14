@@ -232,7 +232,6 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         print("started setting up labels")
         playerProgressBar.value = 0
         enemyProgressBar.value = 0
-        goalDistanceLabel.text = String(goalDistance)
         traveledDistanceLabel.text = String(travelledDistance)
         print("ended setting up labels")
     }
