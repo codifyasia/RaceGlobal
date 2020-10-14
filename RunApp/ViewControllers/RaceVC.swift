@@ -39,6 +39,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     @IBOutlet weak var enemyProgressBar: MBCircularProgressBarView!
     @IBOutlet weak var playerProgressBar: MBCircularProgressBarView!
     @IBOutlet weak var traveledDistanceLabel: UILabel!
+    @IBOutlet weak var distanceTravelled: UILabel!
     @IBOutlet weak var goalDistanceLabel: UILabel!
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var EnemyLabel: UILabel! // rename these
@@ -314,6 +315,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         enemyProgressBar.isHidden = true
         playerProgressBar.isHidden = true
         goalDistanceLabel.isHidden = true
+        distanceTravelled.isHidden = true
         NameLabel.isHidden = true
         EnemyLabel.isHidden = true
 //        progressLabel.isHidden = true
@@ -331,6 +333,7 @@ class RaceVC: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
         playerProgressBar.isHidden = false
         goalDistanceLabel.isHidden = false
         NameLabel.isHidden = false
+        distanceTravelled.isHidden = false
         EnemyLabel.isHidden = false
 //        progressLabel.isHidden = false
         mapView.isHidden = false

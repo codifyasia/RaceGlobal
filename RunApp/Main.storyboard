@@ -809,6 +809,7 @@
                         <outlet property="NameLabel" destination="5gD-LB-d5n" id="W3m-AP-Sof"/>
                         <outlet property="OptOutButton" destination="rLW-R7-Zvl" id="Sgk-Tg-u2i"/>
                         <outlet property="cdLabel" destination="Wke-Gl-C5y" id="8Uy-nb-15g"/>
+                        <outlet property="distanceTravelled" destination="ONY-eL-PQO" id="Ziz-sb-BPm"/>
                         <outlet property="enemyProgressBar" destination="129-Ad-Zk7" id="laB-0Z-OCi"/>
                         <outlet property="goalDistanceLabel" destination="MXE-DV-yoZ" id="kUx-hk-bAG"/>
                         <outlet property="mapView" destination="53w-3F-jiI" id="cU0-9D-1tY"/>
