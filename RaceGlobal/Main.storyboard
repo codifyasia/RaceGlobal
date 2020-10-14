@@ -12,7 +12,7 @@
         <!--In Trial View Controller-->
         <scene sceneID="XPq-tz-MLx">
             <objects>
-                <viewController id="Fu9-UY-hAk" customClass="InTrialViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Fu9-UY-hAk" customClass="InTrialViewController" customModule="RaceGlobal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mDe-GB-bux">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -153,7 +153,7 @@
         <!--Queue Screen View Controller-->
         <scene sceneID="aoP-I2-JrT">
             <objects>
-                <viewController id="aVs-zb-F40" customClass="QueueScreenViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aVs-zb-F40" customClass="QueueScreenViewController" customModule="RaceGlobal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bAE-Jk-nC7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -246,7 +246,7 @@
         <!--Custom Lobby Queue View Controller-->
         <scene sceneID="l38-71-ZOX">
             <objects>
-                <viewController id="cfW-kX-xiS" customClass="CustomLobbyQueueViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cfW-kX-xiS" customClass="CustomLobbyQueueViewController" customModule="RaceGlobal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="smF-Rf-d6m">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -308,7 +308,7 @@
         <!--Distance Choose-->
         <scene sceneID="RLk-am-cX1">
             <objects>
-                <viewController id="mnj-Dk-Yhs" customClass="DistanceChoose" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mnj-Dk-Yhs" customClass="DistanceChoose" customModule="RaceGlobal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ghh-jy-hFa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -364,10 +364,13 @@
                                     <action selector="mi3Pressed:" destination="mnj-Dk-Yhs" eventType="touchUpInside" id="c08-O6-Bx1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFe-82-MiT">
-                                <rect key="frame" x="65" y="595" width="285" height="104"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFe-82-MiT">
+                                <rect key="frame" x="64.666666666666686" y="586" width="285" height="104"/>
                                 <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="285" id="BF6-3i-Ezl"/>
+                                    <constraint firstAttribute="height" constant="104" id="OWl-5T-iJl"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="25"/>
                                 <state key="normal" title="5 KM">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -381,6 +384,7 @@
                         <viewLayoutGuide key="safeArea" id="pUn-NU-qnt"/>
                         <color key="backgroundColor" red="0.22745098039215686" green="0.22745098039215686" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="QFe-82-MiT" firstAttribute="centerX" secondItem="ghh-jy-hFa" secondAttribute="centerX" id="3TC-w3-a4K"/>
                             <constraint firstItem="sw7-lc-8Fh" firstAttribute="centerX" secondItem="ghh-jy-hFa" secondAttribute="centerX" id="5Nn-cb-IoR"/>
                             <constraint firstItem="pUn-NU-qnt" firstAttribute="trailing" secondItem="1ZE-yx-HzN" secondAttribute="trailing" constant="48" id="5U6-5Q-jxc"/>
                             <constraint firstItem="sw7-lc-8Fh" firstAttribute="top" secondItem="1ZE-yx-HzN" secondAttribute="bottom" constant="75.670000000000002" id="AiZ-FD-9td"/>
@@ -391,6 +395,8 @@
                             <constraint firstItem="bRH-u8-e9H" firstAttribute="top" secondItem="WpN-Ce-7nk" secondAttribute="bottom" constant="29" id="bwO-P9-SAa"/>
                             <constraint firstItem="WpN-Ce-7nk" firstAttribute="centerX" secondItem="ghh-jy-hFa" secondAttribute="centerX" id="gSZ-co-hBB"/>
                             <constraint firstItem="1ZE-yx-HzN" firstAttribute="centerX" secondItem="ghh-jy-hFa" secondAttribute="centerX" id="gc3-2S-2je"/>
+                            <constraint firstItem="QFe-82-MiT" firstAttribute="centerX" secondItem="ghh-jy-hFa" secondAttribute="centerX" id="hgZ-Zk-XF1"/>
+                            <constraint firstItem="QFe-82-MiT" firstAttribute="top" secondItem="bRH-u8-e9H" secondAttribute="bottom" constant="29" id="hre-Q3-hcf"/>
                         </constraints>
                     </view>
                     <connections>
@@ -407,7 +413,7 @@
         <!--Win Screen-->
         <scene sceneID="mEV-a2-DqX">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="gGL-cb-sXM" customClass="WinScreen" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="gGL-cb-sXM" customClass="WinScreen" customModule="RaceGlobal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CT9-bo-UFT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -509,7 +515,7 @@
         <!--Lose Screen-->
         <scene sceneID="M89-Pm-B6H">
             <objects>
-                <viewController id="4M4-wt-BiP" customClass="LoseScreen" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4M4-wt-BiP" customClass="LoseScreen" customModule="RaceGlobal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iau-ro-JCR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -616,7 +622,7 @@
         <!--RaceVC-->
         <scene sceneID="pfM-cc-t1k">
             <objects>
-                <viewController id="gF5-aO-G6X" customClass="RaceVC" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gF5-aO-G6X" customClass="RaceVC" customModule="RaceGlobal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YD0-mB-C9h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -827,7 +833,7 @@
         <!--Login View Controller-->
         <scene sceneID="yJq-ta-FLb">
             <objects>
-                <viewController id="Vda-ce-Hw4" customClass="LoginViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Vda-ce-Hw4" customClass="LoginViewController" customModule="RaceGlobal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BqN-8T-ona">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -962,7 +968,7 @@
         <!--Time Trials-->
         <scene sceneID="vGj-nn-QXG">
             <objects>
-                <viewController id="hj3-Nx-gLJ" customClass="TimeTrialViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hj3-Nx-gLJ" customClass="TimeTrialViewController" customModule="RaceGlobal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SiZ-cy-Ag5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1135,7 +1141,7 @@
         <!--Main Menu-->
         <scene sceneID="Qdy-IB-Ptj">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="9TJ-4A-s6H" customClass="mainMenu" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="9TJ-4A-s6H" customClass="mainMenu" customModule="RaceGlobal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UpA-Jl-3ot">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1294,7 +1300,7 @@
         <!--Auth Handler-->
         <scene sceneID="wd3-QO-Znj">
             <objects>
-                <viewController id="en4-WR-FdK" customClass="AuthHandler" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="en4-WR-FdK" customClass="AuthHandler" customModule="RaceGlobal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W4g-ac-1pr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1309,7 +1315,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="UF6-Ej-vPz">
             <objects>
-                <viewController storyboardIdentifier="Register" modalPresentationStyle="fullScreen" id="ZWA-1g-zMV" customClass="SignUpViewController" customModule="RunApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Register" modalPresentationStyle="fullScreen" id="ZWA-1g-zMV" customClass="SignUpViewController" customModule="RaceGlobal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X7y-T0-cry">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1597,12 +1603,6 @@
             <point key="canvasLocation" x="-1872.4637681159422" y="-558.48214285714278"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="0Hf-SB-xdS"/>
-        <designable name="ElE-5b-foT"/>
-        <designable name="pDv-Yc-4LI"/>
-        <designable name="wQM-tF-vAB"/>
-    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="tgZ-Yd-6wl"/>
         <segue reference="xFx-98-eTL"/>
