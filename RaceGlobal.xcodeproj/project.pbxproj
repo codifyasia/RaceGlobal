@@ -56,7 +56,7 @@
 		47CD8DFE23493AE0007F8D20 /* CustomLobbyQueueScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLobbyQueueScreenViewController.swift; sourceTree = "<group>"; };
 		8904202E22FA33F50044EEBD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8904203022FA359F0044EEBD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		890F3A8D22F8DD4100D14044 /* RunApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		890F3A8D22F8DD4100D14044 /* RaceGlobal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaceGlobal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		890F3A9022F8DD4100D14044 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		890F3A9222F8DD4100D14044 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		890F3A9722F8DD4200D14044 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 		890F3A8422F8DD4100D14044 = {
 			isa = PBXGroup;
 			children = (
-				890F3A8F22F8DD4100D14044 /* RunApp */,
+				890F3A8F22F8DD4100D14044 /* RaceGlobal */,
 				890F3A8E22F8DD4100D14044 /* Products */,
 				ED141DBD85B9F84AF5427699 /* Pods */,
 				1F5ECBF33612C8F60C4837F4 /* Frameworks */,
@@ -129,12 +129,12 @@
 		890F3A8E22F8DD4100D14044 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				890F3A8D22F8DD4100D14044 /* RunApp.app */,
+				890F3A8D22F8DD4100D14044 /* RaceGlobal.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		890F3A8F22F8DD4100D14044 /* RunApp */ = {
+		890F3A8F22F8DD4100D14044 /* RaceGlobal */ = {
 			isa = PBXGroup;
 			children = (
 				9C23712123021A7100A5662B /* sideMenuCell */,
@@ -157,7 +157,7 @@
 				890F3A9C22F8DD4200D14044 /* Info.plist */,
 				890F3AA422F8E2D800D14044 /* GoogleService-Info.plist */,
 			);
-			path = RunApp;
+			path = RaceGlobal;
 			sourceTree = "<group>";
 		};
 		89AACCF3235BE1EB00844203 /* Lottie Files */ = {
@@ -226,9 +226,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		890F3A8C22F8DD4100D14044 /* RunApp */ = {
+		890F3A8C22F8DD4100D14044 /* RaceGlobal */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 890F3A9F22F8DD4200D14044 /* Build configuration list for PBXNativeTarget "RunApp" */;
+			buildConfigurationList = 890F3A9F22F8DD4200D14044 /* Build configuration list for PBXNativeTarget "RaceGlobal" */;
 			buildPhases = (
 				1F4E4FAB389C307B4F8497CE /* [CP] Check Pods Manifest.lock */,
 				890F3A8922F8DD4100D14044 /* Sources */,
@@ -240,9 +240,9 @@
 			);
 			dependencies = (
 			);
-			name = RunApp;
+			name = RaceGlobal;
 			productName = RunApp;
-			productReference = 890F3A8D22F8DD4100D14044 /* RunApp.app */;
+			productReference = 890F3A8D22F8DD4100D14044 /* RaceGlobal.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -261,7 +261,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 890F3A8822F8DD4100D14044 /* Build configuration list for PBXProject "RunApp" */;
+			buildConfigurationList = 890F3A8822F8DD4100D14044 /* Build configuration list for PBXProject "RaceGlobal" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -274,7 +274,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				890F3A8C22F8DD4100D14044 /* RunApp */,
+				890F3A8C22F8DD4100D14044 /* RaceGlobal */,
 			);
 		};
 /* End PBXProject section */
@@ -515,7 +515,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2386LZ47TS;
-				INFOPLIST_FILE = RunApp/Info.plist;
+				INFOPLIST_FILE = RaceGlobal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -523,7 +523,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mpeng202.RunAp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "RunApp/RunApp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "RaceGlobal/RunApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -538,7 +538,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2386LZ47TS;
-				INFOPLIST_FILE = RunApp/Info.plist;
+				INFOPLIST_FILE = RaceGlobal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -546,7 +546,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mpeng202.RunAp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "RunApp/RunApp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "RaceGlobal/RunApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -555,7 +555,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		890F3A8822F8DD4100D14044 /* Build configuration list for PBXProject "RunApp" */ = {
+		890F3A8822F8DD4100D14044 /* Build configuration list for PBXProject "RaceGlobal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				890F3A9D22F8DD4200D14044 /* Debug */,
@@ -564,7 +564,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		890F3A9F22F8DD4200D14044 /* Build configuration list for PBXNativeTarget "RunApp" */ = {
+		890F3A9F22F8DD4200D14044 /* Build configuration list for PBXNativeTarget "RaceGlobal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				890F3AA022F8DD4200D14044 /* Debug */,
