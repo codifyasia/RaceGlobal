@@ -96,7 +96,7 @@ class TimeTrialViewController: UIViewController {
         let alert = UIAlertController(title: "Distance", message: "Choose the distance you would like to have a time trial for", preferredStyle: .alert)
         
         let action1 = UIAlertAction(title: "800 Meters", style: .default) { (action) in
-            self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["TrialDistance" : 10])
+            self.ref.child("PlayerStats").child(Auth.auth().currentUser!.uid).updateChildValues(["TrialDistance" : 800])
             self.performSegue(withIdentifier: "toTrial", sender: self)
         }
         

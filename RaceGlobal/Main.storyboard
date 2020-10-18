@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZWA-1g-zMV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="en4-WR-FdK">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -1603,6 +1603,12 @@
             <point key="canvasLocation" x="-1872.4637681159422" y="-558.48214285714278"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="0Hf-SB-xdS"/>
+        <designable name="ElE-5b-foT"/>
+        <designable name="pDv-Yc-4LI"/>
+        <designable name="wQM-tF-vAB"/>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="tgZ-Yd-6wl"/>
         <segue reference="xFx-98-eTL"/>
