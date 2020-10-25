@@ -27,7 +27,7 @@ class TimeTrialViewController: UIViewController {
     @IBOutlet weak var FiveK: UILabel!
     
     @IBOutlet weak var trialButton: UIButton!
-    @IBOutlet weak var tableView: UITableView!
+//    @IBOutlet weak var tableView: UITableView!
     
     
     var ref: DatabaseReference!
@@ -38,13 +38,13 @@ class TimeTrialViewController: UIViewController {
         super.viewDidLoad()
         ref = Database.database().reference()
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-                trialButton.layer.cornerRadius = trialButton.frame.height / 2
-        tableView.layer.shadowColor = UIColor.black.cgColor
-        tableView.layer.shadowRadius = 3;
-        tableView.layer.shadowOpacity = 0.5;
+//        tableView.delegate = self
+//        tableView.dataSource = self
+//
+//                trialButton.layer.cornerRadius = trialButton.frame.height / 2
+//        tableView.layer.shadowColor = UIColor.black.cgColor
+//        tableView.layer.shadowRadius = 3;
+//        tableView.layer.shadowOpacity = 0.5;
         trialButton.layer.shadowColor = UIColor.black.cgColor
         trialButton.layer.shadowRadius = 3;
         trialButton.layer.shadowOpacity = 0.5;
@@ -154,7 +154,7 @@ class TimeTrialViewController: UIViewController {
             }
             
 //            self.playerList = self.playerList.sorted() { $0.score > $1.score }
-            self.tableView.reloadData()
+            //self.tableView.reloadData()
         }) { (error) in
             print("error:(error.localizedDescription)")
         }
