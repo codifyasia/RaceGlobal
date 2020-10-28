@@ -21,9 +21,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationUsageDescription</key>
-	<string>We need your locations</string>
+	<string>We need your location to calculate the distance you travel during the run. This is for the purpose of the racing program.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need your locations</string>
+	<string>We need your location to calculate the distance you travel during the run. This is for the purpose of the racing program.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
